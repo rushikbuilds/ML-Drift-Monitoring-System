@@ -1,0 +1,1433 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "Real-time monitoring of ML model drift: fused drift scores, component signals, per-feature breakdown, forecasts, alerts, model registry, adaptive thresholds, and retraining history.",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "id": 1,
+      "type": "stat",
+      "title": "Processed Batches",
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dews-infinity"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 0
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dews-infinity"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "http://api:8000/state",
+          "url_options": {
+            "method": "GET"
+          },
+          "format": "table",
+          "root_selector": "",
+          "columns": [
+            {
+              "selector": "processed",
+              "text": "Processed",
+              "type": "number"
+            },
+            {
+              "selector": "total_batches",
+              "text": "Total",
+              "type": "number"
+            }
+          ]
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          },
+          "color": {
+            "mode": "thresholds"
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^Processed$/",
+          "values": false
+        },
+        "colorMode": "background_gradient",
+        "graphMode": "none",
+        "textMode": "value_and_name"
+      }
+    },
+    {
+      "id": 2,
+      "type": "gauge",
+      "title": "Latest Drift Score",
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dews-infinity"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 0
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dews-infinity"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "http://api:8000/state",
+          "url_options": {
+            "method": "GET"
+          },
+          "format": "table",
+          "root_selector": "",
+          "columns": [
+            {
+              "selector": "latest_drift_score",
+              "text": "DS",
+              "type": "number"
+            }
+          ]
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "min": 0,
+          "max": 1,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 0.2
+              },
+              {
+                "color": "orange",
+                "value": 0.3
+              },
+              {
+                "color": "red",
+                "value": 0.5
+              }
+            ]
+          },
+          "color": {
+            "mode": "thresholds"
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      }
+    },
+    {
+      "id": 3,
+      "type": "stat",
+      "title": "Time to Degradation",
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dews-infinity"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 8,
+        "y": 0
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dews-infinity"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "http://api:8000/state",
+          "url_options": {
+            "method": "GET"
+          },
+          "format": "table",
+          "root_selector": "",
+          "columns": [
+            {
+              "selector": "latest_ttd",
+              "text": "TTD (batches)",
+              "type": "number"
+            }
+          ]
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "batches",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 2
+              },
+              {
+                "color": "#EAB839",
+                "value": 4
+              },
+              {
+                "color": "green",
+                "value": 6
+              }
+            ]
+          },
+          "color": {
+            "mode": "thresholds"
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        },
+        "colorMode": "background_gradient",
+        "graphMode": "none",
+        "textMode": "value_and_name"
+      }
+    },
+    {
+      "id": 4,
+      "type": "stat",
+      "title": "Model Version",
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dews-infinity"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 12,
+        "y": 0
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dews-infinity"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "http://api:8000/state",
+          "url_options": {
+            "method": "GET"
+          },
+          "format": "table",
+          "root_selector": "",
+          "columns": [
+            {
+              "selector": "model_version",
+              "text": "Version",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "purple",
+                "value": null
+              }
+            ]
+          },
+          "color": {
+            "mode": "thresholds"
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        },
+        "colorMode": "background_gradient",
+        "graphMode": "none",
+        "textMode": "value"
+      }
+    },
+    {
+      "id": 5,
+      "type": "stat",
+      "title": "Drift Start Batch",
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dews-infinity"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 16,
+        "y": 0
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dews-infinity"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "http://api:8000/state",
+          "url_options": {
+            "method": "GET"
+          },
+          "format": "table",
+          "root_selector": "",
+          "columns": [
+            {
+              "selector": "drift_start_batch",
+              "text": "Batch #",
+              "type": "number"
+            }
+          ]
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-orange",
+                "value": null
+              }
+            ]
+          },
+          "color": {
+            "mode": "thresholds"
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        },
+        "colorMode": "background_gradient",
+        "graphMode": "none",
+        "textMode": "value_and_name"
+      }
+    },
+    {
+      "id": 6,
+      "type": "stat",
+      "title": "Total Alerts",
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dews-infinity"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 20,
+        "y": 0
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dews-infinity"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "http://api:8000/alerts",
+          "url_options": {
+            "method": "GET"
+          },
+          "format": "table",
+          "root_selector": "",
+          "columns": [
+            {
+              "selector": "severity",
+              "text": "severity",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 1
+              },
+              {
+                "color": "red",
+                "value": 3
+              }
+            ]
+          },
+          "color": {
+            "mode": "thresholds"
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "count"
+          ]
+        },
+        "colorMode": "background_gradient",
+        "graphMode": "none",
+        "textMode": "value_and_name"
+      }
+    },
+    {
+      "id": 7,
+      "type": "timeseries",
+      "title": "Drift Score & Component Signals",
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dews-infinity"
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 14,
+        "x": 0,
+        "y": 5
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dews-infinity"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "http://api:8000/scores",
+          "url_options": {
+            "method": "GET"
+          },
+          "format": "timeseries",
+          "root_selector": "",
+          "columns": [
+            {
+              "selector": "batch_index",
+              "text": "Batch",
+              "type": "number"
+            },
+            {
+              "selector": "ds",
+              "text": "Drift Score (DS)",
+              "type": "number"
+            },
+            {
+              "selector": "s_stat",
+              "text": "S_stat",
+              "type": "number"
+            },
+            {
+              "selector": "s_emb",
+              "text": "S_emb",
+              "type": "number"
+            },
+            {
+              "selector": "s_conf",
+              "text": "S_conf",
+              "type": "number"
+            }
+          ]
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "fillOpacity": 8,
+            "gradientMode": "scheme",
+            "showPoints": "always",
+            "pointSize": 6,
+            "spanNulls": false,
+            "axisBorderShow": false
+          },
+          "min": 0,
+          "max": 1,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 0.3
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Drift Score (DS)"
+            },
+            "properties": [
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#6C2BD9",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "S_stat"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#2563EB",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "fill": "dash",
+                  "dash": [
+                    10,
+                    5
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "S_emb"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#059669",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "fill": "dash",
+                  "dash": [
+                    10,
+                    5
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "S_conf"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#D97706",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "fill": "dash",
+                  "dash": [
+                    10,
+                    5
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        },
+        "legend": {
+          "displayMode": "table",
+          "placement": "bottom",
+          "calcs": [
+            "lastNotNull",
+            "max"
+          ]
+        }
+      }
+    },
+    {
+      "id": 8,
+      "type": "timeseries",
+      "title": "Drift Forecast & Confidence Interval",
+      "description": "Forecasted drift trajectory with upper/lower confidence bounds. Red dashed line = critical threshold.",
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dews-infinity"
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 10,
+        "x": 14,
+        "y": 5
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dews-infinity"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "http://api:8000/scores",
+          "url_options": {
+            "method": "GET"
+          },
+          "format": "timeseries",
+          "root_selector": "",
+          "columns": [
+            {
+              "selector": "batch_index",
+              "text": "Batch",
+              "type": "number"
+            },
+            {
+              "selector": "ds",
+              "text": "Historical DS",
+              "type": "number"
+            }
+          ]
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "fillOpacity": 5,
+            "showPoints": "always",
+            "pointSize": 5
+          },
+          "min": 0,
+          "max": 1.2,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "transparent",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 0.3
+              }
+            ]
+          },
+          "color": {
+            "mode": "palette-classic"
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Historical DS"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#0f766e",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.lineWidth",
+                "value": 3
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "tooltip": {
+          "mode": "multi"
+        },
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        }
+      }
+    },
+    {
+      "id": 9,
+      "type": "barchart",
+      "title": "Per-Feature Drift Scores",
+      "description": "Drift score breakdown by individual feature. Taller bars indicate stronger drift signal.",
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dews-infinity"
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dews-infinity"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "http://api:8000/feature-drift",
+          "url_options": {
+            "method": "GET"
+          },
+          "format": "table",
+          "root_selector": "",
+          "columns": [
+            {
+              "selector": "feature",
+              "text": "Feature",
+              "type": "string"
+            },
+            {
+              "selector": "score",
+              "text": "Drift Score",
+              "type": "number"
+            },
+            {
+              "selector": "kind",
+              "text": "Type",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "min": 0,
+          "max": 1,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 0.2
+              },
+              {
+                "color": "orange",
+                "value": 0.35
+              },
+              {
+                "color": "red",
+                "value": 0.5
+              }
+            ]
+          },
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "gradientMode": "scheme"
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "orientation": "vertical",
+        "showValue": "always",
+        "barWidth": 0.7,
+        "groupWidth": 0.75,
+        "xTickLabelRotation": -45,
+        "legend": {
+          "displayMode": "hidden"
+        }
+      }
+    },
+    {
+      "id": 10,
+      "type": "table",
+      "title": "Per-Feature Drift Details",
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dews-infinity"
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 16
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dews-infinity"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "http://api:8000/feature-drift",
+          "url_options": {
+            "method": "GET"
+          },
+          "format": "table",
+          "root_selector": "",
+          "columns": [
+            {
+              "selector": "feature",
+              "text": "Feature",
+              "type": "string"
+            },
+            {
+              "selector": "kind",
+              "text": "Type",
+              "type": "string"
+            },
+            {
+              "selector": "score",
+              "text": "Score",
+              "type": "number"
+            },
+            {
+              "selector": "ks_statistic",
+              "text": "KS",
+              "type": "number"
+            },
+            {
+              "selector": "psi",
+              "text": "PSI",
+              "type": "number"
+            },
+            {
+              "selector": "chi_square",
+              "text": "Chi\u00b2",
+              "type": "number"
+            },
+            {
+              "selector": "jsd",
+              "text": "JSD",
+              "type": "number"
+            }
+          ]
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "center",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Score"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "gauge",
+                  "mode": "gradient"
+                }
+              },
+              {
+                "id": "min",
+                "value": 0
+              },
+              {
+                "id": "max",
+                "value": 1
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "orange",
+                      "value": 0.3
+                    },
+                    {
+                      "color": "red",
+                      "value": 0.5
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "sortBy": [
+          {
+            "displayName": "Score",
+            "desc": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": "table",
+      "title": "\ud83d\udea8 Alert History",
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dews-infinity"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 16,
+        "x": 0,
+        "y": 26
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dews-infinity"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "http://api:8000/alerts",
+          "url_options": {
+            "method": "GET"
+          },
+          "format": "table",
+          "root_selector": "",
+          "columns": [
+            {
+              "selector": "timestamp",
+              "text": "Timestamp",
+              "type": "string"
+            },
+            {
+              "selector": "batch_index",
+              "text": "Batch",
+              "type": "number"
+            },
+            {
+              "selector": "severity",
+              "text": "Severity",
+              "type": "string"
+            },
+            {
+              "selector": "message",
+              "text": "Message",
+              "type": "string"
+            },
+            {
+              "selector": "trigger_value",
+              "text": "Trigger DS",
+              "type": "number"
+            },
+            {
+              "selector": "predicted_ttd",
+              "text": "Predicted TTD",
+              "type": "number"
+            },
+            {
+              "selector": "model_version",
+              "text": "Model",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left",
+            "filterable": true
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Severity"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "Critical": {
+                        "color": "red",
+                        "text": "\ud83d\udd34 Critical"
+                      }
+                    }
+                  },
+                  {
+                    "type": "value",
+                    "options": {
+                      "Warning": {
+                        "color": "orange",
+                        "text": "\ud83d\udfe1 Warning"
+                      }
+                    }
+                  },
+                  {
+                    "type": "value",
+                    "options": {
+                      "Info": {
+                        "color": "blue",
+                        "text": "\ud83d\udd35 Info"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "sortBy": [
+          {
+            "displayName": "Batch",
+            "desc": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "type": "table",
+      "title": "\ud83c\udfaf Adaptive Threshold State",
+      "description": "Current state of the adaptive threshold engine. Shows warmup mean/std, EMA-smoothed threshold, and configuration.",
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dews-infinity"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 26
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dews-infinity"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "http://api:8000/adaptive-threshold",
+          "url_options": {
+            "method": "GET"
+          },
+          "format": "table",
+          "root_selector": "",
+          "columns": [
+            {
+              "selector": "current_threshold",
+              "text": "Threshold",
+              "type": "number"
+            },
+            {
+              "selector": "is_warmed_up",
+              "text": "Warmed Up",
+              "type": "string"
+            },
+            {
+              "selector": "warmup_mean",
+              "text": "Warmup Mean",
+              "type": "number"
+            },
+            {
+              "selector": "warmup_std",
+              "text": "Warmup Std",
+              "type": "number"
+            },
+            {
+              "selector": "ema_mean",
+              "text": "EMA Mean",
+              "type": "number"
+            },
+            {
+              "selector": "ema_std",
+              "text": "EMA Std",
+              "type": "number"
+            },
+            {
+              "selector": "scores_seen",
+              "text": "Scores Seen",
+              "type": "number"
+            },
+            {
+              "selector": "sensitivity",
+              "text": "Sensitivity",
+              "type": "number"
+            }
+          ]
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "center"
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "showHeader": true
+      }
+    },
+    {
+      "id": 13,
+      "type": "table",
+      "title": "\ud83d\udccb Model Registry",
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dews-infinity"
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 35
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dews-infinity"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "http://api:8000/model-registry",
+          "url_options": {
+            "method": "GET"
+          },
+          "format": "table",
+          "root_selector": "",
+          "columns": [
+            {
+              "selector": "model_version",
+              "text": "Version",
+              "type": "string"
+            },
+            {
+              "selector": "reference_data_hash",
+              "text": "Ref Data Hash",
+              "type": "string"
+            },
+            {
+              "selector": "registered_at",
+              "text": "Registered At",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left"
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "showHeader": true
+      }
+    },
+    {
+      "id": 14,
+      "type": "table",
+      "title": "\ud83d\udd04 Retraining History",
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "dews-infinity"
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 35
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "dews-infinity"
+          },
+          "type": "json",
+          "source": "url",
+          "url": "http://api:8000/retraining-history",
+          "url_options": {
+            "method": "GET"
+          },
+          "format": "table",
+          "root_selector": "",
+          "columns": [
+            {
+              "selector": "triggered_at",
+              "text": "Triggered At",
+              "type": "string"
+            },
+            {
+              "selector": "status",
+              "text": "Status",
+              "type": "string"
+            },
+            {
+              "selector": "runner",
+              "text": "Runner",
+              "type": "string"
+            },
+            {
+              "selector": "model_version_old",
+              "text": "Old Version",
+              "type": "string"
+            },
+            {
+              "selector": "model_version_new",
+              "text": "New Version",
+              "type": "string"
+            },
+            {
+              "selector": "duration_seconds",
+              "text": "Duration (s)",
+              "type": "number"
+            }
+          ]
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "center",
+            "filterable": true
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Status"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "success": {
+                        "color": "green",
+                        "text": "\u2705 Success"
+                      }
+                    }
+                  },
+                  {
+                    "type": "value",
+                    "options": {
+                      "failed": {
+                        "color": "red",
+                        "text": "\u274c Failed"
+                      }
+                    }
+                  },
+                  {
+                    "type": "value",
+                    "options": {
+                      "cooldown": {
+                        "color": "orange",
+                        "text": "\u23f3 Cooldown"
+                      }
+                    }
+                  },
+                  {
+                    "type": "value",
+                    "options": {
+                      "skipped": {
+                        "color": "semi-dark-yellow",
+                        "text": "\u23ed Skipped"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "sortBy": [
+          {
+            "displayName": "Triggered At",
+            "desc": true
+          }
+        ]
+      }
+    }
+  ],
+  "refresh": "10s",
+  "schemaVersion": 39,
+  "tags": [
+    "ml",
+    "drift",
+    "monitoring",
+    "dews"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "ML Drift Early-Warning System (DEWS)",
+  "uid": "dews-drift-monitoring",
+  "version": 1
+}

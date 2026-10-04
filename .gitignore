@@ -1,0 +1,35 @@
+__pycache__/
+.agents/
+.idea/
+.vscode/
+pytest_cache/
+*.pyc
+.venv/
+artifacts/*
+!artifacts/report/
+!artifacts/charts/
+*.sqlite3
+*.log
+*.tmp
+mlruns/
+.env
+*.egg-info/
+dist/
+build/
+*.db
+.DS_Store
+*Zone.Identifier
+
+# Ignored presentations, archives and dependencies
+presentation_script.md
+presentation_slides.md
+*.zip
+Dependencies/
+BTech Report/
+BTech Report.zip
+Dependencies.zip
+
+# Markdown rules
+*.md
+!README.md
+!docs/**/*.md

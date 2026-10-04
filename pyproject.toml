@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ml-drift-early-warning"
+version = "1.0.0"
+description = "FastAPI-backed ML drift monitoring system with dashboard"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff.lint]
+ignore = ["BLE001", "PLW0603", "PLW1510"]

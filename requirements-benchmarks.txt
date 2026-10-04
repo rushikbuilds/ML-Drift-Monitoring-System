@@ -1,0 +1,4 @@
+# Optional comparison tools
+# Install with: pip install -r requirements-benchmarks.txt
+evidently
+nannyml

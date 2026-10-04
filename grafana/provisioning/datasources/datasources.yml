@@ -1,0 +1,17 @@
+apiVersion: 1
+
+datasources:
+  - name: DEWS API
+    type: yesoreyeram-infinity-datasource
+    uid: dews-infinity
+    access: proxy
+    isDefault: true
+    jsonData:
+      # The Infinity plugin queries the FastAPI backend for all monitoring data.
+      # In Docker Compose the backend service is reachable at http://api:8000.
+      global_queries: []
+      allowedHosts:
+        - "api"
+        - "api:8000"
+        - "http://api:8000"
+    editable: true

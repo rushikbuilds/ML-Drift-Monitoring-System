@@ -1,0 +1,67 @@
+{
+  "protocol": {
+    "batch_size": 80,
+    "drift_start_batch": 9,
+    "features": 7,
+    "scenario": "synthetic_demo",
+    "total_batches": 18,
+    "window_size": 160
+  },
+  "results": [
+    {
+      "alerts_total": 3,
+      "detection_lag": 1.0,
+      "false_alert_rate": 0.0,
+      "has_forecasting": true,
+      "label_free": true,
+      "name": "DEWS",
+      "runtime_seconds": 1.378,
+      "status": "available",
+      "warning_lead": 2.0
+    },
+    {
+      "alerts_total": 0,
+      "detection_lag": null,
+      "false_alert_rate": 0.0,
+      "has_forecasting": false,
+      "label_free": true,
+      "name": "KS-only",
+      "runtime_seconds": 0.053,
+      "status": "available",
+      "warning_lead": null
+    },
+    {
+      "alerts_total": 11,
+      "detection_lag": 0.0,
+      "false_alert_rate": 0.3333,
+      "has_forecasting": false,
+      "label_free": true,
+      "name": "PSI-only",
+      "runtime_seconds": 0.018,
+      "status": "available",
+      "warning_lead": null
+    },
+    {
+      "alerts_total": 7,
+      "detection_lag": 2.0,
+      "false_alert_rate": 0.0,
+      "has_forecasting": false,
+      "label_free": true,
+      "name": "Evidently",
+      "runtime_seconds": 9.168,
+      "status": "available",
+      "warning_lead": null
+    },
+    {
+      "alerts_total": 6,
+      "detection_lag": 1.0,
+      "false_alert_rate": 0.0,
+      "has_forecasting": false,
+      "label_free": true,
+      "name": "NannyML",
+      "runtime_seconds": 1.073,
+      "status": "available",
+      "warning_lead": null
+    }
+  ]
+}

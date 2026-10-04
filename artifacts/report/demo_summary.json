@@ -1,0 +1,18 @@
+{
+  "alert_severities": [
+    "Critical",
+    "Warning",
+    "Critical"
+  ],
+  "alerts_generated": 3,
+  "average_accuracy": 0.8791666666666668,
+  "baseline_ks_detection_lag": null,
+  "baseline_psi_detection_lag": 0.0,
+  "critical_alerts": 2,
+  "detection_lag": 3.0,
+  "drift_start_batch": 9,
+  "final_drift_score": 0.41264623539627776,
+  "forecast_model": "ensemble",
+  "last_forecast": "{\"forecast\": [0.4313842835837237, 0.45097583618586473, 0.47051666657267044, 0.4900070283552174, 0.509447173876527, 0.5288373542179055, 0.5481778192052524, 0.567468817415338], \"lower_bound\": [0.36339525741490447, 0.3829868100170455, 0.4025276404038512, 0.4220180021863982, 0.4414581477077078, 0.4608483280490862, 0.4801887930364332, 0.4994797912465187], \"upper_bound\": [0.49937330975254296, 0.518964862354684, 0.5385056927414897, 0.5579960545240367, 0.5774362000453463, 0.5968263803867248, 0.6161668453740717, 0.6354578435841572], \"ttd_batches\": 0.0, \"ttd_lower_bound\": 0.0, \"ttd_upper_bound\": 0.0, \"model_name\": \"ensemble\"}",
+  "processed_batches": 18
+}
