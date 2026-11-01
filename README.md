@@ -1,5 +1,10 @@
 # ML Model Drift Early-Warning System (DEWS)
 
+> **Project status (v2).** The supported research path is the delayed-label-aware early-warning experiment:
+> [docs/v2_protocol.md](docs/v2_protocol.md) (what changed from v1 and why), [docs/v2_results.md](docs/v2_results.md) (results and limitations).
+> Reproduce with `python scripts/run_v2_experiment.py`. The v1 result ([docs/evaluation_results.md](docs/evaluation_results.md)) was negative and is kept as published.
+> The Kafka/Celery/Redis/Grafana stack described further down is optional legacy infrastructure and is not part of the evaluated claims.
+
 ## Problem Statement
 Machine learning models often suffer from performance degradation once deployed in production due to evolving data patterns — a phenomenon known as **Concept Drift** and **Data Drift**. Detecting this degradation typically happens *after* the model has already made poor predictions, impacting business outcomes. There is a need for a proactive monitoring solution that identifies early signs of drift and forecasts potential degradation before it severely affects the system.
 

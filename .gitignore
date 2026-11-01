@@ -33,3 +33,4 @@ Dependencies.zip
 *.md
 !README.md
 !docs/**/*.md
+artifacts/v2/*.pkl

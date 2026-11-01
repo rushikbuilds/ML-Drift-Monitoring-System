@@ -12,6 +12,7 @@ from typing import Any
 import numpy as np
 import pandas as pd
 
+from .alerts import AlertEngine
 from .config import MonitorConfig
 from .early_warning_metrics import (
     accuracy_baseline,
@@ -22,6 +23,8 @@ from .early_warning_metrics import (
     stable_clean_batch_indices,
 )
 from .experiment_config import DEFAULT_EARLY_WARNING_CONFIG
+from .forecasting import DriftForecaster
+from .integrations import IntegrationManager
 from .models import SklearnModelAdapter
 from .monitoring import DriftMonitoringSystem
 from .risk import RiskFeatureBuilder, compute_baseline_scores
@@ -181,6 +184,9 @@ def run_early_warning_episode(
         schema=episode.feature_schema,
         model=model,
         store=store,
+        alert_engine=AlertEngine(active_config),
+        forecaster=DriftForecaster(horizon=active_config.forecast_horizon),
+        integration_manager=IntegrationManager(),
     )
 
     run_metadata = DEFAULT_EARLY_WARNING_CONFIG.metadata_for_run(

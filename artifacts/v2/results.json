@@ -1,0 +1,1519 @@
+{
+  "protocol": {
+    "H": 5,
+    "K": 2,
+    "drop": 0.05,
+    "budget_per_100": 5.0,
+    "delays": [
+      0,
+      2,
+      5
+    ],
+    "train_seeds": [
+      100,
+      139
+    ],
+    "valid_seeds": [
+      140,
+      159
+    ],
+    "test_seeds": [
+      200,
+      249
+    ],
+    "test_event_prevalence": {
+      "clean": {
+        "episodes": 50,
+        "with_event": 2
+      },
+      "harmless_shift": {
+        "episodes": 50,
+        "with_event": 1
+      },
+      "harmful_gradual": {
+        "episodes": 50,
+        "with_event": 50
+      },
+      "harmful_abrupt": {
+        "episodes": 50,
+        "with_event": 50
+      },
+      "concept_gradual": {
+        "episodes": 50,
+        "with_event": 50
+      }
+    }
+  },
+  "by_delay": {
+    "0": {
+      "stat_only": {
+        "threshold": 0.3093017680324497,
+        "val_false_alerts_per_100": 0.0499001996007984,
+        "val_recall": 0.0,
+        "overall_recall": 0.0,
+        "overall_recall_ci95": [
+          0.0,
+          0.0
+        ],
+        "early_warning_rate": 0.0,
+        "early_warning_ci95": [
+          0.0,
+          0.0
+        ],
+        "false_alerts_per_100_no_event_eps": 0.052868094105207514,
+        "auroc_state_target": 0.5535716467889976,
+        "auroc_harmful_only": 0.733149586673867,
+        "brier": null,
+        "by_scenario": {
+          "clean": {
+            "events": 2,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          },
+          "harmless_shift": {
+            "events": 1,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.10256410256410257
+          },
+          "harmful_gradual": {
+            "events": 50,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          },
+          "harmful_abrupt": {
+            "events": 50,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          },
+          "concept_gradual": {
+            "events": 50,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          }
+        }
+      },
+      "conf_only": {
+        "threshold": 0.0515752198247989,
+        "val_false_alerts_per_100": 4.740518962075848,
+        "val_recall": 0.4444444444444444,
+        "overall_recall": 0.43790849673202614,
+        "overall_recall_ci95": [
+          0.35294117647058826,
+          0.5098039215686274
+        ],
+        "early_warning_rate": 0.2679738562091503,
+        "early_warning_ci95": [
+          0.20261437908496732,
+          0.33986928104575165
+        ],
+        "false_alerts_per_100_no_event_eps": 6.502775574940524,
+        "auroc_state_target": 0.5018600610115034,
+        "auroc_harmful_only": 0.5103252606654758,
+        "brier": null,
+        "by_scenario": {
+          "clean": {
+            "events": 2,
+            "recall": 1.0,
+            "early_warning_rate": 0.5,
+            "mean_lead": 5.0,
+            "mean_lag": 1.0,
+            "fa_per_100_clean": 6.923076923076923
+          },
+          "harmless_shift": {
+            "events": 1,
+            "recall": 1.0,
+            "early_warning_rate": 1.0,
+            "mean_lead": 4.0,
+            "mean_lag": null,
+            "fa_per_100_clean": 6.073260073260074
+          },
+          "harmful_gradual": {
+            "events": 50,
+            "recall": 0.44,
+            "early_warning_rate": 0.24,
+            "mean_lead": 3.4166666666666665,
+            "mean_lag": 2.3,
+            "fa_per_100_clean": 5.57429922036291
+          },
+          "harmful_abrupt": {
+            "events": 50,
+            "recall": 0.38,
+            "early_warning_rate": 0.18,
+            "mean_lead": 2.5555555555555554,
+            "mean_lag": 2.1,
+            "fa_per_100_clean": 4.954954954954955
+          },
+          "concept_gradual": {
+            "events": 50,
+            "recall": 0.46,
+            "early_warning_rate": 0.36,
+            "mean_lead": 3.0,
+            "mean_lag": 2.4,
+            "fa_per_100_clean": 7.6810094667237525
+          }
+        }
+      },
+      "fixed_score": {
+        "threshold": 0.38078436113940123,
+        "val_false_alerts_per_100": 0.0499001996007984,
+        "val_recall": 0.0,
+        "overall_recall": 0.0,
+        "overall_recall_ci95": [
+          0.0,
+          0.0
+        ],
+        "early_warning_rate": 0.0,
+        "early_warning_ci95": [
+          0.0,
+          0.0
+        ],
+        "false_alerts_per_100_no_event_eps": 0.026434047052603757,
+        "auroc_state_target": 0.5562204461559326,
+        "auroc_harmful_only": 0.730200016616126,
+        "brier": null,
+        "by_scenario": {
+          "clean": {
+            "events": 2,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          },
+          "harmless_shift": {
+            "events": 1,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.05128205128205129
+          },
+          "harmful_gradual": {
+            "events": 50,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          },
+          "harmful_abrupt": {
+            "events": 50,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          },
+          "concept_gradual": {
+            "events": 50,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          }
+        }
+      },
+      "slope_forecast": {
+        "threshold": 0.4007162940901389,
+        "val_false_alerts_per_100": 3.8922155688622753,
+        "val_recall": 0.36507936507936506,
+        "overall_recall": 0.3333333333333333,
+        "overall_recall_ci95": [
+          0.26143790849673204,
+          0.4117647058823529
+        ],
+        "early_warning_rate": 0.032679738562091505,
+        "early_warning_ci95": [
+          0.006535947712418301,
+          0.06535947712418301
+        ],
+        "false_alerts_per_100_no_event_eps": 5.3661115516785625,
+        "auroc_state_target": 0.568661308662471,
+        "auroc_harmful_only": 0.7053970215594234,
+        "brier": null,
+        "by_scenario": {
+          "clean": {
+            "events": 2,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          },
+          "harmless_shift": {
+            "events": 1,
+            "recall": 1.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": 1.0,
+            "fa_per_100_clean": 10.600732600732602
+          },
+          "harmful_gradual": {
+            "events": 50,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          },
+          "harmful_abrupt": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.1,
+            "mean_lead": 2.4,
+            "mean_lag": 0.044444444444444446,
+            "fa_per_100_clean": 0.0
+          },
+          "concept_gradual": {
+            "events": 50,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          }
+        }
+      },
+      "delayed_label_only": {
+        "threshold": 0.030333333333333323,
+        "val_false_alerts_per_100": 4.740518962075848,
+        "val_recall": 1.0,
+        "overall_recall": 1.0,
+        "overall_recall_ci95": [
+          1.0,
+          1.0
+        ],
+        "early_warning_rate": 0.49673202614379086,
+        "early_warning_ci95": [
+          0.41830065359477125,
+          0.5816993464052288
+        ],
+        "false_alerts_per_100_no_event_eps": 4.758128469468676,
+        "auroc_state_target": 0.9213106594279463,
+        "auroc_harmful_only": 0.9138480870685001,
+        "brier": null,
+        "by_scenario": {
+          "clean": {
+            "events": 2,
+            "recall": 1.0,
+            "early_warning_rate": 0.5,
+            "mean_lead": 1.0,
+            "mean_lag": 2.0,
+            "fa_per_100_clean": 5.060512820512821
+          },
+          "harmless_shift": {
+            "events": 1,
+            "recall": 1.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": 0.0,
+            "fa_per_100_clean": 4.9816849816849835
+          },
+          "harmful_gradual": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.72,
+            "mean_lead": 3.2222222222222223,
+            "mean_lag": 1.0,
+            "fa_per_100_clean": 6.915791151274819
+          },
+          "harmful_abrupt": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.16,
+            "mean_lead": 2.5,
+            "mean_lag": 1.2619047619047619,
+            "fa_per_100_clean": 6.531531531531532
+          },
+          "concept_gradual": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.62,
+            "mean_lead": 2.774193548387097,
+            "mean_lag": 0.8947368421052632,
+            "fa_per_100_clean": 4.453913433505271
+          }
+        }
+      },
+      "cal_signals_static": {
+        "threshold": 0.5918967814237368,
+        "val_false_alerts_per_100": 4.441117764471058,
+        "val_recall": 0.7301587301587301,
+        "overall_recall": 0.7254901960784313,
+        "overall_recall_ci95": [
+          0.6601307189542484,
+          0.7973856209150327
+        ],
+        "early_warning_rate": 0.41830065359477125,
+        "early_warning_ci95": [
+          0.3464052287581699,
+          0.49673202614379086
+        ],
+        "false_alerts_per_100_no_event_eps": 2.2733280465239227,
+        "auroc_state_target": 0.8254957743498341,
+        "auroc_harmful_only": 0.7463224359240643,
+        "brier": 0.16109276490818403,
+        "by_scenario": {
+          "clean": {
+            "events": 2,
+            "recall": 0.5,
+            "early_warning_rate": 0.5,
+            "mean_lead": 4.0,
+            "mean_lag": null,
+            "fa_per_100_clean": 4.512820512820513
+          },
+          "harmless_shift": {
+            "events": 1,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.5641025641025642
+          },
+          "harmful_gradual": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.98,
+            "mean_lead": 4.326530612244898,
+            "mean_lag": 0.0,
+            "fa_per_100_clean": 17.29845610010834
+          },
+          "harmful_abrupt": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.18,
+            "mean_lead": 3.6666666666666665,
+            "mean_lag": 0.975609756097561,
+            "fa_per_100_clean": 1.2162162162162162
+          },
+          "concept_gradual": {
+            "events": 50,
+            "recall": 0.2,
+            "early_warning_rate": 0.1,
+            "mean_lead": 4.6,
+            "mean_lag": 3.6,
+            "fa_per_100_clean": 1.7403344954365363
+          }
+        }
+      },
+      "cal_full_static": {
+        "threshold": 0.42398931253108746,
+        "val_false_alerts_per_100": 4.990019960079841,
+        "val_recall": 1.0,
+        "overall_recall": 1.0,
+        "overall_recall_ci95": [
+          1.0,
+          1.0
+        ],
+        "early_warning_rate": 0.6078431372549019,
+        "early_warning_ci95": [
+          0.5294117647058824,
+          0.6862745098039216
+        ],
+        "false_alerts_per_100_no_event_eps": 3.885804916732752,
+        "auroc_state_target": 0.9462191496242295,
+        "auroc_harmful_only": 0.9233282100278319,
+        "brier": 0.07982736703399916,
+        "by_scenario": {
+          "clean": {
+            "events": 2,
+            "recall": 1.0,
+            "early_warning_rate": 0.5,
+            "mean_lead": 2.0,
+            "mean_lag": 2.0,
+            "fa_per_100_clean": 7.028717948717949
+          },
+          "harmless_shift": {
+            "events": 1,
+            "recall": 1.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": 1.0,
+            "fa_per_100_clean": 1.7802197802197801
+          },
+          "harmful_gradual": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.98,
+            "mean_lead": 3.9591836734693877,
+            "mean_lag": 1.0,
+            "fa_per_100_clean": 13.254279128971108
+          },
+          "harmful_abrupt": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.28,
+            "mean_lead": 2.7142857142857144,
+            "mean_lag": 0.4166666666666667,
+            "fa_per_100_clean": 6.531531531531532
+          },
+          "concept_gradual": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.58,
+            "mean_lead": 3.0344827586206895,
+            "mean_lag": 0.8571428571428571,
+            "fa_per_100_clean": 6.238030676806186
+          }
+        }
+      },
+      "cal_full_online": {
+        "threshold": 0.4191459741141894,
+        "val_false_alerts_per_100": 4.840319361277445,
+        "val_recall": 1.0,
+        "overall_recall": 1.0,
+        "overall_recall_ci95": [
+          1.0,
+          1.0
+        ],
+        "early_warning_rate": 0.6143790849673203,
+        "early_warning_ci95": [
+          0.5294117647058824,
+          0.6928104575163399
+        ],
+        "false_alerts_per_100_no_event_eps": 3.5157282579963,
+        "auroc_state_target": 0.9467616661773626,
+        "auroc_harmful_only": 0.923033066090641,
+        "brier": 0.07956803366018521,
+        "by_scenario": {
+          "clean": {
+            "events": 2,
+            "recall": 1.0,
+            "early_warning_rate": 0.5,
+            "mean_lead": 2.0,
+            "mean_lag": 2.0,
+            "fa_per_100_clean": 6.25948717948718
+          },
+          "harmless_shift": {
+            "events": 1,
+            "recall": 1.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": 1.0,
+            "fa_per_100_clean": 1.8315018315018314
+          },
+          "harmful_gradual": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.98,
+            "mean_lead": 3.9591836734693877,
+            "mean_lag": 1.0,
+            "fa_per_100_clean": 13.400051723723298
+          },
+          "harmful_abrupt": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.28,
+            "mean_lead": 2.857142857142857,
+            "mean_lag": 0.3888888888888889,
+            "fa_per_100_clean": 6.531531531531532
+          },
+          "concept_gradual": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.6,
+            "mean_lead": 3.033333333333333,
+            "mean_lag": 0.85,
+            "fa_per_100_clean": 6.238030676806186
+          }
+        }
+      }
+    },
+    "2": {
+      "stat_only": {
+        "threshold": 0.3093017680324497,
+        "val_false_alerts_per_100": 0.0499001996007984,
+        "val_recall": 0.0,
+        "overall_recall": 0.0,
+        "overall_recall_ci95": [
+          0.0,
+          0.0
+        ],
+        "early_warning_rate": 0.0,
+        "early_warning_ci95": [
+          0.0,
+          0.0
+        ],
+        "false_alerts_per_100_no_event_eps": 0.052868094105207514,
+        "auroc_state_target": 0.5535716467889976,
+        "auroc_harmful_only": 0.733149586673867,
+        "brier": null,
+        "by_scenario": {
+          "clean": {
+            "events": 2,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          },
+          "harmless_shift": {
+            "events": 1,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.10256410256410257
+          },
+          "harmful_gradual": {
+            "events": 50,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          },
+          "harmful_abrupt": {
+            "events": 50,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          },
+          "concept_gradual": {
+            "events": 50,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          }
+        }
+      },
+      "conf_only": {
+        "threshold": 0.0515752198247989,
+        "val_false_alerts_per_100": 4.740518962075848,
+        "val_recall": 0.4444444444444444,
+        "overall_recall": 0.43790849673202614,
+        "overall_recall_ci95": [
+          0.35947712418300654,
+          0.5163398692810458
+        ],
+        "early_warning_rate": 0.2679738562091503,
+        "early_warning_ci95": [
+          0.20261437908496732,
+          0.33986928104575165
+        ],
+        "false_alerts_per_100_no_event_eps": 6.502775574940524,
+        "auroc_state_target": 0.5018600610115034,
+        "auroc_harmful_only": 0.5103252606654758,
+        "brier": null,
+        "by_scenario": {
+          "clean": {
+            "events": 2,
+            "recall": 1.0,
+            "early_warning_rate": 0.5,
+            "mean_lead": 5.0,
+            "mean_lag": 1.0,
+            "fa_per_100_clean": 6.923076923076923
+          },
+          "harmless_shift": {
+            "events": 1,
+            "recall": 1.0,
+            "early_warning_rate": 1.0,
+            "mean_lead": 4.0,
+            "mean_lag": null,
+            "fa_per_100_clean": 6.073260073260074
+          },
+          "harmful_gradual": {
+            "events": 50,
+            "recall": 0.44,
+            "early_warning_rate": 0.24,
+            "mean_lead": 3.4166666666666665,
+            "mean_lag": 2.3,
+            "fa_per_100_clean": 5.57429922036291
+          },
+          "harmful_abrupt": {
+            "events": 50,
+            "recall": 0.38,
+            "early_warning_rate": 0.18,
+            "mean_lead": 2.5555555555555554,
+            "mean_lag": 2.1,
+            "fa_per_100_clean": 4.954954954954955
+          },
+          "concept_gradual": {
+            "events": 50,
+            "recall": 0.46,
+            "early_warning_rate": 0.36,
+            "mean_lead": 3.0,
+            "mean_lag": 2.4,
+            "fa_per_100_clean": 7.6810094667237525
+          }
+        }
+      },
+      "fixed_score": {
+        "threshold": 0.38078436113940123,
+        "val_false_alerts_per_100": 0.0499001996007984,
+        "val_recall": 0.0,
+        "overall_recall": 0.0,
+        "overall_recall_ci95": [
+          0.0,
+          0.0
+        ],
+        "early_warning_rate": 0.0,
+        "early_warning_ci95": [
+          0.0,
+          0.0
+        ],
+        "false_alerts_per_100_no_event_eps": 0.026434047052603757,
+        "auroc_state_target": 0.5562204461559326,
+        "auroc_harmful_only": 0.730200016616126,
+        "brier": null,
+        "by_scenario": {
+          "clean": {
+            "events": 2,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          },
+          "harmless_shift": {
+            "events": 1,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.05128205128205129
+          },
+          "harmful_gradual": {
+            "events": 50,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          },
+          "harmful_abrupt": {
+            "events": 50,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          },
+          "concept_gradual": {
+            "events": 50,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          }
+        }
+      },
+      "slope_forecast": {
+        "threshold": 0.4007162940901389,
+        "val_false_alerts_per_100": 3.8922155688622753,
+        "val_recall": 0.36507936507936506,
+        "overall_recall": 0.3333333333333333,
+        "overall_recall_ci95": [
+          0.26143790849673204,
+          0.4117647058823529
+        ],
+        "early_warning_rate": 0.032679738562091505,
+        "early_warning_ci95": [
+          0.006535947712418301,
+          0.06535947712418301
+        ],
+        "false_alerts_per_100_no_event_eps": 5.3661115516785625,
+        "auroc_state_target": 0.568661308662471,
+        "auroc_harmful_only": 0.7053970215594234,
+        "brier": null,
+        "by_scenario": {
+          "clean": {
+            "events": 2,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          },
+          "harmless_shift": {
+            "events": 1,
+            "recall": 1.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": 1.0,
+            "fa_per_100_clean": 10.600732600732602
+          },
+          "harmful_gradual": {
+            "events": 50,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          },
+          "harmful_abrupt": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.1,
+            "mean_lead": 2.4,
+            "mean_lag": 0.044444444444444446,
+            "fa_per_100_clean": 0.0
+          },
+          "concept_gradual": {
+            "events": 50,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          }
+        }
+      },
+      "delayed_label_only": {
+        "threshold": 0.029333333333333322,
+        "val_false_alerts_per_100": 4.8902195608782435,
+        "val_recall": 1.0,
+        "overall_recall": 1.0,
+        "overall_recall_ci95": [
+          1.0,
+          1.0
+        ],
+        "early_warning_rate": 0.42483660130718953,
+        "early_warning_ci95": [
+          0.3464052287581699,
+          0.5032679738562091
+        ],
+        "false_alerts_per_100_no_event_eps": 5.260375363468147,
+        "auroc_state_target": 0.9045030781450955,
+        "auroc_harmful_only": 0.8984926058239522,
+        "brier": null,
+        "by_scenario": {
+          "clean": {
+            "events": 2,
+            "recall": 1.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": 1.5,
+            "fa_per_100_clean": 5.522051282051282
+          },
+          "harmless_shift": {
+            "events": 1,
+            "recall": 1.0,
+            "early_warning_rate": 1.0,
+            "mean_lead": 5.0,
+            "mean_lag": null,
+            "fa_per_100_clean": 5.399267399267399
+          },
+          "harmful_gradual": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.62,
+            "mean_lead": 3.193548387096774,
+            "mean_lag": 1.2105263157894737,
+            "fa_per_100_clean": 7.520741756225425
+          },
+          "harmful_abrupt": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.16,
+            "mean_lead": 3.375,
+            "mean_lag": 2.119047619047619,
+            "fa_per_100_clean": 2.2522522522522523
+          },
+          "concept_gradual": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.5,
+            "mean_lead": 2.4,
+            "mean_lag": 1.24,
+            "fa_per_100_clean": 4.384141935162344
+          }
+        }
+      },
+      "cal_signals_static": {
+        "threshold": 0.5918967814237368,
+        "val_false_alerts_per_100": 4.441117764471058,
+        "val_recall": 0.7301587301587301,
+        "overall_recall": 0.7254901960784313,
+        "overall_recall_ci95": [
+          0.6535947712418301,
+          0.7973856209150327
+        ],
+        "early_warning_rate": 0.41830065359477125,
+        "early_warning_ci95": [
+          0.33986928104575165,
+          0.49673202614379086
+        ],
+        "false_alerts_per_100_no_event_eps": 2.2733280465239227,
+        "auroc_state_target": 0.8254957743498341,
+        "auroc_harmful_only": 0.7463224359240643,
+        "brier": 0.16109276490818403,
+        "by_scenario": {
+          "clean": {
+            "events": 2,
+            "recall": 0.5,
+            "early_warning_rate": 0.5,
+            "mean_lead": 4.0,
+            "mean_lag": null,
+            "fa_per_100_clean": 4.512820512820513
+          },
+          "harmless_shift": {
+            "events": 1,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.5641025641025642
+          },
+          "harmful_gradual": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.98,
+            "mean_lead": 4.326530612244898,
+            "mean_lag": 0.0,
+            "fa_per_100_clean": 17.29845610010834
+          },
+          "harmful_abrupt": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.18,
+            "mean_lead": 3.6666666666666665,
+            "mean_lag": 0.975609756097561,
+            "fa_per_100_clean": 1.2162162162162162
+          },
+          "concept_gradual": {
+            "events": 50,
+            "recall": 0.2,
+            "early_warning_rate": 0.1,
+            "mean_lead": 4.6,
+            "mean_lag": 3.6,
+            "fa_per_100_clean": 1.7403344954365363
+          }
+        }
+      },
+      "cal_full_static": {
+        "threshold": 0.46555279303377245,
+        "val_false_alerts_per_100": 4.940119760479042,
+        "val_recall": 1.0,
+        "overall_recall": 1.0,
+        "overall_recall_ci95": [
+          1.0,
+          1.0
+        ],
+        "early_warning_rate": 0.5620915032679739,
+        "early_warning_ci95": [
+          0.48366013071895425,
+          0.6405228758169934
+        ],
+        "false_alerts_per_100_no_event_eps": 3.93867301083796,
+        "auroc_state_target": 0.9394030291153332,
+        "auroc_harmful_only": 0.9152687658372451,
+        "brier": 0.08628795560459342,
+        "by_scenario": {
+          "clean": {
+            "events": 2,
+            "recall": 1.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": 1.5,
+            "fa_per_100_clean": 6.0030769230769225
+          },
+          "harmless_shift": {
+            "events": 1,
+            "recall": 1.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": 2.0,
+            "fa_per_100_clean": 2.241758241758242
+          },
+          "harmful_gradual": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 1.0,
+            "mean_lead": 3.78,
+            "mean_lag": null,
+            "fa_per_100_clean": 12.69977306694625
+          },
+          "harmful_abrupt": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.24,
+            "mean_lead": 2.5,
+            "mean_lag": 0.7368421052631579,
+            "fa_per_100_clean": 2.927927927927928
+          },
+          "concept_gradual": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.48,
+            "mean_lead": 2.4583333333333335,
+            "mean_lag": 1.3846153846153846,
+            "fa_per_100_clean": 4.460590429978185
+          }
+        }
+      },
+      "cal_full_online": {
+        "threshold": 0.45671252697602366,
+        "val_false_alerts_per_100": 4.8902195608782435,
+        "val_recall": 1.0,
+        "overall_recall": 1.0,
+        "overall_recall_ci95": [
+          1.0,
+          1.0
+        ],
+        "early_warning_rate": 0.5686274509803921,
+        "early_warning_ci95": [
+          0.49019607843137253,
+          0.6470588235294118
+        ],
+        "false_alerts_per_100_no_event_eps": 3.912238963785356,
+        "auroc_state_target": 0.9399454860578134,
+        "auroc_harmful_only": 0.9148949030033647,
+        "brier": 0.08602823179939421,
+        "by_scenario": {
+          "clean": {
+            "events": 2,
+            "recall": 1.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": 1.5,
+            "fa_per_100_clean": 6.0317948717948715
+          },
+          "harmless_shift": {
+            "events": 1,
+            "recall": 1.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": 2.0,
+            "fa_per_100_clean": 2.241758241758242
+          },
+          "harmful_gradual": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 1.0,
+            "mean_lead": 3.78,
+            "mean_lag": null,
+            "fa_per_100_clean": 12.827324087354413
+          },
+          "harmful_abrupt": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.26,
+            "mean_lead": 2.6923076923076925,
+            "mean_lag": 0.7027027027027027,
+            "fa_per_100_clean": 2.927927927927928
+          },
+          "concept_gradual": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.48,
+            "mean_lead": 2.4583333333333335,
+            "mean_lag": 1.3846153846153846,
+            "fa_per_100_clean": 4.460590429978185
+          }
+        }
+      }
+    },
+    "5": {
+      "stat_only": {
+        "threshold": 0.3093017680324497,
+        "val_false_alerts_per_100": 0.0499001996007984,
+        "val_recall": 0.0,
+        "overall_recall": 0.0,
+        "overall_recall_ci95": [
+          0.0,
+          0.0
+        ],
+        "early_warning_rate": 0.0,
+        "early_warning_ci95": [
+          0.0,
+          0.0
+        ],
+        "false_alerts_per_100_no_event_eps": 0.052868094105207514,
+        "auroc_state_target": 0.5535716467889976,
+        "auroc_harmful_only": 0.733149586673867,
+        "brier": null,
+        "by_scenario": {
+          "clean": {
+            "events": 2,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          },
+          "harmless_shift": {
+            "events": 1,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.10256410256410257
+          },
+          "harmful_gradual": {
+            "events": 50,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          },
+          "harmful_abrupt": {
+            "events": 50,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          },
+          "concept_gradual": {
+            "events": 50,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          }
+        }
+      },
+      "conf_only": {
+        "threshold": 0.0515752198247989,
+        "val_false_alerts_per_100": 4.740518962075848,
+        "val_recall": 0.4444444444444444,
+        "overall_recall": 0.43790849673202614,
+        "overall_recall_ci95": [
+          0.35947712418300654,
+          0.5163398692810458
+        ],
+        "early_warning_rate": 0.2679738562091503,
+        "early_warning_ci95": [
+          0.19607843137254902,
+          0.3400326797385612
+        ],
+        "false_alerts_per_100_no_event_eps": 6.502775574940524,
+        "auroc_state_target": 0.5018600610115034,
+        "auroc_harmful_only": 0.5103252606654758,
+        "brier": null,
+        "by_scenario": {
+          "clean": {
+            "events": 2,
+            "recall": 1.0,
+            "early_warning_rate": 0.5,
+            "mean_lead": 5.0,
+            "mean_lag": 1.0,
+            "fa_per_100_clean": 6.923076923076923
+          },
+          "harmless_shift": {
+            "events": 1,
+            "recall": 1.0,
+            "early_warning_rate": 1.0,
+            "mean_lead": 4.0,
+            "mean_lag": null,
+            "fa_per_100_clean": 6.073260073260074
+          },
+          "harmful_gradual": {
+            "events": 50,
+            "recall": 0.44,
+            "early_warning_rate": 0.24,
+            "mean_lead": 3.4166666666666665,
+            "mean_lag": 2.3,
+            "fa_per_100_clean": 5.57429922036291
+          },
+          "harmful_abrupt": {
+            "events": 50,
+            "recall": 0.38,
+            "early_warning_rate": 0.18,
+            "mean_lead": 2.5555555555555554,
+            "mean_lag": 2.1,
+            "fa_per_100_clean": 4.954954954954955
+          },
+          "concept_gradual": {
+            "events": 50,
+            "recall": 0.46,
+            "early_warning_rate": 0.36,
+            "mean_lead": 3.0,
+            "mean_lag": 2.4,
+            "fa_per_100_clean": 7.6810094667237525
+          }
+        }
+      },
+      "fixed_score": {
+        "threshold": 0.38078436113940123,
+        "val_false_alerts_per_100": 0.0499001996007984,
+        "val_recall": 0.0,
+        "overall_recall": 0.0,
+        "overall_recall_ci95": [
+          0.0,
+          0.0
+        ],
+        "early_warning_rate": 0.0,
+        "early_warning_ci95": [
+          0.0,
+          0.0
+        ],
+        "false_alerts_per_100_no_event_eps": 0.026434047052603757,
+        "auroc_state_target": 0.5562204461559326,
+        "auroc_harmful_only": 0.730200016616126,
+        "brier": null,
+        "by_scenario": {
+          "clean": {
+            "events": 2,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          },
+          "harmless_shift": {
+            "events": 1,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.05128205128205129
+          },
+          "harmful_gradual": {
+            "events": 50,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          },
+          "harmful_abrupt": {
+            "events": 50,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          },
+          "concept_gradual": {
+            "events": 50,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          }
+        }
+      },
+      "slope_forecast": {
+        "threshold": 0.4007162940901389,
+        "val_false_alerts_per_100": 3.8922155688622753,
+        "val_recall": 0.36507936507936506,
+        "overall_recall": 0.3333333333333333,
+        "overall_recall_ci95": [
+          0.26143790849673204,
+          0.4117647058823529
+        ],
+        "early_warning_rate": 0.032679738562091505,
+        "early_warning_ci95": [
+          0.006535947712418301,
+          0.06535947712418301
+        ],
+        "false_alerts_per_100_no_event_eps": 5.3661115516785625,
+        "auroc_state_target": 0.568661308662471,
+        "auroc_harmful_only": 0.7053970215594234,
+        "brier": null,
+        "by_scenario": {
+          "clean": {
+            "events": 2,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          },
+          "harmless_shift": {
+            "events": 1,
+            "recall": 1.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": 1.0,
+            "fa_per_100_clean": 10.600732600732602
+          },
+          "harmful_gradual": {
+            "events": 50,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          },
+          "harmful_abrupt": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.1,
+            "mean_lead": 2.4,
+            "mean_lag": 0.044444444444444446,
+            "fa_per_100_clean": 0.0
+          },
+          "concept_gradual": {
+            "events": 50,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.0
+          }
+        }
+      },
+      "delayed_label_only": {
+        "threshold": 0.027000000000000135,
+        "val_false_alerts_per_100": 4.640718562874252,
+        "val_recall": 0.9841269841269841,
+        "overall_recall": 0.9150326797385621,
+        "overall_recall_ci95": [
+          0.869281045751634,
+          0.954248366013072
+        ],
+        "early_warning_rate": 0.30718954248366015,
+        "early_warning_ci95": [
+          0.24183006535947713,
+          0.3790849673202614
+        ],
+        "false_alerts_per_100_no_event_eps": 5.762622257467618,
+        "auroc_state_target": 0.8610556152490012,
+        "auroc_harmful_only": 0.872657645494953,
+        "brier": null,
+        "by_scenario": {
+          "clean": {
+            "events": 2,
+            "recall": 0.5,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": 3.0,
+            "fa_per_100_clean": 5.932307692307693
+          },
+          "harmless_shift": {
+            "events": 1,
+            "recall": 1.0,
+            "early_warning_rate": 1.0,
+            "mean_lead": 2.0,
+            "mean_lag": null,
+            "fa_per_100_clean": 5.9633699633699635
+          },
+          "harmful_gradual": {
+            "events": 50,
+            "recall": 0.98,
+            "early_warning_rate": 0.56,
+            "mean_lead": 3.1785714285714284,
+            "mean_lag": 2.380952380952381,
+            "fa_per_100_clean": 4.610225165131339
+          },
+          "harmful_abrupt": {
+            "events": 50,
+            "recall": 0.8,
+            "early_warning_rate": 0.1,
+            "mean_lead": 2.8,
+            "mean_lag": 4.228571428571429,
+            "fa_per_100_clean": 0.0
+          },
+          "concept_gradual": {
+            "events": 50,
+            "recall": 0.98,
+            "early_warning_rate": 0.26,
+            "mean_lead": 3.076923076923077,
+            "mean_lag": 2.6666666666666665,
+            "fa_per_100_clean": 1.7214361602116706
+          }
+        }
+      },
+      "cal_signals_static": {
+        "threshold": 0.5918967814237368,
+        "val_false_alerts_per_100": 4.441117764471058,
+        "val_recall": 0.7301587301587301,
+        "overall_recall": 0.7254901960784313,
+        "overall_recall_ci95": [
+          0.6535947712418301,
+          0.7973856209150327
+        ],
+        "early_warning_rate": 0.41830065359477125,
+        "early_warning_ci95": [
+          0.33986928104575165,
+          0.4903594771241821
+        ],
+        "false_alerts_per_100_no_event_eps": 2.2733280465239227,
+        "auroc_state_target": 0.8254957743498341,
+        "auroc_harmful_only": 0.7463224359240643,
+        "brier": 0.16109276490818403,
+        "by_scenario": {
+          "clean": {
+            "events": 2,
+            "recall": 0.5,
+            "early_warning_rate": 0.5,
+            "mean_lead": 4.0,
+            "mean_lag": null,
+            "fa_per_100_clean": 4.512820512820513
+          },
+          "harmless_shift": {
+            "events": 1,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 0.5641025641025642
+          },
+          "harmful_gradual": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.98,
+            "mean_lead": 4.326530612244898,
+            "mean_lag": 0.0,
+            "fa_per_100_clean": 17.29845610010834
+          },
+          "harmful_abrupt": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.18,
+            "mean_lead": 3.6666666666666665,
+            "mean_lag": 0.975609756097561,
+            "fa_per_100_clean": 1.2162162162162162
+          },
+          "concept_gradual": {
+            "events": 50,
+            "recall": 0.2,
+            "early_warning_rate": 0.1,
+            "mean_lead": 4.6,
+            "mean_lag": 3.6,
+            "fa_per_100_clean": 1.7403344954365363
+          }
+        }
+      },
+      "cal_full_static": {
+        "threshold": 0.49649823965628354,
+        "val_false_alerts_per_100": 4.840319361277445,
+        "val_recall": 0.9682539682539683,
+        "overall_recall": 0.9738562091503268,
+        "overall_recall_ci95": [
+          0.9477124183006536,
+          0.9934640522875817
+        ],
+        "early_warning_rate": 0.43790849673202614,
+        "early_warning_ci95": [
+          0.35947712418300654,
+          0.5228758169934641
+        ],
+        "false_alerts_per_100_no_event_eps": 3.7272006344171293,
+        "auroc_state_target": 0.9190316249416932,
+        "auroc_harmful_only": 0.8913527603539234,
+        "brier": 0.10169768780536136,
+        "by_scenario": {
+          "clean": {
+            "events": 2,
+            "recall": 0.5,
+            "early_warning_rate": 0.5,
+            "mean_lead": 5.0,
+            "mean_lag": null,
+            "fa_per_100_clean": 6.313846153846153
+          },
+          "harmless_shift": {
+            "events": 1,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 1.5531135531135534
+          },
+          "harmful_gradual": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.9,
+            "mean_lead": 4.044444444444444,
+            "mean_lag": 0.2,
+            "fa_per_100_clean": 10.860575779464389
+          },
+          "harmful_abrupt": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.2,
+            "mean_lead": 2.6,
+            "mean_lag": 1.05,
+            "fa_per_100_clean": 0.5405405405405406
+          },
+          "concept_gradual": {
+            "events": 50,
+            "recall": 0.96,
+            "early_warning_rate": 0.22,
+            "mean_lead": 3.1818181818181817,
+            "mean_lag": 2.891891891891892,
+            "fa_per_100_clean": 1.2905461885053722
+          }
+        }
+      },
+      "cal_full_online": {
+        "threshold": 0.4911703203366425,
+        "val_false_alerts_per_100": 4.69061876247505,
+        "val_recall": 0.9682539682539683,
+        "overall_recall": 0.9738562091503268,
+        "overall_recall_ci95": [
+          0.9477124183006536,
+          0.9934640522875817
+        ],
+        "early_warning_rate": 0.43790849673202614,
+        "early_warning_ci95": [
+          0.35294117647058826,
+          0.5163398692810458
+        ],
+        "false_alerts_per_100_no_event_eps": 3.6214644462067143,
+        "auroc_state_target": 0.9196528871674658,
+        "auroc_harmful_only": 0.8908316371038092,
+        "brier": 0.1013878525406031,
+        "by_scenario": {
+          "clean": {
+            "events": 2,
+            "recall": 0.5,
+            "early_warning_rate": 0.5,
+            "mean_lead": 5.0,
+            "mean_lag": null,
+            "fa_per_100_clean": 6.006153846153847
+          },
+          "harmless_shift": {
+            "events": 1,
+            "recall": 0.0,
+            "early_warning_rate": 0.0,
+            "mean_lead": null,
+            "mean_lag": null,
+            "fa_per_100_clean": 1.655677655677656
+          },
+          "harmful_gradual": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.9,
+            "mean_lead": 4.066666666666666,
+            "mean_lag": 0.2,
+            "fa_per_100_clean": 11.210430006869636
+          },
+          "harmful_abrupt": {
+            "events": 50,
+            "recall": 1.0,
+            "early_warning_rate": 0.2,
+            "mean_lead": 2.6,
+            "mean_lag": 1.025,
+            "fa_per_100_clean": 0.5405405405405406
+          },
+          "concept_gradual": {
+            "events": 50,
+            "recall": 0.96,
+            "early_warning_rate": 0.22,
+            "mean_lead": 3.1818181818181817,
+            "mean_lag": 2.891891891891892,
+            "fa_per_100_clean": 1.2905461885053722
+          }
+        }
+      }
+    }
+  }
+}

@@ -87,7 +87,7 @@ class DriftMonitoringSystem:
             reference_data_hash=self.config.reference_data_hash,
         )
 
-    def process_batch(self, batch_index: int, reference_frame: pd.DataFrame, live_window: pd.DataFrame, batch_labels: pd.Series | None = None) -> MonitoringResult:
+    def process_batch(self, batch_index: int, reference_frame: pd.DataFrame, live_window: pd.DataFrame, batch_labels: pd.Series | None = None, evaluate_forecasts: bool = True) -> MonitoringResult:
         if len(live_window) == 0:
             raise ValueError("Live window cannot be empty")
             
@@ -132,12 +132,15 @@ class DriftMonitoringSystem:
 
         # Forecast against the same threshold used by alert evaluation. Using
         # the fixed threshold here made forecasts disagree with adaptive alerts.
-        forecast = self.forecaster.forecast(self.drift_history, effective_ds_crit)
-        self.store.save_forecast(batch_index, forecast)
+        if evaluate_forecasts:
+            forecast = self.forecaster.forecast(self.drift_history, effective_ds_crit)
+            self.store.save_forecast(batch_index, forecast)
+        else:
+            forecast = None
 
         per_feature = stat_payload.get("per_feature", []) if isinstance(stat_payload, dict) else []
         # Suppress alerts during adaptive warmup — not enough baseline data yet
-        if self.adaptive_threshold is not None and not self.adaptive_threshold.is_warmed_up:
+        if not evaluate_forecasts or (self.adaptive_threshold is not None and not self.adaptive_threshold.is_warmed_up):
             alert = None
         else:
             alert = self.alert_engine.evaluate(

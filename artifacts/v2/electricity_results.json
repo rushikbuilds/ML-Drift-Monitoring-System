@@ -1,0 +1,21 @@
+{
+  "windows": 18,
+  "train_windows": 5,
+  "test_windows": 8,
+  "test_windows_with_event": 7,
+  "all_windows_with_event": 15,
+  "baseline_accuracy_mean": 0.7591111111111111,
+  "delay": 2,
+  "auroc": {
+    "transfer_signals": 0.5629685157421289,
+    "transfer_full": 0.722263868065967,
+    "indomain_signals": 0.3620689655172413,
+    "indomain_full": 0.3774362818590704,
+    "stat_only": 0.7218890554722639,
+    "conf_only": 0.7185157421289355,
+    "fixed_score": 0.7638680659670164,
+    "slope_forecast": 0.712143928035982,
+    "delayed_label_only": 0.6424287856071966
+  },
+  "state_target_prevalence": 0.5576923076923077
+}
