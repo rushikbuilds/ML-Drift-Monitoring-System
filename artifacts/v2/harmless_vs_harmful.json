@@ -1,0 +1,202 @@
+{
+  "2": {
+    "thresholds": {
+      "fixed_score": 0.5735141723654779,
+      "stat_only": 0.47635286653928616,
+      "delayed_label_only": 0.04518319327731088,
+      "anchored_p2": 0.038795736572365826
+    },
+    "by_scenario": {
+      "clean": {
+        "fixed_score": {
+          "share_of_batches_alerting": 0.0,
+          "episodes_with_any_alert": 0.0
+        },
+        "stat_only": {
+          "share_of_batches_alerting": 0.0,
+          "episodes_with_any_alert": 0.0
+        },
+        "delayed_label_only": {
+          "share_of_batches_alerting": 0.005641025641025641,
+          "episodes_with_any_alert": 0.18
+        },
+        "anchored_p2": {
+          "share_of_batches_alerting": 0.010256410256410255,
+          "episodes_with_any_alert": 0.26
+        }
+      },
+      "harmless_shift": {
+        "fixed_score": {
+          "share_of_batches_alerting": 0.0,
+          "episodes_with_any_alert": 0.0
+        },
+        "stat_only": {
+          "share_of_batches_alerting": 0.0,
+          "episodes_with_any_alert": 0.0
+        },
+        "delayed_label_only": {
+          "share_of_batches_alerting": 0.026603966493058948,
+          "episodes_with_any_alert": 0.28
+        },
+        "anchored_p2": {
+          "share_of_batches_alerting": 0.10533620215201056,
+          "episodes_with_any_alert": 1.0
+        }
+      },
+      "harmful_gradual": {
+        "fixed_score": {
+          "share_of_batches_alerting": 0.0,
+          "episodes_with_any_alert": 0.0
+        },
+        "stat_only": {
+          "share_of_batches_alerting": 0.0,
+          "episodes_with_any_alert": 0.0
+        },
+        "delayed_label_only": {
+          "share_of_batches_alerting": 0.5108356549010544,
+          "episodes_with_any_alert": 1.0
+        },
+        "anchored_p2": {
+          "share_of_batches_alerting": 0.5745243239524549,
+          "episodes_with_any_alert": 1.0
+        }
+      },
+      "harmful_abrupt": {
+        "fixed_score": {
+          "share_of_batches_alerting": 0.0,
+          "episodes_with_any_alert": 0.0
+        },
+        "stat_only": {
+          "share_of_batches_alerting": 0.0,
+          "episodes_with_any_alert": 0.0
+        },
+        "delayed_label_only": {
+          "share_of_batches_alerting": 0.868947924376546,
+          "episodes_with_any_alert": 1.0
+        },
+        "anchored_p2": {
+          "share_of_batches_alerting": 0.9323958266237024,
+          "episodes_with_any_alert": 1.0
+        }
+      },
+      "concept_gradual": {
+        "fixed_score": {
+          "share_of_batches_alerting": 0.0,
+          "episodes_with_any_alert": 0.0
+        },
+        "stat_only": {
+          "share_of_batches_alerting": 0.0,
+          "episodes_with_any_alert": 0.0
+        },
+        "delayed_label_only": {
+          "share_of_batches_alerting": 0.7608096194084873,
+          "episodes_with_any_alert": 1.0
+        },
+        "anchored_p2": {
+          "share_of_batches_alerting": 0.7462667667127526,
+          "episodes_with_any_alert": 1.0
+        }
+      }
+    }
+  },
+  "5": {
+    "thresholds": {
+      "fixed_score": 0.5735141723654779,
+      "stat_only": 0.47635286653928616,
+      "delayed_label_only": 0.035599999999999965,
+      "anchored_p2": 0.03657686313320829
+    },
+    "by_scenario": {
+      "clean": {
+        "fixed_score": {
+          "share_of_batches_alerting": 0.0,
+          "episodes_with_any_alert": 0.0
+        },
+        "stat_only": {
+          "share_of_batches_alerting": 0.0,
+          "episodes_with_any_alert": 0.0
+        },
+        "delayed_label_only": {
+          "share_of_batches_alerting": 0.021538461538461538,
+          "episodes_with_any_alert": 0.36
+        },
+        "anchored_p2": {
+          "share_of_batches_alerting": 0.007692307692307692,
+          "episodes_with_any_alert": 0.16
+        }
+      },
+      "harmless_shift": {
+        "fixed_score": {
+          "share_of_batches_alerting": 0.0,
+          "episodes_with_any_alert": 0.0
+        },
+        "stat_only": {
+          "share_of_batches_alerting": 0.0,
+          "episodes_with_any_alert": 0.0
+        },
+        "delayed_label_only": {
+          "share_of_batches_alerting": 0.06634119004564107,
+          "episodes_with_any_alert": 0.46
+        },
+        "anchored_p2": {
+          "share_of_batches_alerting": 0.19102251543250529,
+          "episodes_with_any_alert": 1.0
+        }
+      },
+      "harmful_gradual": {
+        "fixed_score": {
+          "share_of_batches_alerting": 0.0,
+          "episodes_with_any_alert": 0.0
+        },
+        "stat_only": {
+          "share_of_batches_alerting": 0.0,
+          "episodes_with_any_alert": 0.0
+        },
+        "delayed_label_only": {
+          "share_of_batches_alerting": 0.4825570510892192,
+          "episodes_with_any_alert": 1.0
+        },
+        "anchored_p2": {
+          "share_of_batches_alerting": 0.6240453316476757,
+          "episodes_with_any_alert": 1.0
+        }
+      },
+      "harmful_abrupt": {
+        "fixed_score": {
+          "share_of_batches_alerting": 0.0,
+          "episodes_with_any_alert": 0.0
+        },
+        "stat_only": {
+          "share_of_batches_alerting": 0.0,
+          "episodes_with_any_alert": 0.0
+        },
+        "delayed_label_only": {
+          "share_of_batches_alerting": 0.8144056399635392,
+          "episodes_with_any_alert": 1.0
+        },
+        "anchored_p2": {
+          "share_of_batches_alerting": 0.9485489079694978,
+          "episodes_with_any_alert": 1.0
+        }
+      },
+      "concept_gradual": {
+        "fixed_score": {
+          "share_of_batches_alerting": 0.0,
+          "episodes_with_any_alert": 0.0
+        },
+        "stat_only": {
+          "share_of_batches_alerting": 0.0,
+          "episodes_with_any_alert": 0.0
+        },
+        "delayed_label_only": {
+          "share_of_batches_alerting": 0.7081905666200145,
+          "episodes_with_any_alert": 1.0
+        },
+        "anchored_p2": {
+          "share_of_batches_alerting": 0.6476338175527061,
+          "episodes_with_any_alert": 1.0
+        }
+      }
+    }
+  }
+}
