@@ -12,6 +12,7 @@ A research codebase for **label-delay-aware early warning of ML performance degr
 | v2 real-data study | [v2_realdata.md](docs/v2_realdata.md) | Negative: drift scores rank accuracy risk weakly, and their thresholds do not transfer across datasets. |
 | v3 confirmation | [v3_results.md](docs/v3_results.md) | Accuracy-unit, delay-aware CBPE transfers across four unseen streams and is suggestively best at label delay 5. No gain over label-waiting on synthetic data. |
 | v4 final method | [v4_results.md](docs/v4_results.md) | Delay-anchored estimator (last known accuracy corrected by label-free signals, incl. disagreement with auxiliary models): nowcast error down 5.5 / 12.5 / 15% vs stale labels at L = 0 / 2 / 5 on 8 streams and 12-19% on 5 held-out streams; far better than the DEWS drift score; a trade-off, not a win, against waiting for labels. |
+| v5 harmless vs harmful | [v5_harmless_vs_harmful.md](docs/v5_harmless_vs_harmful.md) | Sustained-alert rule does not help. Relevance-weighted shift separates harmless from harmful input shifts perfectly in synthetic data but is not supported on 13 real streams; use it as an explanation, not an alert filter. |
 
 Scope notes: [final_scope.md](docs/final_scope.md), [implementation_plan.md](docs/implementation_plan.md) (v1 plan, historical).
 
