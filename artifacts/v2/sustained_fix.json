@@ -1,0 +1,818 @@
+{
+  "rules": [
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      3,
+      2
+    ],
+    [
+      4,
+      3
+    ],
+    [
+      5,
+      3
+    ]
+  ],
+  "by_delay": {
+    "2": {
+      "threshold": 0.038795736572365826,
+      "chosen_on_validation": "2of2",
+      "per_rule": {
+        "1of1": {
+          "validation_synthetic": {
+            "clean": {
+              "share_alerting": 0.011538461538461536,
+              "episodes_with_alert": 0.3,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmless_shift": {
+              "share_alerting": 0.0835309097473553,
+              "episodes_with_alert": 1.0,
+              "event_recall": 1.0,
+              "early_warning_rate": 0.0
+            },
+            "harmful_gradual": {
+              "share_alerting": 0.563687704263119,
+              "episodes_with_alert": 1.0,
+              "event_recall": 1.0,
+              "early_warning_rate": 0.65
+            },
+            "harmful_abrupt": {
+              "share_alerting": 0.959891222365172,
+              "episodes_with_alert": 1.0,
+              "event_recall": 1.0,
+              "early_warning_rate": 0.25
+            },
+            "concept_gradual": {
+              "share_alerting": 0.7182476172666459,
+              "episodes_with_alert": 1.0,
+              "event_recall": 1.0,
+              "early_warning_rate": 0.05
+            }
+          },
+          "test_synthetic": {
+            "clean": {
+              "share_alerting": 0.010256410256410255,
+              "episodes_with_alert": 0.26,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmless_shift": {
+              "share_alerting": 0.10533620215201056,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.8,
+              "early_warning_rate": 0.2
+            },
+            "harmful_gradual": {
+              "share_alerting": 0.5745243239524549,
+              "episodes_with_alert": 1.0,
+              "event_recall": 1.0,
+              "early_warning_rate": 0.48
+            },
+            "harmful_abrupt": {
+              "share_alerting": 0.9323958266237024,
+              "episodes_with_alert": 1.0,
+              "event_recall": 1.0,
+              "early_warning_rate": 0.18
+            },
+            "concept_gradual": {
+              "share_alerting": 0.7462667667127526,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.98,
+              "early_warning_rate": 0.16
+            }
+          },
+          "real_held_out": {
+            "recall": 0.9215686274509803,
+            "early_warning_rate": 0.35294117647058826,
+            "mean_time_to_alert": 0.2765957446808511,
+            "false_alerts_per_100_clean": 2.207432340541276
+          },
+          "real_development_lodo": {
+            "recall": 0.9230769230769231,
+            "early_warning_rate": 0.12087912087912088,
+            "mean_time_to_alert": 1.7738095238095237,
+            "false_alerts_per_100_clean": 4.695352751379915
+          }
+        },
+        "2of2": {
+          "validation_synthetic": {
+            "clean": {
+              "share_alerting": 0.001282051282051282,
+              "episodes_with_alert": 0.05,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmless_shift": {
+              "share_alerting": 0.0456694053645323,
+              "episodes_with_alert": 0.9,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmful_gradual": {
+              "share_alerting": 0.5086297816477182,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.95,
+              "early_warning_rate": 0.4
+            },
+            "harmful_abrupt": {
+              "share_alerting": 0.9241832729147882,
+              "episodes_with_alert": 1.0,
+              "event_recall": 1.0,
+              "early_warning_rate": 0.05
+            },
+            "concept_gradual": {
+              "share_alerting": 0.6816082372882413,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.9,
+              "early_warning_rate": 0.05
+            }
+          },
+          "test_synthetic": {
+            "clean": {
+              "share_alerting": 0.0015384615384615385,
+              "episodes_with_alert": 0.06,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmless_shift": {
+              "share_alerting": 0.05959019156757657,
+              "episodes_with_alert": 0.92,
+              "event_recall": 0.4,
+              "early_warning_rate": 0.0
+            },
+            "harmful_gradual": {
+              "share_alerting": 0.5202914623681407,
+              "episodes_with_alert": 1.0,
+              "event_recall": 1.0,
+              "early_warning_rate": 0.3
+            },
+            "harmful_abrupt": {
+              "share_alerting": 0.8886056071837168,
+              "episodes_with_alert": 1.0,
+              "event_recall": 1.0,
+              "early_warning_rate": 0.08
+            },
+            "concept_gradual": {
+              "share_alerting": 0.7111309647734108,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.92,
+              "early_warning_rate": 0.04
+            }
+          },
+          "real_held_out": {
+            "recall": 0.7647058823529411,
+            "early_warning_rate": 0.21568627450980393,
+            "mean_time_to_alert": 1.4871794871794872,
+            "false_alerts_per_100_clean": 0.8295933632530941
+          },
+          "real_development_lodo": {
+            "recall": 0.7142857142857143,
+            "early_warning_rate": 0.054945054945054944,
+            "mean_time_to_alert": 2.769230769230769,
+            "false_alerts_per_100_clean": 1.6051859854915884
+          }
+        },
+        "2of3": {
+          "validation_synthetic": {
+            "clean": {
+              "share_alerting": 0.002564102564102564,
+              "episodes_with_alert": 0.05,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmless_shift": {
+              "share_alerting": 0.07538566418831663,
+              "episodes_with_alert": 0.9,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmful_gradual": {
+              "share_alerting": 0.5224977136799709,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.95,
+              "early_warning_rate": 0.4
+            },
+            "harmful_abrupt": {
+              "share_alerting": 0.9270824325786539,
+              "episodes_with_alert": 1.0,
+              "event_recall": 1.0,
+              "early_warning_rate": 0.05
+            },
+            "concept_gradual": {
+              "share_alerting": 0.6816082372882413,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.9,
+              "early_warning_rate": 0.05
+            }
+          },
+          "test_synthetic": {
+            "clean": {
+              "share_alerting": 0.003076923076923077,
+              "episodes_with_alert": 0.06,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmless_shift": {
+              "share_alerting": 0.09293454222117604,
+              "episodes_with_alert": 0.92,
+              "event_recall": 0.4,
+              "early_warning_rate": 0.0
+            },
+            "harmful_gradual": {
+              "share_alerting": 0.5357204217514693,
+              "episodes_with_alert": 1.0,
+              "event_recall": 1.0,
+              "early_warning_rate": 0.34
+            },
+            "harmful_abrupt": {
+              "share_alerting": 0.8998527607068716,
+              "episodes_with_alert": 1.0,
+              "event_recall": 1.0,
+              "early_warning_rate": 0.08
+            },
+            "concept_gradual": {
+              "share_alerting": 0.7135418505353401,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.92,
+              "early_warning_rate": 0.04
+            }
+          },
+          "real_held_out": {
+            "recall": 0.7647058823529411,
+            "early_warning_rate": 0.23529411764705882,
+            "mean_time_to_alert": 1.2820512820512822,
+            "false_alerts_per_100_clean": 1.227390180878553
+          },
+          "real_development_lodo": {
+            "recall": 0.7142857142857143,
+            "early_warning_rate": 0.054945054945054944,
+            "mean_time_to_alert": 2.769230769230769,
+            "false_alerts_per_100_clean": 2.2611514122549776
+          }
+        },
+        "3of4": {
+          "validation_synthetic": {
+            "clean": {
+              "share_alerting": 0.0,
+              "episodes_with_alert": 0.0,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmless_shift": {
+              "share_alerting": 0.030239626414829246,
+              "episodes_with_alert": 0.45,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmful_gradual": {
+              "share_alerting": 0.4694540513141246,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.75,
+              "early_warning_rate": 0.25
+            },
+            "harmful_abrupt": {
+              "share_alerting": 0.8929873863540765,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.95,
+              "early_warning_rate": 0.0
+            },
+            "concept_gradual": {
+              "share_alerting": 0.6498613304281162,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.65,
+              "early_warning_rate": 0.0
+            }
+          },
+          "test_synthetic": {
+            "clean": {
+              "share_alerting": 0.0,
+              "episodes_with_alert": 0.0,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmless_shift": {
+              "share_alerting": 0.04322130405908951,
+              "episodes_with_alert": 0.52,
+              "event_recall": 0.2,
+              "early_warning_rate": 0.0
+            },
+            "harmful_gradual": {
+              "share_alerting": 0.4788271650403513,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.84,
+              "early_warning_rate": 0.14
+            },
+            "harmful_abrupt": {
+              "share_alerting": 0.8566430473847947,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.98,
+              "early_warning_rate": 0.04
+            },
+            "concept_gradual": {
+              "share_alerting": 0.6784896431623515,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.76,
+              "early_warning_rate": 0.02
+            }
+          },
+          "real_held_out": {
+            "recall": 0.5490196078431373,
+            "early_warning_rate": 0.0392156862745098,
+            "mean_time_to_alert": 3.392857142857143,
+            "false_alerts_per_100_clean": 0.5201958384332926
+          },
+          "real_development_lodo": {
+            "recall": 0.5164835164835165,
+            "early_warning_rate": 0.03296703296703297,
+            "mean_time_to_alert": 3.617021276595745,
+            "false_alerts_per_100_clean": 1.1807377681741011
+          }
+        },
+        "3of5": {
+          "validation_synthetic": {
+            "clean": {
+              "share_alerting": 0.0,
+              "episodes_with_alert": 0.0,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmless_shift": {
+              "share_alerting": 0.04452610628891055,
+              "episodes_with_alert": 0.45,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmful_gradual": {
+              "share_alerting": 0.49303499384130234,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.85,
+              "early_warning_rate": 0.25
+            },
+            "harmful_abrupt": {
+              "share_alerting": 0.9063392432258575,
+              "episodes_with_alert": 1.0,
+              "event_recall": 1.0,
+              "early_warning_rate": 0.0
+            },
+            "concept_gradual": {
+              "share_alerting": 0.6514742336539227,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.65,
+              "early_warning_rate": 0.0
+            }
+          },
+          "test_synthetic": {
+            "clean": {
+              "share_alerting": 0.0005128205128205128,
+              "episodes_with_alert": 0.02,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmless_shift": {
+              "share_alerting": 0.06393677888285458,
+              "episodes_with_alert": 0.54,
+              "event_recall": 0.4,
+              "early_warning_rate": 0.0
+            },
+            "harmful_gradual": {
+              "share_alerting": 0.5049046411314045,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.9,
+              "early_warning_rate": 0.2
+            },
+            "harmful_abrupt": {
+              "share_alerting": 0.883260328972321,
+              "episodes_with_alert": 1.0,
+              "event_recall": 1.0,
+              "early_warning_rate": 0.04
+            },
+            "concept_gradual": {
+              "share_alerting": 0.684022345230943,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.78,
+              "early_warning_rate": 0.02
+            }
+          },
+          "real_held_out": {
+            "recall": 0.5686274509803921,
+            "early_warning_rate": 0.058823529411764705,
+            "mean_time_to_alert": 3.2758620689655173,
+            "false_alerts_per_100_clean": 0.7649938800489595
+          },
+          "real_development_lodo": {
+            "recall": 0.5384615384615384,
+            "early_warning_rate": 0.04395604395604396,
+            "mean_time_to_alert": 3.5306122448979593,
+            "false_alerts_per_100_clean": 1.412254977620003
+          }
+        }
+      }
+    },
+    "5": {
+      "threshold": 0.03657686313320829,
+      "chosen_on_validation": "1of1",
+      "per_rule": {
+        "1of1": {
+          "validation_synthetic": {
+            "clean": {
+              "share_alerting": 0.002564102564102564,
+              "episodes_with_alert": 0.05,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmless_shift": {
+              "share_alerting": 0.1846444177074207,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.5,
+              "early_warning_rate": 0.0
+            },
+            "harmful_gradual": {
+              "share_alerting": 0.6267370037811868,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.95,
+              "early_warning_rate": 0.75
+            },
+            "harmful_abrupt": {
+              "share_alerting": 0.9659469705821453,
+              "episodes_with_alert": 1.0,
+              "event_recall": 1.0,
+              "early_warning_rate": 0.15
+            },
+            "concept_gradual": {
+              "share_alerting": 0.6132141360310935,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.35,
+              "early_warning_rate": 0.0
+            }
+          },
+          "test_synthetic": {
+            "clean": {
+              "share_alerting": 0.007692307692307692,
+              "episodes_with_alert": 0.16,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmless_shift": {
+              "share_alerting": 0.19102251543250529,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.6,
+              "early_warning_rate": 0.2
+            },
+            "harmful_gradual": {
+              "share_alerting": 0.6240453316476757,
+              "episodes_with_alert": 1.0,
+              "event_recall": 1.0,
+              "early_warning_rate": 0.78
+            },
+            "harmful_abrupt": {
+              "share_alerting": 0.9485489079694978,
+              "episodes_with_alert": 1.0,
+              "event_recall": 1.0,
+              "early_warning_rate": 0.16
+            },
+            "concept_gradual": {
+              "share_alerting": 0.6476338175527061,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.56,
+              "early_warning_rate": 0.04
+            }
+          },
+          "real_held_out": {
+            "recall": 0.5490196078431373,
+            "early_warning_rate": 0.21568627450980393,
+            "mean_time_to_alert": 0.7142857142857143,
+            "false_alerts_per_100_clean": 1.6523867809057529
+          },
+          "real_development_lodo": {
+            "recall": 0.4945054945054945,
+            "early_warning_rate": 0.07692307692307693,
+            "mean_time_to_alert": 1.6444444444444444,
+            "false_alerts_per_100_clean": 4.070201162730874
+          }
+        },
+        "2of2": {
+          "validation_synthetic": {
+            "clean": {
+              "share_alerting": 0.0,
+              "episodes_with_alert": 0.0,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmless_shift": {
+              "share_alerting": 0.15168886943745036,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmful_gradual": {
+              "share_alerting": 0.568985200094296,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.95,
+              "early_warning_rate": 0.55
+            },
+            "harmful_abrupt": {
+              "share_alerting": 0.9333225125928617,
+              "episodes_with_alert": 1.0,
+              "event_recall": 1.0,
+              "early_warning_rate": 0.05
+            },
+            "concept_gradual": {
+              "share_alerting": 0.5782854109891504,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.2,
+              "early_warning_rate": 0.0
+            }
+          },
+          "test_synthetic": {
+            "clean": {
+              "share_alerting": 0.0015384615384615385,
+              "episodes_with_alert": 0.06,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmless_shift": {
+              "share_alerting": 0.1483701694551822,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.4,
+              "early_warning_rate": 0.2
+            },
+            "harmful_gradual": {
+              "share_alerting": 0.5640522535437474,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.92,
+              "early_warning_rate": 0.54
+            },
+            "harmful_abrupt": {
+              "share_alerting": 0.9106202813767839,
+              "episodes_with_alert": 1.0,
+              "event_recall": 1.0,
+              "early_warning_rate": 0.08
+            },
+            "concept_gradual": {
+              "share_alerting": 0.6082901279128295,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.32,
+              "early_warning_rate": 0.0
+            }
+          },
+          "real_held_out": {
+            "recall": 0.43137254901960786,
+            "early_warning_rate": 0.09803921568627451,
+            "mean_time_to_alert": 1.7272727272727273,
+            "false_alerts_per_100_clean": 0.6731946144430846
+          },
+          "real_development_lodo": {
+            "recall": 0.34065934065934067,
+            "early_warning_rate": 0.04395604395604396,
+            "mean_time_to_alert": 2.3225806451612905,
+            "false_alerts_per_100_clean": 2.0913721253279824
+          }
+        },
+        "2of3": {
+          "validation_synthetic": {
+            "clean": {
+              "share_alerting": 0.0,
+              "episodes_with_alert": 0.0,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmless_shift": {
+              "share_alerting": 0.1846444177074207,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmful_gradual": {
+              "share_alerting": 0.5828402241420382,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.95,
+              "early_warning_rate": 0.55
+            },
+            "harmful_abrupt": {
+              "share_alerting": 0.9347510840214331,
+              "episodes_with_alert": 1.0,
+              "event_recall": 1.0,
+              "early_warning_rate": 0.05
+            },
+            "concept_gradual": {
+              "share_alerting": 0.5799520776558171,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.2,
+              "early_warning_rate": 0.0
+            }
+          },
+          "test_synthetic": {
+            "clean": {
+              "share_alerting": 0.003076923076923077,
+              "episodes_with_alert": 0.06,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmless_shift": {
+              "share_alerting": 0.18346732122922987,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.4,
+              "early_warning_rate": 0.2
+            },
+            "harmful_gradual": {
+              "share_alerting": 0.575909549217604,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.92,
+              "early_warning_rate": 0.56
+            },
+            "harmful_abrupt": {
+              "share_alerting": 0.9174129081048945,
+              "episodes_with_alert": 1.0,
+              "event_recall": 1.0,
+              "early_warning_rate": 0.08
+            },
+            "concept_gradual": {
+              "share_alerting": 0.611333742850968,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.32,
+              "early_warning_rate": 0.0
+            }
+          },
+          "real_held_out": {
+            "recall": 0.43137254901960786,
+            "early_warning_rate": 0.09803921568627451,
+            "mean_time_to_alert": 1.7272727272727273,
+            "false_alerts_per_100_clean": 1.0097919216646267
+          },
+          "real_development_lodo": {
+            "recall": 0.34065934065934067,
+            "early_warning_rate": 0.04395604395604396,
+            "mean_time_to_alert": 2.3225806451612905,
+            "false_alerts_per_100_clean": 2.6855996295724642
+          }
+        },
+        "3of4": {
+          "validation_synthetic": {
+            "clean": {
+              "share_alerting": 0.0,
+              "episodes_with_alert": 0.0,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmless_shift": {
+              "share_alerting": 0.15021828120215625,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmful_gradual": {
+              "share_alerting": 0.5297175579959965,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.8,
+              "early_warning_rate": 0.45
+            },
+            "harmful_abrupt": {
+              "share_alerting": 0.9021266260321503,
+              "episodes_with_alert": 1.0,
+              "event_recall": 1.0,
+              "early_warning_rate": 0.0
+            },
+            "concept_gradual": {
+              "share_alerting": 0.5448718374623588,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.05,
+              "early_warning_rate": 0.0
+            }
+          },
+          "test_synthetic": {
+            "clean": {
+              "share_alerting": 0.0,
+              "episodes_with_alert": 0.0,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmless_shift": {
+              "share_alerting": 0.14598046357282926,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.2,
+              "early_warning_rate": 0.0
+            },
+            "harmful_gradual": {
+              "share_alerting": 0.5267444051591715,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.88,
+              "early_warning_rate": 0.38
+            },
+            "harmful_abrupt": {
+              "share_alerting": 0.8800557100836087,
+              "episodes_with_alert": 1.0,
+              "event_recall": 1.0,
+              "early_warning_rate": 0.06
+            },
+            "concept_gradual": {
+              "share_alerting": 0.5750605710076527,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.16,
+              "early_warning_rate": 0.0
+            }
+          },
+          "real_held_out": {
+            "recall": 0.21568627450980393,
+            "early_warning_rate": 0.0196078431372549,
+            "mean_time_to_alert": 2.8181818181818183,
+            "false_alerts_per_100_clean": 0.4283965728274174
+          },
+          "real_development_lodo": {
+            "recall": 0.23076923076923078,
+            "early_warning_rate": 0.03296703296703297,
+            "mean_time_to_alert": 2.5714285714285716,
+            "false_alerts_per_100_clean": 1.5202963420280908
+          }
+        },
+        "3of5": {
+          "validation_synthetic": {
+            "clean": {
+              "share_alerting": 0.0,
+              "episodes_with_alert": 0.0,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmless_shift": {
+              "share_alerting": 0.18170324123683246,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmful_gradual": {
+              "share_alerting": 0.560620595897374,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.9,
+              "early_warning_rate": 0.55
+            },
+            "harmful_abrupt": {
+              "share_alerting": 0.9064123403178647,
+              "episodes_with_alert": 1.0,
+              "event_recall": 1.0,
+              "early_warning_rate": 0.0
+            },
+            "concept_gradual": {
+              "share_alerting": 0.5463869889775104,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.05,
+              "early_warning_rate": 0.0
+            }
+          },
+          "test_synthetic": {
+            "clean": {
+              "share_alerting": 0.0,
+              "episodes_with_alert": 0.0,
+              "event_recall": 0.0,
+              "early_warning_rate": 0.0
+            },
+            "harmless_shift": {
+              "share_alerting": 0.1798643800527593,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.4,
+              "early_warning_rate": 0.2
+            },
+            "harmful_gradual": {
+              "share_alerting": 0.5569116518636983,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.9,
+              "early_warning_rate": 0.42
+            },
+            "harmful_abrupt": {
+              "share_alerting": 0.8950050188393692,
+              "episodes_with_alert": 1.0,
+              "event_recall": 1.0,
+              "early_warning_rate": 0.06
+            },
+            "concept_gradual": {
+              "share_alerting": 0.5836602020168974,
+              "episodes_with_alert": 1.0,
+              "event_recall": 0.16,
+              "early_warning_rate": 0.0
+            }
+          },
+          "real_held_out": {
+            "recall": 0.21568627450980393,
+            "early_warning_rate": 0.0196078431372549,
+            "mean_time_to_alert": 2.727272727272727,
+            "false_alerts_per_100_clean": 0.5813953488372093
+          },
+          "real_development_lodo": {
+            "recall": 0.25274725274725274,
+            "early_warning_rate": 0.03296703296703297,
+            "mean_time_to_alert": 2.652173913043478,
+            "false_alerts_per_100_clean": 1.8598549158820805
+          }
+        }
+      }
+    }
+  }
+}

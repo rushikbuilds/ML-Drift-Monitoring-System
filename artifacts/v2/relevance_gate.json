@@ -1,0 +1,33 @@
+{
+  "rws": {
+    "episode_level_auroc_harmful_vs_harmless_or_clean": 1.0,
+    "threshold": 0.08827213917089208,
+    "test_episodes_with_sustained_alert": {
+      "clean": 0.0,
+      "harmless_shift": 0.0,
+      "harmful_gradual": 1.0,
+      "harmful_abrupt": 1.0,
+      "concept_gradual": 0.0
+    }
+  },
+  "mean_ks": {
+    "episode_level_auroc_harmful_vs_harmless_or_clean": 0.5,
+    "threshold": 0.17506743368488337,
+    "test_episodes_with_sustained_alert": {
+      "clean": 0.0,
+      "harmless_shift": 0.02,
+      "harmful_gradual": 0.0,
+      "harmful_abrupt": 0.0,
+      "concept_gradual": 0.0
+    }
+  },
+  "mean_rf_importance_by_feature": {
+    "x0": 0.327,
+    "x1": 0.233,
+    "x2": 0.126,
+    "x3": 0.234,
+    "n0": 0.026,
+    "n1": 0.027,
+    "n2": 0.027
+  }
+}
