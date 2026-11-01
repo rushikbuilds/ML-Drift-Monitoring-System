@@ -140,7 +140,7 @@ class MonitoringService:
         return self.store.load_retraining_history()
 
     def state(self) -> dict:
-        """Aggregate summary consumed by the Grafana stat/gauge panels."""
+        """Aggregate summary for dashboards."""
         scores = self.store.load_drift_scores()
         alerts = self.store.load_alerts()
         forecasts = self.store.load_forecasts()
@@ -247,10 +247,10 @@ class MonitoringService:
             return asdict(result)
         return {"status": "no_system", "message": "Demo system not initialized. Call POST /demo/reset first."}
 
-    # ── Kafka-fallback buffer ───────────────────────────────────────────
+    # ── Ingestion buffer ───────────────────────────────────────────
 
     def buffer_records(self, records: list[dict]) -> None:
-        """Buffer incoming records when Kafka is unavailable."""
+        """Buffer incoming records."""
         self.store.buffer_records(records)
 
 

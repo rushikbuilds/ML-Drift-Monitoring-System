@@ -44,9 +44,3 @@ The default SQLite file lives at `artifacts/dews.sqlite3`. It is safe to delete 
 - Swap `PCAEmbeddingExtractor` for a model-specific embedding extractor.
 - Swap `DriftForecaster` for Prophet or a custom regression model.
 - Replace the webhook integration layer with a real Slack, Teams, Jira, or ServiceNow adapter.
-
-## PyTorch MLP & Production Deployment
-
-For complete, end-to-end code examples on deploying PyTorch models, setting up hidden embedding hooks with `TorchMLPAdapter`, development testing, and production deployment (Docker Compose, webhooks, API), see:
-
-👉 **[PyTorch Deployment & Testing Guide](pytorch_deployment_and_testing_guide.md)**

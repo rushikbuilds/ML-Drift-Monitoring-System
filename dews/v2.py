@@ -277,3 +277,43 @@ def calibrator_scores(sig: Mapping[str, Any], delay: int, pool, *, use_labels: b
                     model.fit(x_all, y_all, logisticregression__sample_weight=w)
         scores[t] = model.predict_proba(feats[t:t + 1])[0, 1]
     return scores
+
+
+# ------------------------------------------------- delay-aware CBPE (v3)
+_CONF = BASE_SIGNALS.index("mean_confidence")
+
+
+def cbpe_scores(sig: Mapping[str, Any], delay: int, *, bias_window: int = 5) -> dict[str, np.ndarray]:
+    """Label-free accuracy estimate, bias-corrected with matured labels only.
+
+    The batch accuracy estimate is the mean top-class probability (as in CBPE).
+    Its bias is the mean residual (realized accuracy - mean confidence) over the
+    latest ``bias_window`` batches whose labels have arrived (b <= t - max(L, 1));
+    before that, the clean baseline window supplies the bias. Scores are in
+    accuracy units (estimated drop from the clean baseline), so a threshold of
+    ``DROP`` has the same meaning on every dataset.
+    """
+    conf = np.asarray(sig["signals"])[:, _CONF]
+    acc = np.asarray(sig["accuracy"])
+    n, lag = len(acc), max(delay, 1)
+    base = float(acc[:BASELINE_BATCHES].mean())
+    bias0 = float((acc[:BASELINE_BATCHES] - conf[:BASELINE_BATCHES]).mean())
+    raw = np.zeros(n)
+    est = np.zeros(n)
+    for t in range(n):
+        m = t - lag
+        if m >= BASELINE_BATCHES:
+            lo = max(BASELINE_BATCHES, m - bias_window + 1)
+            bias = float((acc[lo:m + 1] - conf[lo:m + 1]).mean())
+        else:
+            bias = bias0
+        est[t] = conf[t] + bias
+        raw[t] = base - (conf[t] + bias0)
+    drop = base - est
+    forecast = np.zeros(n)
+    for t in range(n):
+        lo = max(0, t - 2)
+        slope = (est[t] - est[lo]) / max(t - lo, 1)
+        forecast[t] = base - (est[t] + H * slope)
+    return {"cbpe_raw": np.clip(raw, 0, None), "da_cbpe": np.clip(drop, 0, None),
+            "da_cbpe_forecast": np.clip(forecast, 0, None)}

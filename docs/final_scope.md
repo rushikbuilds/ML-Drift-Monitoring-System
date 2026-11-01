@@ -104,7 +104,7 @@ The demo must include a harmful episode and a harmless-shift case. Show the meas
 
 ## Out of scope
 
-- Kafka, Celery, Redis, distributed scaling, and production throughput.
+- Kafka, Celery, Redis, distributed scaling, and production throughput (this infrastructure has since been deleted from the repository).
 - PostgreSQL/TimescaleDB, MLflow, migrations, registries, and production failover.
 - Automated retraining, webhooks, ticket creation, and closed-loop deployment.
 - Multiple dashboard stacks or a general-purpose monitoring product.

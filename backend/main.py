@@ -2,7 +2,7 @@
 
 Endpoints:
     Ingestion:
-        POST /api/v1/ingest          Ingest live data (Kafka or local buffer fallback)
+        POST /api/v1/ingest          Ingest live data (local buffer)
 
     Dashboard / Read-only:
         GET  /health                 Health check
@@ -11,7 +11,7 @@ Endpoints:
         GET  /forecasts              Forecast history
         GET  /feature-drift          Per-feature drift breakdown
         GET  /model-registry         Registered model versions
-        GET  /state                  Aggregate state for Grafana stat panels
+        GET  /state                  Aggregate state summary
         GET  /adaptive-threshold     Adaptive threshold evolution
         GET  /retraining-history     Retraining event log
 
@@ -55,20 +55,6 @@ app.add_middleware(
 metrics_app = make_asgi_app()
 app.mount("/metrics", metrics_app)
 
-# ── Kafka producer (best-effort) ────────────────────────────────────────
-KAFKA_BROKER = os.getenv("KAFKA_BROKER", "localhost:9092")
-producer = None
-try:
-    from kafka import KafkaProducer
-    producer = KafkaProducer(
-        bootstrap_servers=[KAFKA_BROKER],
-        value_serializer=lambda v: json.dumps(v).encode("utf-8"),
-    )
-    logger.info("Kafka producer connected to %s", KAFKA_BROKER)
-except Exception as exc:
-    logger.warning("Kafka producer unavailable (%s) — ingestion will buffer locally.", exc)
-
-
 # ── Pydantic models ────────────────────────────────────────────────────
 
 class IngestPayload(BaseModel):
@@ -94,7 +80,6 @@ def health():
     """Health check endpoint."""
     return {
         "status": "ok",
-        "kafka": producer is not None,
         "database": service.store.connection is not None,
     }
 
@@ -103,15 +88,9 @@ def health():
 
 @app.post("/api/v1/ingest")
 def ingest_data(payload: IngestPayload):
-    """Ingest live data. Uses Kafka when available, otherwise buffers locally."""
-    if producer:
-        for row in payload.data:
-            producer.send("dews-live-stream", row)
-        producer.flush()
-        return {"status": "enqueued", "records": len(payload.data), "backend": "kafka"}
-    else:
-        service.buffer_records(payload.data)
-        return {"status": "buffered", "records": len(payload.data), "backend": "local"}
+    """Ingest live data into the local buffer."""
+    service.buffer_records(payload.data)
+    return {"status": "buffered", "records": len(payload.data), "backend": "local"}
 
 
 # ── Dashboard / read-only views ─────────────────────────────────────────

@@ -12,9 +12,7 @@ python-dotenv==1.0.1
 psycopg2-binary==2.9.9
 SQLAlchemy==2.0.31
 mlflow==2.14.3
-celery[redis]==5.4.0
-kafka-python-ng==2.2.2
-redis==5.0.7
 prometheus-client==0.20.0
 alembic==1.13.2
 matplotlib>=3.8
+starlette>=0.37,<0.38

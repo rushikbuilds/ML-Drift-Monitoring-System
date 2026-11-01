@@ -198,10 +198,10 @@ class DriftStore:
         )
         self.connection.commit()
 
-    # ── Ingestion buffer (Kafka fallback) ──
+    # ── Ingestion buffer ──
 
     def buffer_records(self, records: list[dict]) -> None:
-        """Store raw ingested records when Kafka is unavailable."""
+        """Store raw ingested records."""
         from datetime import datetime, timezone
         now = datetime.now(timezone.utc).isoformat()
         for record in records:

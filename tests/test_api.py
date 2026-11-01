@@ -16,7 +16,6 @@ def test_health_endpoint() -> None:
     assert response.status_code == 200
     body = response.json()
     assert body["status"] == "ok"
-    assert "kafka" in body
     assert "database" in body
 
 
@@ -72,23 +71,8 @@ def test_retraining_history_endpoint() -> None:
 
 # ── Ingestion ───────────────────────────────────────────────────────────
 
-@patch("backend.main.producer")
-def test_ingest_with_kafka(mock_producer: MagicMock) -> None:
-    """When Kafka is available, records should be sent via producer."""
-    payload = {"data": [{"feature_0": 0.1, "feature_1": 1.0, "segment": 0}]}
-    response = client.post("/api/v1/ingest", json=payload)
-    assert response.status_code == 200
-    body = response.json()
-    assert body["status"] == "enqueued"
-    assert body["records"] == 1
-    assert body["backend"] == "kafka"
-    mock_producer.send.assert_called_once()
-    mock_producer.flush.assert_called_once()
-
-
-@patch("backend.main.producer", None)
-def test_ingest_without_kafka() -> None:
-    """When Kafka is unavailable, records should be buffered locally."""
+def test_ingest_buffers_locally() -> None:
+    """Ingested records are buffered locally."""
     payload = {"data": [{"feature_0": 0.2, "feature_1": 0.8, "segment": 1}]}
     response = client.post("/api/v1/ingest", json=payload)
     assert response.status_code == 200

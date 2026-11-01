@@ -8,15 +8,11 @@ Run the demo pipeline and print a JSON summary:
 ./.venv/bin/python main.py --demo
 ```
 
-## Dashboard (Grafana)
-
-Launch the Grafana monitoring dashboard:
+## API
 
 ```bash
-docker compose up -d grafana
+python main.py --serve   # Swagger UI at http://localhost:8000/docs
 ```
-
-Then navigate to **http://localhost:3000** in your browser (default credentials: `admin` / `admin`).
 
 ## Outputs
 
@@ -29,6 +25,5 @@ The pipeline writes these artifacts to the local SQLite store:
 
 ## Documentation Guides
 
-- **[PyTorch Deployment & Testing Guide](pytorch_deployment_and_testing_guide.md)**: Full guide for deploying PyTorch MLPs, extracting penultimate layer embeddings, dev testing, and production deployment.
 - **[Developer Guide](developer_guide.md)**: Modular component structure and extensibility notes.
-- **[Architecture Overview](architecture.md)**: System design and multi-layer drift detection methodology.
+- **[v2 protocol](v2_protocol.md), [v2 results](v2_results.md), [real-data study](v2_realdata.md)**: the maintained research documentation.

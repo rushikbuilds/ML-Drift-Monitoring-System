@@ -31,3 +31,20 @@ def test_episode_scenarios_are_deterministic_and_event_free_when_clean():
     b = v2.build_episode("harmful_gradual", 7)
     assert np.allclose(a.batches[20].to_numpy(), b.batches[20].to_numpy())
     assert a.onset is not None and v2.build_episode("clean", 7).onset is None
+
+
+def test_cbpe_scores_use_only_matured_labels():
+    rng = np.random.default_rng(0)
+    n = 30
+    signals = np.zeros((n, len(v2.BASE_SIGNALS)))
+    signals[:, v2.BASE_SIGNALS.index("mean_confidence")] = 0.8 + 0.01 * rng.normal(size=n)
+    acc = 0.8 + 0.01 * rng.normal(size=n)
+    base = {"signals": signals, "accuracy": acc}
+    for delay in (0, 2, 5):
+        t, lag = 20, max(delay, 1)
+        changed = acc.copy()
+        changed[t - lag + 1:] = 0.1  # labels that have not arrived by time t
+        for name in ("da_cbpe", "da_cbpe_forecast"):
+            a = v2.cbpe_scores(base, delay)[name][t]
+            b = v2.cbpe_scores({"signals": signals, "accuracy": changed}, delay)[name][t]
+            assert a == b
