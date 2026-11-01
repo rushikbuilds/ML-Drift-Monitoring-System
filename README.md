@@ -2,7 +2,7 @@
 
 > **Project status (v2).** The supported research path is the delayed-label-aware early-warning experiment:
 > [docs/v2_protocol.md](docs/v2_protocol.md) (what changed from v1 and why), [docs/v2_results.md](docs/v2_results.md) (results and limitations).
-> Reproduce with `python scripts/run_v2_experiment.py`. The v1 result ([docs/evaluation_results.md](docs/evaluation_results.md)) was negative and is kept as published.
+> Real-data study across four datasets: [docs/v2_realdata.md](docs/v2_realdata.md). Reproduce with `python scripts/run_v2_experiment.py` and `python scripts/run_v2_realdata.py`. The v1 result ([docs/evaluation_results.md](docs/evaluation_results.md)) was negative and is kept as published.
 > The Kafka/Celery/Redis/Grafana stack described further down is optional legacy infrastructure and is not part of the evaluated claims.
 
 ## Problem Statement
