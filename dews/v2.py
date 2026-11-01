@@ -317,3 +317,30 @@ def cbpe_scores(sig: Mapping[str, Any], delay: int, *, bias_window: int = 5) -> 
         forecast[t] = base - (est[t] + H * slope)
     return {"cbpe_raw": np.clip(raw, 0, None), "da_cbpe": np.clip(drop, 0, None),
             "da_cbpe_forecast": np.clip(forecast, 0, None)}
+
+
+def accuracy_estimates(sig: Mapping[str, Any], delay: int, *, bias_window: int = 5) -> dict[str, np.ndarray]:
+    """Per-batch accuracy nowcasts available at time t (causal; labels delayed).
+
+    ``stale_last`` / ``stale_mean3`` carry forward the latest matured accuracies,
+    ``cbpe_raw`` is confidence plus the clean-window bias, ``da_cbpe`` also corrects
+    the bias with matured labels.
+    """
+    conf = np.asarray(sig["signals"])[:, _CONF]
+    acc = np.asarray(sig["accuracy"])
+    n, lag = len(acc), max(delay, 1)
+    base = float(acc[:BASELINE_BATCHES].mean())
+    bias0 = float((acc[:BASELINE_BATCHES] - conf[:BASELINE_BATCHES]).mean())
+    out = {k: np.zeros(n) for k in ("stale_last", "stale_mean3", "cbpe_raw", "da_cbpe")}
+    for t in range(n):
+        m = t - lag
+        out["cbpe_raw"][t] = conf[t] + bias0
+        if m >= BASELINE_BATCHES:
+            lo = max(BASELINE_BATCHES, m - bias_window + 1)
+            out["da_cbpe"][t] = conf[t] + float((acc[lo:m + 1] - conf[lo:m + 1]).mean())
+            out["stale_last"][t] = acc[m]
+            out["stale_mean3"][t] = float(acc[max(m - 2, 0):m + 1].mean())
+        else:
+            out["da_cbpe"][t] = conf[t] + bias0
+            out["stale_last"][t] = out["stale_mean3"][t] = base
+    return out

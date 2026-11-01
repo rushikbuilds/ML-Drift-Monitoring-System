@@ -1,0 +1,755 @@
+{
+  "streams": {
+    "development": {
+      "airlines": 40,
+      "bank_marketing": 5,
+      "covertype": 40,
+      "electricity": 5,
+      "kddcup99": 6,
+      "ldpa": 19,
+      "run_or_walk": 4,
+      "vehicle_sensit": 11
+    },
+    "held_out": {
+      "covpokelec": {
+        "windows": 40,
+        "with_event": 33
+      },
+      "hyperplane": {
+        "windows": 40,
+        "with_event": 14
+      },
+      "led": {
+        "windows": 40,
+        "with_event": 0
+      },
+      "poker_hand": {
+        "windows": 40,
+        "with_event": 3
+      },
+      "sea": {
+        "windows": 40,
+        "with_event": 1
+      }
+    }
+  },
+  "by_delay": {
+    "0": {
+      "development_lodo": {
+        "nowcast_mae_by_dataset": {
+          "stale_last": {
+            "electricity": 0.09802105263157894,
+            "airlines": 0.0443,
+            "covertype": 0.09469473684210526,
+            "bank_marketing": 0.05726315789473682,
+            "run_or_walk": 0.04889473684210527,
+            "vehicle_sensit": 0.031100478468899538,
+            "kddcup99": 0.059403508771929826,
+            "ldpa": 0.3378393351800554
+          },
+          "stale_mean3": {
+            "electricity": 0.09480701754385966,
+            "airlines": 0.0415859649122807,
+            "covertype": 0.06882105263157895,
+            "bank_marketing": 0.07185964912280701,
+            "run_or_walk": 0.07696491228070178,
+            "vehicle_sensit": 0.02520574162679427,
+            "kddcup99": 0.07120467836257309,
+            "ldpa": 0.33769898430286244
+          },
+          "cbpe_raw": {
+            "electricity": 0.21355241452028262,
+            "airlines": 0.10700252167005693,
+            "covertype": 0.09827625210925632,
+            "bank_marketing": 0.15954796347520667,
+            "run_or_walk": 0.2679025553179281,
+            "vehicle_sensit": 0.024745854853911446,
+            "kddcup99": 0.20136277847685086,
+            "ldpa": 0.3607231058140977
+          },
+          "da_cbpe": {
+            "electricity": 0.11198517209534507,
+            "airlines": 0.04656144035797986,
+            "covertype": 0.057625572660441556,
+            "bank_marketing": 0.07234963712013985,
+            "run_or_walk": 0.0726239381143466,
+            "vehicle_sensit": 0.024662247898054945,
+            "kddcup99": 0.08004062836144155,
+            "ldpa": 0.34527678465411804
+          },
+          "anchored": {
+            "electricity": 0.0988420501143932,
+            "airlines": 0.04106410710457038,
+            "covertype": 0.05459980334870436,
+            "bank_marketing": 0.0579155687718659,
+            "run_or_walk": 0.05450091163314084,
+            "vehicle_sensit": 0.025469104065624356,
+            "kddcup99": 0.06628066126623067,
+            "ldpa": 0.3297930854596135
+          }
+        },
+        "detection": {
+          "fixed_score": {
+            "macro_auroc": 0.6959179204759639,
+            "events": 91,
+            "windows": 130,
+            "recall": 0.37362637362637363,
+            "recall_ci95": [
+              0.27472527472527475,
+              0.4725274725274725
+            ],
+            "early_warning_rate": 0.13186813186813187,
+            "mean_time_to_alert": 0.11764705882352941,
+            "false_alerts_per_100_clean": 7.6400679117147705,
+            "threshold": 0.5656200028191534
+          },
+          "delayed_label_only": {
+            "macro_auroc": 0.7202970937648419,
+            "events": 91,
+            "windows": 130,
+            "recall": 1.0,
+            "recall_ci95": [
+              1.0,
+              1.0
+            ],
+            "early_warning_rate": 0.2857142857142857,
+            "mean_time_to_alert": 0.2857142857142857,
+            "false_alerts_per_100_clean": 6.724656215318355,
+            "threshold": 0.048152731092436965
+          },
+          "da_cbpe_p2": {
+            "macro_auroc": 0.752781522370668,
+            "events": 91,
+            "windows": 130,
+            "recall": 0.8901098901098901,
+            "recall_ci95": [
+              0.8241758241758241,
+              0.945054945054945
+            ],
+            "early_warning_rate": 0.23076923076923078,
+            "mean_time_to_alert": 0.8271604938271605,
+            "false_alerts_per_100_clean": 5.523467760309866,
+            "threshold": 0.024616473673816055
+          },
+          "anchored": {
+            "macro_auroc": 0.7597892962516588,
+            "events": 91,
+            "windows": 130,
+            "recall": 0.7032967032967034,
+            "recall_ci95": [
+              0.6043956043956044,
+              0.7912087912087912
+            ],
+            "early_warning_rate": 0.06593406593406594,
+            "mean_time_to_alert": 1.65625,
+            "false_alerts_per_100_clean": 7.12325167758105,
+            "threshold": 0.13003813683852683
+          },
+          "anchored_p2": {
+            "macro_auroc": 0.7441246774188415,
+            "events": 91,
+            "windows": 130,
+            "recall": 0.9120879120879121,
+            "recall_ci95": [
+              0.8461538461538461,
+              0.967032967032967
+            ],
+            "early_warning_rate": 0.14285714285714285,
+            "mean_time_to_alert": 1.3012048192771084,
+            "false_alerts_per_100_clean": 6.870769298613102,
+            "threshold": 0.03157295248612749
+          }
+        }
+      },
+      "held_out": {
+        "nowcast_mae_by_dataset": {
+          "stale_last": {
+            "hyperplane": 0.020557894736842112,
+            "sea": 0.024063157894736856,
+            "covpokelec": 0.13625789473684213,
+            "poker_hand": 0.034547368421052646,
+            "led": 0.01778421052631576
+          },
+          "stale_mean3": {
+            "hyperplane": 0.017691228070175445,
+            "sea": 0.01995087719298247,
+            "covpokelec": 0.11639473684210527,
+            "poker_hand": 0.02883333333333335,
+            "led": 0.014878947368421018
+          },
+          "cbpe_raw": {
+            "hyperplane": 0.026998405738717285,
+            "sea": 0.01901444863831211,
+            "covpokelec": 0.15625213532370386,
+            "poker_hand": 0.02747449897030665,
+            "led": 0.013657575791786038
+          },
+          "da_cbpe": {
+            "hyperplane": 0.017553103353796572,
+            "sea": 0.0202565768728901,
+            "covpokelec": 0.10881131268506278,
+            "poker_hand": 0.027848131898192567,
+            "led": 0.013657602506331712
+          },
+          "anchored": {
+            "hyperplane": 0.020275738321499724,
+            "sea": 0.021338853094149613,
+            "covpokelec": 0.10520114664542973,
+            "poker_hand": 0.02975856285369148,
+            "led": 0.0155004706999997
+          }
+        },
+        "detection": {
+          "fixed_score": {
+            "macro_auroc": 0.5960484390420551,
+            "events": 51,
+            "windows": 200,
+            "recall": 0.0196078431372549,
+            "recall_ci95": [
+              0.0,
+              0.058823529411764705
+            ],
+            "early_warning_rate": 0.0196078431372549,
+            "mean_time_to_alert": -5.0,
+            "false_alerts_per_100_clean": 0.5813953488372093,
+            "threshold": 0.5735141723654779
+          },
+          "delayed_label_only": {
+            "macro_auroc": 0.7423729707473141,
+            "events": 51,
+            "windows": 200,
+            "recall": 1.0,
+            "recall_ci95": [
+              1.0,
+              1.0
+            ],
+            "early_warning_rate": 0.5294117647058824,
+            "mean_time_to_alert": -0.803921568627451,
+            "false_alerts_per_100_clean": 3.0718754249965996,
+            "threshold": 0.04659327731092432
+          },
+          "da_cbpe_p2": {
+            "macro_auroc": 0.7258203549730953,
+            "events": 51,
+            "windows": 200,
+            "recall": 0.9607843137254902,
+            "recall_ci95": [
+              0.9019607843137255,
+              1.0
+            ],
+            "early_warning_rate": 0.35294117647058826,
+            "mean_time_to_alert": 0.0,
+            "false_alerts_per_100_clean": 4.5602223493900365,
+            "threshold": 0.023836080632029206
+          },
+          "anchored": {
+            "macro_auroc": 0.718707243390143,
+            "events": 51,
+            "windows": 200,
+            "recall": 0.3333333333333333,
+            "recall_ci95": [
+              0.21568627450980393,
+              0.47058823529411764
+            ],
+            "early_warning_rate": 0.0784313725490196,
+            "mean_time_to_alert": 0.7647058823529411,
+            "false_alerts_per_100_clean": 0.21419828641370867,
+            "threshold": 0.13642412693495629
+          },
+          "anchored_p2": {
+            "macro_auroc": 0.7486324221963344,
+            "events": 51,
+            "windows": 200,
+            "recall": 0.9607843137254902,
+            "recall_ci95": [
+              0.9019607843137255,
+              1.0
+            ],
+            "early_warning_rate": 0.45098039215686275,
+            "mean_time_to_alert": -0.46938775510204084,
+            "false_alerts_per_100_clean": 3.757577082240485,
+            "threshold": 0.03106137442311807
+          }
+        }
+      }
+    },
+    "2": {
+      "development_lodo": {
+        "nowcast_mae_by_dataset": {
+          "stale_last": {
+            "electricity": 0.10797473684210522,
+            "airlines": 0.04767894736842106,
+            "covertype": 0.06813473684210526,
+            "bank_marketing": 0.08045473684210526,
+            "run_or_walk": 0.083,
+            "vehicle_sensit": 0.028199043062200974,
+            "kddcup99": 0.08171228070175439,
+            "ldpa": 0.440804432132964
+          },
+          "stale_mean3": {
+            "electricity": 0.10400280701754384,
+            "airlines": 0.04546666666666667,
+            "covertype": 0.06669263157894736,
+            "bank_marketing": 0.09371789473684208,
+            "run_or_walk": 0.1034736842105263,
+            "vehicle_sensit": 0.024052312599681033,
+            "kddcup99": 0.08627368421052632,
+            "ldpa": 0.3624886426592798
+          },
+          "cbpe_raw": {
+            "electricity": 0.21355241452028262,
+            "airlines": 0.10700252167005693,
+            "covertype": 0.09827625210925632,
+            "bank_marketing": 0.15954796347520667,
+            "run_or_walk": 0.2679025553179281,
+            "vehicle_sensit": 0.024745854853911446,
+            "kddcup99": 0.20136277847685086,
+            "ldpa": 0.3607231058140977
+          },
+          "da_cbpe": {
+            "electricity": 0.12322949224586413,
+            "airlines": 0.0519209800799861,
+            "covertype": 0.05747741061449942,
+            "bank_marketing": 0.09172286863866115,
+            "run_or_walk": 0.08954900812359687,
+            "vehicle_sensit": 0.023765163166087473,
+            "kddcup99": 0.0911981433756328,
+            "ldpa": 0.3756994354787302
+          },
+          "anchored": {
+            "electricity": 0.11075715341945239,
+            "airlines": 0.04628137290722729,
+            "covertype": 0.055081322561387994,
+            "bank_marketing": 0.07556235945355574,
+            "run_or_walk": 0.07600880798066095,
+            "vehicle_sensit": 0.02507329360742295,
+            "kddcup99": 0.07880196642114795,
+            "ldpa": 0.35325775249628144
+          }
+        },
+        "detection": {
+          "fixed_score": {
+            "macro_auroc": 0.6959179204759639,
+            "events": 91,
+            "windows": 130,
+            "recall": 0.37362637362637363,
+            "recall_ci95": [
+              0.27472527472527475,
+              0.4725274725274725
+            ],
+            "early_warning_rate": 0.13186813186813187,
+            "mean_time_to_alert": 0.11764705882352941,
+            "false_alerts_per_100_clean": 7.6400679117147705,
+            "threshold": 0.5656200028191534
+          },
+          "delayed_label_only": {
+            "macro_auroc": 0.703618955868391,
+            "events": 91,
+            "windows": 130,
+            "recall": 1.0,
+            "recall_ci95": [
+              1.0,
+              1.0
+            ],
+            "early_warning_rate": 0.1978021978021978,
+            "mean_time_to_alert": 1.0,
+            "false_alerts_per_100_clean": 7.6747128084139975,
+            "threshold": 0.04771029411764707
+          },
+          "da_cbpe_p2": {
+            "macro_auroc": 0.7359594709460002,
+            "events": 91,
+            "windows": 130,
+            "recall": 0.8461538461538461,
+            "recall_ci95": [
+              0.7692307692307693,
+              0.9120879120879121
+            ],
+            "early_warning_rate": 0.25274725274725274,
+            "mean_time_to_alert": 0.987012987012987,
+            "false_alerts_per_100_clean": 5.560363518767593,
+            "threshold": 0.023104523609018754
+          },
+          "anchored": {
+            "macro_auroc": 0.7550675810369418,
+            "events": 91,
+            "windows": 130,
+            "recall": 0.7802197802197802,
+            "recall_ci95": [
+              0.6923076923076923,
+              0.8571428571428571
+            ],
+            "early_warning_rate": 0.07692307692307693,
+            "mean_time_to_alert": 1.8450704225352113,
+            "false_alerts_per_100_clean": 6.263744037513138,
+            "threshold": 0.1075466910306669
+          },
+          "anchored_p2": {
+            "macro_auroc": 0.761824050558215,
+            "events": 91,
+            "windows": 130,
+            "recall": 0.9230769230769231,
+            "recall_ci95": [
+              0.8571428571428571,
+              0.978021978021978
+            ],
+            "early_warning_rate": 0.12087912087912088,
+            "mean_time_to_alert": 1.7619047619047619,
+            "false_alerts_per_100_clean": 4.865132038306911,
+            "threshold": 0.03842727840296118
+          }
+        }
+      },
+      "held_out": {
+        "nowcast_mae_by_dataset": {
+          "stale_last": {
+            "hyperplane": 0.021318947368421062,
+            "sea": 0.023914736842105284,
+            "covpokelec": 0.13325368421052633,
+            "poker_hand": 0.034420000000000006,
+            "led": 0.017982105263157865
+          },
+          "stale_mean3": {
+            "hyperplane": 0.017971578947368432,
+            "sea": 0.01978315789473686,
+            "covpokelec": 0.11627473684210528,
+            "poker_hand": 0.028528771929824576,
+            "led": 0.015006666666666633
+          },
+          "cbpe_raw": {
+            "hyperplane": 0.026998405738717285,
+            "sea": 0.01901444863831211,
+            "covpokelec": 0.15625213532370386,
+            "poker_hand": 0.02747449897030665,
+            "led": 0.013657575791786038
+          },
+          "da_cbpe": {
+            "hyperplane": 0.018104366477275702,
+            "sea": 0.020259169990984198,
+            "covpokelec": 0.11157757052294154,
+            "poker_hand": 0.028022415167603374,
+            "led": 0.013604101448381381
+          },
+          "anchored": {
+            "hyperplane": 0.020400005166286348,
+            "sea": 0.021653260898753475,
+            "covpokelec": 0.10758572675473499,
+            "poker_hand": 0.030175658033389077,
+            "led": 0.016525692516230768
+          }
+        },
+        "detection": {
+          "fixed_score": {
+            "macro_auroc": 0.5960484390420551,
+            "events": 51,
+            "windows": 200,
+            "recall": 0.0196078431372549,
+            "recall_ci95": [
+              0.0,
+              0.058823529411764705
+            ],
+            "early_warning_rate": 0.0196078431372549,
+            "mean_time_to_alert": -5.0,
+            "false_alerts_per_100_clean": 0.5813953488372093,
+            "threshold": 0.5735141723654779
+          },
+          "delayed_label_only": {
+            "macro_auroc": 0.727664269457996,
+            "events": 51,
+            "windows": 200,
+            "recall": 1.0,
+            "recall_ci95": [
+              1.0,
+              1.0
+            ],
+            "early_warning_rate": 0.43137254901960786,
+            "mean_time_to_alert": -0.47058823529411764,
+            "false_alerts_per_100_clean": 2.504929960560315,
+            "threshold": 0.04518319327731088
+          },
+          "da_cbpe_p2": {
+            "macro_auroc": 0.7318533905157807,
+            "events": 51,
+            "windows": 200,
+            "recall": 0.9607843137254902,
+            "recall_ci95": [
+              0.9019607843137255,
+              1.0
+            ],
+            "early_warning_rate": 0.35294117647058826,
+            "mean_time_to_alert": 0.6530612244897959,
+            "false_alerts_per_100_clean": 4.772632338421812,
+            "threshold": 0.02270143441202355
+          },
+          "anchored": {
+            "macro_auroc": 0.7114864904175865,
+            "events": 51,
+            "windows": 200,
+            "recall": 0.39215686274509803,
+            "recall_ci95": [
+              0.2549019607843137,
+              0.5294117647058824
+            ],
+            "early_warning_rate": 0.058823529411764705,
+            "mean_time_to_alert": 1.6,
+            "false_alerts_per_100_clean": 0.39473684210526316,
+            "threshold": 0.11115271945081881
+          },
+          "anchored_p2": {
+            "macro_auroc": 0.7263032259768181,
+            "events": 51,
+            "windows": 200,
+            "recall": 0.9215686274509803,
+            "recall_ci95": [
+              0.8431372549019608,
+              0.9803921568627451
+            ],
+            "early_warning_rate": 0.35294117647058826,
+            "mean_time_to_alert": 0.2765957446808511,
+            "false_alerts_per_100_clean": 2.207432340541276,
+            "threshold": 0.038795736572365826
+          }
+        }
+      }
+    },
+    "5": {
+      "development_lodo": {
+        "nowcast_mae_by_dataset": {
+          "stale_last": {
+            "electricity": 0.12648421052631578,
+            "airlines": 0.05990105263157895,
+            "covertype": 0.0848463157894737,
+            "bank_marketing": 0.13906526315789475,
+            "run_or_walk": 0.1454526315789474,
+            "vehicle_sensit": 0.02992918660287084,
+            "kddcup99": 0.11329122807017543,
+            "ldpa": 0.4327268698060942
+          },
+          "stale_mean3": {
+            "electricity": 0.11564912280701754,
+            "airlines": 0.059139649122807024,
+            "covertype": 0.07902,
+            "bank_marketing": 0.15246877192982458,
+            "run_or_walk": 0.15573333333333333,
+            "vehicle_sensit": 0.024232216905901143,
+            "kddcup99": 0.11836725146198832,
+            "ldpa": 0.4023372114496769
+          },
+          "cbpe_raw": {
+            "electricity": 0.21355241452028262,
+            "airlines": 0.10700252167005693,
+            "covertype": 0.09827625210925632,
+            "bank_marketing": 0.15954796347520667,
+            "run_or_walk": 0.2679025553179281,
+            "vehicle_sensit": 0.024745854853911446,
+            "kddcup99": 0.20136277847685086,
+            "ldpa": 0.3607231058140977
+          },
+          "da_cbpe": {
+            "electricity": 0.1441121490290224,
+            "airlines": 0.06920932881894123,
+            "covertype": 0.07044398509426439,
+            "bank_marketing": 0.12690013835920405,
+            "run_or_walk": 0.13490832600157718,
+            "vehicle_sensit": 0.024202476910147593,
+            "kddcup99": 0.1309836003746782,
+            "ldpa": 0.38509764768477833
+          },
+          "anchored": {
+            "electricity": 0.10067198981276036,
+            "airlines": 0.06280930535299711,
+            "covertype": 0.06388391595504998,
+            "bank_marketing": 0.10282072180741998,
+            "run_or_walk": 0.12109127954668195,
+            "vehicle_sensit": 0.024936548011785315,
+            "kddcup99": 0.10057118615722836,
+            "ldpa": 0.3871848085202345
+          }
+        },
+        "detection": {
+          "fixed_score": {
+            "macro_auroc": 0.6959179204759639,
+            "events": 91,
+            "windows": 130,
+            "recall": 0.37362637362637363,
+            "recall_ci95": [
+              0.27472527472527475,
+              0.4725274725274725
+            ],
+            "early_warning_rate": 0.13186813186813187,
+            "mean_time_to_alert": 0.11764705882352941,
+            "false_alerts_per_100_clean": 7.6400679117147705,
+            "threshold": 0.5656200028191534
+          },
+          "delayed_label_only": {
+            "macro_auroc": 0.6787132324468377,
+            "events": 91,
+            "windows": 130,
+            "recall": 0.7912087912087912,
+            "recall_ci95": [
+              0.7032967032967034,
+              0.8681318681318682
+            ],
+            "early_warning_rate": 0.13186813186813187,
+            "mean_time_to_alert": 2.4722222222222223,
+            "false_alerts_per_100_clean": 4.245290645969764,
+            "threshold": 0.03629117647058819
+          },
+          "da_cbpe_p2": {
+            "macro_auroc": 0.6780954452863567,
+            "events": 91,
+            "windows": 130,
+            "recall": 0.5494505494505495,
+            "recall_ci95": [
+              0.45054945054945056,
+              0.6483516483516484
+            ],
+            "early_warning_rate": 0.1978021978021978,
+            "mean_time_to_alert": 0.54,
+            "false_alerts_per_100_clean": 6.073853989813243,
+            "threshold": 0.02130169630909263
+          },
+          "anchored": {
+            "macro_auroc": 0.6832600319731038,
+            "events": 91,
+            "windows": 130,
+            "recall": 0.5604395604395604,
+            "recall_ci95": [
+              0.45054945054945056,
+              0.6593406593406593
+            ],
+            "early_warning_rate": 0.0989010989010989,
+            "mean_time_to_alert": 2.0392156862745097,
+            "false_alerts_per_100_clean": 3.887431187940526,
+            "threshold": 0.10684909318234267
+          },
+          "anchored_p2": {
+            "macro_auroc": 0.6569923114424138,
+            "events": 91,
+            "windows": 130,
+            "recall": 0.4835164835164835,
+            "recall_ci95": [
+              0.38461538461538464,
+              0.5934065934065934
+            ],
+            "early_warning_rate": 0.07692307692307693,
+            "mean_time_to_alert": 1.6818181818181819,
+            "false_alerts_per_100_clean": 4.070201162730874,
+            "threshold": 0.037380451576013336
+          }
+        }
+      },
+      "held_out": {
+        "nowcast_mae_by_dataset": {
+          "stale_last": {
+            "hyperplane": 0.022246315789473687,
+            "sea": 0.023016842105263176,
+            "covpokelec": 0.14158842105263159,
+            "poker_hand": 0.03313473684210527,
+            "led": 0.0171273684210526
+          },
+          "stale_mean3": {
+            "hyperplane": 0.019609473684210527,
+            "sea": 0.019434385964912294,
+            "covpokelec": 0.13091473684210528,
+            "poker_hand": 0.028866315789473695,
+            "led": 0.014418596491228036
+          },
+          "cbpe_raw": {
+            "hyperplane": 0.026998405738717285,
+            "sea": 0.01901444863831211,
+            "covpokelec": 0.15625213532370386,
+            "poker_hand": 0.02747449897030665,
+            "led": 0.013657575791786038
+          },
+          "da_cbpe": {
+            "hyperplane": 0.020026387534686215,
+            "sea": 0.01983678446417172,
+            "covpokelec": 0.12434969363618517,
+            "poker_hand": 0.02770292075068646,
+            "led": 0.013495886628149687
+          },
+          "anchored": {
+            "hyperplane": 0.021010889589653848,
+            "sea": 0.02053226991875539,
+            "covpokelec": 0.12103445761689967,
+            "poker_hand": 0.029898719589570653,
+            "led": 0.016415430781817703
+          }
+        },
+        "detection": {
+          "fixed_score": {
+            "macro_auroc": 0.5960484390420551,
+            "events": 51,
+            "windows": 200,
+            "recall": 0.0196078431372549,
+            "recall_ci95": [
+              0.0,
+              0.058823529411764705
+            ],
+            "early_warning_rate": 0.0196078431372549,
+            "mean_time_to_alert": -5.0,
+            "false_alerts_per_100_clean": 0.5813953488372093,
+            "threshold": 0.5735141723654779
+          },
+          "delayed_label_only": {
+            "macro_auroc": 0.6400427809834831,
+            "events": 51,
+            "windows": 200,
+            "recall": 0.9019607843137255,
+            "recall_ci95": [
+              0.8235294117647058,
+              0.9803921568627451
+            ],
+            "early_warning_rate": 0.27450980392156865,
+            "mean_time_to_alert": 0.8913043478260869,
+            "false_alerts_per_100_clean": 3.6462125186115393,
+            "threshold": 0.035599999999999965
+          },
+          "da_cbpe_p2": {
+            "macro_auroc": 0.6382927023390295,
+            "events": 51,
+            "windows": 200,
+            "recall": 0.5882352941176471,
+            "recall_ci95": [
+              0.45098039215686275,
+              0.7254901960784313
+            ],
+            "early_warning_rate": 0.19607843137254902,
+            "mean_time_to_alert": 0.5,
+            "false_alerts_per_100_clean": 4.268404229389542,
+            "threshold": 0.02064875531848842
+          },
+          "anchored": {
+            "macro_auroc": 0.6343223507706928,
+            "events": 51,
+            "windows": 200,
+            "recall": 0.19607843137254902,
+            "recall_ci95": [
+              0.09803921568627451,
+              0.3137254901960784
+            ],
+            "early_warning_rate": 0.0392156862745098,
+            "mean_time_to_alert": 2.3,
+            "false_alerts_per_100_clean": 0.5416156670746635,
+            "threshold": 0.10698582287654489
+          },
+          "anchored_p2": {
+            "macro_auroc": 0.6435283180324547,
+            "events": 51,
+            "windows": 200,
+            "recall": 0.5490196078431373,
+            "recall_ci95": [
+              0.4117647058823529,
+              0.6666666666666666
+            ],
+            "early_warning_rate": 0.21568627450980393,
+            "mean_time_to_alert": 0.7142857142857143,
+            "false_alerts_per_100_clean": 1.6523867809057529,
+            "threshold": 0.03657686313320829
+          }
+        }
+      }
+    }
+  }
+}

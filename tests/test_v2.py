@@ -48,3 +48,24 @@ def test_cbpe_scores_use_only_matured_labels():
             a = v2.cbpe_scores(base, delay)[name][t]
             b = v2.cbpe_scores({"signals": signals, "accuracy": changed}, delay)[name][t]
             assert a == b
+
+
+def test_anchored_estimator_uses_only_matured_labels():
+    from dews.anchored import AnchoredEstimator
+
+    rng = np.random.default_rng(1)
+    n = 30
+
+    def make(seed_shift=0.0):
+        r = np.random.default_rng(int(seed_shift * 100) + 5)
+        return {"signals": r.normal(size=(n, len(v2.BASE_SIGNALS))), "aux": r.normal(size=(n, 4)),
+                "accuracy": 0.8 + 0.02 * rng.normal(size=n)}
+
+    train = [make(i) for i in range(4)]
+    sig = make(9)
+    for delay in (0, 2, 5):
+        est = AnchoredEstimator(delay).fit(train)
+        t, lag = 20, max(delay, 1)
+        changed = dict(sig, accuracy=sig["accuracy"].copy())
+        changed["accuracy"][t - lag + 1:] = 0.1
+        assert est.estimate(sig)[t] == est.estimate(changed)[t]
