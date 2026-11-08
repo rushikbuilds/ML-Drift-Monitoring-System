@@ -121,4 +121,11 @@ Secondary results (other delays, 20% labels, gradient boosting, abrupt shifts, c
 
 ## 10. Deviations
 
-None so far. Any change after 2026-11-08 is listed here with its date and reason.
+Any change after 2026-11-08 is listed here with its date and reason.
+
+| Date | Change | Reason | Effect on held-out data |
+|---|---|---|---|
+| 2026-11-08 (Day 2) | The ≥ 5% class-share rule is checked on the 1500 model-fit rows and the pool (and the importance holdout must contain both classes), not only on the whole reference | kddcup99 blocks passed the reference check but had one class in the fit rows, so the model could not be trained. This implements the rule's intent ("both classes make up ≥ 5% of rows") | None; held-out data not yet generated |
+| 2026-11-08 (Day 2) | The block start is drawn uniformly from all valid starts instead of by up to 200 random tries | run_or_walk has only 15 valid starts out of 666 (labels come in sessions of about 2900 rows), so random tries failed. Uniform choice over valid starts is the same distribution as unlimited redrawing. run_or_walk episodes therefore come from a few nearby blocks | None; held-out data not yet generated |
+| 2026-11-08 (Day 2) | Day 2 gate failed at λ_max = 1.5 (development shift episodes: 17% harmful, 80% harmless with logistic regression; 16% / 82% with gradient boosting). Selection rule fixed **before** running the grid: λ_max = the smallest value in {2.0, 2.5, 3.0, 4.0} that passes the gate with the primary model on development data | Gate remedy allowed by section 8 | None; held-out data not yet generated |
+| 2026-11-08 (Day 2) | λ_max grid result: **no value passes the gate.** Harmful share of development shift episodes is 0.18 / 0.19 / 0.19 / 0.18 at λ_max = 2.0 / 2.5 / 3.0 / 4.0 (0.17 at 1.5). Harm is insensitive to shift strength. Also observed: shifts in the model's important half of features are no more often harmful than shifts in the unimportant half (0.18 vs 0.17) | Recorded as a finding. How to proceed is decided by the project owner before Day 3 | None; held-out data not yet generated |

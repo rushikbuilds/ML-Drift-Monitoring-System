@@ -1,0 +1,5320 @@
+{
+  "lambda_max": 2.0,
+  "models": {
+    "logistic_regression": {
+      "per_dataset": {
+        "covertype": {
+          "counts": {
+            "abrupt_shift|harmful": 3,
+            "abrupt_shift|harmless": 12,
+            "clean|clean": 9,
+            "clean|spurious": 1,
+            "concept_change|concept_event": 8,
+            "concept_change|concept_no_event": 2,
+            "gradual_shift|harmful": 13,
+            "gradual_shift|harmless": 17
+          },
+          "episodes": [
+            {
+              "kind": "clean",
+              "seed": 1200,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.6839999999999999,
+              "min_accuracy_after_onset": 0.65
+            },
+            {
+              "kind": "clean",
+              "seed": 1201,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.8426666666666667,
+              "min_accuracy_after_onset": 0.79
+            },
+            {
+              "kind": "clean",
+              "seed": 1202,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.6266666666666667,
+              "min_accuracy_after_onset": 0.6
+            },
+            {
+              "kind": "clean",
+              "seed": 1203,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.6693333333333333,
+              "min_accuracy_after_onset": 0.61
+            },
+            {
+              "kind": "clean",
+              "seed": 1204,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.646,
+              "min_accuracy_after_onset": 0.5866666666666667
+            },
+            {
+              "kind": "clean",
+              "seed": 1205,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.8246666666666667,
+              "min_accuracy_after_onset": 0.7933333333333333
+            },
+            {
+              "kind": "clean",
+              "seed": 1206,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.756,
+              "min_accuracy_after_onset": 0.7133333333333334
+            },
+            {
+              "kind": "clean",
+              "seed": 1207,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.6726666666666666,
+              "min_accuracy_after_onset": 0.5866666666666667
+            },
+            {
+              "kind": "clean",
+              "seed": 1208,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.6686666666666666,
+              "min_accuracy_after_onset": 0.6133333333333333
+            },
+            {
+              "kind": "clean",
+              "seed": 1209,
+              "category": "spurious",
+              "event_onset": 23,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.6246666666666667,
+              "min_accuracy_after_onset": 0.55
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1210,
+              "category": "harmful",
+              "event_onset": 16,
+              "onset": 12,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8266666666666667,
+              "min_accuracy_after_onset": 0.7266666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1211,
+              "category": "harmful",
+              "event_onset": 18,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.49533333333333335,
+              "min_accuracy_after_onset": 0.3566666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1212,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8813333333333333,
+              "min_accuracy_after_onset": 0.8433333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1213,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.7973333333333333,
+              "min_accuracy_after_onset": 0.7833333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1214,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7506666666666667,
+              "min_accuracy_after_onset": 0.7066666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1215,
+              "category": "harmful",
+              "event_onset": 12,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.824,
+              "min_accuracy_after_onset": 0.7133333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1216,
+              "category": "harmful",
+              "event_onset": 13,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.6233333333333333,
+              "min_accuracy_after_onset": 0.35
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1217,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7966666666666666,
+              "min_accuracy_after_onset": 0.7733333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1218,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.5966666666666667,
+              "min_accuracy_after_onset": 0.5733333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1219,
+              "category": "harmful",
+              "event_onset": 21,
+              "onset": 14,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8246666666666667,
+              "min_accuracy_after_onset": 0.7433333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1220,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8426666666666667,
+              "min_accuracy_after_onset": 0.8166666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1221,
+              "category": "harmful",
+              "event_onset": 20,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.4146666666666667,
+              "min_accuracy_after_onset": 0.31
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1222,
+              "category": "harmful",
+              "event_onset": 23,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.46599999999999997,
+              "min_accuracy_after_onset": 0.31666666666666665
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1223,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7406666666666667,
+              "min_accuracy_after_onset": 0.7333333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1224,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": false,
+              "baseline_accuracy": 0.5066666666666666,
+              "min_accuracy_after_onset": 0.45
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1225,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.83,
+              "min_accuracy_after_onset": 0.8
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1226,
+              "category": "harmful",
+              "event_onset": 14,
+              "onset": 12,
+              "from_important_half": false,
+              "baseline_accuracy": 0.6493333333333333,
+              "min_accuracy_after_onset": 0.31333333333333335
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1227,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7246666666666667,
+              "min_accuracy_after_onset": 0.71
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1228,
+              "category": "harmful",
+              "event_onset": 22,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.516,
+              "min_accuracy_after_onset": 0.3933333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1229,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": false,
+              "baseline_accuracy": 0.716,
+              "min_accuracy_after_onset": 0.68
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1230,
+              "category": "harmful",
+              "event_onset": 12,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.6533333333333333,
+              "min_accuracy_after_onset": 0.09
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1231,
+              "category": "harmful",
+              "event_onset": 18,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.5446666666666666,
+              "min_accuracy_after_onset": 0.28
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1232,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.6593333333333333,
+              "min_accuracy_after_onset": 0.6466666666666666
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1233,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7986666666666666,
+              "min_accuracy_after_onset": 0.7666666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1234,
+              "category": "harmful",
+              "event_onset": 17,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.716,
+              "min_accuracy_after_onset": 0.62
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1235,
+              "category": "harmful",
+              "event_onset": 12,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.7373333333333333,
+              "min_accuracy_after_onset": 0.19
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1236,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.6940000000000001,
+              "min_accuracy_after_onset": 0.6533333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1237,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.6786666666666666,
+              "min_accuracy_after_onset": 0.6566666666666666
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1238,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.566,
+              "min_accuracy_after_onset": 0.58
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1239,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.6453333333333333,
+              "min_accuracy_after_onset": 0.63
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1240,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.45266666666666666,
+              "min_accuracy_after_onset": 0.5066666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1241,
+              "category": "harmful",
+              "event_onset": 15,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.6273333333333333,
+              "min_accuracy_after_onset": 0.4866666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1242,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8313333333333334,
+              "min_accuracy_after_onset": 0.8733333333333333
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1243,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7006666666666667,
+              "min_accuracy_after_onset": 0.63
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1244,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.7033333333333334,
+              "min_accuracy_after_onset": 0.6633333333333333
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1245,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8240000000000001,
+              "min_accuracy_after_onset": 0.8333333333333334
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1246,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.5613333333333334,
+              "min_accuracy_after_onset": 0.51
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1247,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.454,
+              "min_accuracy_after_onset": 0.8066666666666666
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1248,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7093333333333334,
+              "min_accuracy_after_onset": 0.8233333333333334
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1249,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.6886666666666666,
+              "min_accuracy_after_onset": 0.7866666666666666
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1250,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.5713333333333334,
+              "min_accuracy_after_onset": 0.8366666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1251,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": false,
+              "baseline_accuracy": 0.6706666666666666,
+              "min_accuracy_after_onset": 0.6966666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1252,
+              "category": "harmful",
+              "event_onset": 14,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.7213333333333334,
+              "min_accuracy_after_onset": 0.6666666666666666
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1253,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.636,
+              "min_accuracy_after_onset": 0.98
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1254,
+              "category": "harmful",
+              "event_onset": 30,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.6326666666666666,
+              "min_accuracy_after_onset": 0.5733333333333334
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1255,
+              "category": "concept_event",
+              "event_onset": 25,
+              "onset": 10,
+              "from_important_half": null,
+              "baseline_accuracy": 0.5393333333333333,
+              "min_accuracy_after_onset": 0.44666666666666666
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1256,
+              "category": "concept_event",
+              "event_onset": 19,
+              "onset": 12,
+              "from_important_half": null,
+              "baseline_accuracy": 0.842,
+              "min_accuracy_after_onset": 0.68
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1257,
+              "category": "concept_event",
+              "event_onset": 23,
+              "onset": 10,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7966666666666666,
+              "min_accuracy_after_onset": 0.6666666666666666
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1258,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": null,
+              "baseline_accuracy": 0.6146666666666667,
+              "min_accuracy_after_onset": 0.54
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1259,
+              "category": "concept_event",
+              "event_onset": 17,
+              "onset": 10,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7413333333333333,
+              "min_accuracy_after_onset": 0.6033333333333334
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1260,
+              "category": "concept_event",
+              "event_onset": 21,
+              "onset": 13,
+              "from_important_half": null,
+              "baseline_accuracy": 0.658,
+              "min_accuracy_after_onset": 0.5166666666666667
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1261,
+              "category": "concept_event",
+              "event_onset": 19,
+              "onset": 12,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7066666666666667,
+              "min_accuracy_after_onset": 0.5766666666666667
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1262,
+              "category": "concept_event",
+              "event_onset": 20,
+              "onset": 16,
+              "from_important_half": null,
+              "baseline_accuracy": 0.8333333333333334,
+              "min_accuracy_after_onset": 0.7166666666666667
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1263,
+              "category": "concept_event",
+              "event_onset": 18,
+              "onset": 12,
+              "from_important_half": null,
+              "baseline_accuracy": 0.6226666666666667,
+              "min_accuracy_after_onset": 0.5166666666666667
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1264,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": null,
+              "baseline_accuracy": 0.6373333333333333,
+              "min_accuracy_after_onset": 0.5666666666666667
+            }
+          ]
+        },
+        "covpokelec": {
+          "counts": {
+            "abrupt_shift|harmless": 15,
+            "clean|clean": 8,
+            "clean|spurious": 2,
+            "concept_change|concept_event": 5,
+            "concept_change|concept_no_event": 5,
+            "gradual_shift|harmful": 6,
+            "gradual_shift|harmless": 21,
+            "gradual_shift|spurious": 3
+          },
+          "episodes": [
+            {
+              "kind": "clean",
+              "seed": 1300,
+              "category": "spurious",
+              "event_onset": 7,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.5266666666666666,
+              "min_accuracy_after_onset": 0.45666666666666667
+            },
+            {
+              "kind": "clean",
+              "seed": 1301,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7373333333333333,
+              "min_accuracy_after_onset": 0.67
+            },
+            {
+              "kind": "clean",
+              "seed": 1302,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.5706666666666667,
+              "min_accuracy_after_onset": 0.5033333333333333
+            },
+            {
+              "kind": "clean",
+              "seed": 1303,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.38066666666666665,
+              "min_accuracy_after_onset": 0.2966666666666667
+            },
+            {
+              "kind": "clean",
+              "seed": 1304,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.578,
+              "min_accuracy_after_onset": 0.5
+            },
+            {
+              "kind": "clean",
+              "seed": 1305,
+              "category": "spurious",
+              "event_onset": 24,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.5833333333333334,
+              "min_accuracy_after_onset": 0.49666666666666665
+            },
+            {
+              "kind": "clean",
+              "seed": 1306,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.428,
+              "min_accuracy_after_onset": 0.35333333333333333
+            },
+            {
+              "kind": "clean",
+              "seed": 1307,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.804,
+              "min_accuracy_after_onset": 0.7566666666666667
+            },
+            {
+              "kind": "clean",
+              "seed": 1308,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.404,
+              "min_accuracy_after_onset": 0.3433333333333333
+            },
+            {
+              "kind": "clean",
+              "seed": 1309,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.5499999999999999,
+              "min_accuracy_after_onset": 0.49666666666666665
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1310,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": false,
+              "baseline_accuracy": 0.576,
+              "min_accuracy_after_onset": 0.49333333333333335
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1311,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.41333333333333333,
+              "min_accuracy_after_onset": 0.36333333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1312,
+              "category": "harmful",
+              "event_onset": 15,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.884,
+              "min_accuracy_after_onset": 0.6566666666666666
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1313,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": true,
+              "baseline_accuracy": 0.5653333333333334,
+              "min_accuracy_after_onset": 0.4766666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1314,
+              "category": "harmful",
+              "event_onset": 16,
+              "onset": 11,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7446666666666667,
+              "min_accuracy_after_onset": 0.47333333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1315,
+              "category": "harmful",
+              "event_onset": 17,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7086666666666667,
+              "min_accuracy_after_onset": 0.21333333333333335
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1316,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.6313333333333333,
+              "min_accuracy_after_onset": 0.5533333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1317,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.37466666666666665,
+              "min_accuracy_after_onset": 0.32
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1318,
+              "category": "harmful",
+              "event_onset": 28,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.812,
+              "min_accuracy_after_onset": 0.6866666666666666
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1319,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.5813333333333334,
+              "min_accuracy_after_onset": 0.5166666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1320,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": false,
+              "baseline_accuracy": 0.56,
+              "min_accuracy_after_onset": 0.4866666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1321,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": false,
+              "baseline_accuracy": 0.402,
+              "min_accuracy_after_onset": 0.33
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1322,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7133333333333334,
+              "min_accuracy_after_onset": 0.6633333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1323,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.632,
+              "min_accuracy_after_onset": 0.6533333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1324,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.5833333333333334,
+              "min_accuracy_after_onset": 0.5566666666666666
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1325,
+              "category": "spurious",
+              "event_onset": 15,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.5826666666666667,
+              "min_accuracy_after_onset": 0.4866666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1326,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.6333333333333333,
+              "min_accuracy_after_onset": 0.6233333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1327,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.5720000000000001,
+              "min_accuracy_after_onset": 0.5
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1328,
+              "category": "harmful",
+              "event_onset": 25,
+              "onset": 12,
+              "from_important_half": false,
+              "baseline_accuracy": 0.5606666666666666,
+              "min_accuracy_after_onset": 0.49
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1329,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.5013333333333333,
+              "min_accuracy_after_onset": 0.47
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1330,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.738,
+              "min_accuracy_after_onset": 0.7066666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1331,
+              "category": "spurious",
+              "event_onset": 8,
+              "onset": 14,
+              "from_important_half": true,
+              "baseline_accuracy": 0.79,
+              "min_accuracy_after_onset": 0.78
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1332,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8306666666666667,
+              "min_accuracy_after_onset": 0.83
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1333,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": false,
+              "baseline_accuracy": 0.654,
+              "min_accuracy_after_onset": 0.63
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1334,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.4906666666666667,
+              "min_accuracy_after_onset": 0.41
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1335,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": true,
+              "baseline_accuracy": 0.41133333333333333,
+              "min_accuracy_after_onset": 0.37666666666666665
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1336,
+              "category": "harmful",
+              "event_onset": 16,
+              "onset": 12,
+              "from_important_half": true,
+              "baseline_accuracy": 0.432,
+              "min_accuracy_after_onset": 0.0
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1337,
+              "category": "spurious",
+              "event_onset": 5,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.49133333333333334,
+              "min_accuracy_after_onset": 0.42333333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1338,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": true,
+              "baseline_accuracy": 0.5426666666666666,
+              "min_accuracy_after_onset": 0.57
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1339,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.578,
+              "min_accuracy_after_onset": 0.5133333333333333
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1340,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7953333333333333,
+              "min_accuracy_after_onset": 0.73
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1341,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8286666666666667,
+              "min_accuracy_after_onset": 0.92
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1342,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": false,
+              "baseline_accuracy": 0.684,
+              "min_accuracy_after_onset": 0.8
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1343,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.582,
+              "min_accuracy_after_onset": 0.5633333333333334
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1344,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8266666666666667,
+              "min_accuracy_after_onset": 0.8
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1345,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.568,
+              "min_accuracy_after_onset": 0.48333333333333334
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1346,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.62,
+              "min_accuracy_after_onset": 0.5933333333333334
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1347,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.6233333333333333,
+              "min_accuracy_after_onset": 0.9
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1348,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.5773333333333334,
+              "min_accuracy_after_onset": 0.54
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1349,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": false,
+              "baseline_accuracy": 0.562,
+              "min_accuracy_after_onset": 0.4866666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1350,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.7406666666666667,
+              "min_accuracy_after_onset": 0.7766666666666666
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1351,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": false,
+              "baseline_accuracy": 0.44266666666666665,
+              "min_accuracy_after_onset": 0.38666666666666666
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1352,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.6306666666666667,
+              "min_accuracy_after_onset": 0.58
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1353,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.548,
+              "min_accuracy_after_onset": 0.5033333333333333
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1354,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.524,
+              "min_accuracy_after_onset": 0.47
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1355,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": null,
+              "baseline_accuracy": 0.5073333333333333,
+              "min_accuracy_after_onset": 0.4666666666666667
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1356,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": null,
+              "baseline_accuracy": 0.47533333333333333,
+              "min_accuracy_after_onset": 0.38666666666666666
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1357,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": null,
+              "baseline_accuracy": 0.5619999999999999,
+              "min_accuracy_after_onset": 0.49
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1358,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": null,
+              "baseline_accuracy": 0.6013333333333333,
+              "min_accuracy_after_onset": 0.53
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1359,
+              "category": "concept_event",
+              "event_onset": 27,
+              "onset": 11,
+              "from_important_half": null,
+              "baseline_accuracy": 0.5673333333333334,
+              "min_accuracy_after_onset": 0.49333333333333335
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1360,
+              "category": "concept_event",
+              "event_onset": 19,
+              "onset": 10,
+              "from_important_half": null,
+              "baseline_accuracy": 0.6806666666666666,
+              "min_accuracy_after_onset": 0.5833333333333334
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1361,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": null,
+              "baseline_accuracy": 0.716,
+              "min_accuracy_after_onset": 0.6366666666666667
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1362,
+              "category": "concept_event",
+              "event_onset": 20,
+              "onset": 14,
+              "from_important_half": null,
+              "baseline_accuracy": 0.6786666666666666,
+              "min_accuracy_after_onset": 0.56
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1363,
+              "category": "concept_event",
+              "event_onset": 19,
+              "onset": 13,
+              "from_important_half": null,
+              "baseline_accuracy": 0.37333333333333335,
+              "min_accuracy_after_onset": 0.30666666666666664
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1364,
+              "category": "concept_event",
+              "event_onset": 22,
+              "onset": 15,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7866666666666666,
+              "min_accuracy_after_onset": 0.64
+            }
+          ]
+        },
+        "hyperplane": {
+          "counts": {
+            "abrupt_shift|harmless": 15,
+            "clean|clean": 10,
+            "concept_change|concept_event": 10,
+            "gradual_shift|harmless": 30
+          },
+          "episodes": [
+            {
+              "kind": "clean",
+              "seed": 1500,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.8633333333333334,
+              "min_accuracy_after_onset": 0.7933333333333333
+            },
+            {
+              "kind": "clean",
+              "seed": 1501,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.912,
+              "min_accuracy_after_onset": 0.85
+            },
+            {
+              "kind": "clean",
+              "seed": 1502,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.8866666666666667,
+              "min_accuracy_after_onset": 0.8533333333333334
+            },
+            {
+              "kind": "clean",
+              "seed": 1503,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.854,
+              "min_accuracy_after_onset": 0.8
+            },
+            {
+              "kind": "clean",
+              "seed": 1504,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.8753333333333333,
+              "min_accuracy_after_onset": 0.83
+            },
+            {
+              "kind": "clean",
+              "seed": 1505,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.834,
+              "min_accuracy_after_onset": 0.81
+            },
+            {
+              "kind": "clean",
+              "seed": 1506,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.8786666666666667,
+              "min_accuracy_after_onset": 0.82
+            },
+            {
+              "kind": "clean",
+              "seed": 1507,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.876,
+              "min_accuracy_after_onset": 0.83
+            },
+            {
+              "kind": "clean",
+              "seed": 1508,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.8673333333333333,
+              "min_accuracy_after_onset": 0.84
+            },
+            {
+              "kind": "clean",
+              "seed": 1509,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.866,
+              "min_accuracy_after_onset": 0.8233333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1510,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.906,
+              "min_accuracy_after_onset": 0.8533333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1511,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8593333333333333,
+              "min_accuracy_after_onset": 0.7966666666666666
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1512,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.898,
+              "min_accuracy_after_onset": 0.8666666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1513,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": true,
+              "baseline_accuracy": 0.9046666666666667,
+              "min_accuracy_after_onset": 0.8766666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1514,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8733333333333333,
+              "min_accuracy_after_onset": 0.8433333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1515,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8453333333333334,
+              "min_accuracy_after_onset": 0.79
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1516,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8933333333333333,
+              "min_accuracy_after_onset": 0.86
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1517,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": false,
+              "baseline_accuracy": 0.85,
+              "min_accuracy_after_onset": 0.82
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1518,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": false,
+              "baseline_accuracy": 0.88,
+              "min_accuracy_after_onset": 0.8366666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1519,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.888,
+              "min_accuracy_after_onset": 0.8433333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1520,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8553333333333334,
+              "min_accuracy_after_onset": 0.8333333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1521,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8806666666666667,
+              "min_accuracy_after_onset": 0.8566666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1522,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8746666666666667,
+              "min_accuracy_after_onset": 0.8366666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1523,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8946666666666667,
+              "min_accuracy_after_onset": 0.86
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1524,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8646666666666667,
+              "min_accuracy_after_onset": 0.8333333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1525,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8533333333333333,
+              "min_accuracy_after_onset": 0.8233333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1526,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8693333333333334,
+              "min_accuracy_after_onset": 0.79
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1527,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8373333333333334,
+              "min_accuracy_after_onset": 0.8
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1528,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8926666666666667,
+              "min_accuracy_after_onset": 0.8566666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1529,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8706666666666667,
+              "min_accuracy_after_onset": 0.8266666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1530,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8546666666666667,
+              "min_accuracy_after_onset": 0.8
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1531,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8406666666666667,
+              "min_accuracy_after_onset": 0.7933333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1532,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8253333333333334,
+              "min_accuracy_after_onset": 0.8
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1533,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.882,
+              "min_accuracy_after_onset": 0.85
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1534,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9046666666666666,
+              "min_accuracy_after_onset": 0.8766666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1535,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8826666666666667,
+              "min_accuracy_after_onset": 0.8066666666666666
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1536,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8973333333333333,
+              "min_accuracy_after_onset": 0.8433333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1537,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9006666666666666,
+              "min_accuracy_after_onset": 0.8666666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1538,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8893333333333333,
+              "min_accuracy_after_onset": 0.8366666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1539,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8973333333333333,
+              "min_accuracy_after_onset": 0.85
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1540,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8526666666666667,
+              "min_accuracy_after_onset": 0.82
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1541,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.922,
+              "min_accuracy_after_onset": 0.8666666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1542,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8726666666666667,
+              "min_accuracy_after_onset": 0.8366666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1543,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8873333333333333,
+              "min_accuracy_after_onset": 0.8533333333333334
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1544,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8573333333333334,
+              "min_accuracy_after_onset": 0.8666666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1545,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8573333333333333,
+              "min_accuracy_after_onset": 0.83
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1546,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.858,
+              "min_accuracy_after_onset": 0.8366666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1547,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.838,
+              "min_accuracy_after_onset": 0.8066666666666666
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1548,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.9033333333333333,
+              "min_accuracy_after_onset": 0.86
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1549,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8906666666666667,
+              "min_accuracy_after_onset": 0.8666666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1550,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.914,
+              "min_accuracy_after_onset": 0.8633333333333333
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1551,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.9006666666666666,
+              "min_accuracy_after_onset": 0.86
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1552,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.856,
+              "min_accuracy_after_onset": 0.8266666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1553,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.868,
+              "min_accuracy_after_onset": 0.8266666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1554,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9006666666666666,
+              "min_accuracy_after_onset": 0.8466666666666667
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1555,
+              "category": "concept_event",
+              "event_onset": 21,
+              "onset": 14,
+              "from_important_half": null,
+              "baseline_accuracy": 0.8993333333333333,
+              "min_accuracy_after_onset": 0.7466666666666667
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1556,
+              "category": "concept_event",
+              "event_onset": 16,
+              "onset": 11,
+              "from_important_half": null,
+              "baseline_accuracy": 0.8773333333333333,
+              "min_accuracy_after_onset": 0.73
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1557,
+              "category": "concept_event",
+              "event_onset": 23,
+              "onset": 16,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9026666666666666,
+              "min_accuracy_after_onset": 0.74
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1558,
+              "category": "concept_event",
+              "event_onset": 15,
+              "onset": 11,
+              "from_important_half": null,
+              "baseline_accuracy": 0.89,
+              "min_accuracy_after_onset": 0.72
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1559,
+              "category": "concept_event",
+              "event_onset": 20,
+              "onset": 14,
+              "from_important_half": null,
+              "baseline_accuracy": 0.8673333333333333,
+              "min_accuracy_after_onset": 0.7133333333333334
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1560,
+              "category": "concept_event",
+              "event_onset": 18,
+              "onset": 12,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9,
+              "min_accuracy_after_onset": 0.7466666666666667
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1561,
+              "category": "concept_event",
+              "event_onset": 20,
+              "onset": 13,
+              "from_important_half": null,
+              "baseline_accuracy": 0.8446666666666667,
+              "min_accuracy_after_onset": 0.6966666666666667
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1562,
+              "category": "concept_event",
+              "event_onset": 16,
+              "onset": 10,
+              "from_important_half": null,
+              "baseline_accuracy": 0.8773333333333333,
+              "min_accuracy_after_onset": 0.7
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1563,
+              "category": "concept_event",
+              "event_onset": 21,
+              "onset": 12,
+              "from_important_half": null,
+              "baseline_accuracy": 0.8846666666666667,
+              "min_accuracy_after_onset": 0.7333333333333333
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1564,
+              "category": "concept_event",
+              "event_onset": 19,
+              "onset": 11,
+              "from_important_half": null,
+              "baseline_accuracy": 0.86,
+              "min_accuracy_after_onset": 0.6933333333333334
+            }
+          ]
+        },
+        "kddcup99": {
+          "counts": {
+            "abrupt_shift|harmful": 4,
+            "abrupt_shift|harmless": 10,
+            "abrupt_shift|spurious": 1,
+            "clean|clean": 10,
+            "concept_change|concept_event": 2,
+            "concept_change|concept_no_event": 8,
+            "gradual_shift|harmful": 10,
+            "gradual_shift|harmless": 20
+          },
+          "episodes": [
+            {
+              "kind": "clean",
+              "seed": 1600,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7873333333333333,
+              "min_accuracy_after_onset": 0.7166666666666667
+            },
+            {
+              "kind": "clean",
+              "seed": 1601,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9526666666666667,
+              "min_accuracy_after_onset": 0.9266666666666666
+            },
+            {
+              "kind": "clean",
+              "seed": 1602,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7933333333333333,
+              "min_accuracy_after_onset": 0.75
+            },
+            {
+              "kind": "clean",
+              "seed": 1603,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.20133333333333334,
+              "min_accuracy_after_onset": 0.15666666666666668
+            },
+            {
+              "kind": "clean",
+              "seed": 1604,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.23133333333333334,
+              "min_accuracy_after_onset": 0.17
+            },
+            {
+              "kind": "clean",
+              "seed": 1605,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.942,
+              "min_accuracy_after_onset": 0.9133333333333333
+            },
+            {
+              "kind": "clean",
+              "seed": 1606,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9586666666666667,
+              "min_accuracy_after_onset": 0.9333333333333333
+            },
+            {
+              "kind": "clean",
+              "seed": 1607,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.23133333333333334,
+              "min_accuracy_after_onset": 0.18333333333333332
+            },
+            {
+              "kind": "clean",
+              "seed": 1608,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9753333333333333,
+              "min_accuracy_after_onset": 0.9433333333333334
+            },
+            {
+              "kind": "clean",
+              "seed": 1609,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.18,
+              "min_accuracy_after_onset": 0.12666666666666668
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1610,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": false,
+              "baseline_accuracy": 0.21666666666666667,
+              "min_accuracy_after_onset": 0.16
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1611,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.056,
+              "min_accuracy_after_onset": 0.09666666666666666
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1612,
+              "category": "harmful",
+              "event_onset": 22,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9533333333333334,
+              "min_accuracy_after_onset": 0.84
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1613,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.962,
+              "min_accuracy_after_onset": 0.9233333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1614,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": true,
+              "baseline_accuracy": 0.22,
+              "min_accuracy_after_onset": 0.16666666666666666
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1615,
+              "category": "harmful",
+              "event_onset": 24,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9,
+              "min_accuracy_after_onset": 0.6833333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1616,
+              "category": "harmful",
+              "event_onset": 16,
+              "onset": 14,
+              "from_important_half": true,
+              "baseline_accuracy": 0.964,
+              "min_accuracy_after_onset": 0.8566666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1617,
+              "category": "harmful",
+              "event_onset": 16,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.156,
+              "min_accuracy_after_onset": 0.0
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1618,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9586666666666667,
+              "min_accuracy_after_onset": 0.95
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1619,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.224,
+              "min_accuracy_after_onset": 0.19
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1620,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": false,
+              "baseline_accuracy": 0.23066666666666666,
+              "min_accuracy_after_onset": 0.17
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1621,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": false,
+              "baseline_accuracy": 0.076,
+              "min_accuracy_after_onset": 0.03333333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1622,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.14333333333333334,
+              "min_accuracy_after_onset": 0.09333333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1623,
+              "category": "harmful",
+              "event_onset": 15,
+              "onset": 14,
+              "from_important_half": true,
+              "baseline_accuracy": 0.19666666666666668,
+              "min_accuracy_after_onset": 0.0
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1624,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9506666666666667,
+              "min_accuracy_after_onset": 0.9466666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1625,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8666666666666667,
+              "min_accuracy_after_onset": 0.7933333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1626,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": true,
+              "baseline_accuracy": 0.96,
+              "min_accuracy_after_onset": 0.9433333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1627,
+              "category": "harmful",
+              "event_onset": 13,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9366666666666666,
+              "min_accuracy_after_onset": 0.11
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1628,
+              "category": "harmful",
+              "event_onset": 17,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.22133333333333333,
+              "min_accuracy_after_onset": 0.0
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1629,
+              "category": "harmful",
+              "event_onset": 19,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.24200000000000002,
+              "min_accuracy_after_onset": 0.18333333333333332
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1630,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.2693333333333333,
+              "min_accuracy_after_onset": 0.19666666666666666
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1631,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": true,
+              "baseline_accuracy": 0.21,
+              "min_accuracy_after_onset": 0.2733333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1632,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": true,
+              "baseline_accuracy": 0.952,
+              "min_accuracy_after_onset": 0.9533333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1633,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.18133333333333335,
+              "min_accuracy_after_onset": 0.10333333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1634,
+              "category": "harmful",
+              "event_onset": 21,
+              "onset": 12,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9446666666666667,
+              "min_accuracy_after_onset": 0.83
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1635,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.21933333333333332,
+              "min_accuracy_after_onset": 0.14666666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1636,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.15333333333333332,
+              "min_accuracy_after_onset": 0.11666666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1637,
+              "category": "harmful",
+              "event_onset": 17,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.20266666666666666,
+              "min_accuracy_after_onset": 0.09
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1638,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": false,
+              "baseline_accuracy": 0.368,
+              "min_accuracy_after_onset": 0.35
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1639,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.7686666666666667,
+              "min_accuracy_after_onset": 0.85
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1640,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.20133333333333334,
+              "min_accuracy_after_onset": 0.15333333333333332
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1641,
+              "category": "harmful",
+              "event_onset": 16,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.23733333333333334,
+              "min_accuracy_after_onset": 0.0
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1642,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.97,
+              "min_accuracy_after_onset": 0.94
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1643,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": false,
+              "baseline_accuracy": 0.12066666666666667,
+              "min_accuracy_after_onset": 1.0
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1644,
+              "category": "harmful",
+              "event_onset": 11,
+              "onset": 11,
+              "from_important_half": false,
+              "baseline_accuracy": 0.21533333333333332,
+              "min_accuracy_after_onset": 0.0
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1645,
+              "category": "spurious",
+              "event_onset": 10,
+              "onset": 14,
+              "from_important_half": true,
+              "baseline_accuracy": 0.24200000000000002,
+              "min_accuracy_after_onset": 0.0
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1646,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7993333333333333,
+              "min_accuracy_after_onset": 1.0
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1647,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8113333333333334,
+              "min_accuracy_after_onset": 0.95
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1648,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8646666666666667,
+              "min_accuracy_after_onset": 0.9766666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1649,
+              "category": "harmful",
+              "event_onset": 13,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.138,
+              "min_accuracy_after_onset": 0.0
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1650,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.968,
+              "min_accuracy_after_onset": 1.0
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1651,
+              "category": "harmful",
+              "event_onset": 10,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.9613333333333334,
+              "min_accuracy_after_onset": 0.54
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1652,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.9833333333333333,
+              "min_accuracy_after_onset": 0.9533333333333334
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1653,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.22466666666666665,
+              "min_accuracy_after_onset": 0.15666666666666668
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1654,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.248,
+              "min_accuracy_after_onset": 0.6233333333333333
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1655,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9513333333333333,
+              "min_accuracy_after_onset": 0.93
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1656,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": null,
+              "baseline_accuracy": 0.17933333333333332,
+              "min_accuracy_after_onset": 0.12666666666666668
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1657,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": null,
+              "baseline_accuracy": 0.14066666666666666,
+              "min_accuracy_after_onset": 0.07666666666666666
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1658,
+              "category": "concept_event",
+              "event_onset": 25,
+              "onset": 12,
+              "from_important_half": null,
+              "baseline_accuracy": 0.18733333333333332,
+              "min_accuracy_after_onset": 0.1
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1659,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9533333333333334,
+              "min_accuracy_after_onset": 0.9266666666666666
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1660,
+              "category": "concept_event",
+              "event_onset": 39,
+              "onset": 14,
+              "from_important_half": null,
+              "baseline_accuracy": 0.18866666666666668,
+              "min_accuracy_after_onset": 0.09
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1661,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9646666666666667,
+              "min_accuracy_after_onset": 0.95
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1662,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9426666666666667,
+              "min_accuracy_after_onset": 0.9266666666666666
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1663,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": null,
+              "baseline_accuracy": 0.216,
+              "min_accuracy_after_onset": 0.18
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1664,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7813333333333333,
+              "min_accuracy_after_onset": 0.74
+            }
+          ]
+        },
+        "led": {
+          "counts": {
+            "abrupt_shift|harmless": 15,
+            "clean|clean": 10,
+            "concept_change|concept_event": 10,
+            "gradual_shift|harmful": 3,
+            "gradual_shift|harmless": 27
+          },
+          "episodes": [
+            {
+              "kind": "clean",
+              "seed": 1800,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9306666666666666,
+              "min_accuracy_after_onset": 0.9133333333333333
+            },
+            {
+              "kind": "clean",
+              "seed": 1801,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.928,
+              "min_accuracy_after_onset": 0.9033333333333333
+            },
+            {
+              "kind": "clean",
+              "seed": 1802,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9246666666666666,
+              "min_accuracy_after_onset": 0.8866666666666667
+            },
+            {
+              "kind": "clean",
+              "seed": 1803,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9313333333333333,
+              "min_accuracy_after_onset": 0.89
+            },
+            {
+              "kind": "clean",
+              "seed": 1804,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9153333333333333,
+              "min_accuracy_after_onset": 0.9
+            },
+            {
+              "kind": "clean",
+              "seed": 1805,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9339999999999999,
+              "min_accuracy_after_onset": 0.8866666666666667
+            },
+            {
+              "kind": "clean",
+              "seed": 1806,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9173333333333333,
+              "min_accuracy_after_onset": 0.9
+            },
+            {
+              "kind": "clean",
+              "seed": 1807,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9233333333333333,
+              "min_accuracy_after_onset": 0.9
+            },
+            {
+              "kind": "clean",
+              "seed": 1808,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9346666666666666,
+              "min_accuracy_after_onset": 0.8766666666666667
+            },
+            {
+              "kind": "clean",
+              "seed": 1809,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9373333333333334,
+              "min_accuracy_after_onset": 0.9033333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1810,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.9466666666666667,
+              "min_accuracy_after_onset": 0.9033333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1811,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9173333333333333,
+              "min_accuracy_after_onset": 0.9033333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1812,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.9213333333333333,
+              "min_accuracy_after_onset": 0.9
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1813,
+              "category": "harmful",
+              "event_onset": 34,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.9386666666666666,
+              "min_accuracy_after_onset": 0.8633333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1814,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.9173333333333333,
+              "min_accuracy_after_onset": 0.8766666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1815,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9179999999999999,
+              "min_accuracy_after_onset": 0.8933333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1816,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.9266666666666666,
+              "min_accuracy_after_onset": 0.89
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1817,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9253333333333333,
+              "min_accuracy_after_onset": 0.89
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1818,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.9319999999999999,
+              "min_accuracy_after_onset": 0.9
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1819,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.882,
+              "min_accuracy_after_onset": 0.8333333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1820,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.9313333333333333,
+              "min_accuracy_after_onset": 0.9033333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1821,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.9266666666666666,
+              "min_accuracy_after_onset": 0.8533333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1822,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9193333333333333,
+              "min_accuracy_after_onset": 0.8933333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1823,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.938,
+              "min_accuracy_after_onset": 0.8866666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1824,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9206666666666666,
+              "min_accuracy_after_onset": 0.8866666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1825,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.914,
+              "min_accuracy_after_onset": 0.88
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1826,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.9266666666666666,
+              "min_accuracy_after_onset": 0.89
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1827,
+              "category": "harmful",
+              "event_onset": 22,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.9186666666666666,
+              "min_accuracy_after_onset": 0.8366666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1828,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9313333333333333,
+              "min_accuracy_after_onset": 0.8933333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1829,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.9393333333333334,
+              "min_accuracy_after_onset": 0.9
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1830,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.924,
+              "min_accuracy_after_onset": 0.8933333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1831,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9306666666666666,
+              "min_accuracy_after_onset": 0.91
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1832,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9293333333333333,
+              "min_accuracy_after_onset": 0.9
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1833,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.9373333333333334,
+              "min_accuracy_after_onset": 0.8933333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1834,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.918,
+              "min_accuracy_after_onset": 0.9033333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1835,
+              "category": "harmful",
+              "event_onset": 35,
+              "onset": 12,
+              "from_important_half": true,
+              "baseline_accuracy": 0.9339999999999999,
+              "min_accuracy_after_onset": 0.88
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1836,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8793333333333333,
+              "min_accuracy_after_onset": 0.85
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1837,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9233333333333333,
+              "min_accuracy_after_onset": 0.8866666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1838,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9286666666666666,
+              "min_accuracy_after_onset": 0.8833333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1839,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.93,
+              "min_accuracy_after_onset": 0.9
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1840,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.9326666666666666,
+              "min_accuracy_after_onset": 0.9466666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1841,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.928,
+              "min_accuracy_after_onset": 0.8966666666666666
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1842,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.922,
+              "min_accuracy_after_onset": 0.9233333333333333
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1843,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.92,
+              "min_accuracy_after_onset": 0.8966666666666666
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1844,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8853333333333333,
+              "min_accuracy_after_onset": 0.8533333333333334
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1845,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.9333333333333333,
+              "min_accuracy_after_onset": 0.8933333333333333
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1846,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9286666666666666,
+              "min_accuracy_after_onset": 0.9066666666666666
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1847,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.918,
+              "min_accuracy_after_onset": 0.9
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1848,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9293333333333333,
+              "min_accuracy_after_onset": 0.9
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1849,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9386666666666666,
+              "min_accuracy_after_onset": 0.8866666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1850,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.9233333333333333,
+              "min_accuracy_after_onset": 0.8933333333333333
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1851,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": false,
+              "baseline_accuracy": 0.926,
+              "min_accuracy_after_onset": 0.8966666666666666
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1852,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9186666666666666,
+              "min_accuracy_after_onset": 0.8933333333333333
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1853,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.9339999999999999,
+              "min_accuracy_after_onset": 0.9066666666666666
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1854,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9246666666666666,
+              "min_accuracy_after_onset": 0.9033333333333333
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1855,
+              "category": "concept_event",
+              "event_onset": 18,
+              "onset": 13,
+              "from_important_half": null,
+              "baseline_accuracy": 0.932,
+              "min_accuracy_after_onset": 0.7066666666666667
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1856,
+              "category": "concept_event",
+              "event_onset": 23,
+              "onset": 15,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9273333333333333,
+              "min_accuracy_after_onset": 0.7666666666666667
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1857,
+              "category": "concept_event",
+              "event_onset": 16,
+              "onset": 14,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9306666666666666,
+              "min_accuracy_after_onset": 0.7
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1858,
+              "category": "concept_event",
+              "event_onset": 17,
+              "onset": 11,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9233333333333333,
+              "min_accuracy_after_onset": 0.6933333333333334
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1859,
+              "category": "concept_event",
+              "event_onset": 21,
+              "onset": 15,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9386666666666666,
+              "min_accuracy_after_onset": 0.78
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1860,
+              "category": "concept_event",
+              "event_onset": 20,
+              "onset": 16,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9366666666666666,
+              "min_accuracy_after_onset": 0.67
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1861,
+              "category": "concept_event",
+              "event_onset": 20,
+              "onset": 13,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9206666666666666,
+              "min_accuracy_after_onset": 0.7533333333333333
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1862,
+              "category": "concept_event",
+              "event_onset": 17,
+              "onset": 11,
+              "from_important_half": null,
+              "baseline_accuracy": 0.924,
+              "min_accuracy_after_onset": 0.6966666666666667
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1863,
+              "category": "concept_event",
+              "event_onset": 19,
+              "onset": 12,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9226666666666666,
+              "min_accuracy_after_onset": 0.7633333333333333
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1864,
+              "category": "concept_event",
+              "event_onset": 16,
+              "onset": 14,
+              "from_important_half": null,
+              "baseline_accuracy": 0.9333333333333333,
+              "min_accuracy_after_onset": 0.6866666666666666
+            }
+          ]
+        },
+        "poker_hand": {
+          "counts": {
+            "abrupt_shift|harmful": 1,
+            "abrupt_shift|harmless": 14,
+            "clean|clean": 8,
+            "clean|spurious": 2,
+            "concept_change|concept_event": 1,
+            "concept_change|concept_no_event": 8,
+            "concept_change|spurious": 1,
+            "gradual_shift|harmful": 4,
+            "gradual_shift|harmless": 24,
+            "gradual_shift|spurious": 2
+          },
+          "episodes": [
+            {
+              "kind": "clean",
+              "seed": 1900,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.5026666666666667,
+              "min_accuracy_after_onset": 0.4533333333333333
+            },
+            {
+              "kind": "clean",
+              "seed": 1901,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.5026666666666666,
+              "min_accuracy_after_onset": 0.43666666666666665
+            },
+            {
+              "kind": "clean",
+              "seed": 1902,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.5106666666666667,
+              "min_accuracy_after_onset": 0.44333333333333336
+            },
+            {
+              "kind": "clean",
+              "seed": 1903,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.49733333333333335,
+              "min_accuracy_after_onset": 0.42
+            },
+            {
+              "kind": "clean",
+              "seed": 1904,
+              "category": "spurious",
+              "event_onset": 43,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.5306666666666666,
+              "min_accuracy_after_onset": 0.44666666666666666
+            },
+            {
+              "kind": "clean",
+              "seed": 1905,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.472,
+              "min_accuracy_after_onset": 0.44333333333333336
+            },
+            {
+              "kind": "clean",
+              "seed": 1906,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.5353333333333333,
+              "min_accuracy_after_onset": 0.46
+            },
+            {
+              "kind": "clean",
+              "seed": 1907,
+              "category": "spurious",
+              "event_onset": 20,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.514,
+              "min_accuracy_after_onset": 0.43666666666666665
+            },
+            {
+              "kind": "clean",
+              "seed": 1908,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.4713333333333333,
+              "min_accuracy_after_onset": 0.42333333333333334
+            },
+            {
+              "kind": "clean",
+              "seed": 1909,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.5206666666666666,
+              "min_accuracy_after_onset": 0.44333333333333336
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1910,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.4786666666666667,
+              "min_accuracy_after_onset": 0.44666666666666666
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1911,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.49866666666666665,
+              "min_accuracy_after_onset": 0.43666666666666665
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1912,
+              "category": "spurious",
+              "event_onset": 11,
+              "onset": 14,
+              "from_important_half": true,
+              "baseline_accuracy": 0.5213333333333333,
+              "min_accuracy_after_onset": 0.4633333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1913,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.48933333333333334,
+              "min_accuracy_after_onset": 0.4533333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1914,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.496,
+              "min_accuracy_after_onset": 0.44333333333333336
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1915,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": false,
+              "baseline_accuracy": 0.49933333333333335,
+              "min_accuracy_after_onset": 0.4633333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1916,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.5046666666666667,
+              "min_accuracy_after_onset": 0.42333333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1917,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.49266666666666664,
+              "min_accuracy_after_onset": 0.44333333333333336
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1918,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.4953333333333333,
+              "min_accuracy_after_onset": 0.43666666666666665
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1919,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.4926666666666667,
+              "min_accuracy_after_onset": 0.43333333333333335
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1920,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.508,
+              "min_accuracy_after_onset": 0.46
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1921,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": false,
+              "baseline_accuracy": 0.508,
+              "min_accuracy_after_onset": 0.43
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1922,
+              "category": "harmful",
+              "event_onset": 14,
+              "onset": 11,
+              "from_important_half": false,
+              "baseline_accuracy": 0.5126666666666666,
+              "min_accuracy_after_onset": 0.44
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1923,
+              "category": "harmful",
+              "event_onset": 18,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.5173333333333333,
+              "min_accuracy_after_onset": 0.43
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1924,
+              "category": "harmful",
+              "event_onset": 19,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.5126666666666666,
+              "min_accuracy_after_onset": 0.44
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1925,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": false,
+              "baseline_accuracy": 0.5086666666666667,
+              "min_accuracy_after_onset": 0.44666666666666666
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1926,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.4726666666666667,
+              "min_accuracy_after_onset": 0.45
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1927,
+              "category": "harmful",
+              "event_onset": 36,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.5066666666666667,
+              "min_accuracy_after_onset": 0.41333333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1928,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.5026666666666666,
+              "min_accuracy_after_onset": 0.45666666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1929,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.496,
+              "min_accuracy_after_onset": 0.45
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1930,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.49266666666666664,
+              "min_accuracy_after_onset": 0.43666666666666665
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1931,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.49666666666666665,
+              "min_accuracy_after_onset": 0.44333333333333336
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1932,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": true,
+              "baseline_accuracy": 0.482,
+              "min_accuracy_after_onset": 0.4533333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1933,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.4726666666666667,
+              "min_accuracy_after_onset": 0.41333333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1934,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.504,
+              "min_accuracy_after_onset": 0.45
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1935,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": false,
+              "baseline_accuracy": 0.5073333333333333,
+              "min_accuracy_after_onset": 0.44333333333333336
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1936,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": true,
+              "baseline_accuracy": 0.502,
+              "min_accuracy_after_onset": 0.44
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1937,
+              "category": "spurious",
+              "event_onset": 8,
+              "onset": 11,
+              "from_important_half": false,
+              "baseline_accuracy": 0.518,
+              "min_accuracy_after_onset": 0.42
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1938,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.49066666666666664,
+              "min_accuracy_after_onset": 0.43
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 1939,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.488,
+              "min_accuracy_after_onset": 0.4666666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1940,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.5053333333333333,
+              "min_accuracy_after_onset": 0.4666666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1941,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.492,
+              "min_accuracy_after_onset": 0.4633333333333333
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1942,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.5153333333333333,
+              "min_accuracy_after_onset": 0.4533333333333333
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1943,
+              "category": "harmful",
+              "event_onset": 27,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.5006666666666667,
+              "min_accuracy_after_onset": 0.42
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1944,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": true,
+              "baseline_accuracy": 0.49133333333333334,
+              "min_accuracy_after_onset": 0.43666666666666665
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1945,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": false,
+              "baseline_accuracy": 0.4973333333333333,
+              "min_accuracy_after_onset": 0.44333333333333336
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1946,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": false,
+              "baseline_accuracy": 0.494,
+              "min_accuracy_after_onset": 0.45
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1947,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.49266666666666664,
+              "min_accuracy_after_onset": 0.4266666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1948,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.4766666666666667,
+              "min_accuracy_after_onset": 0.44
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1949,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.494,
+              "min_accuracy_after_onset": 0.4033333333333333
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1950,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.484,
+              "min_accuracy_after_onset": 0.4533333333333333
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1951,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": false,
+              "baseline_accuracy": 0.48533333333333334,
+              "min_accuracy_after_onset": 0.37
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1952,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": false,
+              "baseline_accuracy": 0.49866666666666665,
+              "min_accuracy_after_onset": 0.4633333333333333
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1953,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": false,
+              "baseline_accuracy": 0.5073333333333333,
+              "min_accuracy_after_onset": 0.43333333333333335
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 1954,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.48733333333333334,
+              "min_accuracy_after_onset": 0.4533333333333333
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1955,
+              "category": "spurious",
+              "event_onset": 8,
+              "onset": 11,
+              "from_important_half": null,
+              "baseline_accuracy": 0.5146666666666667,
+              "min_accuracy_after_onset": 0.43
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1956,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": null,
+              "baseline_accuracy": 0.5186666666666666,
+              "min_accuracy_after_onset": 0.44333333333333336
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1957,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": null,
+              "baseline_accuracy": 0.4913333333333333,
+              "min_accuracy_after_onset": 0.43333333333333335
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1958,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": null,
+              "baseline_accuracy": 0.5073333333333333,
+              "min_accuracy_after_onset": 0.43
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1959,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": null,
+              "baseline_accuracy": 0.5006666666666667,
+              "min_accuracy_after_onset": 0.4066666666666667
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1960,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": null,
+              "baseline_accuracy": 0.4966666666666667,
+              "min_accuracy_after_onset": 0.46
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1961,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": null,
+              "baseline_accuracy": 0.48933333333333334,
+              "min_accuracy_after_onset": 0.44666666666666666
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1962,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": null,
+              "baseline_accuracy": 0.516,
+              "min_accuracy_after_onset": 0.4533333333333333
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1963,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": null,
+              "baseline_accuracy": 0.5013333333333333,
+              "min_accuracy_after_onset": 0.4666666666666667
+            },
+            {
+              "kind": "concept_change",
+              "seed": 1964,
+              "category": "concept_event",
+              "event_onset": 29,
+              "onset": 14,
+              "from_important_half": null,
+              "baseline_accuracy": 0.5166666666666667,
+              "min_accuracy_after_onset": 0.43
+            }
+          ]
+        },
+        "run_or_walk": {
+          "counts": {
+            "abrupt_shift|harmful": 2,
+            "abrupt_shift|harmless": 13,
+            "clean|clean": 10,
+            "concept_change|concept_event": 7,
+            "concept_change|concept_no_event": 3,
+            "gradual_shift|harmful": 4,
+            "gradual_shift|harmless": 26
+          },
+          "episodes": [
+            {
+              "kind": "clean",
+              "seed": 2000,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.892,
+              "min_accuracy_after_onset": 0.8566666666666667
+            },
+            {
+              "kind": "clean",
+              "seed": 2001,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.5733333333333334,
+              "min_accuracy_after_onset": 0.5166666666666667
+            },
+            {
+              "kind": "clean",
+              "seed": 2002,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7166666666666667,
+              "min_accuracy_after_onset": 0.69
+            },
+            {
+              "kind": "clean",
+              "seed": 2003,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7879999999999999,
+              "min_accuracy_after_onset": 0.7066666666666667
+            },
+            {
+              "kind": "clean",
+              "seed": 2004,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.8093333333333333,
+              "min_accuracy_after_onset": 0.77
+            },
+            {
+              "kind": "clean",
+              "seed": 2005,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.964,
+              "min_accuracy_after_onset": 0.9366666666666666
+            },
+            {
+              "kind": "clean",
+              "seed": 2006,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7266666666666667,
+              "min_accuracy_after_onset": 0.69
+            },
+            {
+              "kind": "clean",
+              "seed": 2007,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.988,
+              "min_accuracy_after_onset": 0.9766666666666667
+            },
+            {
+              "kind": "clean",
+              "seed": 2008,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.85,
+              "min_accuracy_after_onset": 0.7833333333333333
+            },
+            {
+              "kind": "clean",
+              "seed": 2009,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7473333333333333,
+              "min_accuracy_after_onset": 0.71
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2010,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7873333333333333,
+              "min_accuracy_after_onset": 0.7566666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2011,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8333333333333334,
+              "min_accuracy_after_onset": 0.8466666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2012,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.7326666666666667,
+              "min_accuracy_after_onset": 0.75
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2013,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8293333333333334,
+              "min_accuracy_after_onset": 0.8533333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2014,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9873333333333333,
+              "min_accuracy_after_onset": 0.9566666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2015,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.7646666666666667,
+              "min_accuracy_after_onset": 0.71
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2016,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8493333333333334,
+              "min_accuracy_after_onset": 0.8533333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2017,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8340000000000001,
+              "min_accuracy_after_onset": 0.82
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2018,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.9706666666666667,
+              "min_accuracy_after_onset": 0.93
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2019,
+              "category": "harmful",
+              "event_onset": 13,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.962,
+              "min_accuracy_after_onset": 0.0
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2020,
+              "category": "harmful",
+              "event_onset": 25,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.5853333333333334,
+              "min_accuracy_after_onset": 0.48333333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2021,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7866666666666666,
+              "min_accuracy_after_onset": 0.7666666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2022,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8213333333333334,
+              "min_accuracy_after_onset": 0.7633333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2023,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8373333333333334,
+              "min_accuracy_after_onset": 0.8133333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2024,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": true,
+              "baseline_accuracy": 0.894,
+              "min_accuracy_after_onset": 0.9033333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2025,
+              "category": "harmful",
+              "event_onset": 20,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8266666666666667,
+              "min_accuracy_after_onset": 0.7233333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2026,
+              "category": "harmful",
+              "event_onset": 16,
+              "onset": 11,
+              "from_important_half": false,
+              "baseline_accuracy": 0.742,
+              "min_accuracy_after_onset": 0.52
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2027,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8293333333333334,
+              "min_accuracy_after_onset": 0.8366666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2028,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8226666666666667,
+              "min_accuracy_after_onset": 0.8533333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2029,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.9460000000000001,
+              "min_accuracy_after_onset": 0.96
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2030,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": false,
+              "baseline_accuracy": 0.5453333333333333,
+              "min_accuracy_after_onset": 0.5833333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2031,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8253333333333334,
+              "min_accuracy_after_onset": 0.7833333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2032,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9926666666666667,
+              "min_accuracy_after_onset": 0.9633333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2033,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7706666666666666,
+              "min_accuracy_after_onset": 0.72
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2034,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8253333333333334,
+              "min_accuracy_after_onset": 0.85
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2035,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9540000000000001,
+              "min_accuracy_after_onset": 0.9433333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2036,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8180000000000001,
+              "min_accuracy_after_onset": 0.7833333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2037,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.718,
+              "min_accuracy_after_onset": 0.6566666666666666
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2038,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7526666666666667,
+              "min_accuracy_after_onset": 0.7666666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2039,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.762,
+              "min_accuracy_after_onset": 0.7133333333333334
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2040,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8346666666666667,
+              "min_accuracy_after_onset": 0.98
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2041,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8293333333333334,
+              "min_accuracy_after_onset": 0.9533333333333334
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2042,
+              "category": "harmful",
+              "event_onset": 38,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.82,
+              "min_accuracy_after_onset": 0.73
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2043,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8386666666666667,
+              "min_accuracy_after_onset": 0.9933333333333333
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2044,
+              "category": "harmful",
+              "event_onset": 24,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.8373333333333334,
+              "min_accuracy_after_onset": 0.7366666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2045,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.5886666666666667,
+              "min_accuracy_after_onset": 0.8166666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2046,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": true,
+              "baseline_accuracy": 0.9326666666666666,
+              "min_accuracy_after_onset": 0.88
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2047,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.9673333333333334,
+              "min_accuracy_after_onset": 0.9666666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2048,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.732,
+              "min_accuracy_after_onset": 0.7566666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2049,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": true,
+              "baseline_accuracy": 0.5993333333333334,
+              "min_accuracy_after_onset": 0.97
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2050,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.978,
+              "min_accuracy_after_onset": 0.9766666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2051,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8326666666666667,
+              "min_accuracy_after_onset": 0.91
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2052,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": false,
+              "baseline_accuracy": 0.878,
+              "min_accuracy_after_onset": 0.91
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2053,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.5873333333333334,
+              "min_accuracy_after_onset": 0.6133333333333333
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2054,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.8313333333333334,
+              "min_accuracy_after_onset": 0.96
+            },
+            {
+              "kind": "concept_change",
+              "seed": 2055,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": null,
+              "baseline_accuracy": 0.646,
+              "min_accuracy_after_onset": 0.59
+            },
+            {
+              "kind": "concept_change",
+              "seed": 2056,
+              "category": "concept_event",
+              "event_onset": 30,
+              "onset": 15,
+              "from_important_half": null,
+              "baseline_accuracy": 0.8186666666666667,
+              "min_accuracy_after_onset": 0.7033333333333334
+            },
+            {
+              "kind": "concept_change",
+              "seed": 2057,
+              "category": "concept_event",
+              "event_onset": 30,
+              "onset": 16,
+              "from_important_half": null,
+              "baseline_accuracy": 0.8346666666666667,
+              "min_accuracy_after_onset": 0.7533333333333333
+            },
+            {
+              "kind": "concept_change",
+              "seed": 2058,
+              "category": "concept_event",
+              "event_onset": 22,
+              "onset": 14,
+              "from_important_half": null,
+              "baseline_accuracy": 0.8140000000000001,
+              "min_accuracy_after_onset": 0.65
+            },
+            {
+              "kind": "concept_change",
+              "seed": 2059,
+              "category": "concept_event",
+              "event_onset": 14,
+              "onset": 11,
+              "from_important_half": null,
+              "baseline_accuracy": 0.99,
+              "min_accuracy_after_onset": 0.6666666666666666
+            },
+            {
+              "kind": "concept_change",
+              "seed": 2060,
+              "category": "concept_event",
+              "event_onset": 20,
+              "onset": 16,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7973333333333333,
+              "min_accuracy_after_onset": 0.5933333333333334
+            },
+            {
+              "kind": "concept_change",
+              "seed": 2061,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": null,
+              "baseline_accuracy": 0.8793333333333333,
+              "min_accuracy_after_onset": 0.8266666666666667
+            },
+            {
+              "kind": "concept_change",
+              "seed": 2062,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": null,
+              "baseline_accuracy": 0.756,
+              "min_accuracy_after_onset": 0.67
+            },
+            {
+              "kind": "concept_change",
+              "seed": 2063,
+              "category": "concept_event",
+              "event_onset": 16,
+              "onset": 12,
+              "from_important_half": null,
+              "baseline_accuracy": 0.6513333333333333,
+              "min_accuracy_after_onset": 0.5333333333333333
+            },
+            {
+              "kind": "concept_change",
+              "seed": 2064,
+              "category": "concept_event",
+              "event_onset": 35,
+              "onset": 14,
+              "from_important_half": null,
+              "baseline_accuracy": 0.8133333333333334,
+              "min_accuracy_after_onset": 0.71
+            }
+          ]
+        },
+        "vehicle_sensit": {
+          "counts": {
+            "abrupt_shift|harmful": 4,
+            "abrupt_shift|harmless": 10,
+            "abrupt_shift|spurious": 1,
+            "clean|clean": 8,
+            "clean|spurious": 2,
+            "concept_change|concept_event": 7,
+            "concept_change|concept_no_event": 3,
+            "gradual_shift|harmful": 10,
+            "gradual_shift|harmless": 18,
+            "gradual_shift|spurious": 2
+          },
+          "episodes": [
+            {
+              "kind": "clean",
+              "seed": 2200,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7486666666666667,
+              "min_accuracy_after_onset": 0.6833333333333333
+            },
+            {
+              "kind": "clean",
+              "seed": 2201,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.718,
+              "min_accuracy_after_onset": 0.66
+            },
+            {
+              "kind": "clean",
+              "seed": 2202,
+              "category": "spurious",
+              "event_onset": 36,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.752,
+              "min_accuracy_after_onset": 0.6733333333333333
+            },
+            {
+              "kind": "clean",
+              "seed": 2203,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7273333333333334,
+              "min_accuracy_after_onset": 0.6733333333333333
+            },
+            {
+              "kind": "clean",
+              "seed": 2204,
+              "category": "spurious",
+              "event_onset": 38,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7466666666666667,
+              "min_accuracy_after_onset": 0.6866666666666666
+            },
+            {
+              "kind": "clean",
+              "seed": 2205,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7306666666666667,
+              "min_accuracy_after_onset": 0.6766666666666666
+            },
+            {
+              "kind": "clean",
+              "seed": 2206,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7213333333333334,
+              "min_accuracy_after_onset": 0.6933333333333334
+            },
+            {
+              "kind": "clean",
+              "seed": 2207,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7146666666666667,
+              "min_accuracy_after_onset": 0.6733333333333333
+            },
+            {
+              "kind": "clean",
+              "seed": 2208,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7513333333333333,
+              "min_accuracy_after_onset": 0.6833333333333333
+            },
+            {
+              "kind": "clean",
+              "seed": 2209,
+              "category": "clean",
+              "event_onset": null,
+              "onset": null,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7186666666666667,
+              "min_accuracy_after_onset": 0.6666666666666666
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2210,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.7406666666666667,
+              "min_accuracy_after_onset": 0.6633333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2211,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.7353333333333333,
+              "min_accuracy_after_onset": 0.7133333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2212,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.7293333333333334,
+              "min_accuracy_after_onset": 0.7033333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2213,
+              "category": "harmful",
+              "event_onset": 22,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.7573333333333333,
+              "min_accuracy_after_onset": 0.6133333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2214,
+              "category": "spurious",
+              "event_onset": 8,
+              "onset": 12,
+              "from_important_half": true,
+              "baseline_accuracy": 0.7513333333333333,
+              "min_accuracy_after_onset": 0.68
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2215,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7313333333333333,
+              "min_accuracy_after_onset": 0.7133333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2216,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7113333333333334,
+              "min_accuracy_after_onset": 0.7133333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2217,
+              "category": "harmful",
+              "event_onset": 21,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.746,
+              "min_accuracy_after_onset": 0.6033333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2218,
+              "category": "harmful",
+              "event_onset": 20,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.736,
+              "min_accuracy_after_onset": 0.18333333333333332
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2219,
+              "category": "harmful",
+              "event_onset": 18,
+              "onset": 14,
+              "from_important_half": true,
+              "baseline_accuracy": 0.7413333333333333,
+              "min_accuracy_after_onset": 0.6766666666666666
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2220,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.72,
+              "min_accuracy_after_onset": 0.68
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2221,
+              "category": "harmful",
+              "event_onset": 26,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.758,
+              "min_accuracy_after_onset": 0.6633333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2222,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": true,
+              "baseline_accuracy": 0.7393333333333333,
+              "min_accuracy_after_onset": 0.6966666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2223,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": false,
+              "baseline_accuracy": 0.742,
+              "min_accuracy_after_onset": 0.68
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2224,
+              "category": "harmful",
+              "event_onset": 25,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7293333333333333,
+              "min_accuracy_after_onset": 0.6266666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2225,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.7226666666666667,
+              "min_accuracy_after_onset": 0.6366666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2226,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7453333333333333,
+              "min_accuracy_after_onset": 0.6566666666666666
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2227,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.752,
+              "min_accuracy_after_onset": 0.7233333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2228,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7313333333333334,
+              "min_accuracy_after_onset": 0.7033333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2229,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.7293333333333333,
+              "min_accuracy_after_onset": 0.72
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2230,
+              "category": "harmful",
+              "event_onset": 30,
+              "onset": 16,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7073333333333334,
+              "min_accuracy_after_onset": 0.6033333333333334
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2231,
+              "category": "spurious",
+              "event_onset": 5,
+              "onset": 16,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7686666666666666,
+              "min_accuracy_after_onset": 0.65
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2232,
+              "category": "harmful",
+              "event_onset": 23,
+              "onset": 10,
+              "from_important_half": false,
+              "baseline_accuracy": 0.724,
+              "min_accuracy_after_onset": 0.5
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2233,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": true,
+              "baseline_accuracy": 0.722,
+              "min_accuracy_after_onset": 0.7066666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2234,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7173333333333334,
+              "min_accuracy_after_onset": 0.6666666666666666
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2235,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 13,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7306666666666667,
+              "min_accuracy_after_onset": 0.6833333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2236,
+              "category": "harmful",
+              "event_onset": 17,
+              "onset": 12,
+              "from_important_half": true,
+              "baseline_accuracy": 0.7506666666666667,
+              "min_accuracy_after_onset": 0.5766666666666667
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2237,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7506666666666667,
+              "min_accuracy_after_onset": 0.7433333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2238,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": true,
+              "baseline_accuracy": 0.7453333333333334,
+              "min_accuracy_after_onset": 0.6833333333333333
+            },
+            {
+              "kind": "gradual_shift",
+              "seed": 2239,
+              "category": "harmful",
+              "event_onset": 24,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7233333333333333,
+              "min_accuracy_after_onset": 0.33666666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2240,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7266666666666667,
+              "min_accuracy_after_onset": 0.8333333333333334
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2241,
+              "category": "spurious",
+              "event_onset": 5,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.746,
+              "min_accuracy_after_onset": 0.69
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2242,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": true,
+              "baseline_accuracy": 0.7373333333333334,
+              "min_accuracy_after_onset": 0.6533333333333333
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2243,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": true,
+              "baseline_accuracy": 0.734,
+              "min_accuracy_after_onset": 0.6866666666666666
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2244,
+              "category": "harmful",
+              "event_onset": 13,
+              "onset": 13,
+              "from_important_half": true,
+              "baseline_accuracy": 0.7326666666666667,
+              "min_accuracy_after_onset": 0.5666666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2245,
+              "category": "harmful",
+              "event_onset": 15,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.738,
+              "min_accuracy_after_onset": 0.6066666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2246,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 12,
+              "from_important_half": false,
+              "baseline_accuracy": 0.728,
+              "min_accuracy_after_onset": 0.7166666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2247,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.7306666666666667,
+              "min_accuracy_after_onset": 0.69
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2248,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 16,
+              "from_important_half": true,
+              "baseline_accuracy": 0.7366666666666667,
+              "min_accuracy_after_onset": 0.7133333333333334
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2249,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 14,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7386666666666667,
+              "min_accuracy_after_onset": 0.7033333333333334
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2250,
+              "category": "harmful",
+              "event_onset": 12,
+              "onset": 12,
+              "from_important_half": true,
+              "baseline_accuracy": 0.726,
+              "min_accuracy_after_onset": 0.23666666666666666
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2251,
+              "category": "harmful",
+              "event_onset": 15,
+              "onset": 15,
+              "from_important_half": false,
+              "baseline_accuracy": 0.7293333333333334,
+              "min_accuracy_after_onset": 0.44333333333333336
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2252,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.7306666666666667,
+              "min_accuracy_after_onset": 0.6866666666666666
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2253,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": true,
+              "baseline_accuracy": 0.7206666666666667,
+              "min_accuracy_after_onset": 0.7166666666666667
+            },
+            {
+              "kind": "abrupt_shift",
+              "seed": 2254,
+              "category": "harmless",
+              "event_onset": null,
+              "onset": 11,
+              "from_important_half": true,
+              "baseline_accuracy": 0.72,
+              "min_accuracy_after_onset": 0.7266666666666667
+            },
+            {
+              "kind": "concept_change",
+              "seed": 2255,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 10,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7346666666666667,
+              "min_accuracy_after_onset": 0.6533333333333333
+            },
+            {
+              "kind": "concept_change",
+              "seed": 2256,
+              "category": "concept_event",
+              "event_onset": 24,
+              "onset": 14,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7326666666666667,
+              "min_accuracy_after_onset": 0.6333333333333333
+            },
+            {
+              "kind": "concept_change",
+              "seed": 2257,
+              "category": "concept_event",
+              "event_onset": 28,
+              "onset": 14,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7393333333333333,
+              "min_accuracy_after_onset": 0.63
+            },
+            {
+              "kind": "concept_change",
+              "seed": 2258,
+              "category": "concept_event",
+              "event_onset": 24,
+              "onset": 10,
+              "from_important_half": null,
+              "baseline_accuracy": 0.748,
+              "min_accuracy_after_onset": 0.6433333333333333
+            },
+            {
+              "kind": "concept_change",
+              "seed": 2259,
+              "category": "concept_event",
+              "event_onset": 29,
+              "onset": 14,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7313333333333333,
+              "min_accuracy_after_onset": 0.6533333333333333
+            },
+            {
+              "kind": "concept_change",
+              "seed": 2260,
+              "category": "concept_event",
+              "event_onset": 35,
+              "onset": 10,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7093333333333334,
+              "min_accuracy_after_onset": 0.6366666666666667
+            },
+            {
+              "kind": "concept_change",
+              "seed": 2261,
+              "category": "concept_event",
+              "event_onset": 25,
+              "onset": 14,
+              "from_important_half": null,
+              "baseline_accuracy": 0.736,
+              "min_accuracy_after_onset": 0.66
+            },
+            {
+              "kind": "concept_change",
+              "seed": 2262,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": null,
+              "baseline_accuracy": 0.728,
+              "min_accuracy_after_onset": 0.6366666666666667
+            },
+            {
+              "kind": "concept_change",
+              "seed": 2263,
+              "category": "concept_event",
+              "event_onset": 22,
+              "onset": 12,
+              "from_important_half": null,
+              "baseline_accuracy": 0.7386666666666667,
+              "min_accuracy_after_onset": 0.6266666666666667
+            },
+            {
+              "kind": "concept_change",
+              "seed": 2264,
+              "category": "concept_no_event",
+              "event_onset": null,
+              "onset": 15,
+              "from_important_half": null,
+              "baseline_accuracy": 0.726,
+              "min_accuracy_after_onset": 0.66
+            }
+          ]
+        }
+      },
+      "harmful_share": 0.17777777777777778,
+      "harmless_share": 0.7972222222222223,
+      "gate_pass": false
+    }
+  }
+}
