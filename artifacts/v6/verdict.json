@@ -1,0 +1,951 @@
+{
+  "primary_setting": "logistic_regression|L5|labels100",
+  "hypotheses": {
+    "H1": {
+      "value": 0.2222222222222222,
+      "ci95": [
+        0.08333333333333333,
+        0.3611111111111111
+      ],
+      "median_lead": 12.5,
+      "false_alerts": 1.151947339550192,
+      "episodes": 36,
+      "target": "share >= 0.60, median lead >= 2, false alerts <= 5",
+      "pass": false
+    },
+    "H2": {
+      "value": -0.018867924528301883,
+      "ci95": [
+        -0.1132075471698114,
+        0.07547169811320753
+      ],
+      "t2_system": 0.8301886792452831,
+      "t2_label_trend": 0.8490566037735849,
+      "episodes": 53,
+      "target": "difference >= 0.10 and CI lower bound > 0",
+      "pass": false
+    },
+    "H3": {
+      "value": 0.5943954449034274,
+      "ci95": [
+        0.5089818019426148,
+        0.6780199843697666
+      ],
+      "harmless_alert_share": 0.3668639053254438,
+      "harmless_alert_ci95": [
+        0.2958579881656805,
+        0.4437869822485207
+      ],
+      "harmful": 53,
+      "harmless": 169,
+      "target": "AUROC >= 0.80 and harmless alert share <= 0.10",
+      "pass": false
+    },
+    "H4": {
+      "value": 2,
+      "datasets": 5,
+      "per_dataset": {
+        "airlines": {
+          "system_t1_t2": [
+            0.2857142857142857,
+            0.8571428571428571
+          ],
+          "fixed_t1_t2": [
+            0.42857142857142855,
+            0.8571428571428571
+          ],
+          "system_wins": false
+        },
+        "bank_marketing": {
+          "system_t1_t2": [
+            0.3333333333333333,
+            1.0
+          ],
+          "fixed_t1_t2": [
+            0.0,
+            0.16666666666666666
+          ],
+          "system_wins": true
+        },
+        "electricity": {
+          "system_t1_t2": [
+            0.10526315789473684,
+            0.7894736842105263
+          ],
+          "fixed_t1_t2": [
+            0.7368421052631579,
+            1.0
+          ],
+          "system_wins": false
+        },
+        "ldpa": {
+          "system_t1_t2": [
+            0.2631578947368421,
+            0.7894736842105263
+          ],
+          "fixed_t1_t2": [
+            0.3684210526315789,
+            0.6842105263157895
+          ],
+          "system_wins": false
+        },
+        "sea": {
+          "system_t1_t2": [
+            1.0,
+            1.0
+          ],
+          "fixed_t1_t2": [
+            0.0,
+            0.0
+          ],
+          "system_wins": true
+        }
+      },
+      "fixed_score_false_alerts": 36.862314865606145,
+      "system_false_alerts": 1.151947339550192,
+      "target": ">= 4 of 5 held-out datasets",
+      "pass": false
+    },
+    "H5": {
+      "windows": 328,
+      "event_windows": 132,
+      "datasets": 13,
+      "t2_system": 0.8636363636363636,
+      "t2_label_trend": 0.8712121212121212,
+      "difference": -0.007575757575757569,
+      "ci95": [
+        -0.07575757575757569,
+        0.06060606060606055
+      ],
+      "false_alerts_per_100_clean": {
+        "primary_system": 5.829711071337254,
+        "label_trend": 5.548453081053439
+      },
+      "t2_window": "alerts in [max(event - 5, 6), event + 1 + max(L, 1)); intervention onset is unknown on natural streams",
+      "value": -0.007575757575757569,
+      "target": "difference >= 0",
+      "pass": false
+    }
+  },
+  "overall": "FAILURE",
+  "secondary": {
+    "logistic_regression|L0|labels100": {
+      "primary_system": {
+        "t1_gradual": 0.3333333333333333,
+        "t2_harmful": 0.6981132075471698,
+        "false_alerts": 1.5907844212835984,
+        "harmless_alert_share": 0.2781065088757396,
+        "harm_auroc": 0.6873953332589036
+      },
+      "fixed_dews_score": {
+        "t1_gradual": 0.5555555555555556,
+        "t2_harmful": 0.7169811320754716,
+        "false_alerts": 36.862314865606145,
+        "harmless_alert_share": 0.4911242603550296,
+        "harm_auroc": 0.707714636597075
+      },
+      "statistical_only": {
+        "t1_gradual": 0.3333333333333333,
+        "t2_harmful": 0.4716981132075472,
+        "false_alerts": 17.471201316511245,
+        "harmless_alert_share": 0.3076923076923077,
+        "harm_auroc": 0.6572513118231551
+      },
+      "confidence_only": {
+        "t1_gradual": 0.3333333333333333,
+        "t2_harmful": 0.4339622641509434,
+        "false_alerts": 2.2216127262753704,
+        "harmless_alert_share": 0.5739644970414202,
+        "harm_auroc": 0.5037400915485095
+      },
+      "mean_ks": {
+        "t1_gradual": 0.7777777777777778,
+        "t2_harmful": 0.9056603773584906,
+        "false_alerts": 44.569391113549095,
+        "harmless_alert_share": 0.5976331360946746,
+        "harm_auroc": 0.7317182092218377
+      },
+      "label_trend": {
+        "t1_gradual": 0.4722222222222222,
+        "t2_harmful": 0.8113207547169812,
+        "false_alerts": 4.827207899067472,
+        "harmless_alert_share": 0.3254437869822485,
+        "harm_auroc": 0.7667745897063749
+      },
+      "delay_aware_cbpe": {
+        "t1_gradual": 0.3333333333333333,
+        "t2_harmful": 0.5471698113207547,
+        "false_alerts": 5.128908392759188,
+        "harmless_alert_share": 0.28402366863905326,
+        "harm_auroc": 0.7199955342190466
+      }
+    },
+    "logistic_regression|L0|labels20": {
+      "primary_system": {
+        "t1_gradual": 0.19444444444444445,
+        "t2_harmful": 0.4339622641509434,
+        "false_alerts": 1.70049369171695,
+        "harmless_alert_share": 0.1834319526627219,
+        "harm_auroc": 0.6531204644412192
+      },
+      "fixed_dews_score": {
+        "t1_gradual": 0.5555555555555556,
+        "t2_harmful": 0.7169811320754716,
+        "false_alerts": 36.862314865606145,
+        "harmless_alert_share": 0.4911242603550296,
+        "harm_auroc": 0.707714636597075
+      },
+      "statistical_only": {
+        "t1_gradual": 0.3333333333333333,
+        "t2_harmful": 0.4716981132075472,
+        "false_alerts": 17.471201316511245,
+        "harmless_alert_share": 0.3076923076923077,
+        "harm_auroc": 0.6572513118231551
+      },
+      "confidence_only": {
+        "t1_gradual": 0.3333333333333333,
+        "t2_harmful": 0.4339622641509434,
+        "false_alerts": 2.2216127262753704,
+        "harmless_alert_share": 0.5739644970414202,
+        "harm_auroc": 0.5037400915485095
+      },
+      "mean_ks": {
+        "t1_gradual": 0.7777777777777778,
+        "t2_harmful": 0.9056603773584906,
+        "false_alerts": 44.569391113549095,
+        "harmless_alert_share": 0.5976331360946746,
+        "harm_auroc": 0.7317182092218377
+      },
+      "label_trend": {
+        "t1_gradual": 0.4166666666666667,
+        "t2_harmful": 0.5849056603773585,
+        "false_alerts": 4.470652770159078,
+        "harmless_alert_share": 0.3136094674556213,
+        "harm_auroc": 0.7470693312493022
+      },
+      "delay_aware_cbpe": {
+        "t1_gradual": 0.2222222222222222,
+        "t2_harmful": 0.32075471698113206,
+        "false_alerts": 5.156335710367526,
+        "harmless_alert_share": 0.14201183431952663,
+        "harm_auroc": 0.6578095344423356
+      }
+    },
+    "logistic_regression|L2|labels100": {
+      "primary_system": {
+        "t1_gradual": 0.2777777777777778,
+        "t2_harmful": 0.660377358490566,
+        "false_alerts": 1.5359297860669228,
+        "harmless_alert_share": 0.3609467455621302,
+        "harm_auroc": 0.6216367087194373
+      },
+      "fixed_dews_score": {
+        "t1_gradual": 0.5555555555555556,
+        "t2_harmful": 0.7358490566037735,
+        "false_alerts": 36.862314865606145,
+        "harmless_alert_share": 0.4911242603550296,
+        "harm_auroc": 0.707714636597075
+      },
+      "statistical_only": {
+        "t1_gradual": 0.3333333333333333,
+        "t2_harmful": 0.49056603773584906,
+        "false_alerts": 17.471201316511245,
+        "harmless_alert_share": 0.3076923076923077,
+        "harm_auroc": 0.6572513118231551
+      },
+      "confidence_only": {
+        "t1_gradual": 0.3333333333333333,
+        "t2_harmful": 0.4339622641509434,
+        "false_alerts": 2.2216127262753704,
+        "harmless_alert_share": 0.5739644970414202,
+        "harm_auroc": 0.5037400915485095
+      },
+      "mean_ks": {
+        "t1_gradual": 0.7777777777777778,
+        "t2_harmful": 0.9056603773584906,
+        "false_alerts": 44.569391113549095,
+        "harmless_alert_share": 0.5976331360946746,
+        "harm_auroc": 0.7317182092218377
+      },
+      "label_trend": {
+        "t1_gradual": 0.4722222222222222,
+        "t2_harmful": 0.8301886792452831,
+        "false_alerts": 5.677454744925946,
+        "harmless_alert_share": 0.42011834319526625,
+        "harm_auroc": 0.6947080495701685
+      },
+      "delay_aware_cbpe": {
+        "t1_gradual": 0.3055555555555556,
+        "t2_harmful": 0.5849056603773585,
+        "false_alerts": 4.306088864509051,
+        "harmless_alert_share": 0.25443786982248523,
+        "harm_auroc": 0.6373785865803282
+      }
+    },
+    "logistic_regression|L2|labels20": {
+      "primary_system": {
+        "t1_gradual": 0.16666666666666666,
+        "t2_harmful": 0.37735849056603776,
+        "false_alerts": 0.9873834339001646,
+        "harmless_alert_share": 0.14792899408284024,
+        "harm_auroc": 0.609690744668974
+      },
+      "fixed_dews_score": {
+        "t1_gradual": 0.5555555555555556,
+        "t2_harmful": 0.7358490566037735,
+        "false_alerts": 36.862314865606145,
+        "harmless_alert_share": 0.4911242603550296,
+        "harm_auroc": 0.707714636597075
+      },
+      "statistical_only": {
+        "t1_gradual": 0.3333333333333333,
+        "t2_harmful": 0.49056603773584906,
+        "false_alerts": 17.471201316511245,
+        "harmless_alert_share": 0.3076923076923077,
+        "harm_auroc": 0.6572513118231551
+      },
+      "confidence_only": {
+        "t1_gradual": 0.3333333333333333,
+        "t2_harmful": 0.4339622641509434,
+        "false_alerts": 2.2216127262753704,
+        "harmless_alert_share": 0.5739644970414202,
+        "harm_auroc": 0.5037400915485095
+      },
+      "mean_ks": {
+        "t1_gradual": 0.7777777777777778,
+        "t2_harmful": 0.9056603773584906,
+        "false_alerts": 44.569391113549095,
+        "harmless_alert_share": 0.5976331360946746,
+        "harm_auroc": 0.7317182092218377
+      },
+      "label_trend": {
+        "t1_gradual": 0.3055555555555556,
+        "t2_harmful": 0.5660377358490566,
+        "false_alerts": 4.004388370817334,
+        "harmless_alert_share": 0.28402366863905326,
+        "harm_auroc": 0.7011276096907446
+      },
+      "delay_aware_cbpe": {
+        "t1_gradual": 0.2222222222222222,
+        "t2_harmful": 0.3584905660377358,
+        "false_alerts": 5.403181568842567,
+        "harmless_alert_share": 0.15384615384615385,
+        "harm_auroc": 0.6183990175281903
+      }
+    },
+    "logistic_regression|L5|labels100": {
+      "primary_system": {
+        "t1_gradual": 0.2222222222222222,
+        "t2_harmful": 0.8301886792452831,
+        "false_alerts": 1.151947339550192,
+        "harmless_alert_share": 0.3668639053254438,
+        "harm_auroc": 0.5943954449034274
+      },
+      "fixed_dews_score": {
+        "t1_gradual": 0.5555555555555556,
+        "t2_harmful": 0.7358490566037735,
+        "false_alerts": 36.862314865606145,
+        "harmless_alert_share": 0.4911242603550296,
+        "harm_auroc": 0.707714636597075
+      },
+      "statistical_only": {
+        "t1_gradual": 0.3333333333333333,
+        "t2_harmful": 0.5471698113207547,
+        "false_alerts": 17.471201316511245,
+        "harmless_alert_share": 0.3076923076923077,
+        "harm_auroc": 0.6572513118231551
+      },
+      "confidence_only": {
+        "t1_gradual": 0.3333333333333333,
+        "t2_harmful": 0.4339622641509434,
+        "false_alerts": 2.2216127262753704,
+        "harmless_alert_share": 0.5739644970414202,
+        "harm_auroc": 0.5037400915485095
+      },
+      "mean_ks": {
+        "t1_gradual": 0.7777777777777778,
+        "t2_harmful": 0.9245283018867925,
+        "false_alerts": 44.569391113549095,
+        "harmless_alert_share": 0.5976331360946746,
+        "harm_auroc": 0.7317182092218377
+      },
+      "label_trend": {
+        "t1_gradual": 0.3333333333333333,
+        "t2_harmful": 0.8490566037735849,
+        "false_alerts": 3.126714207350521,
+        "harmless_alert_share": 0.38461538461538464,
+        "harm_auroc": 0.5675449369208441
+      },
+      "delay_aware_cbpe": {
+        "t1_gradual": 0.3611111111111111,
+        "t2_harmful": 0.6981132075471698,
+        "false_alerts": 5.485463521667581,
+        "harmless_alert_share": 0.4260355029585799,
+        "harm_auroc": 0.638160098247181
+      }
+    },
+    "logistic_regression|L5|labels20": {
+      "primary_system": {
+        "t1_gradual": 0.2222222222222222,
+        "t2_harmful": 0.49056603773584906,
+        "false_alerts": 1.0422380691168405,
+        "harmless_alert_share": 0.20118343195266272,
+        "harm_auroc": 0.557999330132857
+      },
+      "fixed_dews_score": {
+        "t1_gradual": 0.5555555555555556,
+        "t2_harmful": 0.7358490566037735,
+        "false_alerts": 36.862314865606145,
+        "harmless_alert_share": 0.4911242603550296,
+        "harm_auroc": 0.707714636597075
+      },
+      "statistical_only": {
+        "t1_gradual": 0.3333333333333333,
+        "t2_harmful": 0.5471698113207547,
+        "false_alerts": 17.471201316511245,
+        "harmless_alert_share": 0.3076923076923077,
+        "harm_auroc": 0.6572513118231551
+      },
+      "confidence_only": {
+        "t1_gradual": 0.3333333333333333,
+        "t2_harmful": 0.4339622641509434,
+        "false_alerts": 2.2216127262753704,
+        "harmless_alert_share": 0.5739644970414202,
+        "harm_auroc": 0.5037400915485095
+      },
+      "mean_ks": {
+        "t1_gradual": 0.7777777777777778,
+        "t2_harmful": 0.9245283018867925,
+        "false_alerts": 44.569391113549095,
+        "harmless_alert_share": 0.5976331360946746,
+        "harm_auroc": 0.7317182092218377
+      },
+      "label_trend": {
+        "t1_gradual": 0.3333333333333333,
+        "t2_harmful": 0.6981132075471698,
+        "false_alerts": 5.019199122325836,
+        "harmless_alert_share": 0.4378698224852071,
+        "harm_auroc": 0.5418108741766217
+      },
+      "delay_aware_cbpe": {
+        "t1_gradual": 0.2777777777777778,
+        "t2_harmful": 0.4528301886792453,
+        "false_alerts": 6.4728469555677455,
+        "harmless_alert_share": 0.2781065088757396,
+        "harm_auroc": 0.5333258903650776
+      }
+    },
+    "logistic_regression|L10|labels100": {
+      "primary_system": {
+        "t1_gradual": 0.4166666666666667,
+        "t2_harmful": 0.8867924528301887,
+        "false_alerts": 1.151947339550192,
+        "harmless_alert_share": 0.514792899408284,
+        "harm_auroc": 0.6230880875293067
+      },
+      "fixed_dews_score": {
+        "t1_gradual": 0.5555555555555556,
+        "t2_harmful": 0.7924528301886793,
+        "false_alerts": 36.862314865606145,
+        "harmless_alert_share": 0.4911242603550296,
+        "harm_auroc": 0.707714636597075
+      },
+      "statistical_only": {
+        "t1_gradual": 0.3333333333333333,
+        "t2_harmful": 0.5471698113207547,
+        "false_alerts": 17.471201316511245,
+        "harmless_alert_share": 0.3076923076923077,
+        "harm_auroc": 0.6572513118231551
+      },
+      "confidence_only": {
+        "t1_gradual": 0.3333333333333333,
+        "t2_harmful": 0.49056603773584906,
+        "false_alerts": 2.2216127262753704,
+        "harmless_alert_share": 0.5739644970414202,
+        "harm_auroc": 0.5037400915485095
+      },
+      "mean_ks": {
+        "t1_gradual": 0.7777777777777778,
+        "t2_harmful": 0.9433962264150944,
+        "false_alerts": 44.569391113549095,
+        "harmless_alert_share": 0.5976331360946746,
+        "harm_auroc": 0.7317182092218377
+      },
+      "label_trend": {
+        "t1_gradual": 0.5,
+        "t2_harmful": 0.9811320754716981,
+        "false_alerts": 5.512890839275919,
+        "harmless_alert_share": 0.7633136094674556,
+        "harm_auroc": 0.5275203751256001
+      },
+      "delay_aware_cbpe": {
+        "t1_gradual": 0.4722222222222222,
+        "t2_harmful": 0.7735849056603774,
+        "false_alerts": 3.181568842567197,
+        "harmless_alert_share": 0.5443786982248521,
+        "harm_auroc": 0.48431394440102715
+      }
+    },
+    "logistic_regression|L10|labels20": {
+      "primary_system": {
+        "t1_gradual": 0.2777777777777778,
+        "t2_harmful": 0.5471698113207547,
+        "false_alerts": 1.0696653867251782,
+        "harmless_alert_share": 0.3254437869822485,
+        "harm_auroc": 0.596070112760969
+      },
+      "fixed_dews_score": {
+        "t1_gradual": 0.5555555555555556,
+        "t2_harmful": 0.7924528301886793,
+        "false_alerts": 36.862314865606145,
+        "harmless_alert_share": 0.4911242603550296,
+        "harm_auroc": 0.707714636597075
+      },
+      "statistical_only": {
+        "t1_gradual": 0.3333333333333333,
+        "t2_harmful": 0.5471698113207547,
+        "false_alerts": 17.471201316511245,
+        "harmless_alert_share": 0.3076923076923077,
+        "harm_auroc": 0.6572513118231551
+      },
+      "confidence_only": {
+        "t1_gradual": 0.3333333333333333,
+        "t2_harmful": 0.49056603773584906,
+        "false_alerts": 2.2216127262753704,
+        "harmless_alert_share": 0.5739644970414202,
+        "harm_auroc": 0.5037400915485095
+      },
+      "mean_ks": {
+        "t1_gradual": 0.7777777777777778,
+        "t2_harmful": 0.9433962264150944,
+        "false_alerts": 44.569391113549095,
+        "harmless_alert_share": 0.5976331360946746,
+        "harm_auroc": 0.7317182092218377
+      },
+      "label_trend": {
+        "t1_gradual": 0.4444444444444444,
+        "t2_harmful": 0.8113207547169812,
+        "false_alerts": 5.704882062534284,
+        "harmless_alert_share": 0.6982248520710059,
+        "harm_auroc": 0.5087640951211343
+      },
+      "delay_aware_cbpe": {
+        "t1_gradual": 0.4444444444444444,
+        "t2_harmful": 0.660377358490566,
+        "false_alerts": 6.28085573230938,
+        "harmless_alert_share": 0.5088757396449705,
+        "harm_auroc": 0.47180975773138334
+      }
+    },
+    "gradient_boosting|L0|labels100": {
+      "primary_system": {
+        "t1_gradual": 0.5666666666666667,
+        "t2_harmful": 0.9772727272727273,
+        "false_alerts": 7.393416082029142,
+        "harmless_alert_share": 0.5028248587570622,
+        "harm_auroc": 0.7627118644067795
+      },
+      "fixed_dews_score": {
+        "t1_gradual": 0.6,
+        "t2_harmful": 0.7954545454545454,
+        "false_alerts": 27.846735024284943,
+        "harmless_alert_share": 0.5423728813559322,
+        "harm_auroc": 0.6458654340010272
+      },
+      "statistical_only": {
+        "t1_gradual": 0.16666666666666666,
+        "t2_harmful": 0.36363636363636365,
+        "false_alerts": 15.893146249325419,
+        "harmless_alert_share": 0.3446327683615819,
+        "harm_auroc": 0.5472521828454031
+      },
+      "confidence_only": {
+        "t1_gradual": 0.3,
+        "t2_harmful": 0.36363636363636365,
+        "false_alerts": 2.320561252023745,
+        "harmless_alert_share": 0.6271186440677966,
+        "harm_auroc": 0.38199794555726757
+      },
+      "mean_ks": {
+        "t1_gradual": 0.7333333333333333,
+        "t2_harmful": 0.9090909090909091,
+        "false_alerts": 38.855909336211546,
+        "harmless_alert_share": 0.5423728813559322,
+        "harm_auroc": 0.67205957883924
+      },
+      "label_trend": {
+        "t1_gradual": 0.5333333333333333,
+        "t2_harmful": 0.9318181818181818,
+        "false_alerts": 4.96492174851592,
+        "harmless_alert_share": 0.3954802259887006,
+        "harm_auroc": 0.8134309193631228
+      },
+      "delay_aware_cbpe": {
+        "t1_gradual": 0.36666666666666664,
+        "t2_harmful": 0.6363636363636364,
+        "false_alerts": 5.207771181867242,
+        "harmless_alert_share": 0.2994350282485876,
+        "harm_auroc": 0.7143682588597843
+      }
+    },
+    "gradient_boosting|L0|labels20": {
+      "primary_system": {
+        "t1_gradual": 0.3333333333333333,
+        "t2_harmful": 0.6363636363636364,
+        "false_alerts": 3.912574203993524,
+        "harmless_alert_share": 0.288135593220339,
+        "harm_auroc": 0.7128916281458655
+      },
+      "fixed_dews_score": {
+        "t1_gradual": 0.6,
+        "t2_harmful": 0.7954545454545454,
+        "false_alerts": 27.846735024284943,
+        "harmless_alert_share": 0.5423728813559322,
+        "harm_auroc": 0.6458654340010272
+      },
+      "statistical_only": {
+        "t1_gradual": 0.16666666666666666,
+        "t2_harmful": 0.36363636363636365,
+        "false_alerts": 15.893146249325419,
+        "harmless_alert_share": 0.3446327683615819,
+        "harm_auroc": 0.5472521828454031
+      },
+      "confidence_only": {
+        "t1_gradual": 0.3,
+        "t2_harmful": 0.36363636363636365,
+        "false_alerts": 2.320561252023745,
+        "harmless_alert_share": 0.6271186440677966,
+        "harm_auroc": 0.38199794555726757
+      },
+      "mean_ks": {
+        "t1_gradual": 0.7333333333333333,
+        "t2_harmful": 0.9090909090909091,
+        "false_alerts": 38.855909336211546,
+        "harmless_alert_share": 0.5423728813559322,
+        "harm_auroc": 0.67205957883924
+      },
+      "label_trend": {
+        "t1_gradual": 0.3333333333333333,
+        "t2_harmful": 0.4772727272727273,
+        "false_alerts": 4.020507285483,
+        "harmless_alert_share": 0.288135593220339,
+        "harm_auroc": 0.7333076527991782
+      },
+      "delay_aware_cbpe": {
+        "t1_gradual": 0.36666666666666664,
+        "t2_harmful": 0.36363636363636365,
+        "false_alerts": 4.937938478143551,
+        "harmless_alert_share": 0.1807909604519774,
+        "harm_auroc": 0.6255778120184899
+      }
+    },
+    "gradient_boosting|L2|labels100": {
+      "primary_system": {
+        "t1_gradual": 0.5333333333333333,
+        "t2_harmful": 0.9772727272727273,
+        "false_alerts": 5.9093362115488395,
+        "harmless_alert_share": 0.4971751412429379,
+        "harm_auroc": 0.6752696456086287
+      },
+      "fixed_dews_score": {
+        "t1_gradual": 0.6,
+        "t2_harmful": 0.7954545454545454,
+        "false_alerts": 27.846735024284943,
+        "harmless_alert_share": 0.5423728813559322,
+        "harm_auroc": 0.6458654340010272
+      },
+      "statistical_only": {
+        "t1_gradual": 0.16666666666666666,
+        "t2_harmful": 0.45454545454545453,
+        "false_alerts": 15.893146249325419,
+        "harmless_alert_share": 0.3446327683615819,
+        "harm_auroc": 0.5472521828454031
+      },
+      "confidence_only": {
+        "t1_gradual": 0.3,
+        "t2_harmful": 0.4090909090909091,
+        "false_alerts": 2.320561252023745,
+        "harmless_alert_share": 0.6271186440677966,
+        "harm_auroc": 0.38199794555726757
+      },
+      "mean_ks": {
+        "t1_gradual": 0.7333333333333333,
+        "t2_harmful": 0.9090909090909091,
+        "false_alerts": 38.855909336211546,
+        "harmless_alert_share": 0.5423728813559322,
+        "harm_auroc": 0.67205957883924
+      },
+      "label_trend": {
+        "t1_gradual": 0.4666666666666667,
+        "t2_harmful": 0.9545454545454546,
+        "false_alerts": 5.342687533729088,
+        "harmless_alert_share": 0.4124293785310734,
+        "harm_auroc": 0.7225860297894195
+      },
+      "delay_aware_cbpe": {
+        "t1_gradual": 0.36666666666666664,
+        "t2_harmful": 0.7272727272727273,
+        "false_alerts": 6.071235833783055,
+        "harmless_alert_share": 0.3559322033898305,
+        "harm_auroc": 0.6292372881355932
+      }
+    },
+    "gradient_boosting|L2|labels20": {
+      "primary_system": {
+        "t1_gradual": 0.36666666666666664,
+        "t2_harmful": 0.7272727272727273,
+        "false_alerts": 5.693470048569886,
+        "harmless_alert_share": 0.327683615819209,
+        "harm_auroc": 0.6533127889060092
+      },
+      "fixed_dews_score": {
+        "t1_gradual": 0.6,
+        "t2_harmful": 0.7954545454545454,
+        "false_alerts": 27.846735024284943,
+        "harmless_alert_share": 0.5423728813559322,
+        "harm_auroc": 0.6458654340010272
+      },
+      "statistical_only": {
+        "t1_gradual": 0.16666666666666666,
+        "t2_harmful": 0.45454545454545453,
+        "false_alerts": 15.893146249325419,
+        "harmless_alert_share": 0.3446327683615819,
+        "harm_auroc": 0.5472521828454031
+      },
+      "confidence_only": {
+        "t1_gradual": 0.3,
+        "t2_harmful": 0.4090909090909091,
+        "false_alerts": 2.320561252023745,
+        "harmless_alert_share": 0.6271186440677966,
+        "harm_auroc": 0.38199794555726757
+      },
+      "mean_ks": {
+        "t1_gradual": 0.7333333333333333,
+        "t2_harmful": 0.9090909090909091,
+        "false_alerts": 38.855909336211546,
+        "harmless_alert_share": 0.5423728813559322,
+        "harm_auroc": 0.67205957883924
+      },
+      "label_trend": {
+        "t1_gradual": 0.4,
+        "t2_harmful": 0.5681818181818182,
+        "false_alerts": 5.099838100377766,
+        "harmless_alert_share": 0.3389830508474576,
+        "harm_auroc": 0.6170390344119158
+      },
+      "delay_aware_cbpe": {
+        "t1_gradual": 0.3,
+        "t2_harmful": 0.4090909090909091,
+        "false_alerts": 4.937938478143551,
+        "harmless_alert_share": 0.1977401129943503,
+        "harm_auroc": 0.5522598870056498
+      }
+    },
+    "gradient_boosting|L5|labels100": {
+      "primary_system": {
+        "t1_gradual": 0.3333333333333333,
+        "t2_harmful": 1.0,
+        "false_alerts": 5.693470048569886,
+        "harmless_alert_share": 0.5875706214689266,
+        "harm_auroc": 0.5679250128402671
+      },
+      "fixed_dews_score": {
+        "t1_gradual": 0.6,
+        "t2_harmful": 0.8863636363636364,
+        "false_alerts": 27.846735024284943,
+        "harmless_alert_share": 0.5423728813559322,
+        "harm_auroc": 0.6458654340010272
+      },
+      "statistical_only": {
+        "t1_gradual": 0.16666666666666666,
+        "t2_harmful": 0.5,
+        "false_alerts": 15.893146249325419,
+        "harmless_alert_share": 0.3446327683615819,
+        "harm_auroc": 0.5472521828454031
+      },
+      "confidence_only": {
+        "t1_gradual": 0.3,
+        "t2_harmful": 0.4772727272727273,
+        "false_alerts": 2.320561252023745,
+        "harmless_alert_share": 0.6271186440677966,
+        "harm_auroc": 0.38199794555726757
+      },
+      "mean_ks": {
+        "t1_gradual": 0.7333333333333333,
+        "t2_harmful": 0.9318181818181818,
+        "false_alerts": 38.855909336211546,
+        "harmless_alert_share": 0.5423728813559322,
+        "harm_auroc": 0.67205957883924
+      },
+      "label_trend": {
+        "t1_gradual": 0.5,
+        "t2_harmful": 1.0,
+        "false_alerts": 6.2061521856449,
+        "harmless_alert_share": 0.5536723163841808,
+        "harm_auroc": 0.4985875706214689
+      },
+      "delay_aware_cbpe": {
+        "t1_gradual": 0.4,
+        "t2_harmful": 0.7954545454545454,
+        "false_alerts": 5.0188882892606586,
+        "harmless_alert_share": 0.4067796610169492,
+        "harm_auroc": 0.576527991782229
+      }
+    },
+    "gradient_boosting|L5|labels20": {
+      "primary_system": {
+        "t1_gradual": 0.43333333333333335,
+        "t2_harmful": 0.7272727272727273,
+        "false_alerts": 5.342687533729088,
+        "harmless_alert_share": 0.3898305084745763,
+        "harm_auroc": 0.595146379044684
+      },
+      "fixed_dews_score": {
+        "t1_gradual": 0.6,
+        "t2_harmful": 0.8863636363636364,
+        "false_alerts": 27.846735024284943,
+        "harmless_alert_share": 0.5423728813559322,
+        "harm_auroc": 0.6458654340010272
+      },
+      "statistical_only": {
+        "t1_gradual": 0.16666666666666666,
+        "t2_harmful": 0.5,
+        "false_alerts": 15.893146249325419,
+        "harmless_alert_share": 0.3446327683615819,
+        "harm_auroc": 0.5472521828454031
+      },
+      "confidence_only": {
+        "t1_gradual": 0.3,
+        "t2_harmful": 0.4772727272727273,
+        "false_alerts": 2.320561252023745,
+        "harmless_alert_share": 0.6271186440677966,
+        "harm_auroc": 0.38199794555726757
+      },
+      "mean_ks": {
+        "t1_gradual": 0.7333333333333333,
+        "t2_harmful": 0.9318181818181818,
+        "false_alerts": 38.855909336211546,
+        "harmless_alert_share": 0.5423728813559322,
+        "harm_auroc": 0.67205957883924
+      },
+      "label_trend": {
+        "t1_gradual": 0.4,
+        "t2_harmful": 0.6136363636363636,
+        "false_alerts": 4.883971937398813,
+        "harmless_alert_share": 0.4406779661016949,
+        "harm_auroc": 0.4723292244478685
+      },
+      "delay_aware_cbpe": {
+        "t1_gradual": 0.36666666666666664,
+        "t2_harmful": 0.4772727272727273,
+        "false_alerts": 4.830005396654075,
+        "harmless_alert_share": 0.2542372881355932,
+        "harm_auroc": 0.5286337955829481
+      }
+    },
+    "gradient_boosting|L10|labels100": {
+      "primary_system": {
+        "t1_gradual": 0.43333333333333335,
+        "t2_harmful": 1.0,
+        "false_alerts": 8.283864004317323,
+        "harmless_alert_share": 0.5875706214689266,
+        "harm_auroc": 0.6322547508988186
+      },
+      "fixed_dews_score": {
+        "t1_gradual": 0.6,
+        "t2_harmful": 0.9090909090909091,
+        "false_alerts": 27.846735024284943,
+        "harmless_alert_share": 0.5423728813559322,
+        "harm_auroc": 0.6458654340010272
+      },
+      "statistical_only": {
+        "t1_gradual": 0.16666666666666666,
+        "t2_harmful": 0.5681818181818182,
+        "false_alerts": 15.893146249325419,
+        "harmless_alert_share": 0.3446327683615819,
+        "harm_auroc": 0.5472521828454031
+      },
+      "confidence_only": {
+        "t1_gradual": 0.3,
+        "t2_harmful": 0.4772727272727273,
+        "false_alerts": 2.320561252023745,
+        "harmless_alert_share": 0.6271186440677966,
+        "harm_auroc": 0.38199794555726757
+      },
+      "mean_ks": {
+        "t1_gradual": 0.7333333333333333,
+        "t2_harmful": 0.9545454545454546,
+        "false_alerts": 38.855909336211546,
+        "harmless_alert_share": 0.5423728813559322,
+        "harm_auroc": 0.67205957883924
+      },
+      "label_trend": {
+        "t1_gradual": 0.6,
+        "t2_harmful": 1.0,
+        "false_alerts": 7.339449541284404,
+        "harmless_alert_share": 0.7627118644067796,
+        "harm_auroc": 0.5112994350282486
+      },
+      "delay_aware_cbpe": {
+        "t1_gradual": 0.6333333333333333,
+        "t2_harmful": 0.8863636363636364,
+        "false_alerts": 6.368051807879115,
+        "harmless_alert_share": 0.5932203389830508,
+        "harm_auroc": 0.5620184899845917
+      }
+    },
+    "gradient_boosting|L10|labels20": {
+      "primary_system": {
+        "t1_gradual": 0.4666666666666667,
+        "t2_harmful": 0.8181818181818182,
+        "false_alerts": 7.717215326497572,
+        "harmless_alert_share": 0.4576271186440678,
+        "harm_auroc": 0.6429121725731896
+      },
+      "fixed_dews_score": {
+        "t1_gradual": 0.6,
+        "t2_harmful": 0.9090909090909091,
+        "false_alerts": 27.846735024284943,
+        "harmless_alert_share": 0.5423728813559322,
+        "harm_auroc": 0.6458654340010272
+      },
+      "statistical_only": {
+        "t1_gradual": 0.16666666666666666,
+        "t2_harmful": 0.5681818181818182,
+        "false_alerts": 15.893146249325419,
+        "harmless_alert_share": 0.3446327683615819,
+        "harm_auroc": 0.5472521828454031
+      },
+      "confidence_only": {
+        "t1_gradual": 0.3,
+        "t2_harmful": 0.4772727272727273,
+        "false_alerts": 2.320561252023745,
+        "harmless_alert_share": 0.6271186440677966,
+        "harm_auroc": 0.38199794555726757
+      },
+      "mean_ks": {
+        "t1_gradual": 0.7333333333333333,
+        "t2_harmful": 0.9545454545454546,
+        "false_alerts": 38.855909336211546,
+        "harmless_alert_share": 0.5423728813559322,
+        "harm_auroc": 0.67205957883924
+      },
+      "label_trend": {
+        "t1_gradual": 0.5,
+        "t2_harmful": 0.7954545454545454,
+        "false_alerts": 5.855369670804102,
+        "harmless_alert_share": 0.7288135593220338,
+        "harm_auroc": 0.5301746276322548
+      },
+      "delay_aware_cbpe": {
+        "t1_gradual": 0.5,
+        "t2_harmful": 0.6590909090909091,
+        "false_alerts": 6.017269293038316,
+        "harmless_alert_share": 0.5423728813559322,
+        "harm_auroc": 0.5550847457627118
+      }
+    }
+  },
+  "day2_gate": "FAILED at every allowed shift strength (harmful share 0.17-0.19); proceeded at 1.5 by owner decision",
+  "day4_gate": "PASSED (development T1 0.43 >= 0.40)"
+}

@@ -173,7 +173,9 @@ def classify_outcome(ep: V6Episode) -> dict[str, Any]:
     acc = ep.accuracy()
     out = outcome(acc)
     event = out["event_onset"]
-    if ep.kind == "clean":
+    if ep.kind == "natural":  # natural-stream windows for H5: no intervention, outcome only
+        category = "natural_event" if event is not None else "natural_no_event"
+    elif ep.kind == "clean":
         category = "spurious" if event is not None else "clean"
     elif event is not None and event < ep.onset:
         category = "spurious"
