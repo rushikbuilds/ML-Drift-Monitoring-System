@@ -1,0 +1,38 @@
+{
+  "thresholds": {
+    "watch": 4.011275335096259,
+    "warning": 0.16421113384706093,
+    "fixed_dews_score": 0.48198985267175315,
+    "label_trend": 0.03200000000000002
+  },
+  "development": {
+    "watch": {
+      "false_alerts_per_100_clean": 2.2618231665524333,
+      "harmless_alert_share": 0.8923611111111112,
+      "t1_gradual": 0.8367346938775511,
+      "t2_harmful": 0.9682539682539683,
+      "harm_auroc": 0.5545634920634921
+    },
+    "warning": {
+      "false_alerts_per_100_clean": 3.958190541466758,
+      "harmless_alert_share": 0.375,
+      "t1_gradual": 0.4897959183673469,
+      "t2_harmful": 0.8571428571428571,
+      "harm_auroc": 0.5871362433862434
+    },
+    "fixed_dews_score": {
+      "false_alerts_per_100_clean": 4.437971213159698,
+      "harmless_alert_share": 0.2013888888888889,
+      "t1_gradual": 0.16326530612244897,
+      "t2_harmful": 0.3492063492063492,
+      "harm_auroc": 0.6225749559082893
+    },
+    "label_trend": {
+      "false_alerts_per_100_clean": 2.5702535983550376,
+      "harmless_alert_share": 0.375,
+      "t1_gradual": 0.42857142857142855,
+      "t2_harmful": 0.9523809523809523,
+      "harm_auroc": 0.5166721781305115
+    }
+  }
+}

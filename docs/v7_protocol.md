@@ -51,6 +51,20 @@ Episode design, settings, event rule, tiers and metrics are those of [v6_protoco
 
 **Expected from development:** C1 and C4 likely pass; C2 and C3 likely fail. This expectation is written down before the confirmation run.
 
-## 5. Deviations
+## 5. Frozen development choices (2026-11-09)
+
+| File | sha256 (first 16) | Content |
+|---|---|---|
+| `artifacts/v7/frozen_v7.json` | 4a9ab970cb58fad9 | thresholds: WATCH 4.011 z, WARNING 0.164; raw DEWS score and label trend reuse their frozen v6 thresholds |
+| `artifacts/v7/frozen_v7_calibrator.pkl` | dab467db1cc2045e | WARNING calibrator trained on all development episodes |
+
+Development (pooled; WARNING leave-one-dataset-out):
+
+| Method | T1 | T2 | False alerts / 100 | Harmless shifts alerting | Harm AUROC |
+|---|---|---|---|---|---|
+| WATCH | 0.84 | 0.97 | 2.3 | 0.89 | 0.55 |
+| WARNING | 0.49 | 0.86 | 4.0 | 0.38 | 0.59 |
+
+## 6. Deviations
 
 None yet.
