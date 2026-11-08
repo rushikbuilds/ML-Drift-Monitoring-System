@@ -1,0 +1,155 @@
+{
+  "frozen_on": "Day 4",
+  "thresholds": {
+    "logistic_regression|L0|labels100": {
+      "primary_system": 0.23950017328962223,
+      "fixed_dews_score": 0.48198985267175315,
+      "statistical_only": 0.38656063435699517,
+      "confidence_only": 0.05360318223868543,
+      "mean_ks": 0.23776881630374092,
+      "label_trend": 0.03266666666666662,
+      "delay_aware_cbpe": 0.02790516117630004
+    },
+    "logistic_regression|L0|labels20": {
+      "primary_system": 0.3915414056676736,
+      "fixed_dews_score": 0.48198985267175315,
+      "statistical_only": 0.38656063435699517,
+      "confidence_only": 0.05360318223868543,
+      "mean_ks": 0.23776881630374092,
+      "label_trend": 0.07500000000000007,
+      "delay_aware_cbpe": 0.06280377352577755
+    },
+    "logistic_regression|L2|labels100": {
+      "primary_system": 0.24697923412563633,
+      "fixed_dews_score": 0.48198985267175315,
+      "statistical_only": 0.38656063435699517,
+      "confidence_only": 0.05360318223868543,
+      "mean_ks": 0.23776881630374092,
+      "label_trend": 0.029666666666666536,
+      "delay_aware_cbpe": 0.028873432447898393
+    },
+    "logistic_regression|L2|labels20": {
+      "primary_system": 0.4437752568396321,
+      "fixed_dews_score": 0.48198985267175315,
+      "statistical_only": 0.38656063435699517,
+      "confidence_only": 0.05360318223868543,
+      "mean_ks": 0.23776881630374092,
+      "label_trend": 0.07666666666666666,
+      "delay_aware_cbpe": 0.060938394205002085
+    },
+    "logistic_regression|L5|labels100": {
+      "primary_system": 0.2884071405338632,
+      "fixed_dews_score": 0.48198985267175315,
+      "statistical_only": 0.38656063435699517,
+      "confidence_only": 0.05360318223868543,
+      "mean_ks": 0.23776881630374092,
+      "label_trend": 0.03200000000000002,
+      "delay_aware_cbpe": 0.02372591610660481
+    },
+    "logistic_regression|L5|labels20": {
+      "primary_system": 0.39483809712066015,
+      "fixed_dews_score": 0.48198985267175315,
+      "statistical_only": 0.38656063435699517,
+      "confidence_only": 0.05360318223868543,
+      "mean_ks": 0.23776881630374092,
+      "label_trend": 0.06333333333333324,
+      "delay_aware_cbpe": 0.05172528278460312
+    },
+    "logistic_regression|L10|labels100": {
+      "primary_system": 0.28341660254654216,
+      "fixed_dews_score": 0.48198985267175315,
+      "statistical_only": 0.38656063435699517,
+      "confidence_only": 0.05360318223868543,
+      "mean_ks": 0.23776881630374092,
+      "label_trend": 0.019333333333333313,
+      "delay_aware_cbpe": 0.02182003062159713
+    },
+    "logistic_regression|L10|labels20": {
+      "primary_system": 0.32823444810422076,
+      "fixed_dews_score": 0.48198985267175315,
+      "statistical_only": 0.38656063435699517,
+      "confidence_only": 0.05360318223868543,
+      "mean_ks": 0.23776881630374092,
+      "label_trend": 0.04833333333333334,
+      "delay_aware_cbpe": 0.036666666666666736
+    },
+    "gradient_boosting|L0|labels100": {
+      "primary_system": 0.20323322516392345,
+      "fixed_dews_score": 0.436267082413264,
+      "statistical_only": 0.38547183817333797,
+      "confidence_only": 0.04888344076645009,
+      "mean_ks": 0.2588605248464544,
+      "label_trend": 0.03166666666666673,
+      "delay_aware_cbpe": 0.027405129171593483
+    },
+    "gradient_boosting|L0|labels20": {
+      "primary_system": 0.43397610960730926,
+      "fixed_dews_score": 0.436267082413264,
+      "statistical_only": 0.38547183817333797,
+      "confidence_only": 0.04888344076645009,
+      "mean_ks": 0.2588605248464544,
+      "label_trend": 0.07999999999999996,
+      "delay_aware_cbpe": 0.06362153762937064
+    },
+    "gradient_boosting|L2|labels100": {
+      "primary_system": 0.23534431614720133,
+      "fixed_dews_score": 0.436267082413264,
+      "statistical_only": 0.38547183817333797,
+      "confidence_only": 0.04888344076645009,
+      "mean_ks": 0.2588605248464544,
+      "label_trend": 0.030666666666666537,
+      "delay_aware_cbpe": 0.02559548818182496
+    },
+    "gradient_boosting|L2|labels20": {
+      "primary_system": 0.3863501635206817,
+      "fixed_dews_score": 0.436267082413264,
+      "statistical_only": 0.38547183817333797,
+      "confidence_only": 0.04888344076645009,
+      "mean_ks": 0.2588605248464544,
+      "label_trend": 0.07166666666666666,
+      "delay_aware_cbpe": 0.0618404917335799
+    },
+    "gradient_boosting|L5|labels100": {
+      "primary_system": 0.2517075357959812,
+      "fixed_dews_score": 0.436267082413264,
+      "statistical_only": 0.38547183817333797,
+      "confidence_only": 0.04888344076645009,
+      "mean_ks": 0.2588605248464544,
+      "label_trend": 0.02599999999999994,
+      "delay_aware_cbpe": 0.024424029049188226
+    },
+    "gradient_boosting|L5|labels20": {
+      "primary_system": 0.38167470860625324,
+      "fixed_dews_score": 0.436267082413264,
+      "statistical_only": 0.38547183817333797,
+      "confidence_only": 0.04888344076645009,
+      "mean_ks": 0.2588605248464544,
+      "label_trend": 0.06499999999999995,
+      "delay_aware_cbpe": 0.05698309240441413
+    },
+    "gradient_boosting|L10|labels100": {
+      "primary_system": 0.28722262409534577,
+      "fixed_dews_score": 0.436267082413264,
+      "statistical_only": 0.38547183817333797,
+      "confidence_only": 0.04888344076645009,
+      "mean_ks": 0.2588605248464544,
+      "label_trend": 0.01766666666666672,
+      "delay_aware_cbpe": 0.01666666666666664
+    },
+    "gradient_boosting|L10|labels20": {
+      "primary_system": 0.37130033237557464,
+      "fixed_dews_score": 0.436267082413264,
+      "statistical_only": 0.38547183817333797,
+      "confidence_only": 0.04888344076645009,
+      "mean_ks": 0.2588605248464544,
+      "label_trend": 0.046666666666666745,
+      "delay_aware_cbpe": 0.038157710160739836
+    }
+  },
+  "gate": {
+    "setting": "logistic_regression|L5|labels100",
+    "development_t1_share_gradual": 0.42857142857142855,
+    "threshold": 0.4,
+    "fallback_triggered": false
+  }
+}
