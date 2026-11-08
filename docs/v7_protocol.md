@@ -67,4 +67,6 @@ Development (pooled; WARNING leave-one-dataset-out):
 
 ## 6. Deviations
 
-None yet.
+| Date | Change | Reason | Effect |
+|---|---|---|---|
+| 2026-11-09 | MiniBooNE rows are shuffled once with `numpy.random.default_rng(2026).permutation` before blocks are drawn | Its rows are stored sorted by class (one label change in 130,064 rows), so no contiguous block contains both classes. MiniBooNE is not time-ordered, so the shuffle removes no temporal structure. Done before any confirmation episode was built | None on the frozen choices; no outcome was looked at |
