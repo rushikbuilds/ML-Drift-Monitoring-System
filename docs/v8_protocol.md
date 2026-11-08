@@ -55,9 +55,13 @@ albert, default-of-credit-card-clients, kick, house_16H, 2dplanes and mv (OpenML
 
 **Expected from development, written before confirmation:** D1 borderline (0.77 on development), D2 fail, D3 and D4 likely pass.
 
-## 5. Frozen development choices
+## 5. Frozen development choices (2026-11-09, before download)
 
-To be filled in when the threshold is computed, before download.
+| File | sha256 (first 16) | Content |
+|---|---|---|
+| `artifacts/v8/frozen_v8.json` | b8005ca95d70cc4f | HARM threshold 0.0115 (estimated accuracy drop); WATCH threshold 4.011 z (from v7) |
+
+Pooled development at the frozen threshold: T1 0.61, T2 0.78, false alerts 3.4 per 100 clean batches, harmless shifts alerting 0.30, AUROC 0.77.
 
 ## 6. Deviations
 

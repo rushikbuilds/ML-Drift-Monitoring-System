@@ -1,0 +1,11 @@
+{
+  "harm_threshold": 0.011522033837402735,
+  "watch_threshold": 4.011275335096259,
+  "development": {
+    "t1_gradual": 0.6122448979591837,
+    "t2_harmful": 0.7777777777777778,
+    "false_alerts": 3.3927347498286498,
+    "harmless_alert_share": 0.3020833333333333,
+    "harm_auroc": 0.7665895061728394
+  }
+}
