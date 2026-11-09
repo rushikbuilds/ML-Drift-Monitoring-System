@@ -1,6 +1,6 @@
 # v4: Delay-Anchored Accuracy Estimation
 
-Method code: [dews/anchored.py](../dews/anchored.py). Final run: `python scripts/run_final_evaluation.py` (after `scripts/compute_aux_signals.py`). Tables: `artifacts/v2/final_results.md` and `.json`; figure: `artifacts/v2/nowcast_mae.png`. Exploration scripts (`scripts/explore_*.py`) show how the design was reached and are not reported results.
+Method code: [dews/anchored.py](../dews/anchored.py). Final run: `python scripts/run_final_evaluation.py` (after `scripts/compute_aux_signals.py`). Tables: `artifacts/v2/final_results.md` and `.json`; figure: `artifacts/v2/nowcast_mae.png`. Exploration scripts (`scripts/exploration/explore_*.py`) show how the design was reached and are not reported results.
 
 ## Why a new method
 

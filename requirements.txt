@@ -1,20 +1,13 @@
-fastapi==0.111.0
-uvicorn==0.30.1
-pydantic==2.8.2
-pandas==2.2.2
-numpy==1.26.4
-scipy==1.13.1
+# Core: experiments, tests and the dashboard (Python 3.10-3.12).
+# Exact, verified versions are in requirements-lock.txt; see docs/reproducibility.md.
+numpy>=2.0,<3
+scipy>=1.14,<2
+pandas>=2.2.3,<3
 scikit-learn==1.7.2
-statsmodels==0.14.2
-pytest==8.2.2
-httpx==0.27.0
+statsmodels>=0.14.4,<0.15
+matplotlib>=3.8,<4
+pytest>=8.2,<9
 python-dotenv==1.0.1
-psycopg2-binary==2.9.9
-SQLAlchemy==2.0.31
-mlflow==2.14.3
-prometheus-client==0.20.0
-alembic==1.13.2
-matplotlib>=3.8
-starlette>=0.37,<0.38
-streamlit>=1.57
-altair>=5
+streamlit>=1.57,<2
+altair>=5,<7
+pyarrow>=14

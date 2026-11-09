@@ -13,10 +13,10 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
 warnings.filterwarnings("ignore")
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 from dews import v2  # noqa: E402
-from scripts.explore_v4 import persist  # noqa: E402
+from scripts.exploration.explore_v4 import persist  # noqa: E402
 from scripts.run_v2_experiment import episode_eval, pick_threshold  # noqa: E402
 
 OUT = ROOT / "artifacts" / "v2"

@@ -77,7 +77,7 @@ def develop() -> None:
 def download() -> None:
     for name, did in cfg.CONFIRMATION_DATASETS.items():
         path = OUT / f"data_{name}.pkl"
-        if path.exists():
+        if path.exists() or name in cfg.UNAVAILABLE:
             continue
         d = fetch_openml(data_id=did, as_frame=True, parser="auto")
         X, y = d.data, d.target.astype(str)

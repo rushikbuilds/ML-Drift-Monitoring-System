@@ -15,7 +15,7 @@ from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.metrics import roc_auc_score
 
 warnings.filterwarnings("ignore")
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 from dews import v2  # noqa: E402
 from scripts.run_v2_experiment import episode_eval, pick_threshold  # noqa: E402

@@ -96,6 +96,9 @@ def download() -> None:
         X = X.fillna(X.median()).loc[:, X.nunique() > 1].iloc[:, : cfg.MAX_FEATURES].reset_index(drop=True)
         minority = y.value_counts().index[-1]
         yy = (y == minority).astype(int).to_numpy()
+        if name == "miniboone":  # rows are stored sorted by class; recorded deviation in docs/v7_protocol.md
+            perm = np.random.default_rng(2026).permutation(len(yy))
+            X, yy = X.iloc[perm].reset_index(drop=True), yy[perm]
         pd.to_pickle((X, yy), path)
         print(f"{name}: {X.shape}, positive share {yy.mean():.3f}, valid block starts {len(rb._valid_block_starts(yy))}")
 

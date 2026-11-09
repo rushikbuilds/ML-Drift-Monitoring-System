@@ -30,6 +30,15 @@ pip install -r requirements.txt
 
 ## Reproduce
 
+Final results (v6, v7, v8 verdicts and ablations), one command:
+
+```bash
+python scripts/reproduce.py --dry-run   # show the plan
+python scripts/reproduce.py             # verify mode: rebuilds what is missing, checks every verdict
+```
+
+Earlier stages (v2–v4):
+
 ```bash
 pytest -q --ignore=tests/test_api.py             # unit tests
 python scripts/run_v2_experiment.py              # synthetic study (about 25 min), writes artifacts/v2/
