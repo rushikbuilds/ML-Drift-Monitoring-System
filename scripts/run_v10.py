@@ -62,6 +62,9 @@ def download() -> None:
         X = X.apply(lambda c: c.astype("category").cat.codes if str(c.dtype) in ("category", "object") else c).astype(float)
         X = X.fillna(X.median()).loc[:, X.nunique() > 1].iloc[:, : cfg.MAX_FEATURES].reset_index(drop=True)
         yy = (y == y.value_counts().index[0]).astype(int).to_numpy()
+        if name == "rl":  # rows stored nearly sorted by class (19 label changes); recorded deviation
+            perm = np.random.default_rng(2026).permutation(len(yy))
+            X, yy = X.iloc[perm].reset_index(drop=True), yy[perm]
         pd.to_pickle((X, yy), path)
         print(f"{name}: {X.shape}, positive share {yy.mean():.3f}, label changes {int(np.sum(np.diff(yy) != 0))}, "
               f"valid block starts {len(rb._valid_block_starts(yy))}", flush=True)

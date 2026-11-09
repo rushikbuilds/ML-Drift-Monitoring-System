@@ -43,4 +43,6 @@ The early-warning share before the drop (T1) and the v8 rule on the same data ar
 
 ## Deviations
 
-None yet.
+| Date | Change | Reason | Effect |
+|---|---|---|---|
+| 2026-11-09 | rl rows are shuffled once with `numpy.random.default_rng(2026).permutation` (now part of `run_v10.py download`) | Its rows are stored nearly sorted by class (19 label changes in 31,406 rows), so blocks were not representative; same precedent as MiniBooNE in v7. Done before any confirmation episode was built | None on the frozen choice; no outcome was looked at |
