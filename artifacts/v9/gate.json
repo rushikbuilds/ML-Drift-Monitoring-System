@@ -1,0 +1,46 @@
+{
+  "gate": 0.8,
+  "best": "A: importance-weighted, gradient boosting",
+  "passed": false,
+  "results": {
+    "v8 importance-weighted (linear), frozen": {
+      "auroc": 0.7665895061728394,
+      "per_dataset": {
+        "covertype": 0.6474654377880185,
+        "covpokelec": 0.6979591836734693,
+        "hyperplane": null,
+        "kddcup99": 0.7619047619047619,
+        "led": 0.8953488372093023,
+        "poker_hand": 0.7380952380952381,
+        "run_or_walk": 0.8834586466165413,
+        "vehicle_sensit": 0.875
+      }
+    },
+    "A: importance-weighted, gradient boosting": {
+      "auroc": 0.7016093474426808,
+      "per_dataset": {
+        "covertype": 0.728110599078341,
+        "covpokelec": 0.5714285714285714,
+        "hyperplane": null,
+        "kddcup99": 0.45476190476190476,
+        "led": 0.9302325581395349,
+        "poker_hand": 0.6468253968253967,
+        "run_or_walk": 0.763157894736842,
+        "vehicle_sensit": 0.8777777777777778
+      }
+    },
+    "B: error predictor": {
+      "auroc": 0.6990465167548501,
+      "per_dataset": {
+        "covertype": 0.8064516129032258,
+        "covpokelec": 0.7489795918367348,
+        "hyperplane": null,
+        "kddcup99": 0.42619047619047623,
+        "led": 0.5930232558139535,
+        "poker_hand": 0.7063492063492064,
+        "run_or_walk": 0.8120300751879699,
+        "vehicle_sensit": 0.8305555555555555
+      }
+    }
+  }
+}
