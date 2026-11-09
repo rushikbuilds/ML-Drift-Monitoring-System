@@ -1,0 +1,82 @@
+{
+  "overall": "PARTIAL SUCCESS",
+  "hypotheses": {
+    "D1": {
+      "value": 0.784375,
+      "ci95": [
+        0.697451171875,
+        0.8627026367187499
+      ],
+      "pass": false
+    },
+    "D2": {
+      "value": 0.34375,
+      "false_alerts": 2.788739805314391,
+      "pass": false
+    },
+    "D3": {
+      "value": 0.625,
+      "watch_harmless": 0.96875,
+      "harm_harmless": 0.34375,
+      "harm_t2": 0.828125,
+      "harm_false_alerts": 2.788739805314391,
+      "pass": true
+    },
+    "D4": {
+      "value": 0.1977539062500001,
+      "ci95": [
+        0.09218017578124998,
+        0.2975585937499998
+      ],
+      "auroc_harm": 0.784375,
+      "auroc_watch": 0.5866210937499999,
+      "pass": true
+    }
+  },
+  "methods": {
+    "HARM": {
+      "t1_gradual": 0.7560975609756098,
+      "t2_harmful": 0.828125,
+      "false_alerts": 2.788739805314391,
+      "harmless_alert_share": 0.34375
+    },
+    "WATCH": {
+      "t1_gradual": 1.0,
+      "t2_harmful": 1.0,
+      "false_alerts": 3.9726387792686135,
+      "harmless_alert_share": 0.96875
+    }
+  },
+  "per_dataset": {
+    "2dplanes": {
+      "harmful": 14,
+      "harmless": 31,
+      "auroc_harm": 0.9769585253456221,
+      "auroc_watch": 0.6382488479262673
+    },
+    "credit_default": {
+      "harmful": 8,
+      "harmless": 36,
+      "auroc_harm": 0.8923611111111112,
+      "auroc_watch": 0.5833333333333333
+    },
+    "house_16h": {
+      "harmful": 26,
+      "harmless": 19,
+      "auroc_harm": 0.7753036437246964,
+      "auroc_watch": 0.597165991902834
+    },
+    "kick": {
+      "harmful": 16,
+      "harmless": 29,
+      "auroc_harm": 0.6099137931034483,
+      "auroc_watch": 0.603448275862069
+    },
+    "mv": {
+      "harmful": 0,
+      "harmless": 45,
+      "auroc_harm": null,
+      "auroc_watch": null
+    }
+  }
+}

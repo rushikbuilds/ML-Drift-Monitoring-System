@@ -15,6 +15,7 @@ A research codebase for **label-delay-aware early warning of ML performance degr
 | v5 harmless vs harmful | [v5_harmless_vs_harmful.md](docs/v5_harmless_vs_harmful.md) | Sustained-alert rule does not help. Relevance-weighted shift separates harmless from harmful input shifts perfectly in synthetic data but is not supported on 13 real streams; use it as an explanation, not an alert filter. |
 | v6 frozen benchmark | [verdict.md](docs/verdict.md) | Real data with controlled shifts, pre-registered, held-out run once: **FAILURE** (H1–H5 all fail). Thresholds did not transfer across datasets. |
 | v7 mitigation | [v7_verdict.md](docs/v7_verdict.md) | Stream-normalized two-tier monitor, confirmed once on 6 never-used datasets: **PARTIAL SUCCESS**. WATCH warns before the accuracy drop on 87% of harmful gradual shifts (median 6 batches ahead) within the false-alert budget and beats the raw DEWS score on 5 of 6 datasets; it does not separate harmful from harmless shifts and fails on natural streams. |
+| v8 harm estimation | [v8_verdict.md](docs/v8_verdict.md) | HARM tier (importance-weighted reference accuracy), confirmed once on 5 never-used datasets: **PARTIAL SUCCESS**. Harmful-vs-harmless AUROC 0.78 [0.70, 0.86] (target 0.80, missed); harmless-shift alarms cut from 97% (WATCH) to 34% while still warning before the drop on 76% of harmful gradual shifts, within the false-alert budget. |
 
 Scope notes: [final_scope.md](docs/final_scope.md), [implementation_plan.md](docs/implementation_plan.md) (v1 plan, historical).
 
