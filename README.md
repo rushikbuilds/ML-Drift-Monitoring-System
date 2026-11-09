@@ -66,6 +66,10 @@ python main.py --serve         # FastAPI service; Swagger UI at http://localhost
 python main.py --benchmark     # legacy benchmark
 ```
 
+## Presentation
+
+[Slides outline](docs/presentation/slides.md) · [3-minute demo script](docs/presentation/demo_script.md) · [Viva questions and answers](docs/presentation/viva_qa.md)
+
 ## Layout
 
 ```
