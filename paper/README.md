@@ -1,11 +1,16 @@
 # Paper: Early Warning of Model Degradation under Delayed Labels
 
-One LaTeX source (`paper.tex`), two builds:
+One LaTeX source (`paper.tex`), three builds:
 
 | File | For | Authors | Repository link |
 |---|---|---|---|
-| `conecct.tex` → `conecct.pdf` | IEEE CONECCT 2027 (double-blind) | "Anonymous Authors" | withheld |
+| `conecct.tex` → `conecct.pdf` | IEEE CONECCT 2027 submission (double-blind) | "Anonymous Authors" | withheld |
+| `camera_ready.tex` → `camera_ready.pdf` | CONECCT final version, only after acceptance | 4 students + guide | included |
 | `arxiv.tex` → `arxiv.pdf` | arXiv preprint (cs.LG) | 4 students + guide | included |
+
+Never submit `camera_ready.pdf` or `arxiv.pdf` to CONECCT for review: names in a double-blind submission get it desk-rejected.
+
+Author block (IEEE style, in `paper.tex`): plain names with no titles ("Prof.", "Dr.") or roles ("Guide"), one shared affiliation block because all authors are at the same institution, guide listed last. The guide is a co-author, so the Acknowledgment thanks the department, not the guide.
 
 ## Build
 
@@ -27,7 +32,7 @@ Both builds use IEEEtran and are 6 pages, inside the 6–8 pages (including refe
 - [ ] Keep the AI-use statement in the Acknowledgment (required by IEEE and arXiv). Adjust it to describe what you actually changed.
 
 **arXiv version**
-- [ ] Fill the author block in `paper.tex` (names, department, institution, city, email) and the guide's name in the Acknowledgment.
+- [ ] Replace the placeholders in `paper.tex`: `[Department of ...]` (author block and Acknowledgment) and the e-mail addresses. Agree the author order with your guide.
 - [ ] Push the repository to GitHub so the link in the paper works.
 - [ ] Obtain an endorsement for cs.LG (from your guide or another established arXiv author), then upload the LaTeX source: `paper.tex`, `arxiv.tex`, `refs.bib`, the generated `arxiv.bbl` and `figures/`.
 
