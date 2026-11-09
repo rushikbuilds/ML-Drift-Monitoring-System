@@ -34,3 +34,13 @@ Dependencies.zip
 !README.md
 !docs/**/*.md
 artifacts/v2/*.pkl
+
+# LaTeX build files (paper/)
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.fls
+paper/*.fdb_latexmk
+paper/*.blg
+paper/*.synctex.gz
+!paper/README.md
