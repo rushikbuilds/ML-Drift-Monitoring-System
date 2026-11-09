@@ -117,7 +117,7 @@ Dashboard → Live monitor. Script: `docs/presentation/demo_script.md`.
 
 ## 11. Limitations
 
-- Harm separation is good, not perfect: 34% of harmless drifts still alert.
+- Harm separation is good, not perfect: 34% of harmless drifts still alert. Two follow-up experiments (v9 better estimators, v10 alarm remedies) were tested and rejected on fresh data.
 - Changes in the label relationship (concept drift) are invisible until labels arrive.
 - Fails on natural streams that are already drifting when monitoring starts.
 - Controlled shifts are realistic re-sampling, but still constructed; the main model is logistic regression.

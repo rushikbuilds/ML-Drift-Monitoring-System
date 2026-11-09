@@ -1,0 +1,104 @@
+{
+  "passed": false,
+  "success_rule": {
+    "harmless_max": 0.15,
+    "t2_min": 0.5,
+    "false_alerts_max": 5.0
+  },
+  "results": {
+    "v10 (frozen)": {
+      "harmless": 0.11848341232227488,
+      "harmless_ci95": [
+        0.07582938388625593,
+        0.16587677725118483
+      ],
+      "t2": 0.3018867924528302,
+      "t2_ci95": [
+        0.18867924528301888,
+        0.4339622641509434
+      ],
+      "t1": 0.3055555555555556,
+      "false_alerts": 0.11064394777605666,
+      "harmful": 53,
+      "harmless_episodes": 211
+    },
+    "v8 rule, for comparison": {
+      "harmless": 0.5781990521327014,
+      "harmless_ci95": [
+        0.5118483412322274,
+        0.639928909952606
+      ],
+      "t2": 0.7358490566037735,
+      "t2_ci95": [
+        0.6037735849056604,
+        0.8490566037735849
+      ],
+      "t1": 0.6944444444444444,
+      "false_alerts": 12.701925204691303,
+      "harmful": 53,
+      "harmless_episodes": 211
+    }
+  },
+  "episode_counts": {
+    "diabetes130": {
+      "clean|clean": 10,
+      "gradual_shift|harmless": 20,
+      "gradual_shift|harmful": 9,
+      "gradual_shift|spurious": 1,
+      "abrupt_shift|harmless": 10,
+      "abrupt_shift|spurious": 1,
+      "abrupt_shift|harmful": 4,
+      "concept_change|spurious": 1,
+      "concept_change|concept_no_event": 5,
+      "concept_change|concept_event": 4
+    },
+    "fried": {
+      "clean|clean": 9,
+      "clean|spurious": 1,
+      "gradual_shift|harmful": 4,
+      "gradual_shift|harmless": 26,
+      "abrupt_shift|harmless": 12,
+      "abrupt_shift|harmful": 3,
+      "concept_change|concept_event": 10
+    },
+    "jannis": {
+      "clean|clean": 9,
+      "clean|spurious": 1,
+      "gradual_shift|harmless": 24,
+      "gradual_shift|harmful": 6,
+      "abrupt_shift|harmless": 13,
+      "abrupt_shift|harmful": 2,
+      "concept_change|concept_event": 10
+    },
+    "jungle_chess": {
+      "clean|clean": 9,
+      "clean|spurious": 1,
+      "gradual_shift|harmless": 24,
+      "gradual_shift|harmful": 6,
+      "abrupt_shift|harmless": 9,
+      "abrupt_shift|harmful": 5,
+      "abrupt_shift|spurious": 1,
+      "concept_change|concept_event": 9,
+      "concept_change|spurious": 1
+    },
+    "rl": {
+      "clean|clean": 10,
+      "gradual_shift|harmless": 24,
+      "gradual_shift|harmful": 6,
+      "abrupt_shift|harmless": 13,
+      "abrupt_shift|harmful": 2,
+      "concept_change|concept_event": 10
+    },
+    "road_safety": {
+      "clean|clean": 10,
+      "gradual_shift|harmless": 24,
+      "gradual_shift|harmful": 5,
+      "gradual_shift|spurious": 1,
+      "abrupt_shift|harmless": 12,
+      "abrupt_shift|spurious": 2,
+      "abrupt_shift|harmful": 1,
+      "concept_change|concept_no_event": 6,
+      "concept_change|concept_event": 4
+    }
+  }
+}

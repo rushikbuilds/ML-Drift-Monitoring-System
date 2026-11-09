@@ -33,6 +33,22 @@ If you take a random harmful drift and a random harmless one, the harm tier rank
 - Waiting is still the gold standard for confirming harm, which is why the system has a third tier where labels confirm or clear a warning.
 - In the v6 comparison, waiting for labels was as good as or better than our learned system. We report that too.
 
+**Q: Why was the AUROC target 0.80?**
+It is the conventional threshold for "good" discrimination (a common grading calls 0.7–0.8 acceptable and 0.8–0.9 excellent). We fixed it in code before seeing any data and kept it across experiments so results stay comparable. It was not derived from a cost analysis; a target based on how many false alarms an engineer will tolerate would be the better design next time.
+
+**Q: 0.78 is so close to 0.80. Why not count it as a pass?**
+- The rule was the point estimate, fixed in advance, so it is a miss.
+- The 95% interval is 0.70–0.86 and includes 0.80, so the data cannot tell our result apart from the target.
+- We then tried to clear it properly in a new experiment (v9): nonlinear estimators reached only 0.70 on development data, and ensembles of all estimators at most 0.76, both below the simple method's 0.77. So we kept the simple method. [`docs/v9_protocol.md`]
+
+**Q: Why do 34% of harmless drifts still raise a harm warning?**
+- Mostly accumulated background false alarms, not misjudged harm. On unseen data, streams with no shift at all raised a harm warning in 40% of episodes and harmless shifts in 34%, against 88% for harmful shifts. The harm tier treats harmless shifts like no shift at all.
+- The harm estimate is noisy from batch to batch (about 0.8 accuracy points). Over about 33 monitored batches, a 2.8-per-100 false-alert rate gives about a 60% chance of at least one alert.
+- Our 10% target was inconsistent with our own 5-per-100 per-batch budget: it would need about 0.3 per 100. That was a design error on our side.
+
+**Q: Did you try to reduce those alarms?**
+Yes, in v10: stricter thresholds, smoothing, CUSUM change detection, stream-normalized scores and gating by the drift watch. The best rule cut harmless alarms to 12% on six fresh datasets, but it then warned before the labels on only 30% of harmful shifts (we required at least 50%), so it was not adopted. Lowering alarms by raising the bar also removes the early warnings the system exists to give. [`docs/v10_protocol.md`]
+
 ## About the method
 
 **Q: What is "stream normalization"?**
