@@ -65,4 +65,6 @@ Pooled development at the frozen threshold: T1 0.61, T2 0.78, false alerts 3.4 p
 
 ## 6. Deviations
 
-None yet.
+| Date | Change | Reason | Effect |
+|---|---|---|---|
+| 2026-11-09 | albert is dropped; confirmation uses 5 datasets. Seed numbering of the other datasets is unchanged | OpenML returned HTTP 500 for albert on 4 download attempts (other datasets downloaded normally). Decided before any confirmation episode was built | Fewer confirmation episodes (325 instead of 390); no outcome was looked at |

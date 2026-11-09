@@ -38,6 +38,8 @@ def jobs(split: str):
     from dews import v8_config as cfg
     out = []
     for di, d in enumerate(cfg.CONFIRMATION_DATASETS):
+        if d in cfg.UNAVAILABLE:
+            continue  # seed numbering of the remaining datasets stays as frozen
         index = 0
         for kind in rb.EPISODE_KINDS:
             for _ in range(v6cfg.EPISODES_PER_DATASET[kind]):

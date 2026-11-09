@@ -17,6 +17,7 @@ PRIMARY = {"model": "logistic_regression", "label_delay": 5, "label_fraction": 1
 CONFIRMATION_DATASETS = {
     "albert": 41147, "credit_default": 42477, "kick": 41162, "house_16h": 821, "2dplanes": 727, "mv": 881,
 }
+UNAVAILABLE = ("albert",)       # OpenML returned HTTP 500 on every download attempt (deviation, see protocol)
 MAX_FEATURES = 20
 CONFIRMATION_SEED_BASE = 9500
 
