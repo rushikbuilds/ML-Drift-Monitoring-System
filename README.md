@@ -41,6 +41,14 @@ python scripts/run_final_evaluation.py           # final locked evaluation (v4)
 
 Reports and figures are written to `artifacts/v2/`.
 
+## Dashboard
+
+```bash
+streamlit run streamlit_app.py
+```
+
+Four pages: an overview of the results, a live monitor that replays saved episodes batch by batch with both warning tiers and delayed labels, every verdict, and the ablation findings. It reads the saved experiment outputs in `artifacts/`, so run the experiment scripts first.
+
 ## Other entry points
 
 ```bash
