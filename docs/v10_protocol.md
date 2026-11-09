@@ -46,3 +46,16 @@ The early-warning share before the drop (T1) and the v8 rule on the same data ar
 | Date | Change | Reason | Effect |
 |---|---|---|---|
 | 2026-11-09 | rl rows are shuffled once with `numpy.random.default_rng(2026).permutation` (now part of `run_v10.py download`) | Its rows are stored nearly sorted by class (19 label changes in 31,406 rows), so blocks were not representative; same precedent as MiniBooNE in v7. Done before any confirmation episode was built | None on the frozen choice; no outcome was looked at |
+
+## Confirmation result (one-time run, 2026-11-09): **FAILURE, not adopted**
+
+Six fresh datasets; 53 harmful and 211 harmless shift episodes; `artifacts/v10/v10_verdict.json`.
+
+| Rule | Harmless alarms (95% CI) | T2 (95% CI) | T1 | False alerts / 100 |
+|---|---|---|---|---|
+| **v10 z-score (frozen)** | **0.12** [0.08, 0.17], passes | **0.30** [0.19, 0.43], fails (needs ≥ 0.50) | 0.31 | 0.1, passes |
+| v8 rule on the same data (comparison) | 0.58 [0.51, 0.64] | 0.74 [0.60, 0.85] | 0.69 | 12.7 |
+
+The stricter operating point did cut harmless alarms, but on new datasets it also missed most harmful shifts: warnings before labels confirm fell to 30%. Lowering harmless alarms by raising the bar trades away the early warnings the system exists to give, and the trade was worse on unseen data than on development. Not merged into the main project.
+
+The v8 rule on these six datasets also did worse than in its own confirmation (58% harmless alarms, 12.7 false alerts per 100). This is reported for completeness only; the v8 verdict stands as published.
