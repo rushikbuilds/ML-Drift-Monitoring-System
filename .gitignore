@@ -44,3 +44,6 @@ paper/*.fdb_latexmk
 paper/*.blg
 paper/*.synctex.gz
 !paper/README.md
+
+# Presentation kit (slides outline, demo script, viva Q&A): kept local only
+docs/presentation/
