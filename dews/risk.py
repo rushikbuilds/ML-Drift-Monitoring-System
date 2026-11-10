@@ -2,9 +2,10 @@
 from __future__ import annotations
 
 import logging
+from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
-from math import isfinite, nextafter, inf
-from typing import Any, Mapping, Sequence
+from math import inf, isfinite, nextafter
+from typing import Any
 
 import numpy as np
 from sklearn.impute import SimpleImputer
@@ -18,7 +19,6 @@ from .early_warning_metrics import (
     stable_clean_batch_indices,
 )
 from .experiment_config import DEFAULT_EARLY_WARNING_CONFIG
-
 
 logger = logging.getLogger(__name__)
 
@@ -431,7 +431,7 @@ class DelayedFeedbackRiskCalibrator:
             return False
         features = example.get("features")
         if not isinstance(features, Mapping):
-            raise ValueError("mature risk example must include its causal feature vector")
+            raise ValueError("mature risk example must include its causal feature vector")  # noqa: TRY004 (callers expect ValueError)
         self._identities.add(identity)
         self._examples.append((self.feature_builder.vector(features), int(label)))
         return True

@@ -1,10 +1,11 @@
 from __future__ import annotations
 
-from unittest.mock import patch, MagicMock
+import pytest
 
-from fastapi.testclient import TestClient
-
-from backend.main import app
+# The FastAPI service is a legacy extra (requirements-legacy.txt); skip when it is not installed.
+pytest.importorskip("prometheus_client")
+TestClient = pytest.importorskip("fastapi.testclient").TestClient
+app = pytest.importorskip("backend.main").app
 
 client = TestClient(app)
 

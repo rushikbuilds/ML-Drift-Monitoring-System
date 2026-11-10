@@ -11,7 +11,8 @@ Scores before the end of the burn-in are NaN (no alerts).
 """
 from __future__ import annotations
 
-from typing import Any, Mapping, Sequence
+from collections.abc import Mapping, Sequence
+from typing import Any
 
 import numpy as np
 from sklearn.linear_model import LogisticRegression
@@ -73,7 +74,7 @@ class WarningCalibrator:
         self.delay, self.label_fraction = delay, label_fraction
         self.model = make_pipeline(StandardScaler(), LogisticRegression(C=0.3, max_iter=500))
 
-    def fit(self, episodes: Sequence[Mapping[str, Any]]) -> "WarningCalibrator":
+    def fit(self, episodes: Sequence[Mapping[str, Any]]) -> WarningCalibrator:
         xs, ys = [], []
         for ep in episodes:
             X, y = warning_features(ep, self.delay, self.label_fraction), state_target(ep)

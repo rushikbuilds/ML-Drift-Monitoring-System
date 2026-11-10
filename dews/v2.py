@@ -15,8 +15,9 @@ Revision of the v1 protocol after its negative result (see docs/v2_protocol.md):
 """
 from __future__ import annotations
 
+from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
-from typing import Any, Mapping, Sequence
+from typing import Any
 
 import numpy as np
 import pandas as pd
@@ -202,7 +203,7 @@ def label_features(accuracy: np.ndarray, delay: int) -> np.ndarray:
 
 
 def signal_features(signals: np.ndarray) -> np.ndarray:
-    n, k = signals.shape
+    n, _k = signals.shape
     cols = [signals]
     mean3 = np.vstack([signals[max(t - 2, 0):t + 1].mean(axis=0) for t in range(n)])
     slope3 = np.zeros_like(signals)
@@ -249,7 +250,8 @@ def training_pool(train_sigs: Sequence[Mapping[str, Any]], delay: int, *, use_la
         feats = episode_features(sig, delay, use_labels=use_labels)
         y = state_targets(sig["accuracy"])
         keep = (~np.isnan(y)) & (np.arange(len(y)) >= WARMUP)
-        xs.append(feats[keep]); ys.append(y[keep])
+        xs.append(feats[keep])
+        ys.append(y[keep])
     return np.vstack(xs), np.concatenate(ys)
 
 

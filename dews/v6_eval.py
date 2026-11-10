@@ -5,14 +5,15 @@ label-derived features use only observed labels of batches b <= t - max(L, 1).
 """
 from __future__ import annotations
 
+from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
-from typing import Any, Mapping, Sequence
+from typing import Any
 
 import numpy as np
 from sklearn.metrics import roc_auc_score
 
-from . import v6_config as cfg
 from . import v2
+from . import v6_config as cfg
 
 METHODS = ("primary_system", "fixed_dews_score", "statistical_only", "confidence_only",
            "mean_ks", "label_trend", "delay_aware_cbpe")
@@ -70,7 +71,7 @@ class RiskCalibrator:
         self.delay, self.label_fraction = delay, label_fraction
         self.model = v2._new_model()
 
-    def fit(self, episodes: Sequence[Mapping[str, Any]]) -> "RiskCalibrator":
+    def fit(self, episodes: Sequence[Mapping[str, Any]]) -> RiskCalibrator:
         xs, ys = [], []
         for ep in episodes:
             X, y = system_features(ep, self.delay, self.label_fraction), state_target(ep)
@@ -151,7 +152,7 @@ def metrics(scores: np.ndarray, threshold: float, m: Masks) -> dict[str, Any]:
         t2_hit = (alerts & m.t2)[idx].any(axis=1)
         leads = [int(m.event[i] - np.argmax(alerts[i] & m.t1[i])) for i, h in zip(idx, t1_hit) if h]
         out[name] = {
-            "episodes": int(len(idx)),
+            "episodes": len(idx),
             "t1_share": float(t1_hit.mean()) if len(idx) else None,
             "t2_share": float(t2_hit.mean()) if len(idx) else None,
             "t1_median_lead": float(np.median(leads)) if leads else None,

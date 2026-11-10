@@ -58,7 +58,7 @@ def extract_episode(ep: V6Episode) -> dict[str, Any]:
     system, det_ref = _monitor(ep)
     config = system.config
     rng = np.random.default_rng(ep.seed + 777)
-    n_labeled = int(round(LABELED_FRACTION * cfg.BATCH_SIZE))
+    n_labeled = round(LABELED_FRACTION * cfg.BATCH_SIZE)
     signals, aux, rws, mean_ks, acc, acc20 = [], [], [], [], [], []
     for t, (batch, labels) in enumerate(zip(ep.batches, ep.labels)):
         predictions, summary = _prediction_summary(system.model, batch, config.low_confidence_threshold)

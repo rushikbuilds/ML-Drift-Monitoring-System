@@ -31,7 +31,6 @@ from .risk import RiskFeatureBuilder, compute_baseline_scores
 from .scenarios import ScenarioEpisode
 from .storage import DriftStore
 
-
 RiskPredictor = Callable[[Mapping[str, float | None]], float | None]
 RiskTargetUpdater = Callable[[Mapping[str, Any]], None]
 

@@ -27,16 +27,14 @@ Endpoints:
     Observability:
         /metrics                     Prometheus metrics (mounted ASGI sub-app)
 """
-import json
 import logging
-import os
 
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 from prometheus_client import make_asgi_app
 from pydantic import BaseModel
 
-from .schemas import DemoResetRequest, StepResponse, StatusResponse, BenchmarkResponse
+from .schemas import DemoResetRequest
 from .service import service
 
 logger = logging.getLogger(__name__)

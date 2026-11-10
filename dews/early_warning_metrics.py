@@ -1,13 +1,12 @@
 """Event, risk-target, and alert metrics for delayed-label experiments."""
 from __future__ import annotations
 
+from collections.abc import Sequence
 from dataclasses import asdict, dataclass
 from math import isfinite
 from statistics import mean
-from typing import Sequence
 
 from .experiment_config import DEFAULT_EARLY_WARNING_CONFIG
-
 
 _PROTOCOL = DEFAULT_EARLY_WARNING_CONFIG.protocol
 _EVENT = _PROTOCOL.event
@@ -277,8 +276,8 @@ def evaluate_episode_alerts(
         for match in matches
         if match.detection_lag_batches is not None
     ]
-    clean_indices = set(int(batch) for batch in clean_batch_indices)
-    harmless_indices = set(int(batch) for batch in harmless_shift_batch_indices)
+    clean_indices = {int(batch) for batch in clean_batch_indices}
+    harmless_indices = {int(batch) for batch in harmless_shift_batch_indices}
     clean_unmatched_count = sum(batch in clean_indices for batch in unmatched)
     harmless_alert_count = sum(batch in harmless_indices for batch in alerts)
     first_event = min(events) if events else None

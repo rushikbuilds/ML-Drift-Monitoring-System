@@ -11,7 +11,8 @@ other streams and transferred.
 """
 from __future__ import annotations
 
-from typing import Any, Mapping, Sequence
+from collections.abc import Mapping, Sequence
+from typing import Any
 
 import numpy as np
 from sklearn.ensemble import HistGradientBoostingClassifier, RandomForestClassifier
@@ -75,7 +76,7 @@ class AnchoredEstimator:
         self.delay = delay
         self.model = make_pipeline(StandardScaler(), Ridge(alpha=RIDGE_ALPHA))
 
-    def fit(self, sigs: Sequence[Mapping[str, Any]]) -> "AnchoredEstimator":
+    def fit(self, sigs: Sequence[Mapping[str, Any]]) -> AnchoredEstimator:
         xs, ys = [], []
         for s in sigs:
             X, anchor = delta_dataset(s, self.delay)

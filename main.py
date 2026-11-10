@@ -14,7 +14,6 @@ import argparse
 import json
 from pathlib import Path
 
-import uvicorn
 
 from dews import MonitorConfig, MLflowTracker, build_demo_system, run_demo_evaluation
 from dews.benchmarks import run_benchmark_suite
@@ -95,6 +94,8 @@ def main() -> int:
 
     # ── Serve ──
     if args.serve:
+        import uvicorn  # legacy extra: pip install -r requirements-legacy.txt
+
         uvicorn.run("backend.main:app", host=args.host, port=args.port, reload=False)
         return 0
 

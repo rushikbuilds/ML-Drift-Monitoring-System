@@ -1,15 +1,14 @@
-import os
 import importlib
 import logging
-from typing import Tuple, Any
+import os
+from typing import Any
 
 from dews.config import MonitorConfig
 from dews.monitoring import DriftMonitoringSystem, build_demo_system
-import pandas as pd
 
 logger = logging.getLogger(__name__)
 
-def load_system(config: MonitorConfig, store_path: str) -> Tuple[DriftMonitoringSystem, Any]:
+def load_system(config: MonitorConfig, store_path: str) -> tuple[DriftMonitoringSystem, Any]:
     """
     Dynamically loads the monitoring system based on the DEWS_SYSTEM_FACTORY env var.
     If not set, defaults to the internal Digits demo scenario.

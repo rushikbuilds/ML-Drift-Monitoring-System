@@ -18,7 +18,6 @@ from .data import FeatureSchema
 from .early_warning_metrics import accuracy_baseline, find_degradation_onset
 from .experiment_config import DEFAULT_EARLY_WARNING_CONFIG
 
-
 ScenarioName = Literal["clean", "harmless_shift", "harmful_gradual", "harmful_abrupt"]
 FEATURE_COLUMNS = ("signal_0", "signal_1", "noise_0", "nuisance_0")
 
@@ -202,7 +201,7 @@ def build_scenario_episode(
     if scenario not in allowed_scenarios:
         raise ValueError(f"unknown scenario: {scenario}")
     if not isinstance(seed, int) or isinstance(seed, bool):
-        raise ValueError("seed must be an integer")
+        raise ValueError("seed must be an integer")  # noqa: TRY004 (callers expect ValueError)
     if seed not in (
         DEFAULT_EARLY_WARNING_CONFIG.seed_split.train_seeds
         + DEFAULT_EARLY_WARNING_CONFIG.seed_split.validation_seeds
