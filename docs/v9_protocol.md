@@ -18,4 +18,6 @@ Experiment branch `v9-harm-experiment`, not merged. Run on 2026-11-09 to see whe
 
 **Gate failed.** Both nonlinear estimators were worse than the frozen v8 method overall, though each was better on some datasets: B on covertype (0.81), A on led (0.93). Both collapsed on kddcup99 (0.43–0.45). More flexible models over-fit the 2000-row reference and do not transfer across datasets: the same pattern as every learned combination tried earlier.
 
+**Ensembles** (post hoc, recorded 2026-11-10; `scripts/run_posthoc.py`, `artifacts/posthoc/v9_ensembles.json`). Every combination of 2–5 of {v8 importance-weighted, kNN reference accuracy, A, B, confidence drop}, combined by averaging ranks within each dataset. The best reached 0.760 (v8 + B + confidence), below the frozen v8 estimator's 0.767 and the 0.80 gate. Scored the same way (within-dataset ranks), v8 alone is 0.746, so the best ensemble is slightly better than v8 on that basis, but no ensemble came near the gate.
+
 No confirmation data was downloaded or used. The v8 verdict and the main project are unchanged.

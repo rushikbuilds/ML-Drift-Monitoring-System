@@ -1,0 +1,235 @@
+{
+  "harmful": 63,
+  "harmless": 288,
+  "single": {
+    "v8 importance-weighted (frozen)": {
+      "auroc_raw": 0.7665895061728394,
+      "auroc_within_dataset_ranks": 0.7458664021164021
+    },
+    "kNN reference accuracy": {
+      "auroc_raw": 0.6783785273368605,
+      "auroc_within_dataset_ranks": 0.687527557319224
+    },
+    "A: importance-weighted, gradient boosting": {
+      "auroc_raw": 0.7016093474426808,
+      "auroc_within_dataset_ranks": 0.6691468253968254
+    },
+    "B: error predictor": {
+      "auroc_raw": 0.6990465167548501,
+      "auroc_within_dataset_ranks": 0.6916335978835978
+    },
+    "confidence drop": {
+      "auroc_raw": 0.7046130952380952,
+      "auroc_within_dataset_ranks": 0.6958223104056437
+    }
+  },
+  "ensembles_best_first": [
+    {
+      "auroc": 0.7595623897707231,
+      "members": [
+        "v8 importance-weighted (frozen)",
+        "B: error predictor",
+        "confidence drop"
+      ]
+    },
+    {
+      "auroc": 0.7568342151675485,
+      "members": [
+        "v8 importance-weighted (frozen)",
+        "confidence drop"
+      ]
+    },
+    {
+      "auroc": 0.7546571869488536,
+      "members": [
+        "v8 importance-weighted (frozen)",
+        "kNN reference accuracy",
+        "confidence drop"
+      ]
+    },
+    {
+      "auroc": 0.7531139770723103,
+      "members": [
+        "v8 importance-weighted (frozen)",
+        "B: error predictor"
+      ]
+    },
+    {
+      "auroc": 0.7530037477954146,
+      "members": [
+        "v8 importance-weighted (frozen)",
+        "A: importance-weighted, gradient boosting",
+        "B: error predictor",
+        "confidence drop"
+      ]
+    },
+    {
+      "auroc": 0.7515983245149912,
+      "members": [
+        "v8 importance-weighted (frozen)",
+        "kNN reference accuracy",
+        "B: error predictor",
+        "confidence drop"
+      ]
+    },
+    {
+      "auroc": 0.7499173280423281,
+      "members": [
+        "v8 importance-weighted (frozen)",
+        "A: importance-weighted, gradient boosting",
+        "confidence drop"
+      ]
+    },
+    {
+      "auroc": 0.7470789241622575,
+      "members": [
+        "v8 importance-weighted (frozen)",
+        "kNN reference accuracy",
+        "A: importance-weighted, gradient boosting",
+        "B: error predictor",
+        "confidence drop"
+      ]
+    },
+    {
+      "auroc": 0.7463899911816578,
+      "members": [
+        "v8 importance-weighted (frozen)",
+        "kNN reference accuracy",
+        "A: importance-weighted, gradient boosting",
+        "confidence drop"
+      ]
+    },
+    {
+      "auroc": 0.7429453262786596,
+      "members": [
+        "v8 importance-weighted (frozen)",
+        "kNN reference accuracy",
+        "B: error predictor"
+      ]
+    },
+    {
+      "auroc": 0.742173721340388,
+      "members": [
+        "v8 importance-weighted (frozen)",
+        "kNN reference accuracy"
+      ]
+    },
+    {
+      "auroc": 0.7357528659611992,
+      "members": [
+        "v8 importance-weighted (frozen)",
+        "A: importance-weighted, gradient boosting",
+        "B: error predictor"
+      ]
+    },
+    {
+      "auroc": 0.7337411816578483,
+      "members": [
+        "v8 importance-weighted (frozen)",
+        "kNN reference accuracy",
+        "A: importance-weighted, gradient boosting",
+        "B: error predictor"
+      ]
+    },
+    {
+      "auroc": 0.7320877425044091,
+      "members": [
+        "A: importance-weighted, gradient boosting",
+        "B: error predictor",
+        "confidence drop"
+      ]
+    },
+    {
+      "auroc": 0.7307649911816578,
+      "members": [
+        "v8 importance-weighted (frozen)",
+        "kNN reference accuracy",
+        "A: importance-weighted, gradient boosting"
+      ]
+    },
+    {
+      "auroc": 0.7286706349206349,
+      "members": [
+        "kNN reference accuracy",
+        "A: importance-weighted, gradient boosting",
+        "B: error predictor",
+        "confidence drop"
+      ]
+    },
+    {
+      "auroc": 0.7286155202821869,
+      "members": [
+        "v8 importance-weighted (frozen)",
+        "A: importance-weighted, gradient boosting"
+      ]
+    },
+    {
+      "auroc": 0.72635582010582,
+      "members": [
+        "A: importance-weighted, gradient boosting",
+        "confidence drop"
+      ]
+    },
+    {
+      "auroc": 0.7253637566137566,
+      "members": [
+        "kNN reference accuracy",
+        "B: error predictor",
+        "confidence drop"
+      ]
+    },
+    {
+      "auroc": 0.72269069664903,
+      "members": [
+        "kNN reference accuracy",
+        "confidence drop"
+      ]
+    },
+    {
+      "auroc": 0.722497795414462,
+      "members": [
+        "B: error predictor",
+        "confidence drop"
+      ]
+    },
+    {
+      "auroc": 0.7213955026455027,
+      "members": [
+        "kNN reference accuracy",
+        "A: importance-weighted, gradient boosting",
+        "confidence drop"
+      ]
+    },
+    {
+      "auroc": 0.7097387566137565,
+      "members": [
+        "kNN reference accuracy",
+        "B: error predictor"
+      ]
+    },
+    {
+      "auroc": 0.708801807760141,
+      "members": [
+        "kNN reference accuracy",
+        "A: importance-weighted, gradient boosting",
+        "B: error predictor"
+      ]
+    },
+    {
+      "auroc": 0.6977513227513228,
+      "members": [
+        "A: importance-weighted, gradient boosting",
+        "B: error predictor"
+      ]
+    },
+    {
+      "auroc": 0.6938657407407408,
+      "members": [
+        "kNN reference accuracy",
+        "A: importance-weighted, gradient boosting"
+      ]
+    }
+  ],
+  "best_ensemble_auroc": 0.7595623897707231,
+  "gate": 0.8
+}

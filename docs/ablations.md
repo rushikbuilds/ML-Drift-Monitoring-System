@@ -124,7 +124,23 @@ Share of shift episodes that became harmful:
 
 ## Summary
 
-1. **Units matter more than models.** Every method in raw units failed to transfer; every method in transferable units (z-scores from the stream's own normal, or accuracy points) held its false-alert budget on unseen data.
+1. **Units matter more than models.** Every method in raw units failed to transfer. Methods in transferable units (z-scores from the stream's own normal, or accuracy points) held the false-alert budget on their own confirmation data, but not everywhere: the drift watch raised 8.0 false alerts per 100 clean batches on natural streams, and the frozen v8 harm rule raised 12.7 on the six v10 datasets (with 58% harmless alarms).
 2. **Drift signals and harm signals are different things.** Input-shift signals warn early but can't tell harm. Model-behaviour signals and reference-based accuracy estimates can partly tell harm, at the cost of later warnings.
-3. **Harm comes from where the model is wrong, not from which feature moved.** Only methods that use the labeled reference to locate model errors separate harmful from harmless shifts (AUROC about 0.78).
+3. **Harm comes from where the model is wrong, not from which feature moved.** On the same v8 confirmation data (section G), the methods that learn from the labeled reference (importance-weighted accuracy 0.78, kNN accuracy 0.76, disagreement with reference-trained models 0.73) separate harmful from harmless shifts better than confidence, entropy or delay-aware CBPE (0.56–0.59).
 4. **Stream normalization needs a stable start.** It works when monitoring begins in a stable period (the benchmark) and fails when drift is already under way (natural streams).
+
+## G. Label-free baselines on the v8 confirmation data (post hoc)
+
+Added 2026-11-10 (`scripts/run_posthoc.py`, `artifacts/posthoc/v8_baselines.json`). Each signal is scored like hypothesis D1: mean over the first 3 batches after onset, 64 harmful vs 160 harmless shifts. The CI on the right is a paired bootstrap (2000 resamples) of the harm tier's AUROC minus the method's.
+
+| Method | Uses labeled reference | AUROC (95% CI) | Harm tier minus this |
+|---|---|---|---|
+| Harm tier: importance-weighted reference accuracy (frozen) | yes | 0.78 [0.70, 0.86] | — |
+| kNN reference accuracy | yes | 0.76 [0.68, 0.84] | [−0.02, +0.06] |
+| Disagreement with two reference-trained models | yes | 0.73 [0.65, 0.80] | [−0.02, +0.14] |
+| Entropy (normalized) | no | 0.59 [0.50, 0.68] | [+0.11, +0.28] |
+| Drift watch (frozen) | no | 0.59 [0.51, 0.67] | [+0.09, +0.30] |
+| Confidence drop (normalized) | no | 0.59 [0.49, 0.67] | [+0.12, +0.29] |
+| Delay-aware CBPE drop (normalized) | no | 0.56 [0.48, 0.65] | [+0.12, +0.33] |
+
+Confidence drop reached 0.77 on the v7 confirmation data (section B) but only 0.59 here, so model-confidence signals alone are not stable across datasets. The reference-based methods are clearly better than every confidence-based baseline on this data; they are not distinguishable from each other.

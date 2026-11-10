@@ -26,14 +26,14 @@
 % IEEE style: plain names (no titles or roles), one shared affiliation block.
 % TODO: replace [Department ...] and the e-mail placeholders before submission.
 \author{\IEEEauthorblockN{Akshay Naphade, Rushikesh Kadepurkar, Parth Tatpuje, Vishnu Gurav and Sunil Bhirud}
-\IEEEauthorblockA{\textit{[Department of ...]}, \textit{COEP Technological University}, Pune, India\\
+\IEEEauthorblockA{\textit{Department of Computer Engineering}, \textit{COEP Technological University}, Pune, India\\
 \{[akshay-email], [rushikesh-email], [parth-email], [vishnu-email], [guide-email]\}@[domain]}}
 \fi
 
 \maketitle
 
 \begin{abstract}
-Deployed classifiers often lose accuracy long before true labels arrive to reveal it. Drift detectors offer earlier signals, but most input shifts do not harm the model, and thresholds tuned on one dataset may not hold on another. We built a two-tier early-warning monitor and evaluated it with pre-registered hypotheses, frozen thresholds and one-time runs on datasets never used during design. Streams are built by re-sampling real rows so that inputs drift from a known batch while every row keeps its true label, which lets us measure harm instead of assuming it. A first design, a learned risk calibrator over raw drift scores, failed all five pre-registered hypotheses: thresholds in raw units did not transfer, and false alerts on unseen datasets ranged from 1.2 to 44.6 per 100 clean batches against a budget of 5. Expressing every signal relative to the stream's own burn-in period fixed this. The resulting drift-watch tier warned before the accuracy drop on 87\% of harmful gradual shifts, a median of six batches ahead, at 4.4 false alerts per 100 clean batches. A second tier that estimates accuracy from an importance-weighted labeled reference cut alarms on harmless shifts from 97\% to 34\% and separated harmful from harmless shifts with an AUROC of 0.78 (95\% CI 0.70--0.86), just below our pre-registered 0.80 target. More flexible estimators, ensembles and stricter alerting rules did not improve on it on fresh data. We release the benchmark, code and all verdicts.
+Deployed classifiers often lose accuracy long before true labels reveal it. Drift detectors offer earlier signals, but most input shifts do not harm the model, and thresholds tuned on one dataset may not hold on another. We built a two-tier early-warning monitor and evaluated it with pre-registered hypotheses, frozen thresholds and one-time runs on unseen datasets. Streams are built by re-sampling real rows so that inputs drift from a known batch while every row keeps its true label. Our first pre-registered design, a learned risk calibrator over raw drift scores, failed all five hypotheses: false alerts on unseen datasets ranged from 1.2 to 44.6 per 100 clean batches against a budget of 5. Expressing every signal relative to the stream's own burn-in period fixed this on benchmark streams: the resulting drift-watch tier warned before the accuracy drop on 87\% of harmful gradual shifts, a median of six batches ahead, at 4.4 false alerts per 100 clean batches, but it failed on natural streams. A second tier that estimates accuracy from an importance-weighted labeled reference cut alarms on harmless shifts from 97\% to 34\% and separated harmful from harmless shifts with an AUROC of 0.78 (95\% CI 0.70--0.86), below our 0.80 target but above confidence-based baselines (0.56--0.59) on the same data. On six later datasets it exceeded the false-alert budget (12.7 per 100). Nonlinear estimators and ensembles (on development data) and stricter alerting rules (on fresh data) did not improve on it. We release the benchmark, code and all verdicts.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -43,14 +43,14 @@ concept drift, dataset shift, model monitoring, delayed labels, performance esti
 \section{Introduction}
 A classifier is trained on past data and deployed on a stream whose distribution changes. Whether the change hurts is known only once true labels arrive, which in credit, fraud or churn prediction can take days or weeks. Monitoring systems therefore watch label-free signals such as feature distributions and prediction confidence~\cite{sculley2015debt,breck2017mltest}. Two practical problems limit them. First, most distribution shifts are harmless to a given model~\cite{rabanser2019failing}, so drift alarms fire on changes that do not matter. Second, alarm thresholds are usually chosen on historical data, and it is rarely tested whether they still mean the same thing on a new dataset.
 
-We study a monitor that should warn about \emph{degradation}, not merely drift, before delayed labels confirm it. We report what worked and what did not, and we constrained ourselves to make that report trustworthy: every hypothesis, pass threshold and alert threshold was frozen in code before the data that judged it existed, every confirmation used datasets not touched during design, and a script computed each verdict.
+We study a monitor that should warn about \emph{degradation}, not merely drift, before delayed labels confirm it. We report what worked and what did not, and to limit analytic flexibility, every hypothesis, pass threshold and alert threshold was frozen in code before the data that judged it were downloaded, and a script computed each verdict. The pre-registered work followed five exploratory studies (v1--v5) on 13 public datasets. The first pre-registered study (v6) reused those datasets; the later confirmations (v7, v8, v10) used datasets never used before.
 
 Our contributions are:
 \begin{enumerate}
 \item A benchmark that re-samples real tabular data to create gradual, abrupt and irrelevant-feature shifts and label changes with a known onset, where whether a shift harms the model is measured from true labels.
-\item Evidence that drift thresholds expressed in raw units do not transfer across datasets, and that expressing signals relative to a stream's own burn-in period does: an early drift warning that holds its false-alert budget on unseen data.
-\item A label-free harm tier based on importance-weighted reference accuracy that substantially reduces alarms on harmless shifts, with an honest account of where it falls short.
-\item Pre-registered negative results, including three follow-up attempts to exceed the harm-separation target that failed on fresh data.
+\item Evidence that drift thresholds expressed in raw units do not transfer across datasets, and that expressing signals relative to a stream's own burn-in period largely does: an early drift warning that held its false-alert budget on unseen benchmark data, though not on natural streams.
+\item A label-free harm tier based on importance-weighted reference accuracy that substantially reduces alarms on harmless shifts and separates harm better than confidence-based estimates on the same data, together with where it falls short.
+\item Pre-registered negative results: a failed first design, a failed second tier in v7, a benchmark gate that failed, and two attempts to exceed the harm-separation target (one failed its development gate, one failed on fresh data).
 \end{enumerate}
 
 \section{Related Work}
@@ -102,12 +102,12 @@ Algorithm~\ref{alg:episode} summarizes the construction. Each dataset contribute
 \EndFor
 \State measure accuracy of $f$ per batch; label the episode harmful, harmless or clean by the event rule
 \end{algorithmic}
-\end{algorithm} A shift episode is \emph{harmful} if its event starts after onset and \emph{harmless} if no event occurs; episodes with an event before onset are excluded. Across all data groups only about one shift in five was harmful, and harm was barely related to the importance of the shifted feature; it did not change when the shift strength $\lambda$ was raised from 1.5 to 4.0.
+\end{algorithm} A shift episode is \emph{harmful} if its event starts after onset and \emph{harmless} if no event occurs; episodes with an event before onset are excluded. Across all data groups only about one shift in five was harmful, and harm was barely related to the importance of the shifted feature; it did not change when the shift strength $\lambda$ was raised from 1.5 to 4.0. This failed a pre-registered v6 gate requiring at least 25\% harmful shifts on development data (17\% at $\lambda=1.5$). Because no allowed strength passed, we proceeded at $\lambda=1.5$ by a decision recorded before any held-out data were generated.
 
-Datasets come from OpenML~\cite{vanschoren2014openml}. The first study (v6) used 13 datasets, 8 for development (covertype, CovPokElec, Hyperplane, KDDCup99, LED, poker-hand, run-or-walk, vehicle-SensIT) and 5 held out (airlines, bank-marketing, electricity, ldpa, SEA). Later confirmations used fresh datasets: adult, MiniBooNE, higgs, nomao, numerai28.6 and Click-prediction-small (v7); default-of-credit-card-clients, kick, house-16H, 2dplanes and mv (v8). The primary model is logistic regression~\cite{pedregosa2011sklearn}; gradient boosting was a robustness check in v6. Table~\ref{tab:data} summarizes how the data were used; each group served exactly one purpose, and confirmation groups were downloaded only after the corresponding design and thresholds were frozen.
+Datasets come from OpenML~\cite{vanschoren2014openml}. The first study (v6) used 13 datasets, 8 for development (covertype, CovPokElec, Hyperplane, KDDCup99, LED, poker-hand, run-or-walk, vehicle-SensIT) and 5 held out (airlines, bank-marketing, electricity, ldpa, SEA). Later confirmations used fresh datasets: adult, MiniBooNE, higgs, nomao, numerai28.6 and Click-prediction-small (v7); default-of-credit-card-clients, kick, house-16H, 2dplanes and mv (v8). The primary model is logistic regression~\cite{pedregosa2011sklearn}; gradient boosting was a robustness check in v6. All 13 v6 datasets had already been used as natural-order streams in the exploratory studies v1--v5, and the natural-stream windows of H5/C5 come from those studies, so the v6 held-out data were held out from v6 tuning only. The v7, v8 and v10 confirmation datasets were downloaded only after the corresponding design and thresholds were frozen, and had not been used before. Table~\ref{tab:data} summarizes how the data were used.
 
 \begin{table}[t]
-\caption{Data groups and their single use (65 episodes per dataset).}
+\caption{Data groups and their use (65 episodes per dataset).}
 \label{tab:data}
 \centering
 \footnotesize
@@ -157,7 +157,7 @@ Fig.~\ref{fig:system} summarizes the final two-tier design: both warning tiers u
 
 \textbf{v6: learned risk calibrator.} A logistic model maps these raw signals, their recent means and slopes, and the observed accuracy drop from matured labels to the probability that a degradation starts or continues within 5 batches. Thresholds are chosen on development data to maximize T1 within the false-alert budget.
 
-\textbf{v7: drift watch (stream-normalized).} Each signal $x_t$ is converted to a robust z-score using the burn-in, $z_t = (x_t - \mathrm{med}(x_{0:8})) / \max(1.4826\,\mathrm{MAD}(x_{0:8}), 0.01)$, and the drift-watch score is the maximum z-score over seven label-free signals. A threshold of 4.0 deviations, chosen on development data, means the same thing on every stream.
+\textbf{v7: drift watch (stream-normalized).} Each signal $x_t$ is converted to a robust z-score using the burn-in, $z_t = (x_t - \mathrm{med}(x_{0:8})) / \max(1.4826\,\mathrm{MAD}(x_{0:8}), 0.01)$, and the drift-watch score is the maximum z-score over seven label-free signals. A threshold of 4.0 deviations, chosen on development data, is comparable across streams that start in a stable period.
 
 \textbf{v8: harm tier.} For each batch $B_t$, a logistic domain classifier $g_t$ is trained to separate reference rows (label 0) from batch rows (label 1). For reference row $x_i$ with correctness $c_i = \mathbb{1}[f(x_i)=y_i]$, the importance weight and the label-free accuracy estimate are
 \begin{equation}
@@ -210,20 +210,20 @@ Grad.\ boosting, $L{=}10$ & 0.82 & 0.80 & 7.7 & 5.9 \\
 \end{table}
 
 \subsection{Why: thresholds in raw units do not transfer}
-Fig.~\ref{fig:transfer} compares false-alert rates on development data with those on data never used for threshold selection. Scores in dataset-specific units broke the budget by a factor of 3.5--9 (fused drift score 4.4~$\rightarrow$~36.9; mean KS 4.4~$\rightarrow$~44.6), while the learned calibrator under-alerted (4.6~$\rightarrow$~1.2). Scores expressed relative to the stream's own normal (drift watch, 2.3~$\rightarrow$~4.4) or in accuracy points (harm tier, 3.4~$\rightarrow$~2.8) stayed within the budget. An ablation confirmed the mechanism inside the calibrator: removing the raw disagreement levels, which differ widely across datasets, raised its T1 from 0.22 to 0.42.
+Fig.~\ref{fig:transfer} compares false-alert rates on development data with those on data never used for threshold selection. Scores in dataset-specific units broke the budget by a factor of 3.5--9 (fused drift score 4.4~$\rightarrow$~36.9; mean KS 4.4~$\rightarrow$~44.6), while the learned calibrator under-alerted (4.6~$\rightarrow$~1.2). Scores expressed relative to the stream's own normal (drift watch, 2.3~$\rightarrow$~4.4) or in accuracy points (harm tier, 3.4~$\rightarrow$~2.8) stayed within the budget on their confirmation data. This did not hold everywhere: the drift watch raised 8.0 false alerts per 100 clean batches on natural streams, and the frozen harm rule raised 12.7 on the six v10 datasets (Section~\ref{sec:followups}). An ablation confirmed the mechanism inside the calibrator: removing the raw disagreement levels, which differ widely across datasets, raised its T1 from 0.22 to 0.42.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{figures/transfer.pdf}
-\caption{False alerts per 100 clean batches with thresholds chosen on development data, evaluated on development and on unseen datasets. Dashed line: budget of 5.}
+\caption{False alerts per 100 clean batches with thresholds chosen on development data, evaluated on development and on unseen datasets (v6 held-out data for the v6 methods; v7 and v8 confirmation data for the drift watch and the harm tier). Dashed line: budget of 5.}
 \label{fig:transfer}
 \end{figure}
 
 \subsection{v7: the drift watch tier}
-On six fresh datasets (39 harmful gradual shifts) the drift watch warned before the accuracy drop on 0.87 [0.77, 0.97] of harmful gradual shifts, a median of 6 batches ahead, with 4.4 false alerts per 100 clean batches, and beat the fused drift score on 5 of 6 datasets (Table~\ref{tab:confirm}). Its pre-confirmation warning rate (1.00 vs 0.96 for the delayed-label trend) did not reach the pre-registered gain of 0.10. It alerted on 96\% of harmless shifts: it is a drift detector, not a harm detector. On natural streams it failed (T2 0.44 vs 0.87 for the label trend): there, the median degradation began at batch 8, the end of the burn-in, so the burn-in did not represent normal behavior. The v7 verdict was a partial success.
+On six fresh datasets (39 harmful gradual shifts) the drift watch warned before the accuracy drop on 0.87 [0.77, 0.97] of harmful gradual shifts, a median of 6 batches ahead, with 4.4 false alerts per 100 clean batches, and beat the fused drift score on 5 of 6 datasets (Table~\ref{tab:confirm}). Its pre-confirmation warning rate (1.00 vs 0.96 for the delayed-label trend) did not reach the pre-registered gain of 0.10. It alerted on 96\% of harmless shifts: it is a drift detector, not a harm detector. On natural streams it failed (T2 0.44 vs 0.87 for the label trend) and exceeded the budget (8.0 false alerts per 100 clean batches vs 6.3 for the label trend): there, the median degradation began at batch 8, the end of the burn-in, so the burn-in did not represent normal behavior. v7 also pre-registered a second tier, a logistic calibrator over the normalized signals; it failed its separation hypothesis (AUROC 0.59, alerts on 53\% of harmless shifts), which motivated the reference-based harm tier of v8. The v7 verdict was a partial success.
 
 \subsection{v8: the harm tier}
-On five further fresh datasets (64 harmful and 160 harmless shifts), the harm tier cut alarms on harmless shifts from 0.97 (drift watch) to 0.34 while still warning before labels could confirm on 0.83 of harmful shifts and before the drop on 0.76 of harmful gradual shifts, at 2.8 false alerts per 100 clean batches. It separated harmful from harmless shifts with an AUROC of 0.78 [0.70, 0.86], against 0.59 for the drift watch (gain 0.20 [0.09, 0.30]). It passed two of four hypotheses and missed the AUROC target of 0.80 and the harmless-alarm target of 0.10. Per dataset (Table~\ref{tab:perds}), the harm tier separated harm well on three of the four datasets that produced harmful shifts and was near chance on kick. Fig.~\ref{fig:timeline} shows one harmful gradual shift: the harm tier first alerts at batch 16, 14 batches before the accuracy drop and 20 before delayed labels confirm it.
+On five further fresh datasets (64 harmful and 160 harmless shifts), the harm tier cut alarms on harmless shifts from 0.97 (drift watch) to 0.34 while still warning before labels could confirm on 0.83 of harmful shifts and before the drop on 0.76 of harmful gradual shifts, at 2.8 false alerts per 100 clean batches. It separated harmful from harmless shifts with an AUROC of 0.78 [0.70, 0.86], against 0.59 for the drift watch (gain 0.20 [0.09, 0.30]). It passed two of four hypotheses and missed the AUROC target of 0.80 and the harmless-alarm target of 0.10. Per dataset (Table~\ref{tab:perds}), the harm tier separated harm well on three of the four datasets that produced harmful shifts and was near chance on kick. Post hoc, we scored other signals on the same data in the same way (Table~\ref{tab:baselines}). Confidence drop, entropy and delay-aware CBPE reached only 0.56--0.59, each clearly below the harm tier, whereas kNN reference accuracy and disagreement with models trained on the reference rows, the other two methods that learn from the labeled reference, were not distinguishable from it. Confidence drop had reached 0.77 on the v7 data (Table~\ref{tab:signals}), so confidence alone was not stable across datasets. Fig.~\ref{fig:timeline} shows one harmful gradual shift: the harm tier first alerts at batch 16, 14 batches before the accuracy drop and 20 before delayed labels confirm it.
 
 \begin{table}[t]
 \caption{Confirmation on fresh datasets (one-time runs).}
@@ -263,6 +263,27 @@ mv & 0 & 45 & -- & -- \\
 \end{tabular}
 \end{table}
 
+\begin{table}[t]
+\caption{Harm AUROC of other signals on the v8 confirmation data (post hoc), scored like the harm tier. Last column: 95\% paired bootstrap interval of the harm tier's AUROC minus the method's.}
+\label{tab:baselines}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Method & Ref.\ labels & AUROC & Harm tier minus \\
+\midrule
+Harm tier (frozen) & yes & 0.78 & -- \\
+kNN reference accuracy & yes & 0.76 & [$-$0.02, 0.06] \\
+Disagreement & yes & 0.73 & [$-$0.02, 0.14] \\
+Entropy & no & 0.59 & [0.11, 0.28] \\
+Drift watch (frozen) & no & 0.59 & [0.09, 0.30] \\
+Confidence drop & no & 0.59 & [0.12, 0.29] \\
+Delay-aware CBPE & no & 0.56 & [0.12, 0.33] \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{figures/timeline.pdf}
@@ -273,7 +294,7 @@ mv & 0 & 45 & -- & -- \\
 \subsection{Why harmless shifts still alert}
 In a post-hoc analysis of the v8 confirmation data, streams with no shift at all raised a harm alert in 40\% of episodes and harmless shifts in 34\%, against 88\% for harmful shifts. The harm tier therefore treats harmless shifts like no shift; the remaining alarms are background false alerts that accumulate over about 33 monitored batches. With a per-batch rate of 2.8 per 100, the chance of at least one alert in 33 batches is about 0.6. Our 10\% target was inconsistent with our own per-batch budget, a design error we report rather than correct after the fact.
 
-Fig.~\ref{fig:operating} shows the full trade-off on the same data, post hoc. At every level of harmless alarms the harm tier warns on far more harmful shifts than the drift watch. On this data a stricter harm threshold would appear better than the frozen one, but when that idea was frozen and tested on six other datasets (v10, square marker) it warned on only 30\% of harmful shifts: an operating point read off a curve after the fact does not transfer.
+Fig.~\ref{fig:operating} shows the full trade-off on the same data, post hoc. Over most of the range of harmless alarms the harm tier warns on far more harmful shifts than the drift watch. On this data a stricter harm threshold would appear better than the frozen one, but when that idea was frozen and tested on six other datasets (v10, square marker) it warned on only 30\% of harmful shifts: an operating point read off a curve after the fact does not transfer.
 
 \begin{figure}[t]
 \centering
@@ -282,8 +303,8 @@ Fig.~\ref{fig:operating} shows the full trade-off on the same data, post hoc. At
 \label{fig:operating}
 \end{figure}
 
-\subsection{Pre-registered follow-ups that failed}
-Two further experiments tried to improve the harm tier (Table~\ref{tab:followups}). In v9, a gradient-boosting domain classifier and an error predictor trained on out-of-fold reference correctness both separated harm worse than the linear estimator on development data (AUROC 0.70 vs 0.77), as did every ensemble of the estimators (at most 0.76); the development gate of 0.80 failed and no fresh data were used. In v10, stricter thresholds, smoothing, CUSUM, stream-normalized scores and gating by the drift watch all reduced harmless alarms at the cost of early warnings. The best rule passed the development gate but, on six fresh datasets, warned before labels on only 0.30 of harmful shifts against a required 0.50, while reducing harmless alarms to 0.12. Neither was adopted.
+\subsection{Pre-registered follow-ups that failed}\label{sec:followups}
+Two further experiments tried to improve the harm tier (Table~\ref{tab:followups}). In v9, a gradient-boosting domain classifier and an error predictor trained on out-of-fold reference correctness both separated harm worse than the linear estimator on development data (AUROC 0.70 vs 0.77), and in a post hoc check no ensemble of these, the linear estimator, kNN accuracy and confidence (averaging within-dataset ranks) exceeded 0.76, against 0.75 for the linear estimator scored the same way; the development gate of 0.80 failed and no fresh data were used. In v10, stricter thresholds, smoothing, CUSUM, stream-normalized scores and gating by the drift watch all reduced harmless alarms at the cost of early warnings. The best rule passed the development gate but, on six fresh datasets, warned before labels on only 0.30 of harmful shifts against a required 0.50, while reducing harmless alarms to 0.12. Neither was adopted. On the same six datasets the frozen v8 rule warned before labels on 0.74 of harmful shifts but alerted on 58\% of harmless shifts and raised 12.7 false alerts per 100 clean batches, more than twice the budget, so its calibration did not hold on every new dataset.
 
 \begin{table}[t]
 \caption{Follow-up experiments (not adopted).}
@@ -294,14 +315,15 @@ Two further experiments tried to improve the harm tier (Table~\ref{tab:followups
 \toprule
 Attempt & Outcome \\
 \midrule
-v9: nonlinear harm estimators, ensembles & Development AUROC 0.70 (vs 0.77); ensembles $\leq$0.76; gate failed \\
+v9: nonlinear harm estimators, ensembles & Development AUROC 0.70 (vs 0.77); ensembles $\leq$0.76 (post hoc); gate failed \\
+v8 rule on the v10 datasets & Harmless 0.58, false alerts 12.7 per 100 ($>$5) \\
 v10: stricter alerting rules & Fresh data: harmless 0.12 but T2 0.30 ($<$0.50); confirmation failed \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \section{Discussion and Limitations}
-\textbf{Units matter more than models.} The decisive change between the failed and the partially successful designs was not a better model but expressing signals in units that mean the same thing on every stream. Monitoring thresholds tuned on historical data should be validated on data from other sources before deployment.
+\textbf{Units matter more than models.} The decisive change between the failed and the partially successful designs was not a better model but expressing signals in units comparable across streams. This was necessary but not sufficient: the harm rule still exceeded the budget on the v10 datasets, and the drift watch on natural streams. Monitoring thresholds tuned on historical data should be validated on data from other sources before deployment.
 
 \textbf{Drift and harm need different signals.} Using each normalized signal alone as the drift watch on the v7 confirmation data (Table~\ref{tab:signals}), input-shift signals warned early on 79--90\% of harmful gradual shifts but could not tell harm from harmlessness (AUROC about 0.5), whereas model-behavior signals were harm-aware (AUROC 0.72--0.77) but warned later.
 
@@ -324,23 +346,23 @@ Model behavior & disagreement & 0.49 & 0.42 & 0.72 \\
  & entropy & 0.41 & 0.25 & 0.75 \\
 \bottomrule
 \end{tabular}
-\end{table} Only methods that use the labeled reference to locate the model's errors separated harmful shifts well, and none of our attempts exceeded about 0.78 without labels.
+\end{table} On the v8 data, the methods that learn from the labeled reference separated harmful shifts best (Table~\ref{tab:baselines}), and none of our attempts exceeded about 0.78 without labels.
 
-\textbf{Lessons for practitioners.} (i) Validate alert thresholds on data from a different source than the one used to choose them; (ii) separate a drift tier, which should be sensitive, from a harm tier, which should be specific; (iii) keep a labeled reference sample, because it is the only label-free source of information about where the model is wrong; and (iv) set per-episode alarm targets consistently with per-batch budgets: a 2.8\% per-batch false-alert rate already implies about a 60\% chance of an alarm over 33 batches.
+\textbf{Lessons for practitioners.} (i) Validate alert thresholds on data from a different source than the one used to choose them; (ii) separate a drift tier, which should be sensitive, from a harm tier, which should be specific; (iii) keep a labeled reference sample: in our data, only methods that used it separated harm consistently across datasets; and (iv) set per-episode alarm targets consistently with per-batch budgets: a 2.8\% per-batch false-alert rate already implies about a 60\% chance of an alarm over 33 batches.
 
-\textbf{Threats to validity.} The v7 and v8 designs were motivated by the v6 failure, so they are informed by data we had already seen; we mitigated this by confirming each on datasets downloaded only after its design was frozen, but the sequence of experiments was not planned in advance. Harmful-shift counts per confirmation group (39--64) give confidence intervals of roughly $\pm$0.1. Our event rule (two batches at least 5 points below baseline) and horizon are conventional choices that we did not vary.
+\textbf{Threats to validity.} The v7 and v8 designs were motivated by the v6 failure, so they are informed by data we had already seen; we mitigated this by confirming each on datasets downloaded only after its design was frozen, but the sequence of experiments was not planned in advance. The v6 datasets had been explored in v1--v5, so the v6 held-out results are not fully out of sample. Harmful-shift counts per confirmation group (52--64; 39 gradual in v7) give confidence intervals of roughly $\pm$0.1. Our event rule (two batches at least 5 points below baseline) and horizon are conventional choices that we did not vary.
 
 \textbf{Limitations.} Shifts are constructed by re-sampling real rows, which preserves $P(y \mid x)$ and thus favors covariate-shift methods; changes in the label relationship are invisible to every label-free signal until labels arrive. The main model is logistic regression, the burn-in assumes a stable start (which failed on natural streams), and the per-dataset numbers of harmful shifts are small, so intervals are wide.
 
 \section{Conclusion}
-Under pre-registered, one-time evaluation on unseen data, a stream-normalized drift watch gave reliable early warning of harmful drift within its false-alert budget, and an importance-weighted harm tier reduced harmless-shift alarms from 97\% to 34\% with a harm-separation AUROC of 0.78, just short of our 0.80 target. Telling whether a drift will hurt is possible only partly without labels, and depends on the labeled reference.
+Under pre-registered, one-time evaluation on unseen data, a stream-normalized drift watch gave early warning of harmful drift within its false-alert budget on benchmark streams but not on natural streams, and an importance-weighted harm tier reduced harmless-shift alarms from 97\% to 34\% with a harm-separation AUROC of 0.78, short of our 0.80 target and above confidence-based baselines; on a later set of datasets its false-alert rate exceeded the budget. Without labels, our best estimator separated harmful from harmless shifts only partly, and it needed a labeled reference set.
 
 \section*{Reproducibility}
-Code, configurations, frozen thresholds, verdict scripts and a one-command reproduction script are available at \coderef. In a clean environment, regenerated episodes match the saved ones to within $4\times10^{-11}$ and all verdicts reproduce exactly.
+Code, configurations, frozen thresholds, verdict scripts and a one-command reproduction script are available at \coderef. In a clean environment, ten regenerated v8 episodes matched the saved ones to within $4\times10^{-11}$, and the v6, v7 and v8 verdicts reproduce exactly. The v9 and v10 code is on separate branches of the repository, and the post hoc analyses are in \texttt{scripts/run\_posthoc.py}.
 
 \section*{Acknowledgment}
 \ifnum\anonymous=0
-The authors thank the [Department of ...], COEP Technological University, Pune, for its support.
+The authors thank the Department of Computer Engineering, COEP Technological University, Pune, for its support.
 \fi
 In accordance with IEEE and arXiv policies, we disclose that an AI assistant (Claude, Anthropic) was used extensively in this work: to help implement and debug the experiment code, to generate the figures from the experiment outputs, and to draft the text of all sections, which the authors then reviewed and revised. All experimental results were produced by the project's code and verified by the authors, who take full responsibility for the content of this paper.
 

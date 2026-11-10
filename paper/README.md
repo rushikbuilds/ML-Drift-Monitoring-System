@@ -21,7 +21,7 @@ latexmk -pdf conecct.tex
 latexmk -pdf arxiv.tex
 ```
 
-Both builds use IEEEtran and are 6 pages, inside the 6–8 pages (including references) that the 2026 research track allowed.
+All builds use IEEEtran and are 7 pages, inside the 6–8 pages (including references) that the 2026 research track allowed.
 
 ## Before submitting (checklist)
 
