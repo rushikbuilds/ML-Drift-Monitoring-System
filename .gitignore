@@ -47,3 +47,16 @@ paper/*.synctex.gz
 
 # Presentation kit (slides outline, demo script, viva Q&A): kept local only
 docs/presentation/
+
+# LaTeX build files (report/)
+report/*.aux
+report/*.log
+report/*.out
+report/*.fls
+report/*.fdb_latexmk
+report/*.blg
+report/*.bbl
+report/*.toc
+report/*.lof
+report/*.lot
+report/*.synctex.gz

@@ -23,7 +23,8 @@ from dashboard.app_data import load_episodes, replay  # noqa: E402
 OUT = ROOT / "paper" / "figures"
 BLUE, ORANGE, GRAY, DARK, RED = "#2F6FB0", "#C2611A", "#9AA3AF", "#24324A", "#A63A2B"
 plt.rcParams.update({"font.size": 8, "font.family": "serif", "axes.spines.top": False, "axes.spines.right": False,
-                     "axes.linewidth": 0.6, "xtick.major.width": 0.6, "ytick.major.width": 0.6})
+                     "axes.linewidth": 0.6, "xtick.major.width": 0.6, "ytick.major.width": 0.6,
+                     "pdf.fonttype": 42, "ps.fonttype": 42})  # TrueType, not Type 3 (IEEE PDF eXpress)
 
 
 def transfer() -> None:

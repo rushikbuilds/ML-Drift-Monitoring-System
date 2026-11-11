@@ -1,0 +1,113 @@
+%_____________________________________________________________________________________________
+% Appendices
+%_____________________________________________________________________________________________
+
+\chapter{Pre-Registered Hypotheses}
+\label{app:hyp}
+Every hypothesis below was committed to the repository, with its pass rule, before the data that judged it were downloaded. The overall verdict rule of each experiment was fixed at the same time.
+
+\begin{longtable}{@{}p{1.0cm}p{6.2cm}p{5.2cm}p{1.5cm}@{}}
+\toprule
+ID & Claim & Pass rule & Result \\
+\midrule
+\endhead
+\multicolumn{4}{@{}l}{\textbf{v6} (held-out datasets; success if H1 and H3 pass)} \\
+H1 & Predictive warning for gradual harmful shifts & T1 $\geq$ 0.60, median lead $\geq$ 2, FA $\leq$ 5 & Fail \\
+H2 & Earlier than waiting for labels & T2 gain $\geq$ 0.10, paired CI $>$ 0 & Fail \\
+H3 & Separates harmful from harmless shifts & AUROC $\geq$ 0.80, harmless $\leq$ 0.10 & Fail \\
+H4 & Beats the original DEWS score & higher T1 and T2 on $\geq$ 4 of 5 datasets & Fail \\
+H5 & Carries over to natural streams & T2 gain over labels $\geq$ 0 & Fail \\
+\midrule
+\multicolumn{4}{@{}l}{\textbf{v7} (six fresh datasets; success if C1 and C3 pass)} \\
+C1 & WATCH warns before the accuracy drop & T1 $\geq$ 0.60, lead $\geq$ 2, FA $\leq$ 5 & Pass \\
+C2 & WATCH warns before labels, better than labels & gain $\geq$ 0.10, CI $>$ 0 & Fail \\
+C3 & WARNING separates harmful from harmless & AUROC $\geq$ 0.80, harmless $\leq$ 0.10 & Fail \\
+C4 & WATCH beats the DEWS score & higher T1 and T2 on $\geq$ 70\% of datasets & Pass \\
+C5 & WATCH carries over to natural streams & T2 gain over labels $\geq$ 0 & Fail \\
+\midrule
+\multicolumn{4}{@{}l}{\textbf{v8} (five fresh datasets; success if D1 and D2 pass)} \\
+D1 & HARM separates harmful from harmless & AUROC $\geq$ 0.80 & Fail \\
+D2 & HARM rarely alerts on harmless shifts & harmless $\leq$ 0.10, FA $\leq$ 5 & Fail \\
+D3 & HARM cuts harmless alarms vs WATCH while warning & drop $\geq$ 0.30, T2 $\geq$ 0.50, FA $\leq$ 5 & Pass \\
+D4 & HARM ranks harm better than WATCH & gain $\geq$ 0.10, CI $>$ 0 & Pass \\
+\midrule
+\multicolumn{4}{@{}l}{\textbf{v9} (development gate)} \\
+G9 & A nonlinear estimator reaches the target & development AUROC $\geq$ 0.80 & Fail \\
+\midrule
+\multicolumn{4}{@{}l}{\textbf{v10} (six fresh datasets; all three required)} \\
+E1 & Few harmless alarms & harmless $\leq$ 0.15 & Pass \\
+E2 & Still warns before labels & T2 $\geq$ 0.50 & Fail \\
+E3 & Within the false-alert budget & FA $\leq$ 5 & Pass \\
+\bottomrule
+\end{longtable}
+
+\chapter{Datasets}
+\label{app:data}
+All datasets were obtained from OpenML~\cite{vanschoren2014openml}. For multi-class targets the majority class is used against the rest; the first 20 non-constant features are used.
+
+\begin{longtable}{@{}p{3.2cm}p{11.6cm}@{}}
+\toprule
+Group & Datasets (OpenML IDs where recorded in the protocol) \\
+\midrule
+\endhead
+v6 development & covertype, CovPokElec, Hyperplane, KDDCup99, LED, poker-hand, run-or-walk, vehicle-SensIT \\
+v6 held-out & airlines, bank-marketing, electricity, ldpa, SEA (drawn with \texttt{default\_rng(2026)}) \\
+v7 confirmation & adult (1590), MiniBooNE (41150), higgs (23512), nomao (1486), numerai28.6 (23517), Click\_prediction\_small (1220) \\
+v8 confirmation & default-of-credit-card-clients (42477), kick (41162), house\_16H (821), 2dplanes (727), mv (881); albert (41147) could not be downloaded and was dropped before any episode was built \\
+v10 confirmation & road-safety (42803), Diabetes130US (4541), jannis (41168), rl (41160), fried (901), jungle\_chess (41027) \\
+Natural streams & 328 non-overlapping row-order windows of the 13 v6 datasets (from studies v2--v4) \\
+\bottomrule
+\end{longtable}
+
+\noindent\textbf{Recorded deviations.} MiniBooNE (v7) and rl (v10) store their rows sorted by class, so no contiguous block contains both classes; each was shuffled once with a fixed seed before any confirmation episode was built.
+
+\chapter{Reproducing the Results}
+\label{app:repro}
+\section{Environment}
+{\small
+\begin{verbatim}
+python -m venv .venv
+.venv\Scripts\activate          # Linux: source .venv/bin/activate
+pip install -r requirements-lock.txt
+\end{verbatim}
+}
+
+\section{Verdicts, ablations and post hoc analyses}
+{\small
+\begin{verbatim}
+python scripts/reproduce.py --dry-run   # show the plan
+python scripts/reproduce.py             # rebuild and verify
+python scripts/run_ablations.py
+python scripts/run_posthoc.py
+\end{verbatim}
+}
+
+\section{Dashboard, tests, figures}
+{\small
+\begin{verbatim}
+streamlit run streamlit_app.py
+pytest -q
+python scripts/make_paper_figures.py
+python report/figures/make_report_charts.py
+python report/figures/drawio/build_diagrams.py
+python report/figures/drawio/export_drawio.py
+\end{verbatim}
+}
+
+\section{Frozen files}
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+Experiment & File & SHA-256 (prefix) \\
+\midrule
+v6 & \texttt{artifacts/v6/frozen\_choices.json} & 93019702\ldots e4ad \\
+v6 & \texttt{artifacts/v6/frozen\_calibrators.pkl} & 93f58147\ldots 409e \\
+v7 & \texttt{artifacts/v7/frozen\_v7.json} & 4a9ab970cb58fad9 \\
+v7 & \texttt{artifacts/v7/frozen\_v7\_calibrator.pkl} & dab467db1cc2045e \\
+v8 & \texttt{artifacts/v8/frozen\_v8.json} & b8005ca95d70cc4f \\
+v10 & \texttt{artifacts/v10/frozen\_v10.json} & c30860f3adda1561 \\
+\bottomrule
+\end{tabular}
+\end{table}

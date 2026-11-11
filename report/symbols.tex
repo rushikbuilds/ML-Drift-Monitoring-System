@@ -1,0 +1,39 @@
+\chapter*{List of Symbols and Abbreviations}
+\addcontentsline{toc}{chapter}{List of Symbols and Abbreviations}
+
+\begin{longtable}{@{}p{3.2cm}p{11.8cm}@{}}
+\toprule
+\textbf{Symbol} & \textbf{Meaning} \\
+\midrule
+\endhead
+$f$ & Frozen (monitored) binary classifier \\
+$R$ & Labeled reference set (2000 rows) on which $f$ was fitted \\
+$B_t$ & Batch number $t$ of the monitored stream (300 rows) \\
+$L$ & Label delay in batches; labels of batch $b$ are usable from batch $b+\max(L,1)$ \\
+$s$ & Batch at which the controlled intervention (shift) starts \\
+$e$ & Batch at which the accuracy event starts \\
+$\lambda(t)$, $\lambda_{max}$ & Shift strength at batch $t$ and its maximum (1.5) \\
+$z_j$ & Feature $j$ standardised with reference statistics \\
+$\sigma$ & Random shift direction, $\pm 1$ \\
+$x_t$ & Value of a monitoring signal at batch $t$ \\
+$\mathrm{med}$, $\mathrm{MAD}$ & Median and median absolute deviation \\
+$g_t$ & Domain classifier separating reference rows from batch $B_t$ \\
+$\rho_i$, $w_i$ & Odds of reference row $i$ under $g_t$, and its capped importance weight \\
+$c_i$ & Correctness of $f$ on reference row $i$ ($1$ if correct) \\
+$\hat a_t$ & Label-free (importance-weighted) estimate of the accuracy of $f$ on $B_t$ \\
+$h_t$ & Harm score: estimated accuracy drop since the burn-in \\
+T1, T2, T3 & Warning tiers: predictive, pre-confirmation, confirmed \\
+FA & False alerts per 100 clean batches \\
+\midrule
+AUROC & Area under the receiver operating characteristic curve \\
+CBPE & Confidence-based performance estimation \\
+CI & Confidence interval (95\% bootstrap unless stated) or continuous integration \\
+DEWS & Drift Early-Warning System (the original project prototype) \\
+IW & Importance weighting \\
+KS & Kolmogorov--Smirnov statistic \\
+MMD & Maximum mean discrepancy \\
+PSI & Population stability index \\
+RWS & Relevance-weighted shift \\
+kNN & $k$-nearest neighbours \\
+\bottomrule
+\end{longtable}

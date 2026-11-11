@@ -1,0 +1,69 @@
+%_____________________________________________________________________________________________
+% Chapter 2: Literature Survey
+%_____________________________________________________________________________________________
+
+\chapter{Literature Survey}
+\label{ch:lit}
+
+This chapter reviews the work that the project builds on: concept drift detection, dataset shift, label-free estimation of model performance, learning with delayed labels, and pre-registration as a method for trustworthy evaluation. It ends with the research gap that the project addresses.
+
+\section{Concept Drift and Dataset Shift}
+Gama et al.~\cite{gama2014survey} and Lu et al.~\cite{lu2019review} survey concept drift: changes over time in the joint distribution $P(X, Y)$ of inputs $X$ and labels $Y$. It is useful to separate two cases~\cite{quinonero2009shift}:
+\begin{itemize}
+\item \textbf{Covariate shift}: $P(X)$ changes while $P(Y\mid X)$ stays the same. The model's decision rule is still correct where it was correct, but the data may move into regions where the model was weak.
+\item \textbf{Concept shift}: $P(Y\mid X)$ changes, so the same input now has a different correct label. No input-only signal can see this; only labels reveal it.
+\end{itemize}
+Label shift, where $P(Y)$ changes and $P(X\mid Y)$ stays the same, is treated by Lipton et al.~\cite{lipton2018labelshift}.
+
+\section{Drift Detection}
+\subsection{Detectors that need labels}
+Classical detectors monitor the error stream of a model. DDM~\cite{gama2004ddm} signals a warning and then a drift when the error rate rises significantly above its historical minimum. ADWIN~\cite{bifet2007adwin} keeps an adaptive window and cuts it when two sub-windows have significantly different means. Sequential tests such as CUSUM~\cite{page1954cusum} accumulate evidence of a persistent change. All of these need the label of each prediction, so with delayed labels they react late by construction.
+
+\subsection{Label-free detectors}
+Label-free detection compares the distribution of the current inputs with a reference sample. Common statistics are the two-sample Kolmogorov--Smirnov (KS) test per feature~\cite{massey1951ks}, the population stability index (PSI) used in credit scoring, divergences between histograms, and the kernel maximum mean discrepancy (MMD)~\cite{gretton2012mmd}. Rabanser et al.~\cite{rabanser2019failing} compared such detectors systematically and noted an important limitation: a detected shift need not reduce accuracy. Open-source monitoring tools such as Evidently~\cite{evidently} and NannyML~\cite{nannyml_cbpe} package these statistics for practitioners.
+
+\section{Label-Free Performance Estimation}
+A second line of work estimates the model's accuracy directly, without labels:
+\begin{itemize}
+\item \textbf{Confidence-based estimation (CBPE)}~\cite{nannyml_cbpe} uses the model's predicted probabilities as the expected accuracy. It is exact only if the model is calibrated on the new data.
+\item \textbf{Average thresholded confidence (ATC)}~\cite{garg2022atc} learns a confidence threshold on source data and predicts the target accuracy as the share of target examples above it.
+\item \textbf{Difference of confidences (DoC)}~\cite{guillory2021doc} regresses the accuracy change on the change in average confidence.
+\item \textbf{Disagreement}~\cite{jiang2022disagreement}: the rate at which two independently trained models disagree tracks their error rate under certain conditions.
+\item \textbf{Importance weighting}~\cite{shimodaira2000,sugiyama2007iwcv}: under covariate shift, reweighting labeled source examples by the density ratio $p_{target}(x)/p_{source}(x)$ gives an unbiased estimate of any target expectation, including accuracy. The density ratio can be estimated with a probabilistic classifier that separates source from target samples.
+\end{itemize}
+Our harm tier (Section~\ref{sec:harm}) uses importance weighting with a logistic domain classifier, applied to the model's correctness on the labeled reference set.
+
+\section{Delayed Labels}
+Learning and evaluation with delayed or partially missing labels are studied by Grzenda et al.~\cite{grzenda2020delayed} and Umer and Polikar~\cite{umer2020evl}. In the monitoring setting the key point is causality: at batch $t$, only the labels of batches $b \le t-\max(L,1)$ may be used. Any evaluation that ignores this leaks future information and overstates how early a monitor can warn. Our replay protocol enforces this rule and tests it (Section~\ref{sec:tests}).
+
+\section{Pre-Registration and Reproducibility}
+Pre-registration means fixing hypotheses, analysis methods and success criteria before seeing the data that will judge them~\cite{nosek2018prereg}. It reduces the freedom to choose, after the fact, the analysis that looks best. Van Miltenburg et al.~\cite{vanmiltenburg2021prereg} discuss pre-registration for machine learning and natural language processing research. Sculley et al.~\cite{sculley2015debt} and Breck et al.~\cite{breck2017mltest} argue that production ML systems need explicit, testable monitoring. We apply pre-registration to the evaluation of a monitoring system, including its alert thresholds, and we use public datasets from OpenML~\cite{vanschoren2014openml} so that every result can be reproduced.
+
+\section{Summary and Research Gap}
+\tabref{tab:lit} summarises the main families of methods.
+
+\begin{table}[H]
+\caption{Families of drift-monitoring methods and their limits in the delayed-label setting.}
+\label{tab:lit}
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}p{3.4cm}p{3.2cm}X@{}}
+\toprule
+Family & Examples & Limitation for early warning with delayed labels \\
+\midrule
+Error-stream detectors & DDM, ADWIN, CUSUM & Need labels; with delay $L$ they react at least $L$ batches late \\
+Input-distribution tests & KS, PSI, MMD, fused scores & Detect any change, harmful or not; thresholds in dataset-specific units \\
+Confidence-based estimators & CBPE, ATC, DoC & Assume calibration on new data; can stay confident while wrong \\
+Disagreement & auxiliary models & Moves with any shift that the auxiliary models notice \\
+Importance weighting & density-ratio reweighting & Valid only under covariate shift; needs a labeled reference sample \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+From the survey we identified three gaps:
+\begin{enumerate}
+\item Most evaluations report whether drift is detected, not whether a warning comes \emph{before} the accuracy drop or \emph{before} delayed labels could reveal it.
+\item Alert thresholds are rarely tested on datasets other than the ones they were chosen on.
+\item Few studies measure, on real data with known ground truth, how often a drift alarm corresponds to actual harm.
+\end{enumerate}
+The project addresses these gaps with a benchmark in which harm is measured, warning tiers defined relative to label arrival, and pre-registered confirmation on datasets never used during design.

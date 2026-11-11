@@ -6,10 +6,8 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{url}
-\usepackage{tikz}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
-\usetikzlibrary{positioning,arrows.meta}
 \usepackage[hidelinks]{hyperref}
 
 \providecommand{\anonymous}{1}
@@ -67,7 +65,14 @@ A frozen binary classifier $f$ is trained on a labeled reference set $R$ and the
 
 \textbf{Degradation event.} The baseline is the mean accuracy of batches 0--4. An event begins at the first of two consecutive batches whose accuracy is at least 5 points below the baseline.
 
-\textbf{Warning tiers.} For an intervention starting at batch $s$ and an event at batch $e$, a \emph{predictive warning} (T1) is an alert in $[s, e)$, and a \emph{pre-confirmation warning} (T2) is an alert in $[s, e+1+\max(L,1))$, i.e., before delayed labels could confirm the event.
+\textbf{Warning tiers.} For an intervention starting at batch $s$ and an event at batch $e$, a \emph{predictive warning} (T1) is an alert in $[s, e)$, and a \emph{pre-confirmation warning} (T2) is an alert in $[s, e+1+\max(L,1))$, i.e., before delayed labels could confirm the event. Fig.~\ref{fig:tiers} illustrates the tiers.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/paper_tiers.pdf}
+\caption{Warning tiers for a shift at $s=12$, an accuracy drop at $e=20$ and label delay $L=5$: T1 ends when accuracy drops, T2 when delayed labels could confirm it.}
+\label{fig:tiers}
+\end{figure}
 
 \textbf{False alerts.} Clean batches are the batches of unshifted streams and the pre-shift batches of every other stream. The budget is 5 false alerts per 100 clean batches. For shifts that cause no event (harmless shifts) we report the share of episodes with any alert after onset.
 
@@ -130,25 +135,7 @@ Fig.~\ref{fig:system} summarizes the final two-tier design: both warning tiers u
 
 \begin{figure}[t]
 \centering
-\resizebox{\columnwidth}{!}{%
-\begin{tikzpicture}[font=\footnotesize,
-  box/.style={draw, rounded corners=2pt, align=center, minimum height=8mm, minimum width=17mm, inner sep=2pt},
-  arr/.style={-{Latex[length=1.8mm]}, thick}]
-\node[box, fill=gray!10] (stream) at (0,0) {Batch $B_t$\\(no labels)};
-\node[box, fill=gray!10] (model) at (2.4,0) {Frozen\\model $f$};
-\node[box, fill=blue!10, minimum width=22mm] (watch) at (5.2,0.75) {Drift watch\\max robust $z$};
-\node[box, fill=orange!15, minimum width=22mm] (harm) at (5.2,-0.75) {Harm tier\\IW accuracy drop};
-\node[box, fill=gray!10] (ref) at (5.2,-2.1) {Labeled\\reference $R$};
-\node[box, fill=gray!25, minimum width=12mm] (alert) at (8.0,0) {Alerts};
-\node[box, fill=gray!10] (labels) at (8.0,-2.1) {Delayed\\labels};
-\draw[arr] (stream) -- (model);
-\draw[arr] (model.east) -- ++(0.35,0) |- (watch.west);
-\draw[arr] (model.east) -- ++(0.35,0) |- (harm.west);
-\draw[arr] (ref) -- (harm);
-\draw[arr] (watch.east) -- ++(0.35,0) |- (alert.west);
-\draw[arr] (harm.east) -- ++(0.35,0) |- (alert.west);
-\draw[arr] (labels) -- node[right, align=left, font=\scriptsize]{confirm\\or clear} (alert);
-\end{tikzpicture}}
+\includegraphics[width=0.92\columnwidth]{figures/paper_system.pdf}
 \caption{Two-tier early-warning monitor. The drift watch flags changes in inputs or model behavior; the harm tier estimates whether accuracy is falling; delayed labels confirm or clear the warning.}
 \label{fig:system}
 \end{figure}

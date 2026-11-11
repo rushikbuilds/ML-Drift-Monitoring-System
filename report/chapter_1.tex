@@ -1,0 +1,56 @@
+%_____________________________________________________________________________________________
+% Chapter 1: Introduction
+%_____________________________________________________________________________________________
+
+\chapter{Introduction}
+\label{ch:intro}
+
+\section{Background}
+A machine learning classifier is trained once, on data collected in the past, and is then deployed to make predictions on new data for months or years. The world that generates that data keeps changing: customers change their behaviour, sensors age, upstream software changes how a feature is computed, and new kinds of cases appear. When the distribution of the incoming data moves away from the training distribution, the model may start making more mistakes. This phenomenon is known as \emph{dataset shift} or \emph{concept drift}~\cite{gama2014survey,quinonero2009shift}.
+
+The obvious way to notice a drop in accuracy is to compare the model's predictions with the true outcomes. In many real applications, however, the true outcome (the \emph{label}) arrives only after a long delay. Whether a loan defaults is known after months; whether a transaction was fraudulent is known after a chargeback; whether a customer churned is known at the end of a billing cycle. During this delay the model keeps making decisions, and a silent degradation can cause real damage before anyone sees it.
+
+Production monitoring tools therefore watch \emph{label-free} signals: how the distribution of each input feature compares with the reference data, how confident the model is, and how its predictions are distributed~\cite{sculley2015debt,breck2017mltest}. These signals are available immediately. Two practical problems limit them:
+\begin{enumerate}
+\item \textbf{Most shifts are harmless.} A change in the inputs does not necessarily change the model's accuracy~\cite{rabanser2019failing}. A drift detector that alarms on every change produces many alarms that do not matter, and operators learn to ignore it.
+\item \textbf{Thresholds do not transfer.} An alert threshold is normally tuned on historical data from one application. Whether the same threshold still means the same thing on another dataset, or even on the same dataset next year, is rarely tested.
+\end{enumerate}
+
+\section{Motivation}
+The project started from an existing prototype, the \emph{Drift Early-Warning System} (DEWS). It combined several drift statistics (Kolmogorov--Smirnov tests, the population stability index, an embedding-based maximum mean discrepancy and a confidence component) into a single fused drift score, compared it with an adaptive threshold, and forecast when the score would cross the threshold. The prototype also contained a FastAPI service, a SQLite store, and a large infrastructure stack (Kafka, Celery, Redis and Grafana).
+
+When we evaluated this prototype carefully, it did not do what its name promised. On held-out controlled episodes its learned risk calibrator detected 0 of 20 harmful events, and the fused drift score detected some events only after the accuracy had already dropped (Section~\ref{sec:v1}). The infrastructure made the system look like a product, but there was no evidence that its warnings were early or that they meant degradation.
+
+This motivated a change of focus. Instead of adding more components, we asked a precise question and tried to answer it honestly, with experiments designed so that a negative answer would be visible.
+
+\section{Problem Statement}
+\begin{quote}
+Given a frozen binary classifier, a stream of unlabeled batches, and true labels that arrive only after a delay of $L$ batches, build a monitor that warns about a sustained loss of accuracy (a) before the accuracy actually drops, and (b) before the delayed labels could confirm the drop, while raising at most 5 false alerts per 100 batches of unchanged data, and while separating shifts that harm the model from shifts that do not.
+\end{quote}
+The precise definitions of a degradation event, the warning tiers and the false-alert budget are given in Chapter~\ref{ch:problem}.
+
+\section{Objectives}
+\begin{enumerate}
+\item Build a realistic benchmark on real tabular datasets in which input shifts start at a known batch while every row keeps its true label, so that whether a shift harmed the model can be measured rather than assumed.
+\item Design label-free monitoring signals and an alerting scheme that warn early about harmful drift within a fixed false-alert budget.
+\item Separate harmful from harmless shifts without using the labels of the monitored batches.
+\item Evaluate every claim with pre-registered hypotheses, frozen thresholds and one-time runs on datasets that were never used during design, and report failures as clearly as successes.
+\item Deliver a working, reproducible product: the monitoring library, experiment scripts, a dashboard that replays monitored streams, automated tests and continuous integration, and a research paper.
+\end{enumerate}
+
+\section{Scope}
+\textbf{In scope.} One frozen binary classifier on tabular data (logistic regression as the primary model, gradient boosting as a robustness check); batches of 300 rows; label delays of 0, 2, 5 and 10 batches; controlled covariate shifts and label changes built from real data; natural row-order streams as a reality check; and an offline replay dashboard.
+
+\textbf{Out of scope.} Automated retraining, distributed stream processing, production throughput and failover, image or text models, and claims about arbitrary concept drift. The Kafka, Celery, Redis and Grafana stack of the original prototype was removed from the repository because it did not contribute to the research question.
+
+\section{Contributions}
+\begin{enumerate}
+\item A re-sampling benchmark that turns real OpenML datasets into monitored streams with gradual, abrupt and irrelevant-feature shifts and label changes with a known onset, in which harm is measured from true labels.
+\item Evidence that drift thresholds expressed in raw, dataset-specific units do not transfer across datasets, and that expressing every signal relative to a stream's own burn-in period largely fixes this: the resulting drift watch held its false-alert budget on unseen benchmark data, though not on natural streams.
+\item A label-free harm tier based on importance-weighted reference accuracy that cuts alarms on harmless shifts from 97\% to 34\% and separates harm better than confidence-based estimates on the same data.
+\item A complete record of pre-registered negative results: a failed first design, a failed second tier, a benchmark gate that failed, and two follow-up attempts that were not adopted.
+\item A reproducible software product: library, frozen configurations, verdict scripts, dashboard, 85 unit tests, continuous integration, and a research paper prepared for IEEE CONECCT and arXiv.
+\end{enumerate}
+
+\section{Organisation of the Report}
+Chapter~\ref{ch:lit} surveys related work on drift detection, label-free performance estimation, delayed labels and pre-registration. Chapter~\ref{ch:problem} defines the problem formally and lists the requirements. Chapter~\ref{ch:design} presents the system architecture, the two-tier monitor, the benchmark and the evaluation protocol. Chapter~\ref{ch:impl} describes the implementation, including the exploratory versions v1--v5, the code structure, the dashboard and the testing infrastructure. Chapter~\ref{ch:results} reports and discusses the results of the pre-registered experiments v6--v10, the ablations and the post hoc analyses. Chapter~\ref{ch:conclusion} concludes and outlines future work. The appendices list every pre-registered hypothesis, the datasets used, and the commands needed to reproduce the results.

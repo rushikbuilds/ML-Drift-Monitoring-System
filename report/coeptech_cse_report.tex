@@ -1,0 +1,100 @@
+%_____________________________________________________________________________________________
+% LATEX Template: Department of Comp/IT BTech Project Reports
+% Main Report
+% Sun Apr 1 20:40:00 IST 2011
+%
+% Build with pdflatex:  latexmk -pdf coeptech_cse_report.tex
+%_____________________________________________________________________________________________
+
+\documentclass[a4paper,12pt,onecolumn]{report}
+
+%_____________________________________________________________________________________________
+% Inclusion of Required Packages
+%_____________________________________________________________________________________________
+\usepackage{graphicx}            % pdflatex: PDF/PNG/JPG figures (the template's [dvips]{graphics} needs latex+dvips)
+\usepackage{color}
+\usepackage{epsfig,float}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}             % scalable (Type 1) version of Computer Modern; avoids bitmap fonts
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,tabularx,multirow,longtable,array}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{url}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[expansion=false]{microtype}
+\usepackage[hidelinks]{hyperref}
+\setlength{\emergencystretch}{2em}
+\captionsetup{font=small,labelfont=bf}
+\setlist{itemsep=2pt,topsep=4pt}
+\graphicspath{{figures/}{figures/screens/}}
+%_____________________________________________________________________________________________
+% Page Layout
+%_____________________________________________________________________________________________
+
+ \usepackage[left=2.5cm,top=2cm,right=2cm,bottom=2cm,bindingoffset=0.5cm]{geometry}
+
+%\usepackage{geometry}
+%\geometry{a4paper,left=35mm,right=20mm,top=20mm,bottom=20mm}
+%\setlength{\textwidth}{6.5in}
+%\setlength{\textheight}{10in}
+%\setlength{\topmargin}{0.0in}
+%\setlength{\oddsidemargin}{0.0in}			% Customisable
+%\setlength{\headheight}{0.0in}
+%\setlength{\headsep}{0.0in}
+%\setlength{\topskip}{0.0in}
+%_____________________________________________________________________________________________
+% Font Definition
+%_____________________________________________________________________________________________
+\fontencoding{T1}		% Font specification : Times New Roman, Bold, Normal, 18
+\fontfamily{lmr}		% Roman (Latin Modern = Computer Modern, scalable)
+\fontseries{m}			% Medium
+\fontshape{n}			% Upright
+\fontsize{14pt}{5}
+\linespread{1.5}		% Vertical spacing between lines
+\selectfont			% Select the specified font
+
+\newcommand{\figref}[1]{Fig.~\ref{#1}}
+\newcommand{\tabref}[1]{Table~\ref{#1}}
+%_____________________________________________________________________________________________
+% Main report starts here
+%_____________________________________________________________________________________________
+
+\begin{document}	% Start of Report
+%_____________________________________________________________________________________________
+\pagenumbering{roman}
+\input{titlepage.tex}
+\input{certi.tex}
+
+\input{abstract.tex}	% Abstract: Independently typeset in file abstract.tex
+
+\tableofcontents		% LATEX needs to run 2-3 times over source to get this correct
+
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+
+\input{symbols.tex}
+
+\newpage
+\pagenumbering{arabic}	% Change to Arabic numbers for main chapters.
+
+\input{chapter_1.tex}	% Introduction
+\input{chapter_2.tex}	% Literature survey
+\input{chapter_3.tex}	% Problem definition and requirements
+\input{chapter_4.tex}	% System design
+\input{chapter_5.tex}	% Implementation
+\input{chapter_6.tex}	% Results and discussion
+\input{chapter_7.tex}	% Conclusion and future work
+
+\appendix
+\input{appendix.tex}
+
+\bibliographystyle{plain}
+\bibliography{coep_compit_report}
+\addcontentsline{toc}{chapter}{Bibliography}
+%_____________________________________________________________________________________________
+\end{document}			% End of Report
