@@ -9,7 +9,7 @@
 The system is written in Python. Models, auxiliary models and domain classifiers use scikit-learn~\cite{pedregosa2011sklearn}; statistics use NumPy and SciPy; tables use pandas; figures use matplotlib; and the dashboard uses Streamlit with Altair charts. Datasets are downloaded from OpenML~\cite{vanschoren2014openml}. The code is version-controlled with git and hosted on GitHub, where GitHub Actions runs linting, tests and a benchmark gate on every push. Diagrams were drawn with draw.io, and the paper and this report were typeset in \LaTeX.
 
 \section{Development History: Ten Versions}
-The final design was reached in ten versions (\figref{fig:evolution}). Versions v1--v5 were exploratory: they used synthetic scenarios and natural streams and were analysed after the fact. Versions v6--v10 were pre-registered (Section~\ref{sec:prereg}). Each version was motivated by a diagnosed failure of the previous one, and no earlier result was changed or withdrawn.
+The final design was reached in ten versions (\figref{fig:evolution}). Versions v1--v5 were exploratory: they used synthetic scenarios and natural streams and were analysed after the fact. Versions v6--v10 were pre-registered (Section~\ref{sec:prereg}). Each version started from what had gone wrong in the previous one. Earlier results were kept as published.
 
 \begin{figure}[H]
 \centering
@@ -20,7 +20,7 @@ The final design was reached in ten versions (\figref{fig:evolution}). Versions 
 
 \subsection{v1: the original prototype's risk calibrator}
 \label{sec:v1}
-The first evaluation used controlled synthetic episodes (clean, harmless shift, gradual and abrupt harmful shift) with seeds split into training, validation and test groups, and label delays of 0, 2 and 5 batches. On 120 held-out episodes the learned risk calibrator matched \textbf{0 of 20} harmful events at every delay, while the fixed DEWS drift score matched 9 of 20, all after the event had started. The diagnosis found two design errors rather than a weak idea: in all 50 seeds the accuracy event began on the same batch as the intervention, so no monitor could warn before it; and the risk target (``an event \emph{starts} in the next 5 batches'') labelled every post-onset batch negative, so the calibrator learned that more drift meant less risk.
+The first evaluation used controlled synthetic episodes (clean, harmless shift, gradual and abrupt harmful shift) with seeds split into training, validation and test groups, and label delays of 0, 2 and 5 batches. On 120 held-out episodes the learned risk calibrator matched \textbf{0 of 20} harmful events at every delay, while the fixed DEWS drift score matched 9 of 20, all after the event had started. We traced the failure to two design errors. In all 50 seeds the accuracy fell in the same batch as the intervention, so no monitor could have warned early. And the risk target (``an event \emph{starts} in the next 5 batches'') marked every batch after onset as negative, so the calibrator learned that more drift meant less risk.
 
 \subsection{v2: redesigned scenarios and a state target}
 \label{sec:v2}
@@ -58,7 +58,7 @@ v4 anchored the estimate on the last matured accuracy and corrected it with a ri
 \end{figure}
 
 \subsection{v5: harmless versus harmful shifts}
-v5 asked whether the monitor could tell harmful from harmless shifts. A relevance-weighted shift, $\sum_j \text{importance}_j\cdot\mathrm{KS}_j$, separated them perfectly on synthetic data (AUROC 1.0), where harmlessness meant ``this feature does not matter''. On 13 real streams it did not (AUROC 0.53 on held-out streams). A sustained-alert rule did not help either. These results showed that synthetic success does not imply real-data success, and motivated the pre-registered real-data benchmark of v6.
+v5 asked whether the monitor could tell harmful from harmless shifts. A relevance-weighted shift, $\sum_j \text{importance}_j\cdot\mathrm{KS}_j$, separated them perfectly on synthetic data (AUROC 1.0), where harmlessness meant ``this feature does not matter''. On 13 real streams it did not (AUROC 0.53 on held-out streams). A sustained-alert rule did not help either. This is why v6 moved to real data with a pre-registered protocol.
 
 \subsection{v6--v10: pre-registered experiments}
 v6 built the re-sampling benchmark of Section~\ref{sec:benchmark} and evaluated a delay-aware risk calibrator under a full pre-registered protocol. It failed, and its diagnosis (thresholds in raw units do not transfer) led to the stream-normalised drift watch of v7. v7's second tier failed to separate harm, which led to the reference-based harm tier of v8. v9 and v10 tried to improve the harm tier and were not adopted. The results are reported in Chapter~\ref{ch:results}.
@@ -161,7 +161,7 @@ The dashboard has four pages. The \emph{Overview} (\figref{fig:scr_overview}) su
 \label{sec:tests}
 The repository contains 85 unit tests. They cover the protocol configuration, the event rule and warning tiers, label maturity (no score may change when unmatured labels change), the benchmark generator, signal extraction, the v7 monitor, the dashboard's data and replay logic, and components of the original prototype (detectors, alerts, forecasting, storage). The API tests of the legacy FastAPI service are skipped when that optional component is not installed.
 
-GitHub Actions runs on every push and pull request (\figref{fig:ci}): it installs the core requirements, runs Ruff (pinned to version 0.17.4) and the full test suite on Python 3.10, 3.11 and 3.12, and then runs a benchmark gate that checks the legacy detector's lag, alert count and accuracy. On the latest run of the main branch all jobs passed: 84 tests passed and 1 was skipped on each Python version.
+GitHub Actions runs on every push and pull request (\figref{fig:ci}): it installs the core requirements, runs Ruff (pinned to version 0.17.4) and the full test suite on Python 3.10, 3.11 and 3.12, and then runs a benchmark gate that checks the legacy detector's lag, alert count and accuracy. In the CI run for the final code (10 November 2026) all jobs passed, with 84 tests passed and 1 skipped on each Python version.
 
 \begin{figure}[H]
 \centering
@@ -174,4 +174,4 @@ GitHub Actions runs on every push and pull request (\figref{fig:ci}): it install
 Every episode is generated from a recorded seed, all models use fixed random states, and bootstrap intervals use fixed generator seeds. A lock file, \texttt{requirements-lock.txt}, records the exact library versions used for the frozen verdicts. The command \texttt{python scripts/reproduce.py} rebuilds whatever is missing and fails if any verdict differs from the saved one. In a clean environment, ten regenerated v8 episodes matched the saved ones to within $4\times10^{-11}$, and the v6, v7 and v8 verdicts were reproduced exactly. The v9 and v10 code is kept on separate branches of the repository because neither was adopted.
 
 \section{Cleaning Up the Prototype}
-The original repository contained a Kafka, Celery, Redis and Grafana stack and claims of production readiness that had never been evaluated. Because this infrastructure did not contribute to answering the research question, it was deleted, and the README was rewritten around the evaluated results. The legacy FastAPI service, MLflow tracking and PostgreSQL storage were kept as optional components in a separate requirements file.
+The original repository contained a Kafka, Celery, Redis and Grafana stack and claims of production readiness that had never been evaluated. We deleted this infrastructure, since it did not help answer the research question, and rewrote the README around the measured results. The legacy FastAPI service, MLflow tracking and PostgreSQL storage were kept as optional components in a separate requirements file.

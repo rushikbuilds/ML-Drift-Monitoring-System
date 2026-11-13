@@ -26,7 +26,7 @@ This chapter describes the design of the final system: its architecture, the ben
 
 \section{Benchmark Design}
 \label{sec:benchmark}
-Evaluating an early-warning system needs ground truth: we must know when a shift started and whether it actually hurt the model. Synthetic generators provide this but are unrealistic (Section~\ref{sec:v2}); natural streams are realistic but have no known onset. The benchmark combines the two by \emph{re-sampling real rows}.
+To evaluate an early-warning system we need to know when each shift started and whether it hurt the model. Synthetic generators provide this but are unrealistic (Section~\ref{sec:v2}); natural streams are realistic but have no known onset. The benchmark combines the two by \emph{re-sampling real rows}.
 
 Each episode draws a contiguous block of a dataset (\figref{fig:episode}):
 \begin{itemize}
@@ -126,7 +126,7 @@ Disagreement & behaviour & share of rows where $f$ disagrees with a random fores
 \end{figure}
 
 \subsection{Tier 1: drift watch (v7)}
-Raw drift statistics live in dataset-specific units: a KS statistic of 0.1 may be normal noise on one dataset and a large shift on another. The drift watch therefore expresses every signal relative to the stream's own burn-in. For a signal $x_t$,
+A raw drift statistic has no fixed meaning across datasets. A KS value of 0.1 can be noise on one dataset and a large shift on another. The drift watch therefore expresses every signal relative to the stream's own burn-in. For a signal $x_t$,
 \begin{equation}
 z_t = \frac{x_t - \mathrm{med}(x_{0:8})}{\max\left(1.4826\,\mathrm{MAD}(x_{0:8}),\ 0.01\right)},
 \end{equation}
@@ -134,7 +134,7 @@ a robust z-score in which the median and the median absolute deviation (scaled t
 
 \subsection{Tier 2: harm tier (v8)}
 \label{sec:harm}
-Whether a shift harms the model depends on whether it moves the data into regions where this particular model is wrong. The labeled reference set shows where that is. For each batch $B_t$, a logistic domain classifier $g_t$ is trained to separate reference rows (label 0) from batch rows (label 1). For reference row $x_i$ with correctness $c_i = \mathbb{1}[f(x_i)=y_i]$, the importance weight and the label-free accuracy estimate are
+A shift hurts the model only if it moves data towards regions where the model makes mistakes. The labeled reference set tells us where those regions are. For each batch $B_t$, a logistic domain classifier $g_t$ is trained to separate reference rows (label 0) from batch rows (label 1). For reference row $x_i$ with correctness $c_i = \mathbb{1}[f(x_i)=y_i]$, the importance weight and the label-free accuracy estimate are
 \begin{equation}
 w_i = \min\!\left(\frac{\rho_i}{\bar\rho},\ 20\right),\quad \rho_i=\frac{g_t(x_i)}{1-g_t(x_i)},\qquad \hat a_t = \frac{\sum_i w_i c_i}{\sum_i w_i},
 \label{eq:iw}

@@ -5,7 +5,7 @@
 \chapter{Literature Survey}
 \label{ch:lit}
 
-This chapter reviews the work that the project builds on: concept drift detection, dataset shift, label-free estimation of model performance, learning with delayed labels, and pre-registration as a method for trustworthy evaluation. It ends with the research gap that the project addresses.
+We review concept drift and dataset shift, drift detection, label-free accuracy estimation, delayed labels and pre-registration.
 
 \section{Concept Drift and Dataset Shift}
 Gama et al.~\cite{gama2014survey} and Lu et al.~\cite{lu2019review} survey concept drift: changes over time in the joint distribution $P(X, Y)$ of inputs $X$ and labels $Y$. It is useful to separate two cases~\cite{quinonero2009shift}:
@@ -60,7 +60,7 @@ Importance weighting & density-ratio reweighting & Valid only under covariate sh
 \end{tabularx}
 \end{table}
 
-From the survey we identified three gaps:
+Three things are missing from this work:
 \begin{enumerate}
 \item Most evaluations report whether drift is detected, not whether a warning comes \emph{before} the accuracy drop or \emph{before} delayed labels could reveal it.
 \item Alert thresholds are rarely tested on datasets other than the ones they were chosen on.

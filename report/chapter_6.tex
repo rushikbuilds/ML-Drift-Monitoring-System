@@ -71,7 +71,7 @@ Gradient boosting, $L=10$ & 0.82 & 0.80 & 7.7 & 5.9 \\
 \end{table}
 
 \section{Why v6 Failed: Thresholds in Raw Units Do Not Transfer}
-\figref{fig:transfer} compares, for each method, the false-alert rate on development data (where its threshold was chosen) with the rate on data never used for threshold selection. Scores in dataset-specific units broke the budget by a factor of 3.5--9 (fused DEWS score 4.4 $\rightarrow$ 36.9; mean KS 4.4 $\rightarrow$ 44.6), while the learned calibrator under-alerted (4.6 $\rightarrow$ 1.2). Scores expressed relative to the stream's own normal (drift watch, 2.3 $\rightarrow$ 4.4) or in accuracy points (harm tier, 3.4 $\rightarrow$ 2.8) stayed within the budget on their confirmation data. An ablation of the v6 calibrator confirmed the same mechanism inside the model: removing the raw disagreement levels, which differ widely across datasets, raised its T1 from 0.22 to 0.42. This did not hold everywhere, however: the drift watch raised 8.0 false alerts per 100 clean batches on natural streams, and the harm tier raised 12.7 on the six v10 datasets (Section~\ref{sec:followups}).
+\figref{fig:transfer} compares, for each method, the false-alert rate on development data (where its threshold was chosen) with the rate on data never used for threshold selection. Scores in dataset-specific units broke the budget by a factor of 3.5--9 (fused DEWS score 4.4 $\rightarrow$ 36.9; mean KS 4.4 $\rightarrow$ 44.6), while the learned calibrator under-alerted (4.6 $\rightarrow$ 1.2). Scores expressed relative to the stream's own normal (drift watch, 2.3 $\rightarrow$ 4.4) or in accuracy points (harm tier, 3.4 $\rightarrow$ 2.8) stayed within the budget on their confirmation data. An ablation of the v6 calibrator confirmed the same mechanism inside the model: removing the raw disagreement levels, which differ widely across datasets, raised its T1 from 0.22 to 0.42. It did not hold everywhere, though. The drift watch broke the budget on natural streams, and the harm tier on the v10 datasets (Section~\ref{sec:followups}).
 
 \begin{figure}[H]
 \centering
@@ -81,7 +81,7 @@ Gradient boosting, $L=10$ & 0.82 & 0.80 & 7.7 & 5.9 \\
 \end{figure}
 
 \section{v7: The Drift-Watch Tier}
-On six fresh datasets (39 harmful gradual shifts) the drift watch warned before the accuracy drop on \textbf{0.87} [0.77, 0.97] of harmful gradual shifts, a median of \textbf{6 batches} ahead, with \textbf{4.4} false alerts per 100 clean batches, and beat the fused DEWS score on 5 of 6 datasets (\tabref{tab:v7}, \figref{fig:v7m}, \figref{fig:v7ds}). Its pre-confirmation warning rate (1.00 against 0.96 for waiting for labels) did not reach the pre-registered gain of 0.10. It alerted on 96\% of harmless shifts: it detects drift but cannot tell whether the drift is harmful.
+On six fresh datasets (39 harmful gradual shifts) the drift watch warned before the accuracy drop on \textbf{0.87} [0.77, 0.97] of harmful gradual shifts, a median of \textbf{6 batches} ahead, with \textbf{4.4} false alerts per 100 clean batches, and beat the fused DEWS score on 5 of 6 datasets (\tabref{tab:v7}, \figref{fig:v7m}, \figref{fig:v7ds}). Its pre-confirmation warning rate (1.00 against 0.96 for waiting for labels) did not reach the pre-registered gain of 0.10. It also alerted on 96\% of harmless shifts, so it detects drift but cannot tell whether the drift is harmful.
 
 v7 also pre-registered a second tier, a logistic calibrator over the normalised signals. It failed its separation hypothesis (AUROC 0.59, alerts on 53\% of harmless shifts), which motivated the reference-based harm tier of v8.
 
@@ -118,7 +118,7 @@ C5: natural streams, T2 gain over labels ($\geq$0) & 0.44 vs 0.87, $-$0.43 [$-$0
 \end{figure}
 
 \subsection{Natural streams}
-On the 328 natural-stream windows the drift watch failed (T2 0.44 against 0.87 for the label trend) and exceeded the budget (8.0 false alerts per 100 clean batches against 6.3 for the label trend). The reason is visible in the data: the median degradation began at batch 8, the end of the burn-in; 100 of the 132 events began within 5 batches after the burn-in; and accuracy varied by about 12\% within the burn-in itself. The ``normal'' that the drift watch measures against was therefore not normal. Stream normalisation needs a genuinely stable period after deployment.
+On the 328 natural-stream windows the drift watch failed (T2 0.44 against 0.87 for the label trend) and exceeded the budget (8.0 false alerts per 100 clean batches against 6.3 for the label trend). The data show why. The median degradation began at batch 8, right at the end of the burn-in, and 100 of the 132 events began within 5 batches after it. Accuracy also varied within the burn-in itself (coefficient of variation about 0.12), so the burn-in was not a normal period. Stream normalisation needs a genuinely stable period after deployment.
 
 \section{v8: The Harm Tier}
 On five further fresh datasets (64 harmful and 160 harmless shifts) the harm tier cut alarms on harmless shifts from \textbf{0.97} (drift watch) to \textbf{0.34}, while still warning before labels could confirm on 0.83 of harmful shifts and before the drop on 0.76 of harmful gradual shifts, at 2.8 false alerts per 100 clean batches (\tabref{tab:v8}). It separated harmful from harmless shifts with an AUROC of \textbf{0.78} [0.70, 0.86], against 0.59 for the drift watch (gain 0.20 [0.09, 0.30]). It passed two of four hypotheses and missed the AUROC target of 0.80 and the harmless-alarm target of 0.10.
@@ -169,9 +169,9 @@ To check whether the harm tier is better than simpler label-free estimates, we s
 \end{figure}
 
 \section{Why Harmless Shifts Still Alert}
-In a post hoc analysis of the v8 confirmation data, streams with no shift at all raised a harm alert in 40\% of episodes and harmless shifts in 34\%, against 88\% for harmful shifts. The harm tier therefore treats harmless shifts like no shift: the remaining alarms are background false alerts that accumulate over about 33 monitored batches. With a per-batch rate of 2.8 per 100, the chance of at least one alert in 33 batches is $1-0.972^{33}\approx 0.6$. Our 10\% target for harmless alarms was inconsistent with our own per-batch budget. We set this target before noticing the inconsistency and leave the verdict unchanged.
+In a post hoc analysis of the v8 confirmation data, streams with no shift at all raised a harm alert in 40\% of episodes and harmless shifts in 34\%, against 88\% for harmful shifts. The harm tier therefore treats harmless shifts like no shift: the remaining alarms are background false alerts that accumulate over about 33 monitored batches. With a per-batch rate of 2.8 per 100, the chance of at least one alert in 33 batches is $1-0.972^{33}\approx 0.6$. Our 10\% target for harmless alarms did not match our own per-batch budget. We noticed this only after the run and left the verdict unchanged.
 
-\figref{fig:operating} shows the full trade-off on the same data. Over most of the range of harmless alarms the harm tier warns on far more harmful shifts than the drift watch. On this data a stricter harm threshold would appear better than the frozen one, but when that idea was frozen and tested on six other datasets (v10, square marker) it warned on only 30\% of harmful shifts, so choosing a threshold from this curve after seeing the results would have been misleading.
+\figref{fig:operating} shows the full trade-off on the same data. Over most of the range of harmless alarms the harm tier warns on far more harmful shifts than the drift watch. On this data a stricter harm threshold would appear better than the frozen one, but when that idea was frozen and tested on six other datasets (v10, square marker) it warned on only 30\% of harmful shifts. Picking a threshold from this curve after seeing the results would have misled us.
 
 \begin{figure}[H]
 \centering
@@ -182,7 +182,7 @@ In a post hoc analysis of the v8 confirmation data, streams with no shift at all
 
 \section{Pre-Registered Follow-Ups That Failed}
 \label{sec:followups}
-\textbf{v9: nonlinear harm estimators.} A gradient-boosting domain classifier and an error predictor trained on out-of-fold reference correctness both separated harm worse than the linear estimator on development data (AUROC 0.70 against 0.77). In a post hoc check, no ensemble of these, the linear estimator, kNN accuracy and confidence (averaging within-dataset ranks) exceeded 0.76, against 0.75 for the linear estimator scored the same way. The development gate of 0.80 failed, and no fresh data were used.
+\textbf{v9: nonlinear harm estimators.} A gradient-boosting domain classifier and an error predictor trained on out-of-fold reference correctness both separated harm worse than the linear estimator on development data (AUROC 0.70 against 0.77). In a post hoc check, ensembles of these estimators, kNN accuracy and confidence (averaging within-dataset ranks) reached at most 0.76. Scored the same way, the linear estimator alone reached 0.75. The 0.80 development gate failed, so no fresh data were used.
 
 \textbf{v10: stricter alerting rules.} Stricter thresholds, exponential smoothing, rolling means, CUSUM, stream-normalised harm scores and gating by the drift watch all reduced harmless alarms at the cost of early warnings. The best rule (a z-scored harm score) passed the development gate, but on six fresh datasets it warned before labels on only 0.30 of harmful shifts against a required 0.50, while reducing harmless alarms to 0.12. Neither v9 nor v10 was adopted.
 
@@ -260,11 +260,11 @@ In every data group about 70--80\% of shifts did not harm the model (\figref{fig
 \section{Discussion}
 \subsection{Lessons}
 \begin{enumerate}
-\item \textbf{Normalisation made thresholds transfer, but is not sufficient.} The decisive change between the failed and the partially successful designs was expressing signals in units comparable across streams, not a better model. Even so, the harm rule exceeded the budget on the v10 datasets and the drift watch on natural streams. Alert thresholds tuned on historical data should be validated on data from other sources before deployment.
+\item \textbf{Comparable units made thresholds transfer.} The step from v6 to v7 did not need a better model, since the drift watch is simpler than the v6 calibrator; what changed was the scale of the signals. It did not solve everything: the harm rule still broke the budget on the v10 datasets, and the drift watch did on natural streams. Alert thresholds tuned on historical data should be validated on data from other sources before deployment.
 \item \textbf{Separate a sensitive drift tier from a specific harm tier.} Input-shift signals are good for early notice; model-behaviour and reference-based signals are needed to judge harm.
 \item \textbf{Keep a labeled reference sample.} In our data, only methods that used it separated harm consistently across datasets.
 \item \textbf{Make per-episode targets consistent with per-batch budgets.} A 2.8\% per-batch false-alert rate already implies about a 60\% chance of an alarm over 33 batches.
-\item \textbf{Report negative results.} Several attractive ideas (online updating in v2, relevance weighting in v5, nonlinear estimators in v9, stricter rules in v10) did not survive testing on new data; recording them prevents the same mistakes being repeated.
+\item \textbf{Several ideas failed on new data.} Online updating (v2), relevance weighting (v5), nonlinear estimators (v9) and stricter rules (v10) all looked useful during development and did not hold up.
 \end{enumerate}
 
 \subsection{Threats to validity}

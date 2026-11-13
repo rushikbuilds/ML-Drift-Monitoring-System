@@ -23,7 +23,7 @@ An \emph{episode} is one monitored stream of 45 batches. In controlled episodes 
 For an intervention at batch $s$ and an event at batch $e$ we distinguish three tiers (\figref{fig:tiers}):
 \begin{itemize}
 \item \textbf{T1, predictive warning}: an alert in $[s, e)$, before the accuracy actually drops. The \emph{lead time} is $e$ minus the first such alert.
-\item \textbf{T2, pre-confirmation warning}: an alert in $[s, e+1+\max(L,1))$, before delayed labels could confirm the event. This is the tier that matters most in practice: it is the information the monitor adds over simply waiting for labels.
+\item \textbf{T2, pre-confirmation warning}: an alert in $[s, e+1+\max(L,1))$, before delayed labels could confirm the event. In practice T2 matters most, because it measures what the monitor adds over waiting for labels.
 \item \textbf{T3, confirmed}: the first alert at or after confirmation; by then the labels already show the drop.
 \end{itemize}
 

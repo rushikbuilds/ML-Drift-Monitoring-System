@@ -10,7 +10,7 @@ A machine learning classifier is trained once, on data collected in the past, an
 
 The obvious way to notice a drop in accuracy is to compare the model's predictions with the true outcomes. In many real applications, however, the true outcome (the \emph{label}) arrives only after a long delay. Whether a loan defaults is known after months; whether a transaction was fraudulent is known after a chargeback; whether a customer churned is known at the end of a billing cycle. During this delay the model keeps making decisions, and a silent degradation can cause real damage before anyone sees it.
 
-Production monitoring tools therefore watch \emph{label-free} signals: how the distribution of each input feature compares with the reference data, how confident the model is, and how its predictions are distributed~\cite{sculley2015debt,breck2017mltest}. These signals are available immediately. Two practical problems limit them:
+Monitoring tools therefore watch signals that need no labels, such as feature distributions, model confidence and the mix of predicted classes~\cite{sculley2015debt,breck2017mltest}. These signals are available at once, but they have two problems:
 \begin{enumerate}
 \item \textbf{Most shifts are harmless.} A change in the inputs does not necessarily change the model's accuracy~\cite{rabanser2019failing}. A drift detector that alarms on every change produces many alarms that do not matter, and operators learn to ignore it.
 \item \textbf{Thresholds do not transfer.} An alert threshold is normally tuned on historical data from one application. Whether the same threshold still means the same thing on another dataset, or even on the same dataset next year, is rarely tested.
@@ -19,9 +19,9 @@ Production monitoring tools therefore watch \emph{label-free} signals: how the d
 \section{Motivation}
 The project started from an existing prototype, the \emph{Drift Early-Warning System} (DEWS). It combined several drift statistics (Kolmogorov--Smirnov tests, the population stability index, an embedding-based maximum mean discrepancy and a confidence component) into a single fused drift score, compared it with an adaptive threshold, and forecast when the score would cross the threshold. The prototype also contained a FastAPI service, a SQLite store, and a large infrastructure stack (Kafka, Celery, Redis and Grafana).
 
-When we evaluated this prototype carefully, it did not do what its name promised. On held-out controlled episodes its learned risk calibrator detected 0 of 20 harmful events, and the fused drift score detected some events only after the accuracy had already dropped (Section~\ref{sec:v1}). The infrastructure made the system look like a product, but there was no evidence that its warnings were early or that they meant degradation.
+Our first careful evaluation of this prototype was negative. On held-out controlled episodes its learned risk calibrator detected 0 of 20 harmful events, and the fused drift score detected some events only after the accuracy had already dropped (Section~\ref{sec:v1}). The infrastructure was complete, but nothing showed that the warnings came early or that they matched real accuracy loss.
 
-This motivated a change of focus. Instead of adding more components, we asked a precise question and tried to answer it honestly, with experiments designed so that a negative answer would be visible.
+We therefore stopped adding components and narrowed the project to one question, tested so that a negative answer would show up as clearly as a positive one.
 
 \section{Problem Statement}
 \begin{quote}
@@ -47,7 +47,7 @@ The precise definitions of a degradation event, the warning tiers and the false-
 \begin{enumerate}
 \item A re-sampling benchmark that turns real OpenML datasets into monitored streams with gradual, abrupt and irrelevant-feature shifts and label changes with a known onset, in which harm is measured from true labels.
 \item Evidence that drift thresholds expressed in raw, dataset-specific units do not transfer across datasets, and that expressing every signal relative to a stream's own burn-in period largely fixes this: the resulting drift watch held its false-alert budget on unseen benchmark data, though not on natural streams.
-\item A label-free harm tier based on importance-weighted reference accuracy that cuts alarms on harmless shifts from 97\% to 34\% and separates harm better than confidence-based estimates on the same data.
+\item A label-free harm tier based on importance-weighted reference accuracy, which cuts alarms on harmless shifts and separates harm better than confidence-based estimates on the same data.
 \item A complete record of pre-registered negative results: a failed first design, a failed second tier, a benchmark gate that failed, and two follow-up attempts that were not adopted.
 \item A reproducible software product: library, frozen configurations, verdict scripts, dashboard, 85 unit tests, continuous integration, and a research paper prepared for IEEE CONECCT and arXiv.
 \end{enumerate}
