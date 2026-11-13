@@ -77,6 +77,11 @@ Z.~C. Lipton, Y.-X. Wang, and A.~J. Smola, ``Detecting and correcting for label
   shift with black box predictors,'' in \emph{International Conference on
   Machine Learning (ICML)}, 2018.
 
+\bibitem{podkopaev2022tracking}
+A.~Podkopaev and A.~Ramdas, ``Tracking the risk of a deployed model and
+  detecting harmful distribution shifts,'' in \emph{International Conference on
+  Learning Representations (ICLR)}, 2022.
+
 \bibitem{nannyml_cbpe}
 {NannyML}, ``Performance estimation: Confidence-based performance estimation
   ({CBPE}),'' Documentation,
@@ -107,6 +112,11 @@ H.~Shimodaira, ``Improving predictive inference under covariate shift by
 M.~Sugiyama, M.~Krauledat, and K.-R. M{\"u}ller, ``Covariate shift adaptation
   by importance weighted cross validation,'' \emph{Journal of Machine Learning
   Research}, vol.~8, pp. 985--1005, 2007.
+
+\bibitem{bialek2025pape}
+J.~Bia{\l}ek, J.~Kivim{\"a}ki, W.~Kuberski, and N.~Perrakis, ``Estimating model
+  performance under covariate shift without labels,'' in \emph{Advances in
+  Neural Information Processing Systems (NeurIPS)}, 2025.
 
 \bibitem{grzenda2020delayed}
 M.~Grzenda, H.~M. Gomes, and A.~Bifet, ``Delayed labelling evaluation for data

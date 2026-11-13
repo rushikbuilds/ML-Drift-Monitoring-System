@@ -12,7 +12,7 @@ This chapter describes the design of the final system: its architecture, the ben
 \begin{itemize}
 \item \textbf{Data.} Public tabular datasets from OpenML feed a benchmark generator, which builds monitored streams with a known intervention batch. Natural row-order streams are used as a reality check.
 \item \textbf{Model.} A frozen classifier $f$ is fitted once on a labeled reference set $R$. Each incoming batch $B_t$ is scored by $f$; its labels stay hidden.
-\item \textbf{Signals.} Label-free signals are computed per batch: input-shift statistics and model-behaviour statistics.
+\item \textbf{Signals.} Label-free signals are computed per batch: input-shift statistics and model-behavior statistics.
 \item \textbf{Monitor.} Two tiers turn the signals into alerts: a \emph{drift watch} that is sensitive to any drift, and a \emph{harm tier} that estimates whether the drift is lowering accuracy.
 \item \textbf{Outputs.} Alerts are confirmed or cleared when delayed labels arrive. Evaluation scripts compute the warning tiers and apply the pre-registered pass rules; the dashboard, paper and this report are generated from the saved results.
 \end{itemize}
@@ -35,11 +35,11 @@ Each episode draws a contiguous block of a dataset (\figref{fig:episode}):
 \end{itemize}
 The stream has 45 batches of 300 rows sampled with replacement from the pool; \emph{every row keeps its true label}, so the true accuracy of $f$ on every batch is known. From an onset batch $s \in [10,16]$:
 \begin{itemize}
-\item \textbf{Gradual or abrupt shift}: rows are sampled with weights proportional to $\exp(\lambda(t)\,\sigma\,z_j)$, where $z_j$ is a standardised feature, $\sigma=\pm 1$ a random direction, and $\lambda$ ramps linearly to 1.5 over 15 batches (gradual) or jumps to 1.5 (abrupt). The feature $j$ is drawn from the more important or the less important half of features with equal probability, so that some shifts are designed to be irrelevant.
+\item \textbf{Gradual or abrupt shift}: rows are sampled with weights proportional to $\exp(\lambda(t)\,\sigma\,z_j)$, where $z_j$ is a standardized feature, $\sigma=\pm 1$ a random direction, and $\lambda$ ramps linearly to 1.5 over 15 batches (gradual) or jumps to 1.5 (abrupt). The feature $j$ is drawn from the more important or the less important half of features with equal probability, so that some shifts are designed to be irrelevant.
 \item \textbf{Label change}: labels are flipped with a probability that ramps to 0.3 for rows with $z_k>0$, a change in $P(Y\mid X)$ that input-only signals cannot see.
 \item \textbf{Clean}: uniform sampling.
 \end{itemize}
-Each dataset contributes 10 clean, 30 gradual, 15 abrupt and 10 label-change episodes (65 episodes). Algorithm~\ref{alg:episode} summarises the construction.
+Each dataset contributes 10 clean, 30 gradual, 15 abrupt and 10 label-change episodes (65 episodes). Algorithm~\ref{alg:episode} summarizes the construction.
 
 \begin{figure}[H]
 \centering
@@ -92,7 +92,7 @@ Natural streams & 13 & 328 row-order windows, no injected shift (H5, C5) \\
 \end{table}
 
 \section{Label-Free Signals}
-\tabref{tab:signals_def} lists the signals computed for every batch without labels. They fall into two families. \emph{Input-shift} signals compare the batch's inputs with the reference; \emph{model-behaviour} signals describe how the model reacts to the batch.
+\tabref{tab:signals_def} lists the signals computed for every batch without labels. They fall into two families. \emph{Input-shift} signals compare the batch's inputs with the reference; \emph{model-behavior} signals describe how the model reacts to the batch.
 
 \begin{table}[H]
 \caption{Label-free signals computed per batch.}
@@ -107,9 +107,9 @@ Fused DEWS drift score & input shift & original prototype's weighted fusion of p
 Mean KS & input shift & mean two-sample KS statistic over features \\
 Relevance-weighted shift & input shift & $\sum_j \text{importance}_j \cdot \mathrm{KS}_j$, using $f$'s permutation importance \\
 Positive-rate shift & input shift & absolute change of the share of positive predictions from its burn-in mean \\
-Confidence drop & behaviour & negative mean top-class probability of $f$ \\
-Entropy & behaviour & mean prediction entropy of $f$ \\
-Disagreement & behaviour & share of rows where $f$ disagrees with a random forest~\cite{breiman2001rf} and a gradient-boosting model~\cite{friedman2001gbm} trained on the same reference rows \\
+Confidence drop & behavior & negative mean top-class probability of $f$ \\
+Entropy & behavior & mean prediction entropy of $f$ \\
+Disagreement & behavior & share of rows where $f$ disagrees with a random forest~\cite{breiman2001rf} and a gradient-boosting model~\cite{friedman2001gbm} trained on the same reference rows \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -149,7 +149,7 @@ in accuracy units. A HARM alert is raised when $h_t \ge 0.0115$ (an estimated dr
 Thresholds are chosen on development data only, with false alerts kept within 5 per 100 clean batches:
 \begin{itemize}
 \item \textbf{v6 rule} (also used by the drift watch): the threshold with the highest development T1 share; ties go to the higher threshold.
-\item \textbf{Separation rule} (harm tier): the threshold that maximises the T2 share on harmful shifts minus the alert share on harmless shifts.
+\item \textbf{Separation rule} (harm tier): the threshold that maximizes the T2 share on harmful shifts minus the alert share on harmless shifts.
 \end{itemize}
 
 \section{Evaluation Protocol and Pre-Registration}

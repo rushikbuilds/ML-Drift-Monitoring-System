@@ -11,7 +11,7 @@ This project set out to build an ML model drift early-warning system that warns 
 The results were mixed:
 \begin{itemize}
 \item The original design, a learned risk calibrator over raw drift scores, failed all its hypotheses, because thresholds in dataset-specific units did not transfer across datasets.
-\item A stream-normalised \textbf{drift watch} gave early warning of harmful drift within its false-alert budget on benchmark streams: on six fresh datasets it warned before the accuracy drop on 87\% of harmful gradual shifts, a median of six batches ahead. It cannot tell harmful from harmless drift, and it failed on natural streams where drift had begun before monitoring.
+\item A stream-normalized \textbf{drift watch} gave early warning of harmful drift within its false-alert budget on benchmark streams: on six fresh datasets it warned before the accuracy drop on 87\% of harmful gradual shifts, a median of six batches ahead. It cannot tell harmful from harmless drift, and it failed on natural streams where drift had begun before monitoring.
 \item An importance-weighted \textbf{harm tier} reduced alarms on harmless shifts from 97\% to 34\% and separated harmful from harmless shifts with an AUROC of 0.78, short of the 0.80 target but above confidence-based baselines on the same data. On a later set of datasets its false-alert rate exceeded the budget.
 \item Nonlinear estimators, ensembles and stricter alerting rules did not improve on it.
 \end{itemize}
@@ -21,9 +21,9 @@ The project also produced working software: the monitoring library, the frozen c
 
 \section{Future Work}
 \begin{enumerate}
-\item \textbf{Better burn-in handling.} Detect whether the burn-in itself is stable, or use a reference period chosen with labels, so that stream normalisation also works when drift has begun before monitoring.
-\item \textbf{Calibrated harm alerting.} Control the false-alert rate over a whole monitoring period (for example with sequential testing) instead of per batch, so that per-episode alarm targets become achievable.
-\item \textbf{Richer density-ratio estimation.} Combine importance weighting with uncertainty estimates, and test other models than logistic regression as the monitored model.
+\item \textbf{Better burn-in handling.} Detect whether the burn-in itself is stable, or use a reference period chosen with labels, so that stream normalization also works when drift has begun before monitoring.
+\item \textbf{Calibrated harm alerting.} Control the false-alert rate over a whole monitoring period instead of per batch, for example with the confidence sequences of Podkopaev and Ramdas~\cite{podkopaev2022tracking}, so that per-episode alarm targets become achievable.
+\item \textbf{Richer density-ratio estimation.} Compare the harm tier with PAPE~\cite{bialek2025pape}, combine importance weighting with uncertainty estimates, and test other models than logistic regression as the monitored model.
 \item \textbf{Label changes.} Use the few labels that arrive early (partial labeling) to detect changes in $P(Y\mid X)$, which no input-only signal can see.
 \item \textbf{More data types.} Extend the benchmark to multi-class, text and image data, and to real temporal streams with documented drift.
 \item \textbf{Deployment.} Package the two tiers as a service that reads batches from a production pipeline, with the dashboard as its operator view.

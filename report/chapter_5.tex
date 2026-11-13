@@ -9,7 +9,7 @@
 The system is written in Python. Models, auxiliary models and domain classifiers use scikit-learn~\cite{pedregosa2011sklearn}; statistics use NumPy and SciPy; tables use pandas; figures use matplotlib; and the dashboard uses Streamlit with Altair charts. Datasets are downloaded from OpenML~\cite{vanschoren2014openml}. The code is version-controlled with git and hosted on GitHub, where GitHub Actions runs linting, tests and a benchmark gate on every push. Diagrams were drawn with draw.io, and the paper and this report were typeset in \LaTeX.
 
 \section{Development History: Ten Versions}
-The final design was reached in ten versions (\figref{fig:evolution}). Versions v1--v5 were exploratory: they used synthetic scenarios and natural streams and were analysed after the fact. Versions v6--v10 were pre-registered (Section~\ref{sec:prereg}). Each version started from what had gone wrong in the previous one. Earlier results were kept as published.
+The final design was reached in ten versions (\figref{fig:evolution}). Versions v1--v5 were exploratory: they used synthetic scenarios and natural streams and were analyzed after the fact. Versions v6--v10 were pre-registered (Section~\ref{sec:prereg}). Each version started from what had gone wrong in the previous one. Earlier results were kept as published.
 
 \begin{figure}[H]
 \centering
@@ -24,7 +24,7 @@ The first evaluation used controlled synthetic episodes (clean, harmless shift, 
 
 \subsection{v2: redesigned scenarios and a state target}
 \label{sec:v2}
-v2 introduced noisy labels (baseline accuracy about 0.78), a randomised onset, relevant and nuisance features, a state target (``a degraded run starts or continues within the next 5 batches''), and a baseline that simply waits for delayed labels. On 250 held-out synthetic episodes the signals-only calibrator warned before onset in 98\% of harmful gradual episodes, about 4 batches ahead, where the fixed DEWS score gave no early warning (\tabref{tab:v2}). A leave-one-dataset-out study on four natural streams (electricity, airlines, covertype, bank-marketing), however, was negative: drift signals ranked accuracy risk weakly, and every signal-based threshold that met the budget on the other datasets raised 4--16 times more false alerts on the held-out one.
+v2 introduced noisy labels (baseline accuracy about 0.78), a randomized onset, relevant and nuisance features, a state target (``a degraded run starts or continues within the next 5 batches''), and a baseline that simply waits for delayed labels. On 250 held-out synthetic episodes the signals-only calibrator warned before onset in 98\% of harmful gradual episodes, about 4 batches ahead, where the fixed DEWS score gave no early warning (\tabref{tab:v2}). A leave-one-dataset-out study on four natural streams (electricity, airlines, covertype, bank-marketing), however, was negative: drift signals ranked accuracy risk weakly, and every signal-based threshold that met the budget on the other datasets raised 4--16 times more false alerts on the held-out one.
 
 \begin{table}[H]
 \caption{v2 controlled study, label delay $L=2$, 250 held-out synthetic episodes.}
@@ -61,7 +61,7 @@ v4 anchored the estimate on the last matured accuracy and corrected it with a ri
 v5 asked whether the monitor could tell harmful from harmless shifts. A relevance-weighted shift, $\sum_j \text{importance}_j\cdot\mathrm{KS}_j$, separated them perfectly on synthetic data (AUROC 1.0), where harmlessness meant ``this feature does not matter''. On 13 real streams it did not (AUROC 0.53 on held-out streams). A sustained-alert rule did not help either. This is why v6 moved to real data with a pre-registered protocol.
 
 \subsection{v6--v10: pre-registered experiments}
-v6 built the re-sampling benchmark of Section~\ref{sec:benchmark} and evaluated a delay-aware risk calibrator under a full pre-registered protocol. It failed, and its diagnosis (thresholds in raw units do not transfer) led to the stream-normalised drift watch of v7. v7's second tier failed to separate harm, which led to the reference-based harm tier of v8. v9 and v10 tried to improve the harm tier and were not adopted. The results are reported in Chapter~\ref{ch:results}.
+v6 built the re-sampling benchmark of Section~\ref{sec:benchmark} and evaluated a delay-aware risk calibrator under a full pre-registered protocol. It failed, and its diagnosis (thresholds in raw units do not transfer) led to the stream-normalized drift watch of v7. v7's second tier failed to separate harm, which led to the reference-based harm tier of v8. v9 and v10 tried to improve the harm tier and were not adopted. The results are reported in Chapter~\ref{ch:results}.
 
 \section{Code Structure}
 \tabref{tab:code} lists the main modules of the final system.
@@ -78,7 +78,7 @@ Module & Responsibility \\
 \texttt{dews/resample\_benchmark.py} & builds benchmark episodes from real datasets (Algorithm~\ref{alg:episode}) \\
 \texttt{dews/v6\_signals.py} & per-batch signal extraction with each episode's monitored model and auxiliary models \\
 \texttt{dews/v6\_eval.py} & event rule, warning tiers, false alerts, AUROC, threshold selection, v6 calibrator \\
-\texttt{dews/v7\_monitor.py} & robust normalisation and the drift-watch score \\
+\texttt{dews/v7\_monitor.py} & robust normalization and the drift-watch score \\
 \texttt{dews/harm\_estimation.py} & importance-weighted reference accuracy and the harm score \\
 \texttt{dews/v6/v7/v8\_config.py} & frozen protocols: datasets, seeds, hypotheses, pass rules \\
 \texttt{dews/detection.py}, \texttt{monitoring.py} & original DEWS detectors (KS, PSI, JSD, MMD, confidence) and fused score \\
@@ -127,7 +127,7 @@ Each pre-registered experiment has its own configuration module in \texttt{dews/
 Signal extraction trains several models per batch and dominates the run time. Extraction runs as six independent shard processes, each writing its own result file, which are merged before evaluation. Rebuilding everything from scratch takes about two hours on the development laptop.
 
 \section{Dashboard}
-The dashboard has four pages. The \emph{Overview} (\figref{fig:scr_overview}) summarises the main results. The \emph{Live monitor} (\figref{fig:scr_live}) replays a saved episode batch by batch: the user chooses the data group, dataset, episode type and label delay, and moves a slider over the batches. Key moments are shown as metrics (shift start, accuracy event, first drift-watch alert, first harm warning, label confirmation), with both tier scores divided by their thresholds, the accuracy seen through delayed labels, the label-free harm estimate, and a breakdown of which signals moved. The \emph{Verdicts} page lists every pre-registered hypothesis with its result, and \emph{Why it works} presents the ablation findings.
+The dashboard has four pages. The \emph{Overview} (\figref{fig:scr_overview}) summarizes the main results. The \emph{Live monitor} (\figref{fig:scr_live}) replays a saved episode batch by batch: the user chooses the data group, dataset, episode type and label delay, and moves a slider over the batches. Key moments are shown as metrics (shift start, accuracy event, first drift-watch alert, first harm warning, label confirmation), with both tier scores divided by their thresholds, the accuracy seen through delayed labels, the label-free harm estimate, and a breakdown of which signals moved. The \emph{Verdicts} page lists every pre-registered hypothesis with its result, and \emph{Why it works} presents the ablation findings.
 
 \begin{figure}[H]
 \centering

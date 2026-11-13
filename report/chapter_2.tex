@@ -22,6 +22,9 @@ Classical detectors monitor the error stream of a model. DDM~\cite{gama2004ddm} 
 \subsection{Label-free detectors}
 Label-free detection compares the distribution of the current inputs with a reference sample. Common statistics are the two-sample Kolmogorov--Smirnov (KS) test per feature~\cite{massey1951ks}, the population stability index (PSI) used in credit scoring, divergences between histograms, and the kernel maximum mean discrepancy (MMD)~\cite{gretton2012mmd}. Rabanser et al.~\cite{rabanser2019failing} compared such detectors systematically and noted an important limitation: a detected shift need not reduce accuracy. Open-source monitoring tools such as Evidently~\cite{evidently} and NannyML~\cite{nannyml_cbpe} package these statistics for practitioners.
 
+\subsection{Detecting harmful shifts}
+Podkopaev and Ramdas~\cite{podkopaev2022tracking} make the same point as this project: a monitor should raise an alarm for harmful shifts and stay quiet for benign ones. They test sequentially whether a shift has increased a risk measure, such as the error rate or the calibration error, of a deployed model. Their tests use time-uniform confidence sequences, so the model can be monitored continuously without inflating the false-alarm rate. The tests need the true labels of production data, which may arrive in delayed batches. Our monitor works in the period before those labels arrive: it uses only label-free signals and a labeled reference set. It can therefore warn earlier, but it has no formal false-alarm guarantee, and its false alarms do accumulate over a long stream (Chapter~\ref{ch:results}).
+
 \section{Label-Free Performance Estimation}
 A second line of work estimates the model's accuracy directly, without labels:
 \begin{itemize}
@@ -30,8 +33,9 @@ A second line of work estimates the model's accuracy directly, without labels:
 \item \textbf{Difference of confidences (DoC)}~\cite{guillory2021doc} regresses the accuracy change on the change in average confidence.
 \item \textbf{Disagreement}~\cite{jiang2022disagreement}: the rate at which two independently trained models disagree tracks their error rate under certain conditions.
 \item \textbf{Importance weighting}~\cite{shimodaira2000,sugiyama2007iwcv}: under covariate shift, reweighting labeled source examples by the density ratio $p_{target}(x)/p_{source}(x)$ gives an unbiased estimate of any target expectation, including accuracy. The density ratio can be estimated with a probabilistic classifier that separates source from target samples.
+\item \textbf{Probabilistic adaptive performance estimation (PAPE)}~\cite{bialek2025pape} trains such a domain classifier, turns its odds into importance weights for the source data, fits a weighted calibration of the model's scores, and then estimates accuracy and other confusion-matrix metrics as CBPE does. It is the method closest to our harm tier.
 \end{itemize}
-Our harm tier (Section~\ref{sec:harm}) uses importance weighting with a logistic domain classifier, applied to the model's correctness on the labeled reference set.
+Our harm tier (Section~\ref{sec:harm}) uses the same kind of weights, from a logistic domain classifier, but applies them directly to the model's correctness on the labeled reference set, which gives the plain importance-weighted estimate. We do not claim this estimator as new. What we add is turning the estimated drop into an alert with a frozen threshold, and testing under delayed labels and pre-registration how well it separates harmful from harmless shifts. We did not compare it with PAPE, which may estimate accuracy more precisely.
 
 \section{Delayed Labels}
 Learning and evaluation with delayed or partially missing labels are studied by Grzenda et al.~\cite{grzenda2020delayed} and Umer and Polikar~\cite{umer2020evl}. In the monitoring setting the key point is causality: at batch $t$, only the labels of batches $b \le t-\max(L,1)$ may be used. Any evaluation that ignores this leaks future information and overstates how early a monitor can warn. Our replay protocol enforces this rule and tests it (Section~\ref{sec:tests}).
@@ -40,7 +44,7 @@ Learning and evaluation with delayed or partially missing labels are studied by 
 Pre-registration means fixing hypotheses, analysis methods and success criteria before seeing the data that will judge them~\cite{nosek2018prereg}. It reduces the freedom to choose, after the fact, the analysis that looks best. Van Miltenburg et al.~\cite{vanmiltenburg2021prereg} discuss pre-registration for machine learning and natural language processing research. Sculley et al.~\cite{sculley2015debt} and Breck et al.~\cite{breck2017mltest} argue that production ML systems need explicit, testable monitoring. We apply pre-registration to the evaluation of a monitoring system, including its alert thresholds, and we use public datasets from OpenML~\cite{vanschoren2014openml} so that every result can be reproduced.
 
 \section{Summary and Research Gap}
-\tabref{tab:lit} summarises the main families of methods.
+\tabref{tab:lit} summarizes the main families of methods.
 
 \begin{table}[H]
 \caption{Families of drift-monitoring methods and their limits in the delayed-label setting.}
@@ -52,6 +56,7 @@ Pre-registration means fixing hypotheses, analysis methods and success criteria 
 Family & Examples & Limitation for early warning with delayed labels \\
 \midrule
 Error-stream detectors & DDM, ADWIN, CUSUM & Need labels; with delay $L$ they react at least $L$ batches late \\
+Sequential risk tests & confidence sequences~\cite{podkopaev2022tracking} & Control false alarms, but need labels from the monitored stream \\
 Input-distribution tests & KS, PSI, MMD, fused scores & Detect any change, harmful or not; thresholds in dataset-specific units \\
 Confidence-based estimators & CBPE, ATC, DoC & Assume calibration on new data; can stay confident while wrong \\
 Disagreement & auxiliary models & Moves with any shift that the auxiliary models notice \\
@@ -62,8 +67,8 @@ Importance weighting & density-ratio reweighting & Valid only under covariate sh
 
 Three things are missing from this work:
 \begin{enumerate}
-\item Most evaluations report whether drift is detected, not whether a warning comes \emph{before} the accuracy drop or \emph{before} delayed labels could reveal it.
+\item Most drift evaluations report whether drift is detected, not whether a warning comes \emph{before} the accuracy drop or \emph{before} delayed labels could reveal it. Label-based tests such as~\cite{podkopaev2022tracking} control false alarms but must wait for the labels.
 \item Alert thresholds are rarely tested on datasets other than the ones they were chosen on.
-\item Few studies measure, on real data with known ground truth, how often a drift alarm corresponds to actual harm.
+\item Harmful and benign shifts have been separated with labels~\cite{podkopaev2022tracking}, and accuracy can be estimated without labels~\cite{nannyml_cbpe,bialek2025pape}. We found little work that measures, on real data with known ground truth, how well a label-free alarm separates harmful from harmless shifts before the labels arrive.
 \end{enumerate}
 The project addresses these gaps with a benchmark in which harm is measured, warning tiers defined relative to label arrival, and pre-registered confirmation on datasets never used during design.

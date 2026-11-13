@@ -6,7 +6,7 @@
 \label{ch:intro}
 
 \section{Background}
-A machine learning classifier is trained once, on data collected in the past, and is then deployed to make predictions on new data for months or years. The world that generates that data keeps changing: customers change their behaviour, sensors age, upstream software changes how a feature is computed, and new kinds of cases appear. When the distribution of the incoming data moves away from the training distribution, the model may start making more mistakes. This phenomenon is known as \emph{dataset shift} or \emph{concept drift}~\cite{gama2014survey,quinonero2009shift}.
+A machine learning classifier is trained once, on data collected in the past, and is then deployed to make predictions on new data for months or years. The world that generates that data keeps changing: customers change their behavior, sensors age, upstream software changes how a feature is computed, and new kinds of cases appear. When the distribution of the incoming data moves away from the training distribution, the model may start making more mistakes. This phenomenon is known as \emph{dataset shift} or \emph{concept drift}~\cite{gama2014survey,quinonero2009shift}.
 
 The obvious way to notice a drop in accuracy is to compare the model's predictions with the true outcomes. In many real applications, however, the true outcome (the \emph{label}) arrives only after a long delay. Whether a loan defaults is known after months; whether a transaction was fraudulent is known after a chargeback; whether a customer churned is known at the end of a billing cycle. During this delay the model keeps making decisions, and a silent degradation can cause real damage before anyone sees it.
 
@@ -52,5 +52,5 @@ The precise definitions of a degradation event, the warning tiers and the false-
 \item A reproducible software product: library, frozen configurations, verdict scripts, dashboard, 85 unit tests, continuous integration, and a research paper prepared for IEEE CONECCT and arXiv.
 \end{enumerate}
 
-\section{Organisation of the Report}
+\section{Organization of the Report}
 Chapter~\ref{ch:lit} surveys related work on drift detection, label-free performance estimation, delayed labels and pre-registration. Chapter~\ref{ch:problem} defines the problem formally and lists the requirements. Chapter~\ref{ch:design} presents the system architecture, the two-tier monitor, the benchmark and the evaluation protocol. Chapter~\ref{ch:impl} describes the implementation, including the exploratory versions v1--v5, the code structure, the dashboard and the testing infrastructure. Chapter~\ref{ch:results} reports and discusses the results of the pre-registered experiments v6--v10, the ablations and the post hoc analyses. Chapter~\ref{ch:conclusion} concludes and outlines future work. The appendices list every pre-registered hypothesis, the datasets used, and the commands needed to reproduce the results.

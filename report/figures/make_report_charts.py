@@ -154,7 +154,7 @@ def signal_families():
     ax.scatter(allr["t1_gradual"], allr["harm_auroc"], marker="*", s=140, color=C["green"], zorder=3)
     ax.annotate("drift watch (all 7)", (allr["t1_gradual"], allr["harm_auroc"]), xytext=(-20, -14), textcoords="offset points", fontsize=7.5)
     ax.scatter([], [], color=C["blue"], label="input-shift signals")
-    ax.scatter([], [], color=C["orange"], label="model-behaviour signals")
+    ax.scatter([], [], color=C["orange"], label="model-behavior signals")
     ax.set(xlabel="T1: early warning on harmful gradual shifts", ylabel="harm AUROC", xlim=(0.35, 1.0), ylim=(0.45, 0.82))
     ax.legend(loc="upper right", fontsize=7.5)
     save(fig, "ch_signal_families")

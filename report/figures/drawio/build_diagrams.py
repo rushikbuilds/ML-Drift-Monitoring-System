@@ -95,7 +95,7 @@ def architecture():
     ref = d.box(x(3), y, W, H, b("Labeled reference R") + "<br>" + small("2000 rows: fit + importance"), PURPLE,
                 shape="shape=cylinder3;boundedLbl=1;size=10;", parent=L[1])
     inp = d.box(x(1), y, W, H, b("Input-shift signals") + "<br>" + small("KS, PSI, MMD, DEWS score,<br>relevance-weighted shift"), BLUE, parent=L[2])
-    beh = d.box(x(2), y, W, H, b("Model-behaviour signals") + "<br>" + small("confidence, entropy,<br>auxiliary-model disagreement"), BLUE, parent=L[2])
+    beh = d.box(x(2), y, W, H, b("Model-behavior signals") + "<br>" + small("confidence, entropy,<br>auxiliary-model disagreement"), BLUE, parent=L[2])
     watch = d.box(x(1.5), y, W, H, b("Drift watch (v7)") + "<br>" + small("robust z vs burn-in, max &ge; 4.0"), GREEN, parent=L[3])
     harm = d.box(x(3), y, W, H, b("Harm tier (v8)") + "<br>" + small("importance-weighted accuracy<br>of f on R (vs B<sub>t</sub>), drop &ge; 1.15 pts"), ORANGE, parent=L[3])
     lab = d.box(x(3), y, W, H, b("Delayed labels") + "<br>" + small("usable after L batches"), ORANGE, parent=L[4])
@@ -125,7 +125,7 @@ def two_tier():
     bw, bh, y = 150, 70, 40
     xs = [50 + k * 175 for k in range(6)]
     s1 = d.box(xs[0], y, bw, bh, b("Batch B<sub>t</sub>") + "<br>" + small("frozen f predicts"), BLUE, parent=L[0])
-    s2 = d.box(xs[1], y, bw, bh, b("7 signals") + "<br>" + small("shift + behaviour"), BLUE, parent=L[0])
+    s2 = d.box(xs[1], y, bw, bh, b("7 signals") + "<br>" + small("shift + behavior"), BLUE, parent=L[0])
     s3 = d.box(xs[2], y, bw, bh, b("Robust z-score") + "<br>" + small("median, MAD of batches 0-7"), BLUE, parent=L[0])
     s4 = d.box(xs[3], y, bw, bh, b("Max over signals") + "<br>" + small("watch score"), BLUE, parent=L[0])
     s5 = d.box(xs[4] - 5, y - 10, 160, 90, "score &ge; 4.0?", YELLOW, shape="rhombus;", size=13, parent=L[0])

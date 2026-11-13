@@ -12,7 +12,7 @@ A frozen binary classifier $f$ is trained on a labeled reference set $R$ and the
 The baseline accuracy is the mean accuracy of $f$ on batches 0--4. A \emph{degradation event} begins at the first of two consecutive batches whose accuracy is at least 5 percentage points below the baseline. Requiring two consecutive batches avoids calling a single noisy batch an event.
 
 \subsection{Episodes and outcomes}
-An \emph{episode} is one monitored stream of 45 batches. In controlled episodes an intervention starts at a known batch $s$. Each shift episode is then labelled from the true accuracy:
+An \emph{episode} is one monitored stream of 45 batches. In controlled episodes an intervention starts at a known batch $s$. Each shift episode is then labeled from the true accuracy:
 \begin{itemize}
 \item \textbf{Harmful}: an event starts at or after $s$;
 \item \textbf{Harmless}: no event occurs;
@@ -45,7 +45,7 @@ To measure whether a score separates harmful from harmless shifts, we take its m
 \item \textbf{Stream construction.} Build monitored episodes from any binary tabular OpenML dataset: reference set, pool, 45 batches, controlled shifts with a known onset, and true labels for every row.
 \item \textbf{Signal extraction.} For every batch, compute label-free signals: per-feature drift statistics, the fused DEWS drift score, relevance-weighted shift, positive-rate shift, confidence, entropy, and disagreement with auxiliary models.
 \item \textbf{Delayed labels.} Release the labels of batch $b$ only at batch $b+\max(L,1)$; never let a score at batch $t$ use a label that has not matured.
-\item \textbf{Drift watch.} Normalise every signal against the stream's burn-in and raise a WATCH alert when the largest normalised signal exceeds the frozen threshold.
+\item \textbf{Drift watch.} Normalize every signal against the stream's burn-in and raise a WATCH alert when the largest normalized signal exceeds the frozen threshold.
 \item \textbf{Harm tier.} Estimate the model's current accuracy from the labeled reference set by importance weighting and raise a HARM alert when the estimated drop exceeds the frozen threshold.
 \item \textbf{Confirmation.} When delayed labels arrive, confirm or clear the warning with the event rule.
 \item \textbf{Evaluation.} Compute T1, T2, T3, lead times, false-alert rates, harmless-alarm shares and AUROC with bootstrap confidence intervals.
